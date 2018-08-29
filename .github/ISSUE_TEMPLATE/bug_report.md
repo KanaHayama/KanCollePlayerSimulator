@@ -4,11 +4,14 @@ about: Create a report to help us improve
 
 ---
 
-**Software version**
-The software version of the bug occurs.
+**Version**
+The KancollePlayerSimulator Kai version (shown in the title of the main window) of the bug occurs.
 
 **Describe the bug**
 A clear and concise description of what the bug is.
+
+**Frequency of the bug**
+Is the bug occurs occasional or fixed? How often?
 
 **To Reproduce**
 Steps to reproduce the behavior:
@@ -23,16 +26,15 @@ A clear and concise description of what you expected to happen.
 **Screenshots**
 If applicable, add screenshots to help explain your problem.
 
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
-
-**Smartphone (please complete the following information):**
- - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1]
- - Browser [e.g. stock browser, safari]
- - Version [e.g. 22]
+**Environment (please complete all of the following information):**
+ - OS: [e.g. Windows]
+ - OS version [e.g. 10.0.14393]
+ - OS language: [e.g. Simplified Chinese]
+ - Browser: [e.g. poi]
+ - Browser version: [e.g. 9.0]
+ - KCPS bowser plugin version: [e.g. 1.0.0]
+ - Is KCPS registed: [e.g. No]
+ - Game account level: [e.g. 120]
 
 **Additional context**
 Add any other context about the problem here.
