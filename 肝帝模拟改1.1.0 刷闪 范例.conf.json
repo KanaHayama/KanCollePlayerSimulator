@@ -80,7 +80,7 @@
 							KeepIfMoraleHigherThanValue: 39,
 							SkipWrongShips: true,
 							SkipExpeditioningShips: true,
-							SkipShipsInThisFleet: true,
+							SkipShipsInThisFleet: false,
 							SkipShipsInOtherFleets: true,
 							SkipHeavilyDamagedShips: true,
 							SkipRepairingShips: true,
