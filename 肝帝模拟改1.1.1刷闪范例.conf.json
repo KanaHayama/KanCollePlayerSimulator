@@ -1,0 +1,260 @@
+﻿{
+	Name: "刷闪",
+	List: [
+		{
+			Type: "KancollePlayerSimulatorKai.RelationalSortieWorkflow, KancollePlayerSimulatorKai, Version=1.1.1.0, Culture=neutral, PublicKeyToken=null",
+			Guid: "2656b3b6-db1d-43d0-87f7-a2596c8a08dc",
+			Name: "总控(启用这个)",
+			SleepTimeBase: "00:00:00",
+			SleepTimeRandomMax: "00:00:00",
+			DoNotSleepAtFirstLoop: true,
+			OrganizeBeforeSortie: true,
+			OrganizeFleetFinishedEventThreshold: 1,
+			OrganizeWorkflows: [
+				{
+					Guid: "aa2de0d7-b6d0-40ce-ba38-b7deeff9e452",
+					IgnoreTriggerFailure: false
+				}
+			],
+			DockingBeforeSortie: true,
+			DockingAfterSortie: false,
+			DockingFinishedEventThreshold: 2,
+			DockingWorkflows: [
+				{
+					Guid: "7d3e41e9-1fb2-4e7f-ad5c-38b0c921374d",
+					IgnoreTriggerFailure: false
+				},
+				{
+					Guid: "0aa71eb0-8926-4d4d-a75d-9ec76c02f46d",
+					IgnoreTriggerFailure: false
+				}
+			],
+			SupplyBeforeSortie: true,
+			SupplyAfterSortie: true,
+			SupplyFleetFinishedEventThreshold: 1,
+			SupplyWorkflows: [
+				{
+					Guid: "7c9f6e18-622f-4a63-8c28-d9e113482ad2",
+					IgnoreTriggerFailure: false
+				}
+			],
+			IgnoreSortieFailure: false,
+			SortieWorkflow: {
+				Guid: "bca50d27-ae0b-4711-98fd-29f45a361203",
+				IgnoreTriggerFailure: false
+			},
+			StopIfLoopCountLargerOrEqualThanFlag: false,
+			StopIfLoopCountLargerOrEqualThanValue: 1,
+			Repeat: true,
+			RefreshDataTaskPriority: 233,
+			WaitHomeAtFirst: true,
+			RefreshDataBeforeSortie: true,
+			ReturnRoomAtLast: true,
+			Script: null,
+			EnableScriptTrigger: true,
+			TriggerOnEnabled: true
+		},
+		{
+			Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.1.1.0, Culture=neutral, PublicKeyToken=null",
+			Guid: "aa2de0d7-b6d0-40ce-ba38-b7deeff9e452",
+			Name: "待刷(自行修改)",
+			Fleet: 1,
+			Positions: [
+				{
+					Selections: [
+						{
+							Type: 0,
+							Number: 0,
+							Memo: "从poi的“舰娘信息”"
+						},
+						{
+							Type: 0,
+							Number: 0,
+							Memo: "里筛选出"
+						},
+						{
+							Type: 0,
+							Number: 0,
+							Memo: "要刷闪的船"
+						},
+						{
+							Type: 0,
+							Number: 0,
+							Memo: "把它的ID"
+						},
+						{
+							Type: 0,
+							Number: 0,
+							Memo: "填在左面"
+						},
+						{
+							Type: 0,
+							Number: 0,
+							Memo: "然后触发“总控”"
+						},
+						{
+							Type: 0,
+							Number: 0,
+							Memo: "全闪了之后"
+						},
+						{
+							Type: 0,
+							Number: 0,
+							Memo: "会因为没船可换"
+						},
+						{
+							Type: 0,
+							Number: 0,
+							Memo: "而报错"
+						},
+						{
+							Type: 0,
+							Number: 0,
+							Memo: "出击就停止了"
+						},
+						{
+							Type: 0,
+							Number: 0,
+							Memo: "空位不够的自己加"
+						},
+						{
+							Type: 0,
+							Number: 0,
+							Memo: "多出来的要删掉"
+						}
+					],
+					ChangeIfInitial: true,
+					KeepIfNotHeavilyDamaged: false,
+					KeepIfMoraleLowerThanFlag: true,
+					KeepIfMoraleLowerThanValue: 83,
+					KeepIfMoraleHigherThanFlag: false,
+					KeepIfMoraleHigherThanValue: 39,
+					SkipWrongShips: true,
+					SkipExpeditioningShips: true,
+					SkipShipsInThisFleet: false,
+					SkipShipsInOtherFleets: true,
+					SkipHeavilyDamagedShips: true,
+					SkipRepairingShips: true,
+					SkipShipsMoraleLowerOrEqualThenFlag: false,
+					SkipShipsMoraleLowerOrEqualThenValue: 39,
+					SkipShipsMoraleHigherOrEqualThenFlag: true,
+					SkipShipsMoraleHigherOrEqualThenValue: 83,
+					Repeat: true
+				}
+			],
+			RollBackProgressIfOrganizeFailed: true,
+			RefreshDataTaskPriority: 0,
+			OrganizeFleetTaskPriority: 233,
+			WaitHomeAtFirst: false,
+			RefreshDataBeforeOrganize: false,
+			ReturnRoomAtLast: false,
+			Script: null,
+			EnableScriptTrigger: true,
+			TriggerOnEnabled: false
+		},
+		{
+			Type: "KancollePlayerSimulatorKai.BasicDockingWorkflow, KancollePlayerSimulatorKai, Version=1.1.1.0, Culture=neutral, PublicKeyToken=null",
+			Guid: "7d3e41e9-1fb2-4e7f-ad5c-38b0c921374d",
+			Name: "大破扔桶",
+			LimitFleetFlag: true,
+			LimitFleetValue: 1,
+			LimitHpPercentFlag: true,
+			LimitHpPercentMinValue: 0,
+			LimitHpPercentMaxValue: 25,
+			LimitRepairTimeFlag: false,
+			LimitRepairTimeMinValue: "00:00:00",
+			LimitRepairTimeMaxValue: "4.04:00:00",
+			SelectStrategy: 0,
+			ForceDocking: true,
+			InstantRepair: true,
+			InstantRepairTimeLimit: "00:00:00",
+			Repeat: true,
+			Docks: 15,
+			RefreshDataTaskPriority: 0,
+			DockingTaskPriority: 233,
+			DelaySecondsAfterRepairFinishedBase: 0,
+			DelaySecondsAfterRepairFinishedRandomMax: -60,
+			SetNonSetDockingTimersAtFirst: true,
+			WaitHomeAtFirst: false,
+			RefreshDataBeforeDocking: false,
+			ReturnRoomAtLast: false,
+			Script: null,
+			EnableScriptTrigger: true,
+			TriggerOnEnabled: false
+		},
+		{
+			Type: "KancollePlayerSimulatorKai.BasicDockingWorkflow, KancollePlayerSimulatorKai, Version=1.1.1.0, Culture=neutral, PublicKeyToken=null",
+			Guid: "0aa71eb0-8926-4d4d-a75d-9ec76c02f46d",
+			Name: "刷完修理",
+			LimitFleetFlag: true,
+			LimitFleetValue: 16,
+			LimitHpPercentFlag: false,
+			LimitHpPercentMinValue: 0,
+			LimitHpPercentMaxValue: 100,
+			LimitRepairTimeFlag: false,
+			LimitRepairTimeMinValue: "00:00:00",
+			LimitRepairTimeMaxValue: "4.04:00:00",
+			SelectStrategy: 0,
+			ForceDocking: false,
+			InstantRepair: false,
+			InstantRepairTimeLimit: "00:00:00",
+			Repeat: true,
+			Docks: 15,
+			RefreshDataTaskPriority: 0,
+			DockingTaskPriority: 233,
+			DelaySecondsAfterRepairFinishedBase: 0,
+			DelaySecondsAfterRepairFinishedRandomMax: -60,
+			SetNonSetDockingTimersAtFirst: true,
+			WaitHomeAtFirst: false,
+			RefreshDataBeforeDocking: false,
+			ReturnRoomAtLast: false,
+			Script: null,
+			EnableScriptTrigger: true,
+			TriggerOnEnabled: false
+		},
+		{
+			Type: "KancollePlayerSimulatorKai.BasicSupplyFleetWorkflow, KancollePlayerSimulatorKai, Version=1.1.1.0, Culture=neutral, PublicKeyToken=null",
+			Guid: "7c9f6e18-622f-4a63-8c28-d9e113482ad2",
+			Name: "补给",
+			Fleet: 1,
+			Setting: 32767,
+			SkipIfAllResourcePercentHigherThanFlag: false,
+			SkipIfAllResourcePercentHigherThanValue: 100,
+			RefreshDataTaskPriority: 0,
+			SupplyFleetTaskPriority: 233,
+			WaitHomeAtFirst: false,
+			RefreshDataBeforeSupplyFleet: false,
+			ReturnRoomAtLast: false,
+			Script: null,
+			EnableScriptTrigger: true,
+			TriggerOnEnabled: false
+		},
+		{
+			Type: "KancollePlayerSimulatorKai.SimpleSortieWorkflow, KancollePlayerSimulatorKai, Version=1.1.1.0, Culture=neutral, PublicKeyToken=null",
+			Guid: "bca50d27-ae0b-4711-98fd-29f45a361203",
+			Name: "出击1-1",
+			Fleet: 1,
+			Map: 11,
+			EscortShipNoHeavilyDamaged: true,
+			FlagShipFullySupplied: false,
+			EscortShipFullySupplied: false,
+			FlagShipMoraleLargerOrEqualThanFlag: false,
+			FlagShipMoraleLargerOrEqualThanValue: 40,
+			EscortShipMoraleLargerOrEqualThanFlag: false,
+			EscortShipMoraleLargerOrEqualThanValue: 40,
+			DefaultStrategy: {
+				DefaultFormation: 1,
+				DefaultMidnight: 1,
+				DefaultAdvance: 1,
+				RetreatIfEscortShipsHeavilyDamagedCountLargerOrEqualThanFlag: true,
+				RetreatIfModerateOrHeavierDamagedCountLargerOrEqualThanFlag: false,
+				RetreatIfModerateOrHeavierDamagedCountLargerOrEqualThanValue: 1
+			},
+			Strategies: [],
+			SortieTaskPriority: -32768,
+			Script: null,
+			EnableScriptTrigger: true,
+			TriggerOnEnabled: false
+		}
+	]
+}
