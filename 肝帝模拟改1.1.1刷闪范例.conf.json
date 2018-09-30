@@ -207,7 +207,7 @@
 			SetNonSetDockingTimersAtFirst: true,
 			WaitHomeAtFirst: false,
 			RefreshDataBeforeDocking: false,
-			ReturnRoomAtLast: false,
+			ReturnRoomAtLast: true,
 			Script: null,
 			EnableScriptTrigger: true,
 			TriggerOnEnabled: false
