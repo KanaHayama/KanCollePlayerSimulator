@@ -26,7 +26,7 @@
 				},
 				{
 					Guid: "0aa71eb0-8926-4d4d-a75d-9ec76c02f46d",
-					IgnoreTriggerFailure: false
+					IgnoreTriggerFailure: true
 				}
 			],
 			SupplyBeforeSortie: true,
