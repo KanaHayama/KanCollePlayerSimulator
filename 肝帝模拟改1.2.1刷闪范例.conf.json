@@ -2,7 +2,7 @@
 	Name: "刷闪",
 	List: [
 		{
-			Type: "KancollePlayerSimulatorKai.RelationalSortieWorkflow, KancollePlayerSimulatorKai, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.RelationalSortieWorkflow, KancollePlayerSimulatorKai, Version=1.2.1.0, Culture=neutral, PublicKeyToken=null",
 			Guid: "2656b3b6-db1d-43d0-87f7-a2596c8a08dc",
 			Name: "总控(启用这个)",
 			SleepTimeBase: "00:00:00",
@@ -61,6 +61,10 @@
 			],
 			StopIfLoopCountLargerOrEqualThanFlag: false,
 			StopIfLoopCountLargerOrEqualThanValue: 1,
+			StopIfShipVacancyLessOrEqualThanFlag: false,
+			StopIfShipVacancyLessOrEqualThanValue: 0,
+			StopIfEquipmentVacancyLessOrEqualThanFlag: false,
+			StopIfEquipmentVacancyLessOrEqualThanValue: 0,
 			StopIfOrganizeBeforeSelectFailed: true,
 			StopIfGetMedal: false,
 			StopIfGetShipFlag: false,
@@ -84,102 +88,14 @@
 			Repeat: true,
 			RefreshDataTaskPriority: 233,
 			WaitHomeAtFirst: true,
-			RefreshDataBeforeSortie: true,
+			RefreshDataBeforeSortie: false,
 			ReturnRoomAtLast: true,
 			Script: null,
 			EnableScriptTrigger: true,
 			TriggerOnEnabled: true
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null",
-			Guid: "aa2de0d7-b6d0-40ce-ba38-b7deeff9e452",
-			Name: "待刷(自行修改)",
-			Fleet: 1,
-			Positions: [
-				{
-					Selections: [
-						{
-							Type: 0,
-							Number: 0,
-							Memo: "把要刷闪的船"
-						},
-						{
-							Type: 0,
-							Number: 0,
-							Memo: "的ID填进左面"
-						},
-						{
-							Type: 0,
-							Number: 0,
-							Memo: "然后触发“总控”"
-						},
-						{
-							Type: 0,
-							Number: 0,
-							Memo: "全闪了之后"
-						},
-						{
-							Type: 0,
-							Number: 0,
-							Memo: "会因为没船可换"
-						},
-						{
-							Type: 0,
-							Number: 0,
-							Memo: "而报错"
-						},
-						{
-							Type: 0,
-							Number: 0,
-							Memo: "出击就停止了"
-						},
-						{
-							Type: 0,
-							Number: 0,
-							Memo: "空位不够的自己加"
-						},
-						{
-							Type: 0,
-							Number: 0,
-							Memo: "多出来的要删掉"
-						}
-					],
-					ChangeIfInitial: true,
-					KeepIfNotHeavilyDamaged: false,
-					KeepIfMoraleLowerThanFlag: true,
-					KeepIfMoraleLowerThanValue: 83,
-					KeepIfMoraleHigherThanFlag: false,
-					KeepIfMoraleHigherThanValue: 39,
-					SkipWrongShips: true,
-					SkipExpeditioningShips: true,
-					SkipShipsInThisFleet: false,
-					SkipShipsInOtherFleets: true,
-					SkipHeavilyDamagedShips: true,
-					SkipModerateDamagedShips: false,
-					SkipSlightlyDamagedShips: false,
-					SkipHardlyDamagedShips: false,
-					SkipDamagedShips: false,
-					SkipRepairingShips: true,
-					SkipShipsMoraleLowerOrEqualThenFlag: false,
-					SkipShipsMoraleLowerOrEqualThenValue: 39,
-					SkipShipsMoraleHigherOrEqualThenFlag: true,
-					SkipShipsMoraleHigherOrEqualThenValue: 83,
-					Repeat: true,
-					KeepIfAllSelectionsFailed: false
-				}
-			],
-			RollBackProgressIfOrganizeFailed: true,
-			RefreshDataTaskPriority: 0,
-			OrganizeFleetTaskPriority: 233,
-			WaitHomeAtFirst: false,
-			RefreshDataBeforeOrganize: false,
-			ReturnRoomAtLast: false,
-			Script: null,
-			EnableScriptTrigger: true,
-			TriggerOnEnabled: false
-		},
-		{
-			Type: "KancollePlayerSimulatorKai.BasicDockingWorkflow, KancollePlayerSimulatorKai, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.BasicDockingWorkflow, KancollePlayerSimulatorKai, Version=1.2.1.0, Culture=neutral, PublicKeyToken=null",
 			Guid: "7d3e41e9-1fb2-4e7f-ad5c-38b0c921374d",
 			Name: "大破扔桶",
 			LimitFleetFlag: true,
@@ -190,6 +106,9 @@
 			LimitRepairTimeFlag: false,
 			LimitRepairTimeMinValue: "00:00:00",
 			LimitRepairTimeMaxValue: "4.04:00:00",
+			LimitMoraleFlag: false,
+			LimitMoraleMinValue: 0,
+			LimitMoraleMaxValue: 100,
 			SelectStrategy: 0,
 			ForceDocking: true,
 			InstantRepair: true,
@@ -209,7 +128,7 @@
 			TriggerOnEnabled: false
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.BasicDockingWorkflow, KancollePlayerSimulatorKai, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.BasicDockingWorkflow, KancollePlayerSimulatorKai, Version=1.2.1.0, Culture=neutral, PublicKeyToken=null",
 			Guid: "0aa71eb0-8926-4d4d-a75d-9ec76c02f46d",
 			Name: "刷完修理",
 			LimitFleetFlag: true,
@@ -220,6 +139,9 @@
 			LimitRepairTimeFlag: false,
 			LimitRepairTimeMinValue: "00:00:00",
 			LimitRepairTimeMaxValue: "4.04:00:00",
+			LimitMoraleFlag: false,
+			LimitMoraleMinValue: 0,
+			LimitMoraleMaxValue: 100,
 			SelectStrategy: 0,
 			ForceDocking: false,
 			InstantRepair: false,
@@ -239,7 +161,7 @@
 			TriggerOnEnabled: false
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.BasicSupplyFleetWorkflow, KancollePlayerSimulatorKai, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.BasicSupplyFleetWorkflow, KancollePlayerSimulatorKai, Version=1.2.1.0, Culture=neutral, PublicKeyToken=null",
 			Guid: "7c9f6e18-622f-4a63-8c28-d9e113482ad2",
 			Name: "补给",
 			Fleet: 1,
@@ -256,7 +178,7 @@
 			TriggerOnEnabled: false
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.SimpleSortieWorkflow, KancollePlayerSimulatorKai, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.SimpleSortieWorkflow, KancollePlayerSimulatorKai, Version=1.2.1.0, Culture=neutral, PublicKeyToken=null",
 			Guid: "bca50d27-ae0b-4711-98fd-29f45a361203",
 			Name: "出击1-1",
 			Fleet: 1,
@@ -314,7 +236,7 @@
 			TriggerOnEnabled: false
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.2.1.0, Culture=neutral, PublicKeyToken=null",
 			Guid: "d9503a5f-bd69-4a7d-853f-b50dd45f8149",
 			Name: "简易明石修理(需录入明石)",
 			Fleet: 1,
@@ -323,32 +245,31 @@
 					Selections: [
 						{
 							Type: 0,
-							Number: 1,
+							Number: 0,
 							Memo: "你的明石"
 						}
 					],
 					ChangeIfInitial: true,
-					KeepIfNotHeavilyDamaged: false,
-					KeepIfMoraleLowerThanFlag: false,
-					KeepIfMoraleLowerThanValue: 83,
-					KeepIfMoraleHigherThanFlag: false,
-					KeepIfMoraleHigherThanValue: 39,
+					ChangeIfHpInRangeFlag: false,
+					ChangeIfHpInRangeValueMin: 0,
+					ChangeIfHpInRangeValueMax: 25,
+					ChangeIfMoraleInRangeFlag: false,
+					ChangeIfMoraleInRangeValueMin: 0,
+					ChangeIfMoraleInRangeValueMax: 39,
 					SkipWrongShips: true,
+					SkipRepairingShips: true,
 					SkipExpeditioningShips: true,
 					SkipShipsInThisFleet: false,
 					SkipShipsInOtherFleets: true,
-					SkipHeavilyDamagedShips: true,
-					SkipModerateDamagedShips: false,
-					SkipSlightlyDamagedShips: false,
-					SkipHardlyDamagedShips: false,
-					SkipDamagedShips: false,
-					SkipRepairingShips: true,
-					SkipShipsMoraleLowerOrEqualThenFlag: false,
-					SkipShipsMoraleLowerOrEqualThenValue: 39,
-					SkipShipsMoraleHigherOrEqualThenFlag: false,
-					SkipShipsMoraleHigherOrEqualThenValue: 83,
+					SkipHpInRangeFlag: false,
+					SkipHpInRangeValueMin: 0,
+					SkipHpInRangeValueMax: 25,
+					SkipMoraleInRangeFlag: false,
+					SkipMoraleInRangeValueMin: 0,
+					SkipMoraleInRangeValueMax: 39,
 					Repeat: true,
-					KeepIfAllSelectionsFailed: false
+					KeepIfAllSelectionsFailed: false,
+					KeepIfSelectionCollectionEmpty: false
 				},
 				{
 					Selections: [
@@ -399,27 +320,26 @@
 						}
 					],
 					ChangeIfInitial: true,
-					KeepIfNotHeavilyDamaged: false,
-					KeepIfMoraleLowerThanFlag: false,
-					KeepIfMoraleLowerThanValue: 83,
-					KeepIfMoraleHigherThanFlag: false,
-					KeepIfMoraleHigherThanValue: 39,
+					ChangeIfHpInRangeFlag: false,
+					ChangeIfHpInRangeValueMin: 0,
+					ChangeIfHpInRangeValueMax: 25,
+					ChangeIfMoraleInRangeFlag: false,
+					ChangeIfMoraleInRangeValueMin: 0,
+					ChangeIfMoraleInRangeValueMax: 39,
 					SkipWrongShips: true,
+					SkipRepairingShips: true,
 					SkipExpeditioningShips: true,
 					SkipShipsInThisFleet: false,
 					SkipShipsInOtherFleets: true,
-					SkipHeavilyDamagedShips: true,
-					SkipModerateDamagedShips: true,
-					SkipSlightlyDamagedShips: false,
-					SkipHardlyDamagedShips: false,
-					SkipDamagedShips: false,
-					SkipRepairingShips: true,
-					SkipShipsMoraleLowerOrEqualThenFlag: false,
-					SkipShipsMoraleLowerOrEqualThenValue: 39,
-					SkipShipsMoraleHigherOrEqualThenFlag: false,
-					SkipShipsMoraleHigherOrEqualThenValue: 83,
+					SkipHpInRangeFlag: true,
+					SkipHpInRangeValueMin: 0,
+					SkipHpInRangeValueMax: 50,
+					SkipMoraleInRangeFlag: false,
+					SkipMoraleInRangeValueMin: 0,
+					SkipMoraleInRangeValueMax: 39,
 					Repeat: true,
-					KeepIfAllSelectionsFailed: true
+					KeepIfAllSelectionsFailed: true,
+					KeepIfSelectionCollectionEmpty: true
 				},
 				{
 					Selections: [
@@ -470,27 +390,26 @@
 						}
 					],
 					ChangeIfInitial: true,
-					KeepIfNotHeavilyDamaged: false,
-					KeepIfMoraleLowerThanFlag: false,
-					KeepIfMoraleLowerThanValue: 83,
-					KeepIfMoraleHigherThanFlag: false,
-					KeepIfMoraleHigherThanValue: 39,
+					ChangeIfHpInRangeFlag: false,
+					ChangeIfHpInRangeValueMin: 0,
+					ChangeIfHpInRangeValueMax: 25,
+					ChangeIfMoraleInRangeFlag: false,
+					ChangeIfMoraleInRangeValueMin: 0,
+					ChangeIfMoraleInRangeValueMax: 39,
 					SkipWrongShips: true,
+					SkipRepairingShips: true,
 					SkipExpeditioningShips: true,
 					SkipShipsInThisFleet: false,
 					SkipShipsInOtherFleets: true,
-					SkipHeavilyDamagedShips: true,
-					SkipModerateDamagedShips: true,
-					SkipSlightlyDamagedShips: false,
-					SkipHardlyDamagedShips: false,
-					SkipDamagedShips: false,
-					SkipRepairingShips: true,
-					SkipShipsMoraleLowerOrEqualThenFlag: false,
-					SkipShipsMoraleLowerOrEqualThenValue: 39,
-					SkipShipsMoraleHigherOrEqualThenFlag: false,
-					SkipShipsMoraleHigherOrEqualThenValue: 83,
+					SkipHpInRangeFlag: true,
+					SkipHpInRangeValueMin: 0,
+					SkipHpInRangeValueMax: 50,
+					SkipMoraleInRangeFlag: false,
+					SkipMoraleInRangeValueMin: 0,
+					SkipMoraleInRangeValueMax: 39,
 					Repeat: true,
-					KeepIfAllSelectionsFailed: true
+					KeepIfAllSelectionsFailed: true,
+					KeepIfSelectionCollectionEmpty: true
 				},
 				{
 					Selections: [
@@ -541,27 +460,26 @@
 						}
 					],
 					ChangeIfInitial: true,
-					KeepIfNotHeavilyDamaged: false,
-					KeepIfMoraleLowerThanFlag: false,
-					KeepIfMoraleLowerThanValue: 83,
-					KeepIfMoraleHigherThanFlag: false,
-					KeepIfMoraleHigherThanValue: 39,
+					ChangeIfHpInRangeFlag: false,
+					ChangeIfHpInRangeValueMin: 0,
+					ChangeIfHpInRangeValueMax: 25,
+					ChangeIfMoraleInRangeFlag: false,
+					ChangeIfMoraleInRangeValueMin: 0,
+					ChangeIfMoraleInRangeValueMax: 39,
 					SkipWrongShips: true,
+					SkipRepairingShips: true,
 					SkipExpeditioningShips: true,
 					SkipShipsInThisFleet: false,
 					SkipShipsInOtherFleets: true,
-					SkipHeavilyDamagedShips: true,
-					SkipModerateDamagedShips: true,
-					SkipSlightlyDamagedShips: false,
-					SkipHardlyDamagedShips: false,
-					SkipDamagedShips: false,
-					SkipRepairingShips: true,
-					SkipShipsMoraleLowerOrEqualThenFlag: false,
-					SkipShipsMoraleLowerOrEqualThenValue: 39,
-					SkipShipsMoraleHigherOrEqualThenFlag: false,
-					SkipShipsMoraleHigherOrEqualThenValue: 83,
+					SkipHpInRangeFlag: true,
+					SkipHpInRangeValueMin: 0,
+					SkipHpInRangeValueMax: 50,
+					SkipMoraleInRangeFlag: false,
+					SkipMoraleInRangeValueMin: 0,
+					SkipMoraleInRangeValueMax: 39,
 					Repeat: true,
-					KeepIfAllSelectionsFailed: true
+					KeepIfAllSelectionsFailed: true,
+					KeepIfSelectionCollectionEmpty: true
 				},
 				{
 					Selections: [
@@ -612,27 +530,26 @@
 						}
 					],
 					ChangeIfInitial: true,
-					KeepIfNotHeavilyDamaged: false,
-					KeepIfMoraleLowerThanFlag: false,
-					KeepIfMoraleLowerThanValue: 83,
-					KeepIfMoraleHigherThanFlag: false,
-					KeepIfMoraleHigherThanValue: 39,
+					ChangeIfHpInRangeFlag: false,
+					ChangeIfHpInRangeValueMin: 0,
+					ChangeIfHpInRangeValueMax: 25,
+					ChangeIfMoraleInRangeFlag: false,
+					ChangeIfMoraleInRangeValueMin: 0,
+					ChangeIfMoraleInRangeValueMax: 39,
 					SkipWrongShips: true,
+					SkipRepairingShips: true,
 					SkipExpeditioningShips: true,
 					SkipShipsInThisFleet: false,
 					SkipShipsInOtherFleets: true,
-					SkipHeavilyDamagedShips: true,
-					SkipModerateDamagedShips: true,
-					SkipSlightlyDamagedShips: false,
-					SkipHardlyDamagedShips: false,
-					SkipDamagedShips: false,
-					SkipRepairingShips: true,
-					SkipShipsMoraleLowerOrEqualThenFlag: false,
-					SkipShipsMoraleLowerOrEqualThenValue: 39,
-					SkipShipsMoraleHigherOrEqualThenFlag: false,
-					SkipShipsMoraleHigherOrEqualThenValue: 83,
+					SkipHpInRangeFlag: true,
+					SkipHpInRangeValueMin: 0,
+					SkipHpInRangeValueMax: 50,
+					SkipMoraleInRangeFlag: false,
+					SkipMoraleInRangeValueMin: 0,
+					SkipMoraleInRangeValueMax: 50,
 					Repeat: true,
-					KeepIfAllSelectionsFailed: true
+					KeepIfAllSelectionsFailed: true,
+					KeepIfSelectionCollectionEmpty: true
 				},
 				{
 					Selections: [
@@ -683,32 +600,118 @@
 						}
 					],
 					ChangeIfInitial: true,
-					KeepIfNotHeavilyDamaged: false,
-					KeepIfMoraleLowerThanFlag: false,
-					KeepIfMoraleLowerThanValue: 83,
-					KeepIfMoraleHigherThanFlag: false,
-					KeepIfMoraleHigherThanValue: 39,
+					ChangeIfHpInRangeFlag: false,
+					ChangeIfHpInRangeValueMin: 0,
+					ChangeIfHpInRangeValueMax: 25,
+					ChangeIfMoraleInRangeFlag: false,
+					ChangeIfMoraleInRangeValueMin: 0,
+					ChangeIfMoraleInRangeValueMax: 39,
 					SkipWrongShips: true,
+					SkipRepairingShips: true,
 					SkipExpeditioningShips: true,
 					SkipShipsInThisFleet: false,
 					SkipShipsInOtherFleets: true,
-					SkipHeavilyDamagedShips: true,
-					SkipModerateDamagedShips: true,
-					SkipSlightlyDamagedShips: false,
-					SkipHardlyDamagedShips: false,
-					SkipDamagedShips: false,
-					SkipRepairingShips: true,
-					SkipShipsMoraleLowerOrEqualThenFlag: false,
-					SkipShipsMoraleLowerOrEqualThenValue: 39,
-					SkipShipsMoraleHigherOrEqualThenFlag: false,
-					SkipShipsMoraleHigherOrEqualThenValue: 83,
+					SkipHpInRangeFlag: true,
+					SkipHpInRangeValueMin: 0,
+					SkipHpInRangeValueMax: 50,
+					SkipMoraleInRangeFlag: false,
+					SkipMoraleInRangeValueMin: 0,
+					SkipMoraleInRangeValueMax: 50,
 					Repeat: true,
-					KeepIfAllSelectionsFailed: true
+					KeepIfAllSelectionsFailed: true,
+					KeepIfSelectionCollectionEmpty: true
 				}
 			],
 			RollBackProgressIfOrganizeFailed: true,
 			RefreshDataTaskPriority: 0,
 			OrganizeFleetTaskPriority: 0,
+			WaitHomeAtFirst: false,
+			RefreshDataBeforeOrganize: false,
+			ReturnRoomAtLast: false,
+			Script: null,
+			EnableScriptTrigger: true,
+			TriggerOnEnabled: false
+		},
+		{
+			Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.2.1.0, Culture=neutral, PublicKeyToken=null",
+			Guid: "aa2de0d7-b6d0-40ce-ba38-b7deeff9e452",
+			Name: "待刷(自行修改)",
+			Fleet: 1,
+			Positions: [
+				{
+					Selections: [
+						{
+							Type: 0,
+							Number: 0,
+							Memo: "把要刷闪的船"
+						},
+						{
+							Type: 0,
+							Number: 0,
+							Memo: "的ID填进左面"
+						},
+						{
+							Type: 0,
+							Number: 0,
+							Memo: "然后触发“总控”"
+						},
+						{
+							Type: 0,
+							Number: 0,
+							Memo: "全闪了之后"
+						},
+						{
+							Type: 0,
+							Number: 0,
+							Memo: "会因为没船可换"
+						},
+						{
+							Type: 0,
+							Number: 0,
+							Memo: "而报错"
+						},
+						{
+							Type: 0,
+							Number: 0,
+							Memo: "出击就停止了"
+						},
+						{
+							Type: 0,
+							Number: 0,
+							Memo: "空位不够的自己加"
+						},
+						{
+							Type: 0,
+							Number: 0,
+							Memo: "多出来的要删掉"
+						}
+					],
+					ChangeIfInitial: true,
+					ChangeIfHpInRangeFlag: false,
+					ChangeIfHpInRangeValueMin: 0,
+					ChangeIfHpInRangeValueMax: 25,
+					ChangeIfMoraleInRangeFlag: true,
+					ChangeIfMoraleInRangeValueMin: 83,
+					ChangeIfMoraleInRangeValueMax: 100,
+					SkipWrongShips: true,
+					SkipRepairingShips: true,
+					SkipExpeditioningShips: true,
+					SkipShipsInThisFleet: false,
+					SkipShipsInOtherFleets: false,
+					SkipHpInRangeFlag: false,
+					SkipHpInRangeValueMin: 0,
+					SkipHpInRangeValueMax: 25,
+					SkipMoraleInRangeFlag: true,
+					SkipMoraleInRangeValueMin: 83,
+					SkipMoraleInRangeValueMax: 100,
+					Repeat: true,
+					KeepIfAllSelectionsFailed: false,
+					KeepIfSelectionCollectionEmpty: false
+				}
+			],
+			RollBackProgressIfOrganizeFailed: true,
+			RefreshDataTaskPriority: 0,
+			OrganizeFleetTaskPriority: 233,
 			WaitHomeAtFirst: false,
 			RefreshDataBeforeOrganize: false,
 			ReturnRoomAtLast: false,
