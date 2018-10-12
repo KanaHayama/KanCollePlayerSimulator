@@ -627,7 +627,7 @@
 			OrganizeFleetTaskPriority: 0,
 			WaitHomeAtFirst: false,
 			RefreshDataBeforeOrganize: false,
-			ReturnRoomAtLast: false,
+			ReturnRoomAtLast: true,
 			Script: null,
 			EnableScriptTrigger: true,
 			TriggerOnEnabled: false
