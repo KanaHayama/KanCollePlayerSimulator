@@ -2,7 +2,7 @@
 	Name: "刷闪",
 	List: [
 		{
-			Type: "KancollePlayerSimulatorKai.RelationalSortieWorkflow, KancollePlayerSimulatorKai, Version=1.2.1.0, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.RelationalSortieWorkflow, KancollePlayerSimulatorKai, Version=1.2.2.0, Culture=neutral, PublicKeyToken=null",
 			Guid: "2656b3b6-db1d-43d0-87f7-a2596c8a08dc",
 			Name: "总控(启用这个)",
 			SleepTimeBase: "00:00:00",
@@ -13,14 +13,18 @@
 			SleepUntilAnyDockEmptyFlag: false,
 			SleepUntilAnyDockEmptyValueDocks: 15,
 			OrganizeBeforeFinishedEventThreshold: 1,
+			OrganizeAfterFinishedEventThreshold: 1,
 			OrganizeBeforeWorkflows: [
 				{
 					Guid: "aa2de0d7-b6d0-40ce-ba38-b7deeff9e452",
 					IgnoreTriggerFailure: false
 				}
 			],
+			OrganizeAfterWorkflows: [],
 			ScrapShipBeforeFinishedEventThreshold: 1,
+			ScrapShipAfterFinishedEventThreshold: 1,
 			ScrapShipBeforeWorkflows: [],
+			ScrapShipAfterWorkflows: [],
 			DockingBeforeFinishedEventThreshold: 1,
 			DockingAfterFinishedEventThreshold: 1,
 			DockingBeforeWorkflows: [
@@ -53,12 +57,6 @@
 				Guid: "bca50d27-ae0b-4711-98fd-29f45a361203",
 				IgnoreTriggerFailure: false
 			},
-			AutoStoppedWorkflows: [
-				{
-					Guid: "d9503a5f-bd69-4a7d-853f-b50dd45f8149",
-					IgnoreTriggerFailure: false
-				}
-			],
 			StopIfLoopCountLargerOrEqualThanFlag: false,
 			StopIfLoopCountLargerOrEqualThanValue: 1,
 			StopIfShipVacancyLessOrEqualThanFlag: false,
@@ -66,6 +64,7 @@
 			StopIfEquipmentVacancyLessOrEqualThanFlag: false,
 			StopIfEquipmentVacancyLessOrEqualThanValue: 0,
 			StopIfOrganizeBeforeSelectFailed: true,
+			StopIfOrganizeAfterSelectFailed: false,
 			StopIfGetMedal: false,
 			StopIfGetShipFlag: false,
 			StopIfGetShipValueShipNames: "",
@@ -78,10 +77,25 @@
 			StopIfBattleRankHigherOrEqualThanValueConditionValue: 1,
 			StopIfBattleRankHigherOrEqualThanValueRank: 4,
 			StopIfBattleRankHigherOrEqualThanValueThreshold: 1,
+			AutoStoppedDisableWorkflows: [
+				{
+					Guid: "7d3e41e9-1fb2-4e7f-ad5c-38b0c921374d",
+					IgnoreTriggerFailure: false
+				}
+			],
+			AutoStoppedTriggerWorkflows: [
+				{
+					Guid: "d9503a5f-bd69-4a7d-853f-b50dd45f8149",
+					IgnoreTriggerFailure: false
+				}
+			],
 			IgnoreOrganizeBeforeFailure: false,
+			IgnoreOrganizeAfterFailure: false,
 			IgnoreSortieFailure: false,
 			FinishLoopIfOrganizeBeforeFailureFlag: false,
 			FinishLoopIfOrganizeBeforeFailureValueThreshold: 1,
+			FinishLoopIfOrganizeAfterFailureFlag: false,
+			FinishLoopIfOrganizeAfterFailureValueThreshold: 1,
 			FinishLoopIfSortieFailureFlag: false,
 			FinishLoopIfSortieFailureValueThreshold: 1,
 			Fleet: 1,
@@ -89,20 +103,20 @@
 			RefreshDataTaskPriority: 233,
 			WaitHomeAtFirst: true,
 			RefreshDataBeforeSortie: false,
-			ReturnRoomAtLast: true,
+			ReturnRoomAtLast: false,
 			Script: null,
 			EnableScriptTrigger: true,
 			TriggerOnEnabled: true
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.BasicDockingWorkflow, KancollePlayerSimulatorKai, Version=1.2.1.0, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.BasicDockingWorkflow, KancollePlayerSimulatorKai, Version=1.2.2.0, Culture=neutral, PublicKeyToken=null",
 			Guid: "7d3e41e9-1fb2-4e7f-ad5c-38b0c921374d",
 			Name: "大破扔桶",
 			LimitFleetFlag: true,
 			LimitFleetValue: 3,
 			LimitHpPercentFlag: true,
-			LimitHpPercentMinValue: 0,
-			LimitHpPercentMaxValue: 25,
+			LimitHpPercentMinValue: 0.0,
+			LimitHpPercentMaxValue: 0.25,
 			LimitRepairTimeFlag: false,
 			LimitRepairTimeMinValue: "00:00:00",
 			LimitRepairTimeMaxValue: "4.04:00:00",
@@ -128,14 +142,14 @@
 			TriggerOnEnabled: false
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.BasicDockingWorkflow, KancollePlayerSimulatorKai, Version=1.2.1.0, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.BasicDockingWorkflow, KancollePlayerSimulatorKai, Version=1.2.2.0, Culture=neutral, PublicKeyToken=null",
 			Guid: "0aa71eb0-8926-4d4d-a75d-9ec76c02f46d",
 			Name: "刷完修理",
 			LimitFleetFlag: true,
 			LimitFleetValue: 4096,
 			LimitHpPercentFlag: false,
-			LimitHpPercentMinValue: 0,
-			LimitHpPercentMaxValue: 100,
+			LimitHpPercentMinValue: 0.0,
+			LimitHpPercentMaxValue: 1.0,
 			LimitRepairTimeFlag: false,
 			LimitRepairTimeMinValue: "00:00:00",
 			LimitRepairTimeMaxValue: "4.04:00:00",
@@ -161,7 +175,7 @@
 			TriggerOnEnabled: false
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.BasicSupplyFleetWorkflow, KancollePlayerSimulatorKai, Version=1.2.1.0, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.BasicSupplyFleetWorkflow, KancollePlayerSimulatorKai, Version=1.2.2.0, Culture=neutral, PublicKeyToken=null",
 			Guid: "7c9f6e18-622f-4a63-8c28-d9e113482ad2",
 			Name: "补给",
 			Fleet: 1,
@@ -178,7 +192,7 @@
 			TriggerOnEnabled: false
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.SimpleSortieWorkflow, KancollePlayerSimulatorKai, Version=1.2.1.0, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.SimpleSortieWorkflow, KancollePlayerSimulatorKai, Version=1.2.2.0, Culture=neutral, PublicKeyToken=null",
 			Guid: "bca50d27-ae0b-4711-98fd-29f45a361203",
 			Name: "出击1-1",
 			Fleet: 1,
@@ -218,6 +232,7 @@
 			LandBasedAirCorps3CheckFatigue: true,
 			DefaultStrategy: {
 				DefaultWayPoint: null,
+				DefaultBattleRations: 0,
 				DefaultMaritimeResupply: 0,
 				DefaultFormation: 1,
 				DefaultMidnight: 1,
@@ -236,7 +251,7 @@
 			TriggerOnEnabled: false
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.2.1.0, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.2.2.0, Culture=neutral, PublicKeyToken=null",
 			Guid: "d9503a5f-bd69-4a7d-853f-b50dd45f8149",
 			Name: "简易明石修理(需录入明石)",
 			Fleet: 1,
@@ -244,15 +259,20 @@
 				{
 					Selections: [
 						{
-							Type: 0,
-							Number: 0,
-							Memo: "你的明石"
+							Type: 6,
+							Value: "明石改",
+							Memo: "你的明石(改)"
+						},
+						{
+							Type: 6,
+							Value: "明石",
+							Memo: ""
 						}
 					],
 					ChangeIfInitial: true,
 					ChangeIfHpInRangeFlag: false,
-					ChangeIfHpInRangeValueMin: 0,
-					ChangeIfHpInRangeValueMax: 25,
+					ChangeIfHpInRangeValueMin: 0.0,
+					ChangeIfHpInRangeValueMax: 0.25,
 					ChangeIfMoraleInRangeFlag: false,
 					ChangeIfMoraleInRangeValueMin: 0,
 					ChangeIfMoraleInRangeValueMax: 39,
@@ -260,10 +280,12 @@
 					SkipRepairingShips: true,
 					SkipExpeditioningShips: true,
 					SkipShipsInThisFleet: false,
+					IgnoreSkipShipsInThisFleetIfInitial: true,
 					SkipShipsInOtherFleets: true,
+					IgnoreSkipShipsInOtherFleetsIfInitial: false,
 					SkipHpInRangeFlag: false,
-					SkipHpInRangeValueMin: 0,
-					SkipHpInRangeValueMax: 25,
+					SkipHpInRangeValueMin: 0.0,
+					SkipHpInRangeValueMax: 0.25,
 					SkipMoraleInRangeFlag: false,
 					SkipMoraleInRangeValueMin: 0,
 					SkipMoraleInRangeValueMax: 39,
@@ -275,54 +297,54 @@
 					Selections: [
 						{
 							Type: 4,
-							Number: 1,
+							Value: "1",
 							Memo: ""
 						},
 						{
 							Type: 4,
-							Number: 2,
+							Value: "2",
 							Memo: ""
 						},
 						{
 							Type: 4,
-							Number: 3,
+							Value: "3",
 							Memo: ""
 						},
 						{
 							Type: 4,
-							Number: 4,
+							Value: "4",
 							Memo: ""
 						},
 						{
 							Type: 4,
-							Number: 5,
+							Value: "5",
 							Memo: ""
 						},
 						{
 							Type: 4,
-							Number: 6,
+							Value: "6",
 							Memo: ""
 						},
 						{
 							Type: 4,
-							Number: 7,
+							Value: "7",
 							Memo: ""
 						},
 						{
 							Type: 4,
-							Number: 8,
+							Value: "8",
 							Memo: ""
 						},
 						{
 							Type: 4,
-							Number: 9,
+							Value: "9",
 							Memo: ""
 						}
 					],
 					ChangeIfInitial: true,
 					ChangeIfHpInRangeFlag: false,
-					ChangeIfHpInRangeValueMin: 0,
-					ChangeIfHpInRangeValueMax: 25,
+					ChangeIfHpInRangeValueMin: 0.0,
+					ChangeIfHpInRangeValueMax: 0.25,
 					ChangeIfMoraleInRangeFlag: false,
 					ChangeIfMoraleInRangeValueMin: 0,
 					ChangeIfMoraleInRangeValueMax: 39,
@@ -330,10 +352,12 @@
 					SkipRepairingShips: true,
 					SkipExpeditioningShips: true,
 					SkipShipsInThisFleet: false,
+					IgnoreSkipShipsInThisFleetIfInitial: true,
 					SkipShipsInOtherFleets: true,
+					IgnoreSkipShipsInOtherFleetsIfInitial: false,
 					SkipHpInRangeFlag: true,
-					SkipHpInRangeValueMin: 0,
-					SkipHpInRangeValueMax: 50,
+					SkipHpInRangeValueMin: 0.0,
+					SkipHpInRangeValueMax: 0.5,
 					SkipMoraleInRangeFlag: false,
 					SkipMoraleInRangeValueMin: 0,
 					SkipMoraleInRangeValueMax: 39,
@@ -345,54 +369,54 @@
 					Selections: [
 						{
 							Type: 4,
-							Number: 1,
+							Value: "1",
 							Memo: ""
 						},
 						{
 							Type: 4,
-							Number: 2,
+							Value: "2",
 							Memo: ""
 						},
 						{
 							Type: 4,
-							Number: 3,
+							Value: "3",
 							Memo: ""
 						},
 						{
 							Type: 4,
-							Number: 4,
+							Value: "4",
 							Memo: ""
 						},
 						{
 							Type: 4,
-							Number: 5,
+							Value: "5",
 							Memo: ""
 						},
 						{
 							Type: 4,
-							Number: 6,
+							Value: "6",
 							Memo: ""
 						},
 						{
 							Type: 4,
-							Number: 7,
+							Value: "7",
 							Memo: ""
 						},
 						{
 							Type: 4,
-							Number: 8,
+							Value: "8",
 							Memo: ""
 						},
 						{
 							Type: 4,
-							Number: 9,
+							Value: "9",
 							Memo: ""
 						}
 					],
 					ChangeIfInitial: true,
 					ChangeIfHpInRangeFlag: false,
-					ChangeIfHpInRangeValueMin: 0,
-					ChangeIfHpInRangeValueMax: 25,
+					ChangeIfHpInRangeValueMin: 0.0,
+					ChangeIfHpInRangeValueMax: 0.25,
 					ChangeIfMoraleInRangeFlag: false,
 					ChangeIfMoraleInRangeValueMin: 0,
 					ChangeIfMoraleInRangeValueMax: 39,
@@ -400,10 +424,12 @@
 					SkipRepairingShips: true,
 					SkipExpeditioningShips: true,
 					SkipShipsInThisFleet: false,
+					IgnoreSkipShipsInThisFleetIfInitial: true,
 					SkipShipsInOtherFleets: true,
+					IgnoreSkipShipsInOtherFleetsIfInitial: false,
 					SkipHpInRangeFlag: true,
-					SkipHpInRangeValueMin: 0,
-					SkipHpInRangeValueMax: 50,
+					SkipHpInRangeValueMin: 0.0,
+					SkipHpInRangeValueMax: 0.5,
 					SkipMoraleInRangeFlag: false,
 					SkipMoraleInRangeValueMin: 0,
 					SkipMoraleInRangeValueMax: 39,
@@ -415,54 +441,54 @@
 					Selections: [
 						{
 							Type: 4,
-							Number: 1,
+							Value: "1",
 							Memo: ""
 						},
 						{
 							Type: 4,
-							Number: 2,
+							Value: "2",
 							Memo: ""
 						},
 						{
 							Type: 4,
-							Number: 3,
+							Value: "3",
 							Memo: ""
 						},
 						{
 							Type: 4,
-							Number: 4,
+							Value: "4",
 							Memo: ""
 						},
 						{
 							Type: 4,
-							Number: 5,
+							Value: "5",
 							Memo: ""
 						},
 						{
 							Type: 4,
-							Number: 6,
+							Value: "6",
 							Memo: ""
 						},
 						{
 							Type: 4,
-							Number: 7,
+							Value: "7",
 							Memo: ""
 						},
 						{
 							Type: 4,
-							Number: 8,
+							Value: "8",
 							Memo: ""
 						},
 						{
 							Type: 4,
-							Number: 9,
+							Value: "9",
 							Memo: ""
 						}
 					],
 					ChangeIfInitial: true,
 					ChangeIfHpInRangeFlag: false,
-					ChangeIfHpInRangeValueMin: 0,
-					ChangeIfHpInRangeValueMax: 25,
+					ChangeIfHpInRangeValueMin: 0.0,
+					ChangeIfHpInRangeValueMax: 0.25,
 					ChangeIfMoraleInRangeFlag: false,
 					ChangeIfMoraleInRangeValueMin: 0,
 					ChangeIfMoraleInRangeValueMax: 39,
@@ -470,10 +496,12 @@
 					SkipRepairingShips: true,
 					SkipExpeditioningShips: true,
 					SkipShipsInThisFleet: false,
+					IgnoreSkipShipsInThisFleetIfInitial: true,
 					SkipShipsInOtherFleets: true,
+					IgnoreSkipShipsInOtherFleetsIfInitial: false,
 					SkipHpInRangeFlag: true,
-					SkipHpInRangeValueMin: 0,
-					SkipHpInRangeValueMax: 50,
+					SkipHpInRangeValueMin: 0.0,
+					SkipHpInRangeValueMax: 0.5,
 					SkipMoraleInRangeFlag: false,
 					SkipMoraleInRangeValueMin: 0,
 					SkipMoraleInRangeValueMax: 39,
@@ -485,54 +513,54 @@
 					Selections: [
 						{
 							Type: 4,
-							Number: 1,
+							Value: "1",
 							Memo: ""
 						},
 						{
 							Type: 4,
-							Number: 2,
+							Value: "2",
 							Memo: ""
 						},
 						{
 							Type: 4,
-							Number: 3,
+							Value: "3",
 							Memo: ""
 						},
 						{
 							Type: 4,
-							Number: 4,
+							Value: "4",
 							Memo: ""
 						},
 						{
 							Type: 4,
-							Number: 5,
+							Value: "5",
 							Memo: ""
 						},
 						{
 							Type: 4,
-							Number: 6,
+							Value: "6",
 							Memo: ""
 						},
 						{
 							Type: 4,
-							Number: 7,
+							Value: "7",
 							Memo: ""
 						},
 						{
 							Type: 4,
-							Number: 8,
+							Value: "8",
 							Memo: ""
 						},
 						{
 							Type: 4,
-							Number: 9,
+							Value: "9",
 							Memo: ""
 						}
 					],
 					ChangeIfInitial: true,
 					ChangeIfHpInRangeFlag: false,
-					ChangeIfHpInRangeValueMin: 0,
-					ChangeIfHpInRangeValueMax: 25,
+					ChangeIfHpInRangeValueMin: 0.0,
+					ChangeIfHpInRangeValueMax: 0.25,
 					ChangeIfMoraleInRangeFlag: false,
 					ChangeIfMoraleInRangeValueMin: 0,
 					ChangeIfMoraleInRangeValueMax: 39,
@@ -540,13 +568,15 @@
 					SkipRepairingShips: true,
 					SkipExpeditioningShips: true,
 					SkipShipsInThisFleet: false,
+					IgnoreSkipShipsInThisFleetIfInitial: true,
 					SkipShipsInOtherFleets: true,
+					IgnoreSkipShipsInOtherFleetsIfInitial: false,
 					SkipHpInRangeFlag: true,
-					SkipHpInRangeValueMin: 0,
-					SkipHpInRangeValueMax: 50,
+					SkipHpInRangeValueMin: 0.0,
+					SkipHpInRangeValueMax: 0.5,
 					SkipMoraleInRangeFlag: false,
 					SkipMoraleInRangeValueMin: 0,
-					SkipMoraleInRangeValueMax: 50,
+					SkipMoraleInRangeValueMax: 39,
 					Repeat: true,
 					KeepIfAllSelectionsFailed: true,
 					KeepIfSelectionCollectionEmpty: true
@@ -555,54 +585,54 @@
 					Selections: [
 						{
 							Type: 4,
-							Number: 1,
+							Value: "1",
 							Memo: ""
 						},
 						{
 							Type: 4,
-							Number: 2,
+							Value: "2",
 							Memo: ""
 						},
 						{
 							Type: 4,
-							Number: 3,
+							Value: "3",
 							Memo: ""
 						},
 						{
 							Type: 4,
-							Number: 4,
+							Value: "4",
 							Memo: ""
 						},
 						{
 							Type: 4,
-							Number: 5,
+							Value: "5",
 							Memo: ""
 						},
 						{
 							Type: 4,
-							Number: 6,
+							Value: "6",
 							Memo: ""
 						},
 						{
 							Type: 4,
-							Number: 7,
+							Value: "7",
 							Memo: ""
 						},
 						{
 							Type: 4,
-							Number: 8,
+							Value: "8",
 							Memo: ""
 						},
 						{
 							Type: 4,
-							Number: 9,
+							Value: "9",
 							Memo: ""
 						}
 					],
 					ChangeIfInitial: true,
 					ChangeIfHpInRangeFlag: false,
-					ChangeIfHpInRangeValueMin: 0,
-					ChangeIfHpInRangeValueMax: 25,
+					ChangeIfHpInRangeValueMin: 0.0,
+					ChangeIfHpInRangeValueMax: 0.25,
 					ChangeIfMoraleInRangeFlag: false,
 					ChangeIfMoraleInRangeValueMin: 0,
 					ChangeIfMoraleInRangeValueMax: 39,
@@ -610,13 +640,15 @@
 					SkipRepairingShips: true,
 					SkipExpeditioningShips: true,
 					SkipShipsInThisFleet: false,
+					IgnoreSkipShipsInThisFleetIfInitial: true,
 					SkipShipsInOtherFleets: true,
+					IgnoreSkipShipsInOtherFleetsIfInitial: false,
 					SkipHpInRangeFlag: true,
-					SkipHpInRangeValueMin: 0,
-					SkipHpInRangeValueMax: 50,
+					SkipHpInRangeValueMin: 0.0,
+					SkipHpInRangeValueMax: 0.5,
 					SkipMoraleInRangeFlag: false,
 					SkipMoraleInRangeValueMin: 0,
-					SkipMoraleInRangeValueMax: 50,
+					SkipMoraleInRangeValueMax: 39,
 					Repeat: true,
 					KeepIfAllSelectionsFailed: true,
 					KeepIfSelectionCollectionEmpty: true
@@ -633,7 +665,7 @@
 			TriggerOnEnabled: false
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.2.1.0, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.2.2.0, Culture=neutral, PublicKeyToken=null",
 			Guid: "aa2de0d7-b6d0-40ce-ba38-b7deeff9e452",
 			Name: "待刷(自行修改)",
 			Fleet: 1,
@@ -642,54 +674,54 @@
 					Selections: [
 						{
 							Type: 0,
-							Number: 0,
+							Value: "0",
 							Memo: "把要刷闪的船"
 						},
 						{
 							Type: 0,
-							Number: 0,
+							Value: "0",
 							Memo: "的ID填进左面"
 						},
 						{
 							Type: 0,
-							Number: 0,
+							Value: "0",
 							Memo: "然后触发“总控”"
 						},
 						{
 							Type: 0,
-							Number: 0,
+							Value: "0",
 							Memo: "全闪了之后"
 						},
 						{
 							Type: 0,
-							Number: 0,
+							Value: "0",
 							Memo: "会因为没船可换"
 						},
 						{
 							Type: 0,
-							Number: 0,
+							Value: "0",
 							Memo: "而报错"
 						},
 						{
 							Type: 0,
-							Number: 0,
+							Value: "0",
 							Memo: "出击就停止了"
 						},
 						{
 							Type: 0,
-							Number: 0,
+							Value: "0",
 							Memo: "空位不够的自己加"
 						},
 						{
 							Type: 0,
-							Number: 0,
+							Value: "0",
 							Memo: "多出来的要删掉"
 						}
 					],
 					ChangeIfInitial: true,
 					ChangeIfHpInRangeFlag: false,
-					ChangeIfHpInRangeValueMin: 0,
-					ChangeIfHpInRangeValueMax: 25,
+					ChangeIfHpInRangeValueMin: 0.002,
+					ChangeIfHpInRangeValueMax: 0.25,
 					ChangeIfMoraleInRangeFlag: true,
 					ChangeIfMoraleInRangeValueMin: 83,
 					ChangeIfMoraleInRangeValueMax: 100,
@@ -697,10 +729,12 @@
 					SkipRepairingShips: true,
 					SkipExpeditioningShips: true,
 					SkipShipsInThisFleet: false,
+					IgnoreSkipShipsInThisFleetIfInitial: true,
 					SkipShipsInOtherFleets: false,
+					IgnoreSkipShipsInOtherFleetsIfInitial: false,
 					SkipHpInRangeFlag: false,
-					SkipHpInRangeValueMin: 0,
-					SkipHpInRangeValueMax: 25,
+					SkipHpInRangeValueMin: 0.0,
+					SkipHpInRangeValueMax: 0.25,
 					SkipMoraleInRangeFlag: true,
 					SkipMoraleInRangeValueMin: 83,
 					SkipMoraleInRangeValueMax: 100,
