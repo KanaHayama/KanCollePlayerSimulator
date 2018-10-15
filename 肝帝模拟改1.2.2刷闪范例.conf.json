@@ -253,7 +253,7 @@
 		{
 			Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.2.2.0, Culture=neutral, PublicKeyToken=null",
 			Guid: "d9503a5f-bd69-4a7d-853f-b50dd45f8149",
-			Name: "简易明石修理(需录入明石)",
+			Name: "简易明石修理",
 			Fleet: 1,
 			Positions: [
 				{
