@@ -91,7 +91,7 @@
 			],
 			IgnoreOrganizeBeforeFailure: false,
 			IgnoreOrganizeAfterFailure: false,
-			IgnoreSortieFailure: false,
+			IgnoreSortieFailure: true,
 			FinishLoopIfOrganizeBeforeFailureFlag: false,
 			FinishLoopIfOrganizeBeforeFailureValueThreshold: 1,
 			FinishLoopIfOrganizeAfterFailureFlag: false,
