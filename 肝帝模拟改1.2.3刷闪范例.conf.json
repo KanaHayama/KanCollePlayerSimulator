@@ -2,7 +2,7 @@
 	Name: "刷闪",
 	List: [
 		{
-			Type: "KancollePlayerSimulatorKai.RelationalSortieWorkflow, KancollePlayerSimulatorKai, Version=1.2.2.0, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.RelationalSortieWorkflow, KancollePlayerSimulatorKai, Version=1.2.3.1, Culture=neutral, PublicKeyToken=null",
 			Guid: "2656b3b6-db1d-43d0-87f7-a2596c8a08dc",
 			Name: "总控(启用这个)",
 			SleepTimeBase: "00:00:00",
@@ -59,6 +59,16 @@
 			},
 			StopIfLoopCountLargerOrEqualThanFlag: false,
 			StopIfLoopCountLargerOrEqualThanValue: 1,
+			StopIfRuntimeLengthExceedFlag: false,
+			StopIfRuntimeLengthExceedValueDays: 0,
+			StopIfRuntimeLengthExceedValueHours: 0,
+			StopIfRuntimeLengthExceedValueMinutes: 0,
+			StopIfRuntimeLengthExceedValueSeconds: 0,
+			StopIfWithinTimePeriodFlag: false,
+			StopIfWithinTimePeriodValueStartHours: 22,
+			StopIfWithinTimePeriodValueStartMinutes: 0,
+			StopIfWithinTimePeriodValueEndHours: 8,
+			StopIfWithinTimePeriodValueEndMinutes: 0,
 			StopIfShipVacancyLessOrEqualThanFlag: false,
 			StopIfShipVacancyLessOrEqualThanValue: 0,
 			StopIfEquipmentVacancyLessOrEqualThanFlag: false,
@@ -101,7 +111,8 @@
 			Fleet: 1,
 			Repeat: true,
 			RefreshDataTaskPriority: 233,
-			WaitHomeAtFirst: true,
+			WaitHomeBeforeSleep: false,
+			WaitHomeAfterSleep: false,
 			RefreshDataBeforeSortie: false,
 			ReturnRoomAtLast: false,
 			Script: null,
@@ -109,7 +120,7 @@
 			TriggerOnEnabled: true
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.BasicDockingWorkflow, KancollePlayerSimulatorKai, Version=1.2.2.0, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.BasicDockingWorkflow, KancollePlayerSimulatorKai, Version=1.2.3.1, Culture=neutral, PublicKeyToken=null",
 			Guid: "7d3e41e9-1fb2-4e7f-ad5c-38b0c921374d",
 			Name: "大破扔桶",
 			LimitFleetFlag: true,
@@ -142,7 +153,7 @@
 			TriggerOnEnabled: false
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.BasicDockingWorkflow, KancollePlayerSimulatorKai, Version=1.2.2.0, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.BasicDockingWorkflow, KancollePlayerSimulatorKai, Version=1.2.3.1, Culture=neutral, PublicKeyToken=null",
 			Guid: "0aa71eb0-8926-4d4d-a75d-9ec76c02f46d",
 			Name: "刷完修理",
 			LimitFleetFlag: true,
@@ -175,7 +186,7 @@
 			TriggerOnEnabled: false
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.BasicSupplyFleetWorkflow, KancollePlayerSimulatorKai, Version=1.2.2.0, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.BasicSupplyFleetWorkflow, KancollePlayerSimulatorKai, Version=1.2.3.1, Culture=neutral, PublicKeyToken=null",
 			Guid: "7c9f6e18-622f-4a63-8c28-d9e113482ad2",
 			Name: "补给",
 			Fleet: 1,
@@ -192,7 +203,7 @@
 			TriggerOnEnabled: false
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.SimpleSortieWorkflow, KancollePlayerSimulatorKai, Version=1.2.2.0, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.SimpleSortieWorkflow, KancollePlayerSimulatorKai, Version=1.2.3.1, Culture=neutral, PublicKeyToken=null",
 			Guid: "bca50d27-ae0b-4711-98fd-29f45a361203",
 			Name: "出击1-1",
 			Fleet: 1,
@@ -251,7 +262,7 @@
 			TriggerOnEnabled: false
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.2.2.0, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.2.3.1, Culture=neutral, PublicKeyToken=null",
 			Guid: "d9503a5f-bd69-4a7d-853f-b50dd45f8149",
 			Name: "简易明石修理",
 			Fleet: 1,
@@ -289,7 +300,11 @@
 					SkipMoraleInRangeFlag: false,
 					SkipMoraleInRangeValueMin: 0,
 					SkipMoraleInRangeValueMax: 39,
-					Repeat: true,
+					SkipLocked: false,
+					SkipUnlocked: false,
+					SkipNoConventionalEquipments: false,
+					SelectionSortingMethod: 0,
+					IncludeCurrentSelection: false,
 					KeepIfAllSelectionsFailed: false,
 					KeepIfSelectionCollectionEmpty: false
 				},
@@ -361,7 +376,11 @@
 					SkipMoraleInRangeFlag: false,
 					SkipMoraleInRangeValueMin: 0,
 					SkipMoraleInRangeValueMax: 39,
-					Repeat: true,
+					SkipLocked: false,
+					SkipUnlocked: false,
+					SkipNoConventionalEquipments: false,
+					SelectionSortingMethod: 0,
+					IncludeCurrentSelection: false,
 					KeepIfAllSelectionsFailed: true,
 					KeepIfSelectionCollectionEmpty: true
 				},
@@ -433,7 +452,11 @@
 					SkipMoraleInRangeFlag: false,
 					SkipMoraleInRangeValueMin: 0,
 					SkipMoraleInRangeValueMax: 39,
-					Repeat: true,
+					SkipLocked: false,
+					SkipUnlocked: false,
+					SkipNoConventionalEquipments: false,
+					SelectionSortingMethod: 0,
+					IncludeCurrentSelection: false,
 					KeepIfAllSelectionsFailed: true,
 					KeepIfSelectionCollectionEmpty: true
 				},
@@ -505,7 +528,11 @@
 					SkipMoraleInRangeFlag: false,
 					SkipMoraleInRangeValueMin: 0,
 					SkipMoraleInRangeValueMax: 39,
-					Repeat: true,
+					SkipLocked: false,
+					SkipUnlocked: false,
+					SkipNoConventionalEquipments: false,
+					SelectionSortingMethod: 0,
+					IncludeCurrentSelection: false,
 					KeepIfAllSelectionsFailed: true,
 					KeepIfSelectionCollectionEmpty: true
 				},
@@ -577,7 +604,11 @@
 					SkipMoraleInRangeFlag: false,
 					SkipMoraleInRangeValueMin: 0,
 					SkipMoraleInRangeValueMax: 39,
-					Repeat: true,
+					SkipLocked: false,
+					SkipUnlocked: false,
+					SkipNoConventionalEquipments: false,
+					SelectionSortingMethod: 0,
+					IncludeCurrentSelection: false,
 					KeepIfAllSelectionsFailed: true,
 					KeepIfSelectionCollectionEmpty: true
 				},
@@ -649,7 +680,11 @@
 					SkipMoraleInRangeFlag: false,
 					SkipMoraleInRangeValueMin: 0,
 					SkipMoraleInRangeValueMax: 39,
-					Repeat: true,
+					SkipLocked: false,
+					SkipUnlocked: false,
+					SkipNoConventionalEquipments: false,
+					SelectionSortingMethod: 0,
+					IncludeCurrentSelection: false,
 					KeepIfAllSelectionsFailed: true,
 					KeepIfSelectionCollectionEmpty: true
 				}
@@ -665,7 +700,7 @@
 			TriggerOnEnabled: false
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.2.2.0, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.2.3.1, Culture=neutral, PublicKeyToken=null",
 			Guid: "aa2de0d7-b6d0-40ce-ba38-b7deeff9e452",
 			Name: "待刷(自行修改)",
 			Fleet: 1,
@@ -720,7 +755,7 @@
 					],
 					ChangeIfInitial: true,
 					ChangeIfHpInRangeFlag: false,
-					ChangeIfHpInRangeValueMin: 0.002,
+					ChangeIfHpInRangeValueMin: 0.0,
 					ChangeIfHpInRangeValueMax: 0.25,
 					ChangeIfMoraleInRangeFlag: true,
 					ChangeIfMoraleInRangeValueMin: 83,
@@ -738,7 +773,11 @@
 					SkipMoraleInRangeFlag: true,
 					SkipMoraleInRangeValueMin: 83,
 					SkipMoraleInRangeValueMax: 100,
-					Repeat: true,
+					SkipLocked: false,
+					SkipUnlocked: false,
+					SkipNoConventionalEquipments: false,
+					SelectionSortingMethod: 1,
+					IncludeCurrentSelection: false,
 					KeepIfAllSelectionsFailed: false,
 					KeepIfSelectionCollectionEmpty: false
 				}
