@@ -303,8 +303,8 @@
 					SkipLocked: false,
 					SkipUnlocked: false,
 					SkipNoConventionalEquipments: false,
-					SelectionSortingMethod: 0,
-					IncludeCurrentSelection: false,
+					SelectionSortingMethod: 5,
+					IncludeCurrentSelection: true,
 					KeepIfAllSelectionsFailed: false,
 					KeepIfSelectionCollectionEmpty: false
 				},
@@ -379,7 +379,7 @@
 					SkipLocked: false,
 					SkipUnlocked: false,
 					SkipNoConventionalEquipments: false,
-					SelectionSortingMethod: 0,
+					SelectionSortingMethod: 1,
 					IncludeCurrentSelection: false,
 					KeepIfAllSelectionsFailed: true,
 					KeepIfSelectionCollectionEmpty: true
@@ -455,7 +455,7 @@
 					SkipLocked: false,
 					SkipUnlocked: false,
 					SkipNoConventionalEquipments: false,
-					SelectionSortingMethod: 0,
+					SelectionSortingMethod: 1,
 					IncludeCurrentSelection: false,
 					KeepIfAllSelectionsFailed: true,
 					KeepIfSelectionCollectionEmpty: true
@@ -531,7 +531,7 @@
 					SkipLocked: false,
 					SkipUnlocked: false,
 					SkipNoConventionalEquipments: false,
-					SelectionSortingMethod: 0,
+					SelectionSortingMethod: 1,
 					IncludeCurrentSelection: false,
 					KeepIfAllSelectionsFailed: true,
 					KeepIfSelectionCollectionEmpty: true
@@ -607,7 +607,7 @@
 					SkipLocked: false,
 					SkipUnlocked: false,
 					SkipNoConventionalEquipments: false,
-					SelectionSortingMethod: 0,
+					SelectionSortingMethod: 1,
 					IncludeCurrentSelection: false,
 					KeepIfAllSelectionsFailed: true,
 					KeepIfSelectionCollectionEmpty: true
@@ -683,7 +683,7 @@
 					SkipLocked: false,
 					SkipUnlocked: false,
 					SkipNoConventionalEquipments: false,
-					SelectionSortingMethod: 0,
+					SelectionSortingMethod: 1,
 					IncludeCurrentSelection: false,
 					KeepIfAllSelectionsFailed: true,
 					KeepIfSelectionCollectionEmpty: true
