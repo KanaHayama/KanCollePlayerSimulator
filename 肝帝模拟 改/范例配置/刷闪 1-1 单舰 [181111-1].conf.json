@@ -1,13 +1,22 @@
 ﻿{
-	Name: "刷闪",
+	Name: "刷闪 1-1 单舰",
 	List: [
 		{
-			Type: "KancollePlayerSimulatorKai.RelationalSortieWorkflow, KancollePlayerSimulatorKai, Version=1.2.3.1, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.MemoWorkflow, KancollePlayerSimulatorKai, Version=1.2.3.2, Culture=neutral, PublicKeyToken=null",
+			Guid: "2a1630ee-b0db-49ec-8deb-6a7e05d25118",
+			Name: "注意事项",
+			Memo: "1-1单舰刷闪，不带狗粮，不换配置，刷到83就换\r\n可在此基础上修改为适合自己习惯的设置。\r\n先设置好要刷的船。\r\n“刷完修理”会持续入渠，不需要时记得禁用。",
+			Script: null,
+			EnableScriptTrigger: true,
+			TriggerOnEnabled: false
+		},
+		{
+			Type: "KancollePlayerSimulatorKai.RelationalSortieWorkflow, KancollePlayerSimulatorKai, Version=1.2.3.2, Culture=neutral, PublicKeyToken=null",
 			Guid: "2656b3b6-db1d-43d0-87f7-a2596c8a08dc",
 			Name: "总控(启用这个)",
 			SleepTimeBase: "00:00:00",
 			SleepTimeRandomMax: "00:00:00",
-			DoNotSleepAtFirstLoop: true,
+			DoNotSleepAtFirstLoop: false,
 			SleepUntilMoraleRecoveredFlag: false,
 			SleepUntilMoraleRecoveredValueMorale: 49,
 			SleepUntilAnyDockEmptyFlag: false,
@@ -120,7 +129,7 @@
 			TriggerOnEnabled: true
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.BasicDockingWorkflow, KancollePlayerSimulatorKai, Version=1.2.3.1, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.BasicDockingWorkflow, KancollePlayerSimulatorKai, Version=1.2.3.2, Culture=neutral, PublicKeyToken=null",
 			Guid: "7d3e41e9-1fb2-4e7f-ad5c-38b0c921374d",
 			Name: "大破扔桶",
 			LimitFleetFlag: true,
@@ -153,7 +162,7 @@
 			TriggerOnEnabled: false
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.BasicDockingWorkflow, KancollePlayerSimulatorKai, Version=1.2.3.1, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.BasicDockingWorkflow, KancollePlayerSimulatorKai, Version=1.2.3.2, Culture=neutral, PublicKeyToken=null",
 			Guid: "0aa71eb0-8926-4d4d-a75d-9ec76c02f46d",
 			Name: "刷完修理",
 			LimitFleetFlag: true,
@@ -186,7 +195,7 @@
 			TriggerOnEnabled: false
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.BasicSupplyFleetWorkflow, KancollePlayerSimulatorKai, Version=1.2.3.1, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.BasicSupplyFleetWorkflow, KancollePlayerSimulatorKai, Version=1.2.3.2, Culture=neutral, PublicKeyToken=null",
 			Guid: "7c9f6e18-622f-4a63-8c28-d9e113482ad2",
 			Name: "补给",
 			Fleet: 1,
@@ -203,7 +212,7 @@
 			TriggerOnEnabled: false
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.SimpleSortieWorkflow, KancollePlayerSimulatorKai, Version=1.2.3.1, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.SimpleSortieWorkflow, KancollePlayerSimulatorKai, Version=1.2.3.2, Culture=neutral, PublicKeyToken=null",
 			Guid: "bca50d27-ae0b-4711-98fd-29f45a361203",
 			Name: "出击1-1",
 			Fleet: 1,
@@ -262,7 +271,7 @@
 			TriggerOnEnabled: false
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.2.3.1, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.2.3.2, Culture=neutral, PublicKeyToken=null",
 			Guid: "d9503a5f-bd69-4a7d-853f-b50dd45f8149",
 			Name: "简易明石修理",
 			Fleet: 1,
@@ -700,7 +709,7 @@
 			TriggerOnEnabled: false
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.2.3.1, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.2.3.2, Culture=neutral, PublicKeyToken=null",
 			Guid: "aa2de0d7-b6d0-40ce-ba38-b7deeff9e452",
 			Name: "待刷(自行修改)",
 			Fleet: 1,
@@ -777,7 +786,7 @@
 					SkipUnlocked: false,
 					SkipNoConventionalEquipments: false,
 					SelectionSortingMethod: 1,
-					IncludeCurrentSelection: false,
+					IncludeCurrentSelection: true,
 					KeepIfAllSelectionsFailed: false,
 					KeepIfSelectionCollectionEmpty: false
 				}
