@@ -1,18 +1,18 @@
 ﻿{
-	Name: "周常 5-2 南方海域珊瑚诸岛冲",
+	Name: "EO 3-5",
 	List: [
 		{
 			Type: "KancollePlayerSimulatorKai.MemoWorkflow, KancollePlayerSimulatorKai, Version=1.2.3.2, Culture=neutral, PublicKeyToken=null",
-			Guid: "d7a35e8d-0b47-4445-ab34-491b75797887",
+			Guid: "46e468b2-8028-4ebf-bfee-25b0c58be0c9",
 			Name: "注意事项",
-			Memo: "使用前手动更换编成、装备，或者自行添加并设置执行单元。\r\n1BB1CA2DD2CV（限定翔鹤&瑞鹤）",
+			Memo: "使用前手动更换编成、装备，或者自行添加并设置执行单元。\r\n下路FGK，5艘或以上DD。\r\n28索敌",
 			Script: null,
 			EnableScriptTrigger: true,
 			TriggerOnEnabled: false
 		},
 		{
 			Type: "KancollePlayerSimulatorKai.RelationalSortieWorkflow, KancollePlayerSimulatorKai, Version=1.2.3.2, Culture=neutral, PublicKeyToken=null",
-			Guid: "88d4269e-a693-45d7-aad5-c3f9385014c3",
+			Guid: "8fe45495-00a9-49dc-ad94-11d247f94d7a",
 			Name: "总控",
 			SleepTimeBase: "00:00:00",
 			SleepTimeRandomMax: "00:00:00",
@@ -33,13 +33,13 @@
 			DockingAfterFinishedEventThreshold: 1,
 			DockingBeforeWorkflows: [
 				{
-					Guid: "a7fcba99-626c-4f26-bf3d-2a2a6cbf58bc",
+					Guid: "7529b83d-5a32-4c67-95a7-23029e39a490",
 					IgnoreTriggerFailure: true
 				}
 			],
 			DockingAfterWorkflows: [
 				{
-					Guid: "a7fcba99-626c-4f26-bf3d-2a2a6cbf58bc",
+					Guid: "7529b83d-5a32-4c67-95a7-23029e39a490",
 					IgnoreTriggerFailure: false
 				}
 			],
@@ -47,22 +47,22 @@
 			SupplyAfterFinishedEventThreshold: 1,
 			SupplyBeforeWorkflows: [
 				{
-					Guid: "8c90c4b5-6bd2-4b32-a220-572cd8adc39e",
+					Guid: "7efc57f3-b528-4448-9eb0-04f290bccf9a",
 					IgnoreTriggerFailure: true
 				}
 			],
 			SupplyAfterWorkflows: [
 				{
-					Guid: "8c90c4b5-6bd2-4b32-a220-572cd8adc39e",
+					Guid: "7efc57f3-b528-4448-9eb0-04f290bccf9a",
 					IgnoreTriggerFailure: false
 				}
 			],
 			SortieWorkflow: {
-				Guid: "eaad0086-709e-43bd-8e7c-b8fa7db91d7c",
+				Guid: "66809e4f-a5d6-467f-92eb-e2db465a1eb9",
 				IgnoreTriggerFailure: false
 			},
 			StopIfLoopCountLargerOrEqualThanFlag: true,
-			StopIfLoopCountLargerOrEqualThanValue: 5,
+			StopIfLoopCountLargerOrEqualThanValue: 10,
 			StopIfRuntimeLengthExceedFlag: false,
 			StopIfRuntimeLengthExceedValueDays: 0,
 			StopIfRuntimeLengthExceedValueHours: 0,
@@ -79,21 +79,21 @@
 			StopIfEquipmentVacancyLessOrEqualThanValue: 0,
 			StopIfOrganizeBeforeSelectFailed: false,
 			StopIfOrganizeAfterSelectFailed: false,
-			StopIfGetMedal: false,
+			StopIfGetMedal: true,
 			StopIfGetShipFlag: false,
 			StopIfGetShipValueShipNames: "大鯨",
 			StopIfEnemyFlagShipSunkFlag: false,
 			StopIfEnemyFlagShipSunkValueThreshold: 1,
 			StopIfEnemyFlagShipSunkValueConditionType: 0,
 			StopIfEnemyFlagShipSunkValueConditionValue: 1,
-			StopIfBattleRankHigherOrEqualThanFlag: true,
-			StopIfBattleRankHigherOrEqualThanValueConditionType: 1,
-			StopIfBattleRankHigherOrEqualThanValueConditionValue: 15,
-			StopIfBattleRankHigherOrEqualThanValueRank: 2,
-			StopIfBattleRankHigherOrEqualThanValueThreshold: 2,
+			StopIfBattleRankHigherOrEqualThanFlag: false,
+			StopIfBattleRankHigherOrEqualThanValueConditionType: 0,
+			StopIfBattleRankHigherOrEqualThanValueConditionValue: 1,
+			StopIfBattleRankHigherOrEqualThanValueRank: 4,
+			StopIfBattleRankHigherOrEqualThanValueThreshold: 1,
 			AutoStoppedDisableWorkflows: [
 				{
-					Guid: "a7fcba99-626c-4f26-bf3d-2a2a6cbf58bc",
+					Guid: "7529b83d-5a32-4c67-95a7-23029e39a490",
 					IgnoreTriggerFailure: false
 				}
 			],
@@ -120,11 +120,11 @@
 		},
 		{
 			Type: "KancollePlayerSimulatorKai.SimpleSortieWorkflow, KancollePlayerSimulatorKai, Version=1.2.3.2, Culture=neutral, PublicKeyToken=null",
-			Guid: "eaad0086-709e-43bd-8e7c-b8fa7db91d7c",
-			Name: "5-2",
+			Guid: "66809e4f-a5d6-467f-92eb-e2db465a1eb9",
+			Name: "3-5",
 			Fleet: 1,
-			Sea: 5,
-			Area: 2,
+			Sea: 3,
+			Area: 5,
 			EscortShipNoHeavilyDamaged: true,
 			FlagShipFullySupplied: true,
 			EscortShipFullySupplied: true,
@@ -175,47 +175,7 @@
 				{
 					Condition: {
 						Type: 1,
-						Value: 3
-					},
-					Strategy: {
-						DefaultWayPoint: null,
-						DefaultBattleRations: 0,
-						DefaultMaritimeResupply: 0,
-						DefaultFormation: 3,
-						DefaultMidnight: 1,
-						DefalutFlagShipDamageControl: 0,
-						DefaultEscortRetreat: 0,
-						DefaultAdvance: 1,
-						RejectEscortRetreatIfMoreOrEqualThanTwoEscortShipsHeavilyDamaged: true,
-						EscortShipsHeavilyDamagedStrategy: 1,
-						RetreatIfModerateOrHeavierDamagedCountLargerOrEqualThanFlag: false,
-						RetreatIfModerateOrHeavierDamagedCountLargerOrEqualThanValue: 1
-					}
-				},
-				{
-					Condition: {
-						Type: 1,
-						Value: 4
-					},
-					Strategy: {
-						DefaultWayPoint: null,
-						DefaultBattleRations: 0,
-						DefaultMaritimeResupply: 0,
-						DefaultFormation: 2,
-						DefaultMidnight: 1,
-						DefalutFlagShipDamageControl: 0,
-						DefaultEscortRetreat: 0,
-						DefaultAdvance: 1,
-						RejectEscortRetreatIfMoreOrEqualThanTwoEscortShipsHeavilyDamaged: true,
-						EscortShipsHeavilyDamagedStrategy: 1,
-						RetreatIfModerateOrHeavierDamagedCountLargerOrEqualThanFlag: false,
-						RetreatIfModerateOrHeavierDamagedCountLargerOrEqualThanValue: 1
-					}
-				},
-				{
-					Condition: {
-						Type: 1,
-						Value: 15
+						Value: 11
 					},
 					Strategy: {
 						DefaultWayPoint: null,
@@ -240,7 +200,7 @@
 		},
 		{
 			Type: "KancollePlayerSimulatorKai.BasicSupplyFleetWorkflow, KancollePlayerSimulatorKai, Version=1.2.3.2, Culture=neutral, PublicKeyToken=null",
-			Guid: "8c90c4b5-6bd2-4b32-a220-572cd8adc39e",
+			Guid: "7efc57f3-b528-4448-9eb0-04f290bccf9a",
 			Name: "补给",
 			Fleet: 1,
 			Setting: 32767,
@@ -257,7 +217,7 @@
 		},
 		{
 			Type: "KancollePlayerSimulatorKai.BasicDockingWorkflow, KancollePlayerSimulatorKai, Version=1.2.3.2, Culture=neutral, PublicKeyToken=null",
-			Guid: "a7fcba99-626c-4f26-bf3d-2a2a6cbf58bc",
+			Guid: "7529b83d-5a32-4c67-95a7-23029e39a490",
 			Name: "入渠",
 			LimitFleetFlag: true,
 			LimitFleetValue: 3,

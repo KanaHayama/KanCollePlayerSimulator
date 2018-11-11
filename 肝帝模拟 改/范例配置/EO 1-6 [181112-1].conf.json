@@ -1,18 +1,18 @@
 ﻿{
-	Name: "周常 5-2 南方海域珊瑚诸岛冲",
+	Name: "EO 1-6",
 	List: [
 		{
 			Type: "KancollePlayerSimulatorKai.MemoWorkflow, KancollePlayerSimulatorKai, Version=1.2.3.2, Culture=neutral, PublicKeyToken=null",
-			Guid: "d7a35e8d-0b47-4445-ab34-491b75797887",
+			Guid: "a36059c3-b7b0-4dab-9069-d530077e85b2",
 			Name: "注意事项",
-			Memo: "使用前手动更换编成、装备，或者自行添加并设置执行单元。\r\n1BB1CA2DD2CV（限定翔鹤&瑞鹤）",
+			Memo: "使用前手动更换编成、装备，或者自行添加并设置执行单元。\r\n下路AEGFB，5艘或以上DD/DE。\r\nB点强制进击。",
 			Script: null,
 			EnableScriptTrigger: true,
 			TriggerOnEnabled: false
 		},
 		{
 			Type: "KancollePlayerSimulatorKai.RelationalSortieWorkflow, KancollePlayerSimulatorKai, Version=1.2.3.2, Culture=neutral, PublicKeyToken=null",
-			Guid: "88d4269e-a693-45d7-aad5-c3f9385014c3",
+			Guid: "a8dbf695-8fe8-40b1-8192-73fac51c0161",
 			Name: "总控",
 			SleepTimeBase: "00:00:00",
 			SleepTimeRandomMax: "00:00:00",
@@ -33,13 +33,13 @@
 			DockingAfterFinishedEventThreshold: 1,
 			DockingBeforeWorkflows: [
 				{
-					Guid: "a7fcba99-626c-4f26-bf3d-2a2a6cbf58bc",
+					Guid: "e4e4843e-ca90-4e7a-ad46-5e2919e7245c",
 					IgnoreTriggerFailure: true
 				}
 			],
 			DockingAfterWorkflows: [
 				{
-					Guid: "a7fcba99-626c-4f26-bf3d-2a2a6cbf58bc",
+					Guid: "e4e4843e-ca90-4e7a-ad46-5e2919e7245c",
 					IgnoreTriggerFailure: false
 				}
 			],
@@ -47,22 +47,22 @@
 			SupplyAfterFinishedEventThreshold: 1,
 			SupplyBeforeWorkflows: [
 				{
-					Guid: "8c90c4b5-6bd2-4b32-a220-572cd8adc39e",
+					Guid: "c60c20c5-77bd-4e5f-a747-98b1ae4dbb14",
 					IgnoreTriggerFailure: true
 				}
 			],
 			SupplyAfterWorkflows: [
 				{
-					Guid: "8c90c4b5-6bd2-4b32-a220-572cd8adc39e",
+					Guid: "c60c20c5-77bd-4e5f-a747-98b1ae4dbb14",
 					IgnoreTriggerFailure: false
 				}
 			],
 			SortieWorkflow: {
-				Guid: "eaad0086-709e-43bd-8e7c-b8fa7db91d7c",
+				Guid: "9e25ed4a-ed53-426e-a0c5-b7c4e4381c79",
 				IgnoreTriggerFailure: false
 			},
 			StopIfLoopCountLargerOrEqualThanFlag: true,
-			StopIfLoopCountLargerOrEqualThanValue: 5,
+			StopIfLoopCountLargerOrEqualThanValue: 10,
 			StopIfRuntimeLengthExceedFlag: false,
 			StopIfRuntimeLengthExceedValueDays: 0,
 			StopIfRuntimeLengthExceedValueHours: 0,
@@ -88,12 +88,12 @@
 			StopIfEnemyFlagShipSunkValueConditionValue: 1,
 			StopIfBattleRankHigherOrEqualThanFlag: true,
 			StopIfBattleRankHigherOrEqualThanValueConditionType: 1,
-			StopIfBattleRankHigherOrEqualThanValueConditionValue: 15,
-			StopIfBattleRankHigherOrEqualThanValueRank: 2,
-			StopIfBattleRankHigherOrEqualThanValueThreshold: 2,
+			StopIfBattleRankHigherOrEqualThanValueConditionValue: 13,
+			StopIfBattleRankHigherOrEqualThanValueRank: 7,
+			StopIfBattleRankHigherOrEqualThanValueThreshold: 7,
 			AutoStoppedDisableWorkflows: [
 				{
-					Guid: "a7fcba99-626c-4f26-bf3d-2a2a6cbf58bc",
+					Guid: "e4e4843e-ca90-4e7a-ad46-5e2919e7245c",
 					IgnoreTriggerFailure: false
 				}
 			],
@@ -120,11 +120,11 @@
 		},
 		{
 			Type: "KancollePlayerSimulatorKai.SimpleSortieWorkflow, KancollePlayerSimulatorKai, Version=1.2.3.2, Culture=neutral, PublicKeyToken=null",
-			Guid: "eaad0086-709e-43bd-8e7c-b8fa7db91d7c",
-			Name: "5-2",
+			Guid: "9e25ed4a-ed53-426e-a0c5-b7c4e4381c79",
+			Name: "1-6",
 			Fleet: 1,
-			Sea: 5,
-			Area: 2,
+			Sea: 1,
+			Area: 6,
 			EscortShipNoHeavilyDamaged: true,
 			FlagShipFullySupplied: true,
 			EscortShipFullySupplied: true,
@@ -161,8 +161,8 @@
 				DefaultWayPoint: null,
 				DefaultBattleRations: 0,
 				DefaultMaritimeResupply: 0,
-				DefaultFormation: 1,
-				DefaultMidnight: 1,
+				DefaultFormation: 0,
+				DefaultMidnight: 0,
 				DefalutFlagShipDamageControl: 0,
 				DefaultEscortRetreat: 0,
 				DefaultAdvance: 1,
@@ -176,6 +176,26 @@
 					Condition: {
 						Type: 1,
 						Value: 3
+					},
+					Strategy: {
+						DefaultWayPoint: null,
+						DefaultBattleRations: 0,
+						DefaultMaritimeResupply: 0,
+						DefaultFormation: 5,
+						DefaultMidnight: 1,
+						DefalutFlagShipDamageControl: 0,
+						DefaultEscortRetreat: 0,
+						DefaultAdvance: 1,
+						RejectEscortRetreatIfMoreOrEqualThanTwoEscortShipsHeavilyDamaged: true,
+						EscortShipsHeavilyDamagedStrategy: 1,
+						RetreatIfModerateOrHeavierDamagedCountLargerOrEqualThanFlag: false,
+						RetreatIfModerateOrHeavierDamagedCountLargerOrEqualThanValue: 1
+					}
+				},
+				{
+					Condition: {
+						Type: 1,
+						Value: 12
 					},
 					Strategy: {
 						DefaultWayPoint: null,
@@ -195,39 +215,19 @@
 				{
 					Condition: {
 						Type: 1,
-						Value: 4
-					},
-					Strategy: {
-						DefaultWayPoint: null,
-						DefaultBattleRations: 0,
-						DefaultMaritimeResupply: 0,
-						DefaultFormation: 2,
-						DefaultMidnight: 1,
-						DefalutFlagShipDamageControl: 0,
-						DefaultEscortRetreat: 0,
-						DefaultAdvance: 1,
-						RejectEscortRetreatIfMoreOrEqualThanTwoEscortShipsHeavilyDamaged: true,
-						EscortShipsHeavilyDamagedStrategy: 1,
-						RetreatIfModerateOrHeavierDamagedCountLargerOrEqualThanFlag: false,
-						RetreatIfModerateOrHeavierDamagedCountLargerOrEqualThanValue: 1
-					}
-				},
-				{
-					Condition: {
-						Type: 1,
-						Value: 15
+						Value: 13
 					},
 					Strategy: {
 						DefaultWayPoint: null,
 						DefaultBattleRations: 0,
 						DefaultMaritimeResupply: 0,
 						DefaultFormation: 1,
-						DefaultMidnight: 2,
+						DefaultMidnight: 1,
 						DefalutFlagShipDamageControl: 0,
 						DefaultEscortRetreat: 0,
-						DefaultAdvance: 0,
+						DefaultAdvance: 1,
 						RejectEscortRetreatIfMoreOrEqualThanTwoEscortShipsHeavilyDamaged: true,
-						EscortShipsHeavilyDamagedStrategy: 1,
+						EscortShipsHeavilyDamagedStrategy: 3,
 						RetreatIfModerateOrHeavierDamagedCountLargerOrEqualThanFlag: false,
 						RetreatIfModerateOrHeavierDamagedCountLargerOrEqualThanValue: 1
 					}
@@ -240,7 +240,7 @@
 		},
 		{
 			Type: "KancollePlayerSimulatorKai.BasicSupplyFleetWorkflow, KancollePlayerSimulatorKai, Version=1.2.3.2, Culture=neutral, PublicKeyToken=null",
-			Guid: "8c90c4b5-6bd2-4b32-a220-572cd8adc39e",
+			Guid: "c60c20c5-77bd-4e5f-a747-98b1ae4dbb14",
 			Name: "补给",
 			Fleet: 1,
 			Setting: 32767,
@@ -257,13 +257,13 @@
 		},
 		{
 			Type: "KancollePlayerSimulatorKai.BasicDockingWorkflow, KancollePlayerSimulatorKai, Version=1.2.3.2, Culture=neutral, PublicKeyToken=null",
-			Guid: "a7fcba99-626c-4f26-bf3d-2a2a6cbf58bc",
+			Guid: "e4e4843e-ca90-4e7a-ad46-5e2919e7245c",
 			Name: "入渠",
 			LimitFleetFlag: true,
 			LimitFleetValue: 3,
 			LimitHpPercentFlag: true,
 			LimitHpPercentMinValue: 0.0,
-			LimitHpPercentMaxValue: 0.75,
+			LimitHpPercentMaxValue: 0.5,
 			LimitRepairTimeFlag: false,
 			LimitRepairTimeMinValue: "00:00:00",
 			LimitRepairTimeMaxValue: "4.04:00:00",
