@@ -17,7 +17,7 @@
 			SleepTimeBase: "00:00:00",
 			SleepTimeRandomMax: "00:00:00",
 			DoNotSleepAtFirstLoop: false,
-			SleepUntilMoraleRecoveredFlag: false,
+			SleepUntilMoraleRecoveredFlag: true,
 			SleepUntilMoraleRecoveredValueMorale: 40,
 			SleepUntilAnyDockEmptyFlag: false,
 			SleepUntilAnyDockEmptyValueDocks: 15,
