@@ -1,26 +1,28 @@
 ﻿{
-	Name: "周常 3-3 敌北方舰队主力",
+	Name: "月常 1-4 水雷战队",
 	List: [
 		{
-			Type: "KancollePlayerSimulatorKai.MemoWorkflow, KancollePlayerSimulatorKai, Version=1.2.3.2, Culture=neutral, PublicKeyToken=null",
-			Guid: "d077b906-eba4-483c-8529-71b54754412e",
+			Type: "KancollePlayerSimulatorKai.MemoWorkflow, KancollePlayerSimulatorKai, Version=1.2.4.0, Culture=neutral, PublicKeyToken=null",
+			Guid: "be3cc056-03da-464e-98bf-ce4847213beb",
 			Name: "注意事项",
-			Memo: "使用前手动更换编成、装备，或者自行添加并设置执行单元。\r\n1CA1CL2DD1CVL1CV",
+			Memo: "使用前手动更换编成、装备，或者自行添加并设置执行单元。\r\n1~3CL(旗舰)1~5DD。\r\nBoss点编号10&12，道中也有编号为10的点，故用战斗场数判断Boss。",
 			Script: null,
 			EnableScriptTrigger: true,
 			TriggerOnEnabled: false
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.RelationalSortieWorkflow, KancollePlayerSimulatorKai, Version=1.2.3.2, Culture=neutral, PublicKeyToken=null",
-			Guid: "41fc01c3-e85d-40c5-8bae-99971ca01644",
+			Type: "KancollePlayerSimulatorKai.RelationalSortieWorkflow, KancollePlayerSimulatorKai, Version=1.2.4.0, Culture=neutral, PublicKeyToken=null",
+			Guid: "e233937c-3efa-4d74-87e3-866aa42aa5cc",
 			Name: "总控",
 			SleepTimeBase: "00:00:00",
-			SleepTimeRandomMax: "00:01:00",
+			SleepTimeRandomMax: "00:00:00",
 			DoNotSleepAtFirstLoop: false,
 			SleepUntilMoraleRecoveredFlag: true,
 			SleepUntilMoraleRecoveredValueMorale: 40,
 			SleepUntilAnyDockEmptyFlag: false,
 			SleepUntilAnyDockEmptyValueDocks: 15,
+			SleepUntilAllDocksEmptyFlag: false,
+			SleepUntilAllDocksEmptyValueDocks: 15,
 			OrganizeBeforeFinishedEventThreshold: 1,
 			OrganizeAfterFinishedEventThreshold: 1,
 			OrganizeBeforeWorkflows: [],
@@ -33,13 +35,13 @@
 			DockingAfterFinishedEventThreshold: 1,
 			DockingBeforeWorkflows: [
 				{
-					Guid: "141f3d4c-1302-45f2-9719-42d97189812d",
+					Guid: "c6a5cfbe-f138-474a-842e-01fa3d838d1c",
 					IgnoreTriggerFailure: true
 				}
 			],
 			DockingAfterWorkflows: [
 				{
-					Guid: "141f3d4c-1302-45f2-9719-42d97189812d",
+					Guid: "c6a5cfbe-f138-474a-842e-01fa3d838d1c",
 					IgnoreTriggerFailure: false
 				}
 			],
@@ -47,22 +49,22 @@
 			SupplyAfterFinishedEventThreshold: 1,
 			SupplyBeforeWorkflows: [
 				{
-					Guid: "e599feb0-ca3f-4bb0-a222-91416858511c",
+					Guid: "7571cb35-2e12-467b-9567-7041be7de1c3",
 					IgnoreTriggerFailure: true
 				}
 			],
 			SupplyAfterWorkflows: [
 				{
-					Guid: "e599feb0-ca3f-4bb0-a222-91416858511c",
+					Guid: "7571cb35-2e12-467b-9567-7041be7de1c3",
 					IgnoreTriggerFailure: false
 				}
 			],
 			SortieWorkflow: {
-				Guid: "2bdd82ec-cdd5-42ed-83ab-5731f49d2c00",
+				Guid: "1e1dca4f-7771-467b-8cca-3b16a4aab35c",
 				IgnoreTriggerFailure: false
 			},
 			StopIfLoopCountLargerOrEqualThanFlag: true,
-			StopIfLoopCountLargerOrEqualThanValue: 10,
+			StopIfLoopCountLargerOrEqualThanValue: 5,
 			StopIfRuntimeLengthExceedFlag: false,
 			StopIfRuntimeLengthExceedValueDays: 0,
 			StopIfRuntimeLengthExceedValueHours: 0,
@@ -87,17 +89,10 @@
 			StopIfEnemyFlagShipSunkValueConditionType: 0,
 			StopIfEnemyFlagShipSunkValueConditionValue: 1,
 			StopIfBattleRankHigherOrEqualThanFlag: true,
-			StopIfBattleRankHigherOrEqualThanValueConditionType: 1,
-			StopIfBattleRankHigherOrEqualThanValueConditionValue: 13,
-			StopIfBattleRankHigherOrEqualThanValueRank: 4,
-			StopIfBattleRankHigherOrEqualThanValueThreshold: 5,
-			AutoStoppedDisableWorkflows: [
-				{
-					Guid: "141f3d4c-1302-45f2-9719-42d97189812d",
-					IgnoreTriggerFailure: false
-				}
-			],
-			AutoStoppedTriggerWorkflows: [],
+			StopIfBattleRankHigherOrEqualThanValueConditionType: 0,
+			StopIfBattleRankHigherOrEqualThanValueConditionValue: 3,
+			StopIfBattleRankHigherOrEqualThanValueRank: 2,
+			StopIfBattleRankHigherOrEqualThanValueThreshold: 1,
 			IgnoreOrganizeBeforeFailure: false,
 			IgnoreOrganizeAfterFailure: false,
 			IgnoreSortieFailure: true,
@@ -114,17 +109,25 @@
 			WaitHomeAfterSleep: false,
 			RefreshDataBeforeSortie: true,
 			ReturnRoomAtLast: true,
+			AutoStoppedEnableWorkflows: [],
+			AutoStoppedDisableWorkflows: [
+				{
+					Guid: "c6a5cfbe-f138-474a-842e-01fa3d838d1c",
+					IgnoreTriggerFailure: false
+				}
+			],
+			AutoStoppedTriggerWorkflows: [],
 			Script: null,
 			EnableScriptTrigger: true,
 			TriggerOnEnabled: true
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.SimpleSortieWorkflow, KancollePlayerSimulatorKai, Version=1.2.3.2, Culture=neutral, PublicKeyToken=null",
-			Guid: "2bdd82ec-cdd5-42ed-83ab-5731f49d2c00",
-			Name: "3-3",
+			Type: "KancollePlayerSimulatorKai.SimpleSortieWorkflow, KancollePlayerSimulatorKai, Version=1.2.4.0, Culture=neutral, PublicKeyToken=null",
+			Guid: "1e1dca4f-7771-467b-8cca-3b16a4aab35c",
+			Name: "1-4",
 			Fleet: 1,
-			Sea: 3,
-			Area: 3,
+			Sea: 1,
+			Area: 4,
 			EscortShipNoHeavilyDamaged: true,
 			FlagShipFullySupplied: true,
 			EscortShipFullySupplied: true,
@@ -174,8 +177,8 @@
 			Strategies: [
 				{
 					Condition: {
-						Type: 1,
-						Value: 13
+						Type: 0,
+						Value: 3
 					},
 					Strategy: {
 						DefaultWayPoint: null,
@@ -199,8 +202,8 @@
 			TriggerOnEnabled: false
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.BasicSupplyFleetWorkflow, KancollePlayerSimulatorKai, Version=1.2.3.2, Culture=neutral, PublicKeyToken=null",
-			Guid: "e599feb0-ca3f-4bb0-a222-91416858511c",
+			Type: "KancollePlayerSimulatorKai.BasicSupplyFleetWorkflow, KancollePlayerSimulatorKai, Version=1.2.4.0, Culture=neutral, PublicKeyToken=null",
+			Guid: "7571cb35-2e12-467b-9567-7041be7de1c3",
 			Name: "补给",
 			Fleet: 1,
 			Setting: 32767,
@@ -216,8 +219,8 @@
 			TriggerOnEnabled: false
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.BasicDockingWorkflow, KancollePlayerSimulatorKai, Version=1.2.3.2, Culture=neutral, PublicKeyToken=null",
-			Guid: "141f3d4c-1302-45f2-9719-42d97189812d",
+			Type: "KancollePlayerSimulatorKai.BasicDockingWorkflow, KancollePlayerSimulatorKai, Version=1.2.4.0, Culture=neutral, PublicKeyToken=null",
+			Guid: "c6a5cfbe-f138-474a-842e-01fa3d838d1c",
 			Name: "入渠",
 			LimitFleetFlag: true,
 			LimitFleetValue: 3,
@@ -236,6 +239,7 @@
 			InstantRepairTimeLimit: "00:00:00",
 			Repeat: true,
 			Docks: 15,
+			DockingOneShipEachTime: false,
 			RefreshDataTaskPriority: 0,
 			DockingTaskPriority: 0,
 			DelaySecondsAfterRepairFinishedBase: 0,

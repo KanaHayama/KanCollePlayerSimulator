@@ -1,0 +1,397 @@
+﻿{
+	Name: "刷闪 1-1 单舰",
+	List: [
+		{
+			Type: "KancollePlayerSimulatorKai.MemoWorkflow, KancollePlayerSimulatorKai, Version=1.2.4.0, Culture=neutral, PublicKeyToken=null",
+			Guid: "2a1630ee-b0db-49ec-8deb-6a7e05d25118",
+			Name: "注意事项",
+			Memo: "1-1单舰刷闪，不带狗粮，不换配置，刷到83就换。\r\n可在此基础上修改为适合自己习惯的设置。\r\n先设置好要刷的船。\r\n“刷完修理”会持续入渠，不需要时记得禁用。",
+			Script: null,
+			EnableScriptTrigger: true,
+			TriggerOnEnabled: false
+		},
+		{
+			Type: "KancollePlayerSimulatorKai.RelationalSortieWorkflow, KancollePlayerSimulatorKai, Version=1.2.4.0, Culture=neutral, PublicKeyToken=null",
+			Guid: "2656b3b6-db1d-43d0-87f7-a2596c8a08dc",
+			Name: "总控(启用这个)",
+			SleepTimeBase: "00:00:00",
+			SleepTimeRandomMax: "00:00:00",
+			DoNotSleepAtFirstLoop: false,
+			SleepUntilMoraleRecoveredFlag: false,
+			SleepUntilMoraleRecoveredValueMorale: 49,
+			SleepUntilAnyDockEmptyFlag: false,
+			SleepUntilAnyDockEmptyValueDocks: 15,
+			SleepUntilAllDocksEmptyFlag: false,
+			SleepUntilAllDocksEmptyValueDocks: 15,
+			OrganizeBeforeFinishedEventThreshold: 1,
+			OrganizeAfterFinishedEventThreshold: 1,
+			OrganizeBeforeWorkflows: [
+				{
+					Guid: "aa2de0d7-b6d0-40ce-ba38-b7deeff9e452",
+					IgnoreTriggerFailure: false
+				}
+			],
+			OrganizeAfterWorkflows: [],
+			ScrapShipBeforeFinishedEventThreshold: 1,
+			ScrapShipAfterFinishedEventThreshold: 1,
+			ScrapShipBeforeWorkflows: [],
+			ScrapShipAfterWorkflows: [],
+			DockingBeforeFinishedEventThreshold: 1,
+			DockingAfterFinishedEventThreshold: 1,
+			DockingBeforeWorkflows: [
+				{
+					Guid: "7d3e41e9-1fb2-4e7f-ad5c-38b0c921374d",
+					IgnoreTriggerFailure: false
+				}
+			],
+			DockingAfterWorkflows: [
+				{
+					Guid: "0aa71eb0-8926-4d4d-a75d-9ec76c02f46d",
+					IgnoreTriggerFailure: true
+				}
+			],
+			SupplyBeforeFinishedEventThreshold: 1,
+			SupplyAfterFinishedEventThreshold: 1,
+			SupplyBeforeWorkflows: [
+				{
+					Guid: "7c9f6e18-622f-4a63-8c28-d9e113482ad2",
+					IgnoreTriggerFailure: false
+				}
+			],
+			SupplyAfterWorkflows: [
+				{
+					Guid: "7c9f6e18-622f-4a63-8c28-d9e113482ad2",
+					IgnoreTriggerFailure: false
+				}
+			],
+			SortieWorkflow: {
+				Guid: "bca50d27-ae0b-4711-98fd-29f45a361203",
+				IgnoreTriggerFailure: false
+			},
+			StopIfLoopCountLargerOrEqualThanFlag: false,
+			StopIfLoopCountLargerOrEqualThanValue: 1,
+			StopIfRuntimeLengthExceedFlag: false,
+			StopIfRuntimeLengthExceedValueDays: 0,
+			StopIfRuntimeLengthExceedValueHours: 0,
+			StopIfRuntimeLengthExceedValueMinutes: 0,
+			StopIfRuntimeLengthExceedValueSeconds: 0,
+			StopIfWithinTimePeriodFlag: false,
+			StopIfWithinTimePeriodValueStartHours: 22,
+			StopIfWithinTimePeriodValueStartMinutes: 0,
+			StopIfWithinTimePeriodValueEndHours: 8,
+			StopIfWithinTimePeriodValueEndMinutes: 0,
+			StopIfShipVacancyLessOrEqualThanFlag: false,
+			StopIfShipVacancyLessOrEqualThanValue: 0,
+			StopIfEquipmentVacancyLessOrEqualThanFlag: false,
+			StopIfEquipmentVacancyLessOrEqualThanValue: 0,
+			StopIfOrganizeBeforeSelectFailed: true,
+			StopIfOrganizeAfterSelectFailed: false,
+			StopIfGetMedal: false,
+			StopIfGetShipFlag: false,
+			StopIfGetShipValueShipNames: "",
+			StopIfEnemyFlagShipSunkFlag: false,
+			StopIfEnemyFlagShipSunkValueThreshold: 1,
+			StopIfEnemyFlagShipSunkValueConditionType: 0,
+			StopIfEnemyFlagShipSunkValueConditionValue: 1,
+			StopIfBattleRankHigherOrEqualThanFlag: false,
+			StopIfBattleRankHigherOrEqualThanValueConditionType: 0,
+			StopIfBattleRankHigherOrEqualThanValueConditionValue: 1,
+			StopIfBattleRankHigherOrEqualThanValueRank: 4,
+			StopIfBattleRankHigherOrEqualThanValueThreshold: 1,
+			IgnoreOrganizeBeforeFailure: false,
+			IgnoreOrganizeAfterFailure: false,
+			IgnoreSortieFailure: false,
+			FinishLoopIfOrganizeBeforeFailureFlag: false,
+			FinishLoopIfOrganizeBeforeFailureValueThreshold: 1,
+			FinishLoopIfOrganizeAfterFailureFlag: false,
+			FinishLoopIfOrganizeAfterFailureValueThreshold: 1,
+			FinishLoopIfSortieFailureFlag: true,
+			FinishLoopIfSortieFailureValueThreshold: 1,
+			Fleet: 1,
+			Repeat: true,
+			RefreshDataTaskPriority: 233,
+			WaitHomeBeforeSleep: false,
+			WaitHomeAfterSleep: false,
+			RefreshDataBeforeSortie: false,
+			ReturnRoomAtLast: false,
+			AutoStoppedEnableWorkflows: [],
+			AutoStoppedDisableWorkflows: [
+				{
+					Guid: "7d3e41e9-1fb2-4e7f-ad5c-38b0c921374d",
+					IgnoreTriggerFailure: false
+				},
+				{
+					Guid: "aa2de0d7-b6d0-40ce-ba38-b7deeff9e452",
+					IgnoreTriggerFailure: false
+				}
+			],
+			AutoStoppedTriggerWorkflows: [
+				{
+					Guid: "8b9e2d7e-0e56-4b20-abe1-ace6ba715f46",
+					IgnoreTriggerFailure: false
+				}
+			],
+			Script: null,
+			EnableScriptTrigger: true,
+			TriggerOnEnabled: true
+		},
+		{
+			Type: "KancollePlayerSimulatorKai.BasicDockingWorkflow, KancollePlayerSimulatorKai, Version=1.2.4.0, Culture=neutral, PublicKeyToken=null",
+			Guid: "7d3e41e9-1fb2-4e7f-ad5c-38b0c921374d",
+			Name: "大破扔桶",
+			LimitFleetFlag: true,
+			LimitFleetValue: 3,
+			LimitHpPercentFlag: true,
+			LimitHpPercentMinValue: 0.0,
+			LimitHpPercentMaxValue: 0.25,
+			LimitRepairTimeFlag: false,
+			LimitRepairTimeMinValue: "00:00:00",
+			LimitRepairTimeMaxValue: "4.04:00:00",
+			LimitMoraleFlag: false,
+			LimitMoraleMinValue: 0,
+			LimitMoraleMaxValue: 100,
+			SelectStrategy: 0,
+			ForceDocking: true,
+			InstantRepair: true,
+			InstantRepairTimeLimit: "00:00:00",
+			Repeat: true,
+			Docks: 15,
+			DockingOneShipEachTime: false,
+			RefreshDataTaskPriority: 0,
+			DockingTaskPriority: 233,
+			DelaySecondsAfterRepairFinishedBase: 0,
+			DelaySecondsAfterRepairFinishedRandomMax: -60,
+			SetNonSetDockingTimersAtFirst: true,
+			WaitHomeAtFirst: false,
+			RefreshDataBeforeDocking: false,
+			ReturnRoomAtLast: false,
+			Script: null,
+			EnableScriptTrigger: true,
+			TriggerOnEnabled: false
+		},
+		{
+			Type: "KancollePlayerSimulatorKai.BasicDockingWorkflow, KancollePlayerSimulatorKai, Version=1.2.4.0, Culture=neutral, PublicKeyToken=null",
+			Guid: "0aa71eb0-8926-4d4d-a75d-9ec76c02f46d",
+			Name: "刷完修理",
+			LimitFleetFlag: true,
+			LimitFleetValue: 4096,
+			LimitHpPercentFlag: false,
+			LimitHpPercentMinValue: 0.0,
+			LimitHpPercentMaxValue: 1.0,
+			LimitRepairTimeFlag: false,
+			LimitRepairTimeMinValue: "00:00:00",
+			LimitRepairTimeMaxValue: "4.04:00:00",
+			LimitMoraleFlag: false,
+			LimitMoraleMinValue: 0,
+			LimitMoraleMaxValue: 100,
+			SelectStrategy: 0,
+			ForceDocking: false,
+			InstantRepair: false,
+			InstantRepairTimeLimit: "00:00:00",
+			Repeat: true,
+			Docks: 15,
+			DockingOneShipEachTime: false,
+			RefreshDataTaskPriority: 0,
+			DockingTaskPriority: 233,
+			DelaySecondsAfterRepairFinishedBase: 0,
+			DelaySecondsAfterRepairFinishedRandomMax: -60,
+			SetNonSetDockingTimersAtFirst: true,
+			WaitHomeAtFirst: false,
+			RefreshDataBeforeDocking: false,
+			ReturnRoomAtLast: true,
+			Script: null,
+			EnableScriptTrigger: true,
+			TriggerOnEnabled: false
+		},
+		{
+			Type: "KancollePlayerSimulatorKai.BasicSupplyFleetWorkflow, KancollePlayerSimulatorKai, Version=1.2.4.0, Culture=neutral, PublicKeyToken=null",
+			Guid: "7c9f6e18-622f-4a63-8c28-d9e113482ad2",
+			Name: "补给",
+			Fleet: 1,
+			Setting: 32767,
+			SkipIfAllResourcePercentHigherThanFlag: false,
+			SkipIfAllResourcePercentHigherThanValue: 100,
+			RefreshDataTaskPriority: 0,
+			SupplyFleetTaskPriority: 233,
+			WaitHomeAtFirst: false,
+			RefreshDataBeforeSupplyFleet: false,
+			ReturnRoomAtLast: false,
+			Script: null,
+			EnableScriptTrigger: true,
+			TriggerOnEnabled: false
+		},
+		{
+			Type: "KancollePlayerSimulatorKai.SimpleSortieWorkflow, KancollePlayerSimulatorKai, Version=1.2.4.0, Culture=neutral, PublicKeyToken=null",
+			Guid: "bca50d27-ae0b-4711-98fd-29f45a361203",
+			Name: "1-1",
+			Fleet: 1,
+			Sea: 1,
+			Area: 1,
+			EscortShipNoHeavilyDamaged: true,
+			FlagShipFullySupplied: false,
+			EscortShipFullySupplied: false,
+			FlagShipMoraleLargerOrEqualThanFlag: false,
+			FlagShipMoraleLargerOrEqualThanValue: 40,
+			EscortShipMoraleLargerOrEqualThanFlag: false,
+			EscortShipMoraleLargerOrEqualThanValue: 40,
+			NormalSupportExpedition: false,
+			NormalSupportExpeditionFleet: 3,
+			NormalSupportExpeditionTemporaryResupply: true,
+			NormalSupportExpeditionCheckFullySupplied: true,
+			NormalSupportExpeditionCheckMorale: true,
+			BossSupportExpedition: false,
+			BossSupportExpeditionFleet: 3,
+			BossSupportExpeditionTemporaryResupply: true,
+			BossSupportExpeditionCheckFullySupplied: true,
+			BossSupportExpeditionCheckMorale: true,
+			LandBasedAirCorps1Action: 1,
+			LandBasedAirCorps1Resupply: 15,
+			LandBasedAirCorps1Point1: null,
+			LandBasedAirCorps1Point2: null,
+			LandBasedAirCorps1CheckFatigue: true,
+			LandBasedAirCorps2Action: 0,
+			LandBasedAirCorps2Resupply: 15,
+			LandBasedAirCorps2Point1: null,
+			LandBasedAirCorps2Point2: null,
+			LandBasedAirCorps2CheckFatigue: true,
+			LandBasedAirCorps3Action: 0,
+			LandBasedAirCorps3Resupply: 15,
+			LandBasedAirCorps3Point1: null,
+			LandBasedAirCorps3Point2: null,
+			LandBasedAirCorps3CheckFatigue: true,
+			DefaultStrategy: {
+				DefaultWayPoint: null,
+				DefaultBattleRations: 0,
+				DefaultMaritimeResupply: 0,
+				DefaultFormation: 1,
+				DefaultMidnight: 1,
+				DefalutFlagShipDamageControl: 0,
+				DefaultEscortRetreat: 0,
+				DefaultAdvance: 1,
+				RejectEscortRetreatIfMoreOrEqualThanTwoEscortShipsHeavilyDamaged: true,
+				EscortShipsHeavilyDamagedStrategy: 1,
+				RetreatIfModerateOrHeavierDamagedCountLargerOrEqualThanFlag: false,
+				RetreatIfModerateOrHeavierDamagedCountLargerOrEqualThanValue: 1
+			},
+			Strategies: [],
+			SortieTaskPriority: -32768,
+			Script: null,
+			EnableScriptTrigger: true,
+			TriggerOnEnabled: false
+		},
+		{
+			Type: "KancollePlayerSimulatorKai.BasicAnchorageRepairWorkflow, KancollePlayerSimulatorKai, Version=1.2.4.0, Culture=neutral, PublicKeyToken=null",
+			Guid: "8b9e2d7e-0e56-4b20-abe1-ace6ba715f46",
+			Name: "泊地修理",
+			Fleet: 1,
+			IncludeAkashiInOtherFleets: false,
+			IncludeShipsInOtherFleets: false,
+			SleepMinutes: 20,
+			AutoStop: true,
+			Repeat: true,
+			AcceptOthersSleepFinishedEvent: true,
+			RefreshDataTaskPriority: 0,
+			OrganizeFleetTaskPriority: 0,
+			WaitHomeBeforeAction: false,
+			RefreshDataAfterSleep: true,
+			ReturnRoomAfterAction: true,
+			Script: null,
+			EnableScriptTrigger: true,
+			TriggerOnEnabled: false
+		},
+		{
+			Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.2.4.0, Culture=neutral, PublicKeyToken=null",
+			Guid: "aa2de0d7-b6d0-40ce-ba38-b7deeff9e452",
+			Name: "待刷(自行修改)",
+			Fleet: 1,
+			Positions: [
+				{
+					Selections: [
+						{
+							Type: 0,
+							Value: "0",
+							Memo: "把要刷闪的船"
+						},
+						{
+							Type: 0,
+							Value: "0",
+							Memo: "的ID填进左面"
+						},
+						{
+							Type: 0,
+							Value: "0",
+							Memo: "然后触发“总控”"
+						},
+						{
+							Type: 0,
+							Value: "0",
+							Memo: "全闪了之后"
+						},
+						{
+							Type: 0,
+							Value: "0",
+							Memo: "会因为没船可换"
+						},
+						{
+							Type: 0,
+							Value: "0",
+							Memo: "而报错"
+						},
+						{
+							Type: 0,
+							Value: "0",
+							Memo: "出击就停止了"
+						},
+						{
+							Type: 0,
+							Value: "0",
+							Memo: "空位不够的自己加"
+						},
+						{
+							Type: 0,
+							Value: "0",
+							Memo: "多出来的要删掉"
+						}
+					],
+					ChangeIfInitial: true,
+					ChangeIfHpInRangeFlag: false,
+					ChangeIfHpInRangeValueMin: 0.0,
+					ChangeIfHpInRangeValueMax: 0.25,
+					ChangeIfMoraleInRangeFlag: true,
+					ChangeIfMoraleInRangeValueMin: 83,
+					ChangeIfMoraleInRangeValueMax: 100,
+					SkipWrongShips: true,
+					SkipRepairingShips: true,
+					SkipExpeditioningShips: true,
+					SkipShipsInThisFleet: false,
+					IgnoreSkipShipsInThisFleetIfInitial: true,
+					SkipShipsInOtherFleets: false,
+					IgnoreSkipShipsInOtherFleetsIfInitial: false,
+					SkipHpInRangeFlag: false,
+					SkipHpInRangeValueMin: 0.0,
+					SkipHpInRangeValueMax: 0.25,
+					SkipMoraleInRangeFlag: true,
+					SkipMoraleInRangeValueMin: 83,
+					SkipMoraleInRangeValueMax: 100,
+					SkipLocked: false,
+					SkipUnlocked: false,
+					SkipNoConventionalEquipments: false,
+					SelectionSortingMethod: 1,
+					IncludeCurrentSelection: true,
+					KeepIfAllSelectionsFailed: false,
+					KeepIfSelectionCollectionEmpty: false
+				}
+			],
+			RollBackProgressIfOrganizeFailed: true,
+			ResetAllCurrentStrategiesIfDisabled: true,
+			RefreshDataTaskPriority: 0,
+			OrganizeFleetTaskPriority: 233,
+			WaitHomeAtFirst: false,
+			RefreshDataBeforeOrganize: false,
+			ReturnRoomAtLast: false,
+			Script: null,
+			EnableScriptTrigger: true,
+			TriggerOnEnabled: false
+		}
+	]
+}

@@ -2,16 +2,16 @@
 	Name: "周常 1-5 潜水舰&海上输送",
 	List: [
 		{
-			Type: "KancollePlayerSimulatorKai.MemoWorkflow, KancollePlayerSimulatorKai, Version=1.2.3.2, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.MemoWorkflow, KancollePlayerSimulatorKai, Version=1.2.4.0, Culture=neutral, PublicKeyToken=null",
 			Guid: "35331e00-dd16-4e65-81f8-87658a1ebfb4",
 			Name: "注意事项",
-			Memo: "使用前手动更换编成、装备，或者自行添加并设置执行单元。\r\n4DE\r\n全反潜",
+			Memo: "使用前手动更换编成、装备，或者自行添加并设置执行单元。\r\n4DE。\r\n全反潜。",
 			Script: null,
 			EnableScriptTrigger: true,
 			TriggerOnEnabled: false
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.RelationalSortieWorkflow, KancollePlayerSimulatorKai, Version=1.2.3.2, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.RelationalSortieWorkflow, KancollePlayerSimulatorKai, Version=1.2.4.0, Culture=neutral, PublicKeyToken=null",
 			Guid: "546fb464-fec3-479e-9a61-2428ef3a3d60",
 			Name: "总控",
 			SleepTimeBase: "00:00:00",
@@ -21,6 +21,8 @@
 			SleepUntilMoraleRecoveredValueMorale: 40,
 			SleepUntilAnyDockEmptyFlag: false,
 			SleepUntilAnyDockEmptyValueDocks: 15,
+			SleepUntilAllDocksEmptyFlag: false,
+			SleepUntilAllDocksEmptyValueDocks: 15,
 			OrganizeBeforeFinishedEventThreshold: 1,
 			OrganizeAfterFinishedEventThreshold: 1,
 			OrganizeBeforeWorkflows: [],
@@ -91,13 +93,6 @@
 			StopIfBattleRankHigherOrEqualThanValueConditionValue: 11,
 			StopIfBattleRankHigherOrEqualThanValueRank: 3,
 			StopIfBattleRankHigherOrEqualThanValueThreshold: 3,
-			AutoStoppedDisableWorkflows: [
-				{
-					Guid: "4d1d0cf0-6a9c-4a06-b2b0-af737c974302",
-					IgnoreTriggerFailure: false
-				}
-			],
-			AutoStoppedTriggerWorkflows: [],
 			IgnoreOrganizeBeforeFailure: false,
 			IgnoreOrganizeAfterFailure: false,
 			IgnoreSortieFailure: true,
@@ -114,12 +109,20 @@
 			WaitHomeAfterSleep: false,
 			RefreshDataBeforeSortie: true,
 			ReturnRoomAtLast: true,
+			AutoStoppedEnableWorkflows: [],
+			AutoStoppedDisableWorkflows: [
+				{
+					Guid: "4d1d0cf0-6a9c-4a06-b2b0-af737c974302",
+					IgnoreTriggerFailure: false
+				}
+			],
+			AutoStoppedTriggerWorkflows: [],
 			Script: null,
 			EnableScriptTrigger: true,
 			TriggerOnEnabled: true
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.SimpleSortieWorkflow, KancollePlayerSimulatorKai, Version=1.2.3.2, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.SimpleSortieWorkflow, KancollePlayerSimulatorKai, Version=1.2.4.0, Culture=neutral, PublicKeyToken=null",
 			Guid: "e4f1e115-8077-4871-8778-0ac30362161f",
 			Name: "1-5",
 			Fleet: 1,
@@ -213,7 +216,7 @@
 			TriggerOnEnabled: false
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.BasicSupplyFleetWorkflow, KancollePlayerSimulatorKai, Version=1.2.3.2, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.BasicSupplyFleetWorkflow, KancollePlayerSimulatorKai, Version=1.2.4.0, Culture=neutral, PublicKeyToken=null",
 			Guid: "943b20b0-42da-4e60-8d22-1e3a2a2289d4",
 			Name: "补给",
 			Fleet: 1,
@@ -230,7 +233,7 @@
 			TriggerOnEnabled: false
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.BasicDockingWorkflow, KancollePlayerSimulatorKai, Version=1.2.3.2, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.BasicDockingWorkflow, KancollePlayerSimulatorKai, Version=1.2.4.0, Culture=neutral, PublicKeyToken=null",
 			Guid: "4d1d0cf0-6a9c-4a06-b2b0-af737c974302",
 			Name: "入渠",
 			LimitFleetFlag: true,
@@ -250,6 +253,7 @@
 			InstantRepairTimeLimit: "00:00:00",
 			Repeat: true,
 			Docks: 15,
+			DockingOneShipEachTime: false,
 			RefreshDataTaskPriority: 0,
 			DockingTaskPriority: 0,
 			DelaySecondsAfterRepairFinishedBase: 0,
