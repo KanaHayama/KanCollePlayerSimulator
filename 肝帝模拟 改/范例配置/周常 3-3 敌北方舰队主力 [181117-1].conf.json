@@ -15,7 +15,7 @@
 			Guid: "41fc01c3-e85d-40c5-8bae-99971ca01644",
 			Name: "总控",
 			SleepTimeBase: "00:00:00",
-			SleepTimeRandomMax: "00:01:00",
+			SleepTimeRandomMax: "00:00:00",
 			DoNotSleepAtFirstLoop: false,
 			SleepUntilMoraleRecoveredFlag: true,
 			SleepUntilMoraleRecoveredValueMorale: 40,
