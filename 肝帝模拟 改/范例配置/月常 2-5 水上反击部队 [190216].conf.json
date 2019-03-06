@@ -1,18 +1,18 @@
 ﻿{
-	Name: "月常 5-1 水上打击部队",
+	Name: "月常 2-5 水上反击部队",
 	List: [
 		{
-			Type: "KancollePlayerSimulatorKai.MemoWorkflow, KancollePlayerSimulatorKai, Version=1.2.4.0, Culture=neutral, PublicKeyToken=null",
-			Guid: "032ac2f1-17c6-4833-8c18-7c50224da07b",
+			Type: "KancollePlayerSimulatorKai.MemoWorkflow, KancollePlayerSimulatorKai, Version=1.2.7.2, Culture=neutral, PublicKeyToken=null",
+			Guid: "c29a6163-7a6d-4d0e-8f35-4f7742ad2c2b",
 			Name: "注意事项",
-			Memo: "使用前手动更换编成、装备，或者自行添加并设置执行单元。\r\nBEGJ，3BB(限定)1CL2DD。\r\n",
+			Memo: "使用前手动更换编成、装备，或者自行添加并设置执行单元。\r\nBFEIO，4DD(旗舰)1CL1CA。\r\n34索敌，高火力DD，水战1制空。\r\n[190216]",
 			Script: null,
-			EnableScriptTrigger: true,
+			EnableScript: true,
 			TriggerOnEnabled: false
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.RelationalSortieWorkflow, KancollePlayerSimulatorKai, Version=1.2.4.0, Culture=neutral, PublicKeyToken=null",
-			Guid: "1e231a9b-755e-4776-b5db-1ffd69b791a2",
+			Type: "KancollePlayerSimulatorKai.RelationalSortieWorkflow, KancollePlayerSimulatorKai, Version=1.2.7.2, Culture=neutral, PublicKeyToken=null",
+			Guid: "f966b451-a419-43df-8aa7-59a3c13f6d43",
 			Name: "总控",
 			SleepTimeBase: "00:00:00",
 			SleepTimeRandomMax: "00:00:00",
@@ -24,7 +24,9 @@
 			SleepUntilAllDocksEmptyFlag: false,
 			SleepUntilAllDocksEmptyValueDocks: 15,
 			OrganizeBeforeFinishedEventThreshold: 1,
+			OrganizeBeforeOnlyTargetFleetFinishedEventCounted: true,
 			OrganizeAfterFinishedEventThreshold: 1,
+			OrganizeAfterOnlyTargetFleetFinishedEventCounted: true,
 			OrganizeBeforeWorkflows: [],
 			OrganizeAfterWorkflows: [],
 			ScrapShipBeforeFinishedEventThreshold: 1,
@@ -35,32 +37,33 @@
 			DockingAfterFinishedEventThreshold: 1,
 			DockingBeforeWorkflows: [
 				{
-					Guid: "294aeddc-94cd-42e0-90c8-b756902d6720",
+					Guid: "8c0f4583-0772-49f9-a401-410014d0361c",
+					Enabled: true,
 					IgnoreTriggerFailure: true
 				}
 			],
-			DockingAfterWorkflows: [
-				{
-					Guid: "294aeddc-94cd-42e0-90c8-b756902d6720",
-					IgnoreTriggerFailure: false
-				}
-			],
+			DockingAfterWorkflows: [],
 			SupplyBeforeFinishedEventThreshold: 1,
+			SupplyBeforeOnlyTargetFleetFinishedEventCounted: true,
 			SupplyAfterFinishedEventThreshold: 1,
+			SupplyAfterOnlyTargetFleetFinishedEventCounted: true,
 			SupplyBeforeWorkflows: [
 				{
-					Guid: "27c650f7-fa4e-47d5-958e-6e7321831d91",
+					Guid: "ec362741-8202-4be0-9726-8fa92661f182",
+					Enabled: true,
 					IgnoreTriggerFailure: true
 				}
 			],
 			SupplyAfterWorkflows: [
 				{
-					Guid: "27c650f7-fa4e-47d5-958e-6e7321831d91",
+					Guid: "ec362741-8202-4be0-9726-8fa92661f182",
+					Enabled: true,
 					IgnoreTriggerFailure: false
 				}
 			],
 			SortieWorkflow: {
-				Guid: "5bf42e2f-3e30-4057-bafa-4df37ac934b3",
+				Guid: "4b57a2b6-a3d3-4e90-a7d8-aa6767695d94",
+				Enabled: true,
 				IgnoreTriggerFailure: false
 			},
 			StopIfLoopCountLargerOrEqualThanFlag: true,
@@ -90,7 +93,7 @@
 			StopIfEnemyFlagShipSunkValueConditionValue: 1,
 			StopIfBattleRankHigherOrEqualThanFlag: true,
 			StopIfBattleRankHigherOrEqualThanValueConditionType: 1,
-			StopIfBattleRankHigherOrEqualThanValueConditionValue: 13,
+			StopIfBattleRankHigherOrEqualThanValueConditionValue: 15,
 			StopIfBattleRankHigherOrEqualThanValueRank: 2,
 			StopIfBattleRankHigherOrEqualThanValueThreshold: 1,
 			IgnoreOrganizeBeforeFailure: false,
@@ -112,22 +115,25 @@
 			AutoStoppedEnableWorkflows: [],
 			AutoStoppedDisableWorkflows: [
 				{
-					Guid: "294aeddc-94cd-42e0-90c8-b756902d6720",
+					Guid: "8c0f4583-0772-49f9-a401-410014d0361c",
+					Enabled: true,
 					IgnoreTriggerFailure: false
 				}
 			],
 			AutoStoppedTriggerWorkflows: [],
 			Script: null,
-			EnableScriptTrigger: true,
+			EnableScript: true,
 			TriggerOnEnabled: true
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.SimpleSortieWorkflow, KancollePlayerSimulatorKai, Version=1.2.4.0, Culture=neutral, PublicKeyToken=null",
-			Guid: "5bf42e2f-3e30-4057-bafa-4df37ac934b3",
-			Name: "5-1",
+			Type: "KancollePlayerSimulatorKai.SimpleSortieWorkflow, KancollePlayerSimulatorKai, Version=1.2.7.2, Culture=neutral, PublicKeyToken=null",
+			Guid: "4b57a2b6-a3d3-4e90-a7d8-aa6767695d94",
+			Name: "2-5",
 			Fleet: 1,
-			Sea: 5,
-			Area: 1,
+			Sea: 2,
+			Area: 5,
+			ResetDifficulty: false,
+			Difficulty: 0,
 			EscortShipNoHeavilyDamaged: true,
 			FlagShipFullySupplied: true,
 			EscortShipFullySupplied: true,
@@ -161,6 +167,7 @@
 			LandBasedAirCorps3Point2: null,
 			LandBasedAirCorps3CheckFatigue: false,
 			DefaultStrategy: {
+				Memo: "",
 				DefaultWayPoint: null,
 				DefaultBattleRations: 0,
 				DefaultMaritimeResupply: 0,
@@ -178,29 +185,10 @@
 				{
 					Condition: {
 						Type: 1,
-						Value: 5
+						Value: 15
 					},
 					Strategy: {
-						DefaultWayPoint: null,
-						DefaultBattleRations: 0,
-						DefaultMaritimeResupply: 0,
-						DefaultFormation: 5,
-						DefaultMidnight: 1,
-						DefalutFlagShipDamageControl: 0,
-						DefaultEscortRetreat: 0,
-						DefaultAdvance: 1,
-						RejectEscortRetreatIfMoreOrEqualThanTwoEscortShipsHeavilyDamaged: true,
-						EscortShipsHeavilyDamagedStrategy: 1,
-						RetreatIfModerateOrHeavierDamagedCountLargerOrEqualThanFlag: false,
-						RetreatIfModerateOrHeavierDamagedCountLargerOrEqualThanValue: 1
-					}
-				},
-				{
-					Condition: {
-						Type: 1,
-						Value: 13
-					},
-					Strategy: {
+						Memo: "",
 						DefaultWayPoint: null,
 						DefaultBattleRations: 0,
 						DefaultMaritimeResupply: 0,
@@ -218,12 +206,12 @@
 			],
 			SortieTaskPriority: -32768,
 			Script: null,
-			EnableScriptTrigger: true,
+			EnableScript: true,
 			TriggerOnEnabled: false
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.BasicSupplyFleetWorkflow, KancollePlayerSimulatorKai, Version=1.2.4.0, Culture=neutral, PublicKeyToken=null",
-			Guid: "27c650f7-fa4e-47d5-958e-6e7321831d91",
+			Type: "KancollePlayerSimulatorKai.BasicSupplyFleetWorkflow, KancollePlayerSimulatorKai, Version=1.2.7.2, Culture=neutral, PublicKeyToken=null",
+			Guid: "ec362741-8202-4be0-9726-8fa92661f182",
 			Name: "补给",
 			Fleet: 1,
 			Setting: 32767,
@@ -235,29 +223,36 @@
 			RefreshDataBeforeSupplyFleet: false,
 			ReturnRoomAtLast: false,
 			Script: null,
-			EnableScriptTrigger: true,
+			EnableScript: true,
 			TriggerOnEnabled: false
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.BasicDockingWorkflow, KancollePlayerSimulatorKai, Version=1.2.4.0, Culture=neutral, PublicKeyToken=null",
-			Guid: "294aeddc-94cd-42e0-90c8-b756902d6720",
-			Name: "入渠",
+			Type: "KancollePlayerSimulatorKai.BasicDockingWorkflow, KancollePlayerSimulatorKai, Version=1.2.7.2, Culture=neutral, PublicKeyToken=null",
+			Guid: "8c0f4583-0772-49f9-a401-410014d0361c",
+			Name: "入渠（出击前）",
 			LimitFleetFlag: true,
 			LimitFleetValue: 3,
 			LimitHpPercentFlag: true,
 			LimitHpPercentMinValue: 0.0,
-			LimitHpPercentMaxValue: 0.5,
+			LimitHpPercentMaxValue: 0.75,
 			LimitRepairTimeFlag: false,
 			LimitRepairTimeMinValue: "00:00:00",
 			LimitRepairTimeMaxValue: "4.04:00:00",
 			LimitMoraleFlag: false,
 			LimitMoraleMinValue: 0,
 			LimitMoraleMaxValue: 100,
+			LimitLevelFlag: false,
+			LimitLevelMinValue: 1,
+			LimitLevelMaxValue: 200,
+			LimitShipTypeFlag: false,
+			LimitShipTypeValue: [],
 			SelectStrategy: 0,
 			ForceDocking: true,
 			InstantRepair: true,
 			InstantRepairTimeLimit: "00:00:00",
+			AutoStop: true,
 			Repeat: true,
+			SkipExpeditioningShips: true,
 			Docks: 15,
 			DockingOneShipEachTime: false,
 			RefreshDataTaskPriority: 0,
@@ -269,7 +264,7 @@
 			RefreshDataBeforeDocking: false,
 			ReturnRoomAtLast: true,
 			Script: null,
-			EnableScriptTrigger: true,
+			EnableScript: true,
 			TriggerOnEnabled: false
 		}
 	]
