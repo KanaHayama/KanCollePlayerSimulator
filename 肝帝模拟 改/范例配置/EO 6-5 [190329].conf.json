@@ -5,7 +5,7 @@
 			Type: "KancollePlayerSimulatorKai.MemoWorkflow, KancollePlayerSimulatorKai, Version=1.2.7.2, Culture=neutral, PublicKeyToken=null",
 			Guid: "7baa2ceb-4d75-4dd7-8b0f-7f33b29b24f3",
 			Name: "注意事项",
-			Memo: "使用前手动更换编成、装备，或者自行添加并设置执行单元。\r\nB-F-I-J-M。\r\n纳尔逊摸，注意3、5号位。\r\n[190305]",
+			Memo: "使用前手动更换编成、装备，或者自行添加并设置执行单元。\r\nB-F-I-J-M。\r\n纳尔逊摸，注意3、5号位。\r\n[190329]",
 			Script: null,
 			EnableScript: true,
 			TriggerOnEnabled: false
@@ -18,7 +18,7 @@
 			SleepTimeRandomMax: "00:01:00",
 			DoNotSleepAtFirstLoop: true,
 			SleepUntilMoraleRecoveredFlag: true,
-			SleepUntilMoraleRecoveredValueMorale: 49,
+			SleepUntilMoraleRecoveredValueMorale: 40,
 			SleepUntilAnyDockEmptyFlag: false,
 			SleepUntilAnyDockEmptyValueDocks: 15,
 			SleepUntilAllDocksEmptyFlag: false,
