@@ -7,7 +7,7 @@
 				Guid: "f112774b-a87a-463c-b6be-de0bf3bcbad8",
 				Name: "使用说明",
 				EnableOnLoad: false,
-				Memo: "本配置演示了（不编写Python脚本的情况下）能达成的功能以及展示这些功能的用法。\r\n\r\n每天大量短远征极容易被发猫，请勿连续多天使用本配置！\r\n本配置已经限制了每日运行时长，每天下半夜休息4小时，但对于3个短远征来说仍然极其危险。\r\n\r\n本配置为通用配置，只要不是萌新账号缺这个少那个的话，应该都能运行。如果出现问题，请依据遇到的具体问题修改配置。\r\n使用到4个舰队、临时补给功能、一些二改的驱逐、一些水母、一些一改的轻巡、一些一改的驱逐、一些对潜装备、越多越好的大发。\r\n如果你有哪些船不想用于此配置，请将其从配置中删除，但请保证对应舰种有足够多的船轮换。\r\n\r\n因为本配置是通用配置，所以舰船选择是按名称筛选的，这种筛选方法在候选船多的时候很慢。想要加速的话请换成ID方式。\r\n\r\n补闪配置为1-1，带1个狗粮，如有不需要带狗粮或者去其他图刷的请自行修改。\r\n禁止沉船，包括狗粮。\r\n本配置会拆所有没上锁的驱逐，以保证总有位置放新的狗粮，请在使用前确保已经锁定了不想拆的船。\r\n因为还没有拆装备功能，为避免装备爆仓，所以狗粮不卸装备。\r\n\r\n本配置使用全部修复渠，还使用泊地修理。\r\n如果你要同时做别的出击，请修改本配置中这两项修复设置，“刷完修理”空出一个修复渠不使用，禁用泊地修理关联项。\r\n同时做别的出击不会冲突（手动玩游戏除外），不需要关闭本配置。\r\n\r\n本配置不使用海防舰。如果你非要纠结海防甚至潜艇比驱逐的消耗小，请自行调整。\r\n",
+				Memo: "本配置演示了（不编写Python脚本的情况下）能达成的功能以及展示这些功能的用法。\r\n\r\n每天大量短远征极容易被发猫，请勿连续多天使用本配置！\r\n本配置已经限制了每日运行时长，每天下半夜休息4小时，但对于3个短远征来说仍然极其危险。\r\n\r\n本配置为通用配置，只要不是萌新账号缺这个少那个的话，应该都能运行。如果出现问题，请依据遇到的具体问题修改配置。\r\n使用到4个舰队、临时补给功能、一些二改的驱逐、一些水母、一些一改的轻巡、一些一改的驱逐、一些对潜装备、越多越好的大发。\r\n如果你有哪些船不想用于此配置，请将其从配置中删除，但请保证对应舰种有足够多的船轮换。\r\n\r\n因为本配置是通用配置，所以舰船选择是按名称筛选的，这种筛选方法在候选船多的时候很慢。想要加速的话请换成ID方式。\r\n\r\n补闪配置为1-1，带1个狗粮，如有不需要带狗粮或者去其他图刷的请自行修改。\r\n禁止沉船，包括狗粮。\r\n本配置会拆所有没上锁的驱逐，以保证总有位置放新的狗粮，请在使用前确保已经锁定了不想拆的船。\r\n因为还没有拆装备功能，为避免装备爆仓，所以狗粮不卸装备。\r\n\r\n本配置使用全部修复渠，还使用泊地修理。\r\n如果你要同时做别的出击，请修改本配置中这两项修复设置，“刷完修理”空出一个修复渠不使用，禁用泊地修理关联项。\r\n同时做别的出击不会冲突（手动玩游戏除外），不需要关闭本配置。\r\n\r\n本配置不使用海防舰。如果你非要纠结海防甚至潜艇比驱逐的消耗小，请自行调整。\r\n\r\n[20190806]\r\n",
 				EnableScript: true,
 				Script: null,
 				TriggerOnEnabled: false
@@ -79,7 +79,13 @@
 				ReturnRoomAtLast: true,
 				AutoStoppedEnableWorkflows: [],
 				AutoStoppedDisableWorkflows: [],
-				AutoStoppedTriggerWorkflows: [],
+				AutoStoppedTriggerWorkflows: [
+					{
+						Guid: "1c411be6-5386-41c2-a880-8d7fb1a3ffce",
+						Enabled: true,
+						IgnoreTriggerFailure: false
+					}
+				],
 				Repeat: true,
 				ExclusiveExecution: true,
 				EnableScript: true,
@@ -1471,7 +1477,13 @@
 				ReturnRoomAtLast: true,
 				AutoStoppedEnableWorkflows: [],
 				AutoStoppedDisableWorkflows: [],
-				AutoStoppedTriggerWorkflows: [],
+				AutoStoppedTriggerWorkflows: [
+					{
+						Guid: "665f6878-30c7-4c0b-ab0c-6fb61c9b791e",
+						Enabled: true,
+						IgnoreTriggerFailure: false
+					}
+				],
 				Repeat: true,
 				ExclusiveExecution: true,
 				EnableScript: true,
@@ -2942,7 +2954,13 @@
 				ReturnRoomAtLast: true,
 				AutoStoppedEnableWorkflows: [],
 				AutoStoppedDisableWorkflows: [],
-				AutoStoppedTriggerWorkflows: [],
+				AutoStoppedTriggerWorkflows: [
+					{
+						Guid: "17757bd8-bbff-4439-9177-3d066f89f000",
+						Enabled: true,
+						IgnoreTriggerFailure: false
+					}
+				],
 				Repeat: true,
 				ExclusiveExecution: true,
 				EnableScript: true,
@@ -4803,10 +4821,10 @@
 				StopIfRuntimeLengthExceedValueHours: 0,
 				StopIfRuntimeLengthExceedValueMinutes: 0,
 				StopIfRuntimeLengthExceedValueSeconds: 0,
-				StopIfWithinTimePeriodFlag: false,
-				StopIfWithinTimePeriodValueStartHours: 22,
+				StopIfWithinTimePeriodFlag: true,
+				StopIfWithinTimePeriodValueStartHours: 2,
 				StopIfWithinTimePeriodValueStartMinutes: 0,
-				StopIfWithinTimePeriodValueEndHours: 8,
+				StopIfWithinTimePeriodValueEndHours: 6,
 				StopIfWithinTimePeriodValueEndMinutes: 0,
 				StopIfShipVacancyLessOrEqualThanFlag: false,
 				StopIfShipVacancyLessOrEqualThanValue: 0,
@@ -4864,6 +4882,11 @@
 					},
 					{
 						Guid: "db450bf8-9df3-4470-8130-ac0953b17472",
+						Enabled: true,
+						IgnoreTriggerFailure: false
+					},
+					{
+						Guid: "2917b502-20c4-4e8e-9cc1-a4c831b300ee",
 						Enabled: true,
 						IgnoreTriggerFailure: false
 					}
@@ -5658,6 +5681,19 @@
 				WaitHomeBeforeAction: false,
 				RefreshDataAfterSleep: true,
 				ReturnRoomAfterAction: true,
+				EnableScript: true,
+				Script: null,
+				TriggerOnEnabled: false
+			},
+			{
+				Type: "KancollePlayerSimulatorKai.SeriesByAlarmWorkflow, KancollePlayerSimulatorKai, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null",
+				Guid: "2917b502-20c4-4e8e-9cc1-a4c831b300ee",
+				Name: "定时启动",
+				EnableOnLoad: false,
+				Hours: 8,
+				Minutes: 0,
+				TriggerType: 1,
+				Workflows: [],
 				EnableScript: true,
 				Script: null,
 				TriggerOnEnabled: false
