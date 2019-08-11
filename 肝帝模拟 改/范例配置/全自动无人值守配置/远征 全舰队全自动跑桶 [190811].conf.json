@@ -4963,8 +4963,12 @@
 				LimitLockStateFlag: true,
 				LimitLockStateValueLocked: true,
 				LimitLockStateValueUnlocked: false,
-				LimitShipTypeFlag: false,
-				LimitShipTypeValue: [],
+				LimitShipTypeFlag: true,
+				LimitShipTypeValue: [
+					2,
+					3,
+					16
+				],
 				SelectStrategy: 0,
 				ForceDocking: false,
 				InstantRepair: false,
