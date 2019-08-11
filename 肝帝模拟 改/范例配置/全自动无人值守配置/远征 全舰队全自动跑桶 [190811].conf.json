@@ -802,7 +802,7 @@
 				OrganizeFleetTaskPriority: 0,
 				WaitHomeAtFirst: false,
 				RefreshDataBeforeOrganize: false,
-				ReturnRoomAtLast: true,
+				ReturnRoomAtLast: false,
 				EnableScript: true,
 				Script: null,
 				TriggerOnEnabled: false
@@ -1383,7 +1383,7 @@
 				RefitEquipmentTaskPriority: 0,
 				WaitHomeAtFirst: false,
 				RefreshDataBeforeRefit: false,
-				ReturnRoomAtLast: true,
+				ReturnRoomAtLast: false,
 				EnableScript: true,
 				Script: null,
 				TriggerOnEnabled: false
@@ -2166,7 +2166,7 @@
 				OrganizeFleetTaskPriority: 0,
 				WaitHomeAtFirst: false,
 				RefreshDataBeforeOrganize: false,
-				ReturnRoomAtLast: true,
+				ReturnRoomAtLast: false,
 				EnableScript: true,
 				Script: null,
 				TriggerOnEnabled: false
@@ -2860,7 +2860,7 @@
 				RefitEquipmentTaskPriority: 0,
 				WaitHomeAtFirst: false,
 				RefreshDataBeforeRefit: false,
-				ReturnRoomAtLast: true,
+				ReturnRoomAtLast: false,
 				EnableScript: true,
 				Script: null,
 				TriggerOnEnabled: false
@@ -3838,7 +3838,7 @@
 				OrganizeFleetTaskPriority: 0,
 				WaitHomeAtFirst: false,
 				RefreshDataBeforeOrganize: false,
-				ReturnRoomAtLast: true,
+				ReturnRoomAtLast: false,
 				EnableScript: true,
 				Script: null,
 				TriggerOnEnabled: false
@@ -4688,7 +4688,7 @@
 				RefitEquipmentTaskPriority: 0,
 				WaitHomeAtFirst: false,
 				RefreshDataBeforeRefit: false,
-				ReturnRoomAtLast: true,
+				ReturnRoomAtLast: false,
 				EnableScript: true,
 				Script: null,
 				TriggerOnEnabled: false
