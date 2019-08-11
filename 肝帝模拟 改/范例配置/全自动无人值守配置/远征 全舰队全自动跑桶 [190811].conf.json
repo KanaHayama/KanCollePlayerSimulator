@@ -5577,7 +5577,9 @@
 				LimitHpPercentValueMin: 0.0,
 				LimitHpPercentValueMax: 1.0,
 				IncludeShipTypes: [
-					2
+					2,
+					3,
+					5
 				],
 				SkipShipNames: [],
 				KeepFlag: true,
