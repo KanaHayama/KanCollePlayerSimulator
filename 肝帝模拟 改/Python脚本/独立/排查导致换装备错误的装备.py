@@ -41,8 +41,17 @@ equipmentObjs = EquipmentUtility.All()
 # 找到该船上已经有了的所有装备
 equipedEquipmentIds = ShipUtility.AllEquipments(shipObj)
 
+# 找到放在基地航空队中的装备
+landbasedEquipmentIds = [LandBasedAirCorpsUtility.SquadronPlane(s) for c in LandBasedAirCorpsUtility.AllCorps() for s in LandBasedAirCorpsUtility.AllSquadrons(c) ]
+
 # 找到这艘船这个装备槽所有能使用的装备
-availableEquipmentObjs = [equipmentObj for equipmentObj in equipmentObjs if EquipmentUtility.ConstId(equipmentObj) in availableEquipmentConstIds and EquipmentUtility.Id(equipmentObj) not in equipedEquipmentIds]
+availableEquipmentObjs = [equipmentObj for equipmentObj in equipmentObjs if \
+			EquipmentUtility.ConstId(equipmentObj) in availableEquipmentConstIds \
+			and \
+			EquipmentUtility.Id(equipmentObj) not in equipedEquipmentIds \
+			and \
+			EquipmentUtility.Id(equipmentObj) not in landbasedEquipmentIds \
+		]
 
 # 排序
 sortedAvailableEquipmentObjs = EquipmentUtility.Sort(availableEquipmentObjs)
@@ -85,3 +94,9 @@ print("")
 print("如果你看到的内容有缺损，请调大控制台输出窗口接受的字符数后再次运行")
 print("现在，你可以去比较一下上面的内容和你看到的是否一致了")
 print("如果不一致请从前往后找到以上列表多了或者少了或者排序错了的项目，然后在Github Issue上报告给我，请先搜索有没有人报告类似的问题，报告时请带上舰船、装备槽、多出或者少出的项目、以及上面的打印信息")
+
+'''
+更新记录：
+2019/08/07-初始版本
+2019/11/22-修复没排除基地航空队中装备的Bug
+'''
