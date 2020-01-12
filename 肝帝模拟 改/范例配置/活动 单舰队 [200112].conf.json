@@ -6,7 +6,7 @@
 			Guid: "178f2d90-ee01-4b2b-b00f-92094a920773",
 			Name: "注意事项",
 			EnableOnLoad: false,
-			Memo: "使用前需修改设置。\r\n\r\n[191225]",
+			Memo: "使用前需修改设置。\r\n\r\n[200112]",
 			EnableScript: true,
 			Script: null,
 			TriggerOnEnabled: false
@@ -152,7 +152,7 @@
 			FinishLoopIfRefitEquipmentAfterFailureFlag: false,
 			FinishLoopIfRefitEquipmentAfterFailureValueThreshold: 1,
 			FinishLoopIfSortieFailureFlag: true,
-			FinishLoopIfSortieFailureValueThreshold: 2,
+			FinishLoopIfSortieFailureValueThreshold: 5,
 			MinimalSleepSecondsAfterFailureOccuredFlag: true,
 			MinimalSleepSecondsAfterFailureOccuredValue: 180,
 			Fleet: 1,
