@@ -137,4 +137,6 @@ def disposable(): # 因为狗粮受拆船影响大，所以需要经常更新候
 		id = getOne(key)
 	return id
 
-dock_expedition = lambda id: id in getIds(s["expedition"]) # 用于刷闪修理防止入渠不用于远征的船
+def dock_expedition(id): # 用于刷闪修理防止入渠不用于远征的船
+	global s
+	return id in getIds(s["expedition"])
