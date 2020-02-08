@@ -130,7 +130,8 @@ def disposable(): # 因为狗粮受拆船影响大，所以需要经常更新候
 	key = "disposable"
 	id = getOne(key)
 	if id is None or ShipUtility.Ship(id) is None: # 查找不到船了，说明解体过一次
-		buildSets()
+		global s
+		s = None
 		global it
 		it.pop(key, None)
 		id = getOne(key)
