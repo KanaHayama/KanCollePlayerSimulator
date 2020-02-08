@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """
 功能：
 	选取和过滤舰船
@@ -65,6 +67,7 @@ def sortByIdAsc(shipObjs): # ID由低到高排序
 # 舰船集合（只列出了普通远征用得着的；自行解除注释；舰船之后还会依据界面中的设置过滤一遍）
 s = None
 def buildSets():
+	print("正在更新舰船集合，这需要一些时间")
 	global s
 	s = {}
 	s["all"] = sortByExperienceAsc(ShipUtility.All()) # 所有舰船，经验升序
@@ -129,14 +132,19 @@ de_leveling = lambda : getOne("de_leveling")
 def disposable(): # 因为狗粮受拆船影响大，所以需要经常更新候选
 	key = "disposable"
 	id = getOne(key)
-	if id is None or ShipUtility.Ship(id) is None: # 查找不到船了，说明解体过一次
+	iterEnd = id is None
+	isInvalidId = not iterEnd and ShipUtility.Ship(id) is None # 查找不到船了，就说明解体过一次
+	if iterEnd or isInvalidId:
 		global s
 		s = None
 		global it
 		it.pop(key, None)
-		id = getOne(key)
+		if isInvalidId:
+			id = getOne(key)
 	return id
 
 def dock_expedition(id): # 用于刷闪修理防止入渠不用于远征的船
 	global s
+	if s is None:
+		buildSets()
 	return id in getIds(s["expedition"])
