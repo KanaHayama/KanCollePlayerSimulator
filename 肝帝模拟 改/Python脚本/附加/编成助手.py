@@ -52,6 +52,9 @@ def filterLevelRange(shipObjs, low, high): # 筛选等级在范围内的船
 def filterUpgraded(shipObjs): # 筛选至少一改过后的
 	return [shipObj for shipObj in shipObjs if len([i for i in getBeforeUpgradeIds(getConst(shipObj))]) > 0]
 
+def filter99(shipObjs): # 排除99级的
+	return [shipObj for shipObj in shipObjs if getLevel(shipObj) != 99]
+
 # 排序
 def sortByExperienceAsc(shipObjs): # 经验由低到高排序
 	return sorted(shipObjs, key=lambda x: getExperience(x))
@@ -81,10 +84,11 @@ s["av"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipT
 s["dd_dlc"] = filterDlcEquiptable(s["dd"]) # 可以带大发的DD
 s["cl_dlc"] = filterDlcEquiptable(s["cl"]) # 可以带大发的CL
 s["dd_no_dlc"] = filterDlcNotEquiptable(s["dd"]) # 不可以带大发的DD
-# s["cl_no_dlc"] = filterDlcNotEquiptable(s["cl"]) # 不可以带大发的CL
-s["dd_leveling"] = filterUpgraded(s["dd_no_dlc"]) # 需要靠远征练级的DD（至少一改的）
-s["de_leveling"] = filterUpgraded(s["de"]) # 需要靠远征练级的DE（至少一改的）
-s["expedition"] = list(itertools.chain(s["dd_dlc"], s["cl_dlc"], s["av"], s["dd_leveling"], s["de_leveling"])) # 全自动范例中用于远征的船
+s["cl_no_dlc"] = filterDlcNotEquiptable(s["cl"]) # 不可以带大发的CL
+s["cl_leveling"] = filter99(filterUpgraded(s["cl_no_dlc"])) # 需要靠远征练级的CL（至少一改的）
+s["dd_leveling"] = filter99(filterUpgraded(s["dd_no_dlc"])) # 需要靠远征练级的DD（至少一改的）
+s["de_leveling"] = filter99(filterUpgraded(s["de"])) # 需要靠远征练级的DE（至少一改的）
+s["expedition"] = list(itertools.chain(s["dd_dlc"], s["cl_dlc"], s["av"], s["cl_leveling"], s["dd_leveling"], s["de_leveling"])) # 全自动范例中用于远征的船
 s["disposable"] = filterLevelRange(s["dd"], 1, 3) # 狗粮
 
 # 迭代器
@@ -110,6 +114,7 @@ def getOne(key):
 dd_dlc = lambda : getOne("dd_dlc")
 cl_dlc = lambda : getOne("cl_dlc")
 av = lambda : getOne("av")
+cl_leveling = lambda : getOne("cl_leveling")
 dd_leveling = lambda : getOne("dd_leveling")
 de_leveling = lambda : getOne("de_leveling")
 disposable = lambda : getOne("disposable")
