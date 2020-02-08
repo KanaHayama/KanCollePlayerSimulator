@@ -9,6 +9,8 @@
 	在填写函数的地方填写需要的函数名（见范例配置中的示例）
 
 更新记录：
+	20200209 - 1.1
+		优化AV的选取
 	20200208 - 1.0
 		随KCPS1.3.3.0发布
 """
@@ -98,7 +100,7 @@ def buildSets():
 	s["cl_leveling"] = filter99(filterUpgraded(s["cl_no_dlc"])) # 需要靠远征练级的CL（至少一改的）
 	s["dd_leveling"] = filter99(filterUpgraded(s["dd_no_dlc"])) # 需要靠远征练级的DD（至少一改的）
 	s["de_leveling"] = filter99(filterUpgraded(s["de"])) # 需要靠远征练级的DE（至少一改的）
-	s["expedition"] = list(itertools.chain(s["dd_dlc"], s["cl_dlc"], s["av"], s["cl_leveling"], s["dd_leveling"], s["de_leveling"])) # 全自动范例中用于远征的船
+	s["expedition"] = list(itertools.chain(s["dd_dlc"], s["cl_dlc"], s["av_leveling"], s["cl_leveling"], s["dd_leveling"], s["de_leveling"])) # 全自动范例中用于远征的船
 	s["disposable"] = sortByIdAsc(filterLevelRange(s["dd"], 1, 3)) # 狗粮
 
 # 迭代器
@@ -126,6 +128,7 @@ def getOne(key):
 dd_dlc = lambda : getOne("dd_dlc")
 cl_dlc = lambda : getOne("cl_dlc")
 av_leveling = lambda : getOne("av_leveling")
+av = av_leveling # 下次更新时删掉这个
 cl_leveling = lambda : getOne("cl_leveling")
 dd_leveling = lambda : getOne("dd_leveling")
 de_leveling = lambda : getOne("de_leveling")
