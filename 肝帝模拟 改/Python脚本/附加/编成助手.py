@@ -59,51 +59,59 @@ def filter99(shipObjs): # 排除99级的
 def sortByExperienceAsc(shipObjs): # 经验由低到高排序
 	return sorted(shipObjs, key=lambda x: getExperience(x))
 
+def sortByIdAsc(shipObjs): # ID由低到高排序
+	return sorted(shipObjs, key=lambda x: getId(x))
+
 # 舰船集合（只列出了普通远征用得着的；自行解除注释；舰船之后还会依据界面中的设置过滤一遍）
-s = {}
-s["all"] = sortByExperienceAsc(ShipUtility.All()) # 所有舰船，经验升序
-s["de"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.Escort] # DE
-s["dd"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.Destroyer] # DD
-s["cl"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.LightCruiser] # CL
-s["av"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.SeaplaneCarrier] # AV
-# s["ca"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.HeavyCruiser] # CA
-# s["cav"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.AircraftCruiser] # CAV
-# s["bbc"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.BattleCruiser] # BB（高速）
-# s["bb"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) in (ShipType.Battleship, ShipType.SuperDreadnoughts)] # BB（低速）
-# s["bbv"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.AviationBattleship] # BBV
-# s["cv"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.AircraftCarrier] # CV
-# s["cvb"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.ArmouredAircraftCarrier] # CVB
-# s["cvl"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.LightAircraftCarrier] # CVL
-# s["ss"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.Submarine] # SS
-# s["ssv"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.AircraftCarryingSubmarine] # SSV
-# s["as"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.SubmarineTender] # AS
-# s["ar"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.RepairShip] # AR
-# s["ao"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.FleetOiler] # AO
-# s["ct"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.TrainingCruiser] # CT
-# s["clt"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.TorpedoCruiser] # CLT
-s["dd_dlc"] = filterDlcEquiptable(s["dd"]) # 可以带大发的DD
-s["cl_dlc"] = filterDlcEquiptable(s["cl"]) # 可以带大发的CL
-s["dd_no_dlc"] = filterDlcNotEquiptable(s["dd"]) # 不可以带大发的DD
-s["cl_no_dlc"] = filterDlcNotEquiptable(s["cl"]) # 不可以带大发的CL
-s["cl_leveling"] = filter99(filterUpgraded(s["cl_no_dlc"])) # 需要靠远征练级的CL（至少一改的）
-s["dd_leveling"] = filter99(filterUpgraded(s["dd_no_dlc"])) # 需要靠远征练级的DD（至少一改的）
-s["de_leveling"] = filter99(filterUpgraded(s["de"])) # 需要靠远征练级的DE（至少一改的）
-s["expedition"] = list(itertools.chain(s["dd_dlc"], s["cl_dlc"], s["av"], s["cl_leveling"], s["dd_leveling"], s["de_leveling"])) # 全自动范例中用于远征的船
-s["disposable"] = filterLevelRange(s["dd"], 1, 3) # 狗粮
+s = None
+def buildSets():
+	global s
+	s = {}
+	s["all"] = sortByExperienceAsc(ShipUtility.All()) # 所有舰船，经验升序
+	s["de"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.Escort] # DE
+	s["dd"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.Destroyer] # DD
+	s["cl"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.LightCruiser] # CL
+	s["av"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.SeaplaneCarrier] # AV
+	# s["ca"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.HeavyCruiser] # CA
+	# s["cav"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.AircraftCruiser] # CAV
+	# s["bbc"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.BattleCruiser] # BB（高速）
+	# s["bb"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) in (ShipType.Battleship, ShipType.SuperDreadnoughts)] # BB（低速）
+	# s["bbv"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.AviationBattleship] # BBV
+	# s["cv"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.AircraftCarrier] # CV
+	# s["cvb"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.ArmouredAircraftCarrier] # CVB
+	# s["cvl"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.LightAircraftCarrier] # CVL
+	# s["ss"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.Submarine] # SS
+	# s["ssv"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.AircraftCarryingSubmarine] # SSV
+	# s["as"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.SubmarineTender] # AS
+	# s["ar"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.RepairShip] # AR
+	# s["ao"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.FleetOiler] # AO
+	# s["ct"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.TrainingCruiser] # CT
+	# s["clt"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.TorpedoCruiser] # CLT
+	s["dd_dlc"] = filterDlcEquiptable(s["dd"]) # 可以带大发的DD
+	s["cl_dlc"] = filterDlcEquiptable(s["cl"]) # 可以带大发的CL
+	s["dd_no_dlc"] = filterDlcNotEquiptable(s["dd"]) # 不可以带大发的DD
+	s["cl_no_dlc"] = filterDlcNotEquiptable(s["cl"]) # 不可以带大发的CL
+	s["cl_leveling"] = filter99(filterUpgraded(s["cl_no_dlc"])) # 需要靠远征练级的CL（至少一改的）
+	s["dd_leveling"] = filter99(filterUpgraded(s["dd_no_dlc"])) # 需要靠远征练级的DD（至少一改的）
+	s["de_leveling"] = filter99(filterUpgraded(s["de"])) # 需要靠远征练级的DE（至少一改的）
+	s["expedition"] = list(itertools.chain(s["dd_dlc"], s["cl_dlc"], s["av"], s["cl_leveling"], s["dd_leveling"], s["de_leveling"])) # 全自动范例中用于远征的船
+	s["disposable"] = sortByIdAsc(filterLevelRange(s["dd"], 1, 3)) # 狗粮
 
 # 迭代器
 def getIds(shipObjs):
 	return [getId(shipObj) for shipObj in shipObjs]
 
-def genIter(shipObjs):
+def createIter(shipObjs):
 	return iter(getIds(shipObjs))
 
 it = {}
 def getOne(key):
 	global s
+	if s is None:
+		buildSets()
 	global it
 	if key not in it:
-		it[key] = genIter(s[key])
+		it[key] = createIter(s[key])
 	try:
 		return next(it[key])
 	except StopIteration:
@@ -117,5 +125,15 @@ av = lambda : getOne("av")
 cl_leveling = lambda : getOne("cl_leveling")
 dd_leveling = lambda : getOne("dd_leveling")
 de_leveling = lambda : getOne("de_leveling")
-disposable = lambda : getOne("disposable")
+
+def disposable(): # 因为狗粮受拆船影响大，所以需要经常更新候选
+	key = "disposable"
+	id = getOne(key)
+	if id is None or ShipUtility.Ship(id) is None: # 查找不到船了，说明解体过一次
+		buildSets()
+		global it
+		it.pop(key, None)
+		id = getOne(key)
+	return id
+
 dock_expedition = lambda id: id in getIds(s["expedition"]) # 用于刷闪修理防止入渠不用于远征的船
