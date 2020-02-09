@@ -121,7 +121,7 @@ def getIter(key):
 	global lastUpdateTime
 	global lastInvokeTime
 	expired = lastUpdateTime is None or now - lastUpdateTime > DATA_EXPIRE_SECOND
-	lockData = lastInvokeTime is not None and now - lastInvokeTime > INVOKE_LOCK_SECOND
+	lockData = lastInvokeTime is not None and now - lastInvokeTime < INVOKE_LOCK_SECOND
 	if len(s) == 0 or (expired and not lockData): # TODO，在下个KCPS版本里加入新的入口点，不再依赖超时时间估算调用周期
 		lastUpdateTime = now
 		buildSets()
