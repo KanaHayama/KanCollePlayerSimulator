@@ -10,19 +10,23 @@
 
 更新记录：
 	20200209 - 1.1
-		优化AV的选取
+		多处优化
 	20200208 - 1.0
 		随KCPS1.3.3.0发布
 """
 
 # 导入
 from KancollePlayerSimulatorKaiCore import *
+import time
 import itertools
 
 # 常数
 DLC_CONST_ID = ShipConstUtility.Id( \
 		[obj for obj in EquipmentConstUtility.All() \
 		if EquipmentConstUtility.Name(obj) == "大発動艇"][0]) #大发的ID，能带大发的船特大发也能带
+
+DATA_EXPIRE_SECOND = 5 * 60 # 舰船数据过期时间。过期时间大约超过每次编成计算时间但短于开始第二次计算编成是最优设定，但Python太慢了所以放宽点
+INVOKE_LOCK_SECOND = 30 # 相邻两次连续查询调用的最大间隔。最好在连续的调用期间保持数据一致
 
 # 属性获取助手
 def getConst(shipObj):
@@ -42,6 +46,9 @@ def getAllowedEquipIds(shipConstObj):
 
 def getBeforeUpgradeIds(shipConstObj):
 	return ShipConstUtility.BeforeIds(shipConstObj)
+
+def getIds(shipObjs):
+	return [getId(shipObj) for shipObj in shipObjs]
 
 # 复杂过滤器（界面里没提供的）
 def filterDlcEquiptable(shipObjs): # 可以带大发的
@@ -67,11 +74,11 @@ def sortByIdAsc(shipObjs): # ID由低到高排序
 	return sorted(shipObjs, key=lambda x: getId(x))
 
 # 舰船集合（只列出了普通远征用得着的；自行解除注释；舰船之后还会依据界面中的设置过滤一遍）
-s = None
+s = {}
 def buildSets():
 	print("正在更新舰船集合，这需要一些时间")
 	global s
-	s = {}
+	s.clear()
 	s["all"] = sortByExperienceAsc(ShipUtility.All()) # 所有舰船，经验升序
 	s["de"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.Escort] # DE
 	s["dd"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.Destroyer] # DD
@@ -104,22 +111,29 @@ def buildSets():
 	s["disposable"] = sortByIdAsc(filterLevelRange(s["dd"], 1, 3)) # 狗粮
 
 # 迭代器
-def getIds(shipObjs):
-	return [getId(shipObj) for shipObj in shipObjs]
-
-def createIter(shipObjs):
-	return iter(getIds(shipObjs))
-
 it = {}
-def getOne(key):
+lastUpdateTime = None
+lastInvokeTime = None
+def getIter(key):
+	now = time.time()
 	global s
-	if s is None:
-		buildSets()
 	global it
-	if key not in it:
-		it[key] = createIter(s[key])
+	global lastUpdateTime
+	global lastInvokeTime
+	expired = lastUpdateTime is None or now - lastUpdateTime > DATA_EXPIRE_SECOND
+	lockData = lastInvokeTime is not None and now - lastInvokeTime > INVOKE_LOCK_SECOND
+	if len(s) == 0 or (expired and not lockData): # TODO，在下个KCPS版本里加入新的入口点，不再依赖超时时间估算调用周期
+		lastUpdateTime = now
+		buildSets()
+		it.clear()
+	if key not in it: # 创建迭代器
+		it[key] = iter(getIds(s[key]))
+	lastInvokeTime = now
+	return it[key]
+
+def getOne(key):
 	try:
-		return next(it[key])
+		return next(getIter(key))
 	except StopIteration:
 		it.pop(key)
 		return None # 返回-1也行
@@ -128,7 +142,7 @@ def getOne(key):
 dd_dlc = lambda : getOne("dd_dlc")
 cl_dlc = lambda : getOne("cl_dlc")
 av_leveling = lambda : getOne("av_leveling")
-av = av_leveling # 下次更新时删掉这个
+av = av_leveling # TODO：下次更新时删掉这个
 cl_leveling = lambda : getOne("cl_leveling")
 dd_leveling = lambda : getOne("dd_leveling")
 de_leveling = lambda : getOne("de_leveling")
