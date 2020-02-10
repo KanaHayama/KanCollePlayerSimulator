@@ -9,6 +9,8 @@
 	在填写函数的地方填写需要的函数名（见范例配置中的示例）
 
 更新记录：
+	20200211 - 1.3
+		修复Bug
 	20200210 - 1.2
 		修复Bug
 	20200209 - 1.1
@@ -21,11 +23,12 @@
 from KancollePlayerSimulatorKaiCore import *
 import time
 import itertools
+import math
 
 # 常数
 DLC_CONST_ID = EquipmentConstUtility.Id( \
 		[obj for obj in EquipmentConstUtility.All() \
-		if EquipmentConstUtility.Name(obj) == "大発動艇"][0]) #大发的ID，能带大发的船特大发也能带
+		if EquipmentConstUtility.Name(obj) == "大発動艇"][0]) #大发的ID，能带特大发的船大发也能带
 
 DATA_EXPIRE_SECOND = 5 * 60 # 舰船数据过期时间。过期时间大约超过每次编成计算时间但短于开始第二次计算编成是最优设定，但Python太慢了所以放宽点
 INVOKE_LOCK_SECOND = 30 # 相邻两次连续查询调用的最大间隔。最好在连续的调用期间保持数据一致
@@ -65,8 +68,11 @@ def filterLevelRange(shipObjs, low, high): # 筛选等级在范围内的船
 def filterUpgraded(shipObjs): # 筛选至少一改过后的
 	return [shipObj for shipObj in shipObjs if len([i for i in getBeforeUpgradeIds(getConst(shipObj))]) > 0]
 
-def filter99(shipObjs): # 排除99级的
+def filterNot99(shipObjs): # 排除99级的
 	return [shipObj for shipObj in shipObjs if getLevel(shipObj) != 99]
+
+def filterLowLevelByProportion(shipObjs, proportion): # 按比例保留低等级舰船，传入的数组应当是升序的
+	return shipObjs[:int(math.ceil(len(shipObjs) * proportion))]
 
 # 排序
 def sortByExperienceAsc(shipObjs): # 经验由低到高排序
@@ -101,14 +107,22 @@ def buildSets():
 	# s["ao"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.FleetOiler] # AO
 	# s["ct"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.TrainingCruiser] # CT
 	# s["clt"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.TorpedoCruiser] # CLT
-	s["dd_dlc"] = filterDlcEquiptable(s["dd"]) # 可以带大发的DD
-	s["cl_dlc"] = filterDlcEquiptable(s["cl"]) # 可以带大发的CL
-	s["dd_no_dlc"] = filterDlcNotEquiptable(s["dd"]) # 不可以带大发的DD
-	s["cl_no_dlc"] = filterDlcNotEquiptable(s["cl"]) # 不可以带大发的CL
-	s["av_leveling"] = filter99(filterUpgraded(s["av"])) # 需要靠远征练级的AV（至少一改的）
-	s["cl_leveling"] = filter99(filterUpgraded(s["cl_no_dlc"])) # 需要靠远征练级的CL（至少一改的）
-	s["dd_leveling"] = filter99(filterUpgraded(s["dd_no_dlc"])) # 需要靠远征练级的DD（至少一改的）
-	s["de_leveling"] = filter99(filterUpgraded(s["de"])) # 需要靠远征练级的DE（至少一改的）
+	s["av_upgraded"] = filterUpgraded(s["av"]) # 至少一改之后的AV
+	s["cl_upgraded"] = filterUpgraded(s["cl"]) # 至少一改之后的CL
+	s["dd_upgraded"] = filterUpgraded(s["dd"]) # 至少一改之后的DD
+	s["de_upgraded"] = filterUpgraded(s["de"]) # 至少一改之后的DE
+	s["av_idle"] = filterLowLevelByProportion(s["av_upgraded"], 0.9) # 只选用90%低等级的AV（高等级用作出击，避免误入渠）
+	s["cl_idle"] = filterLowLevelByProportion(s["cl_upgraded"], 0.9) # 只选用90%低等级的CL（高等级用作出击，避免误入渠）
+	s["dd_idle"] = filterLowLevelByProportion(s["dd_upgraded"], 0.9) # 只选用90%低等级的DD（高等级用作出击，避免误入渠）
+	s["de_idle"] = filterLowLevelByProportion(s["de_upgraded"], 0.9) # 只选用90%低等级的DE（高等级用作出击，避免误入渠）
+	s["cl_dlc"] = filterDlcEquiptable(s["cl_idle"]) # 可以带大发的CL
+	s["dd_dlc"] = filterDlcEquiptable(s["dd_idle"]) # 可以带大发的DD
+	s["cl_no_dlc"] = filterDlcNotEquiptable(s["cl_idle"]) # 不可以带大发的CL
+	s["dd_no_dlc"] = filterDlcNotEquiptable(s["dd_idle"]) # 不可以带大发的DD
+	s["av_leveling"] = filterNot99(s["av_idle"]) # 需要靠远征练级的AV
+	s["cl_leveling"] = filterNot99(s["cl_no_dlc"]) # 需要靠远征练级的CL
+	s["dd_leveling"] = filterNot99(s["dd_no_dlc"]) # 需要靠远征练级的DD
+	s["de_leveling"] = filterNot99(filterUpgraded(s["de_idle"])) # 需要靠远征练级的DE（至少一改的）
 	s["expedition"] = list(itertools.chain(s["dd_dlc"], s["cl_dlc"], s["av_leveling"], s["cl_leveling"], s["dd_leveling"], s["de_leveling"])) # 全自动范例中用于远征的船
 	s["disposable"] = sortByIdAsc(filterLevelRange(s["dd"], 1, 3)) # 狗粮
 
