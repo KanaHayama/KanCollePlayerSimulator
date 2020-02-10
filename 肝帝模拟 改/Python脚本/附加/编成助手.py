@@ -9,7 +9,7 @@
 	在填写函数的地方填写需要的函数名（见范例配置中的示例）
 
 更新记录：
-	20200209 - 1.2
+	20200210 - 1.2
 		修复Bug
 	20200209 - 1.1
 		多处优化
@@ -23,7 +23,7 @@ import time
 import itertools
 
 # 常数
-DLC_CONST_ID = ShipConstUtility.Id( \
+DLC_CONST_ID = EquipmentConstUtility.Id( \
 		[obj for obj in EquipmentConstUtility.All() \
 		if EquipmentConstUtility.Name(obj) == "大発動艇"][0]) #大发的ID，能带大发的船特大发也能带
 
