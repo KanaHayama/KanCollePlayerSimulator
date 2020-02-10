@@ -9,6 +9,8 @@
 	在填写函数的地方填写需要的函数名（见范例配置中的示例）
 
 更新记录：
+	20200209 - 1.2
+		修复Bug
 	20200209 - 1.1
 		多处优化
 	20200208 - 1.0
@@ -154,7 +156,7 @@ def disposable(): # 因为狗粮受拆船影响大，所以需要经常更新候
 	isInvalidId = not iterEnd and ShipUtility.Ship(id) is None # 查找不到船了，就说明解体过一次
 	if iterEnd or isInvalidId:
 		global s
-		s = None
+		s = {}
 		global it
 		it.pop(key, None)
 		if isInvalidId:
@@ -163,6 +165,6 @@ def disposable(): # 因为狗粮受拆船影响大，所以需要经常更新候
 
 def dock_expedition(id): # 用于刷闪修理防止入渠不用于远征的船
 	global s
-	if s is None:
+	if len(s) == 0:
 		buildSets()
 	return id in getIds(s["expedition"])
