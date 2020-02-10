@@ -3663,9 +3663,10 @@
 				EnableScriptFilter: false,
 				FilterFunctionName: "OnFilter",
 				LimitShipTypeValue: [
-					2,
 					3,
-					16
+					16,
+					1,
+					2
 				],
 				SelectStrategy: 0,
 				ForceDocking: false,
