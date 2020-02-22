@@ -30,9 +30,6 @@ DLC_CONST_ID = EquipmentConstUtility.Id( \
 		[obj for obj in EquipmentConstUtility.All() \
 		if EquipmentConstUtility.Name(obj) == "大発動艇"][0]) #大发的ID，能带特大发的船大发也能带
 
-DATA_EXPIRE_SECOND = 5 * 60 # 舰船数据过期时间。过期时间大约超过每次编成计算时间但短于开始第二次计算编成是最优设定，但Python太慢了所以放宽点
-INVOKE_LOCK_SECOND = 30 # 相邻两次连续查询调用的最大间隔。最好在连续的调用期间保持数据一致
-
 # 属性获取助手
 def getConst(shipObj):
 	return ShipConstUtility.ShipConst(shipObj)
@@ -128,23 +125,18 @@ def buildSets():
 
 # 迭代器
 it = {}
-lastUpdateTime = None
-lastInvokeTime = None
+def initialize():
+	buildSets()
+	global it
+	it.clear()
+
 def getIter(key):
-	now = time.time()
 	global s
 	global it
-	global lastUpdateTime
-	global lastInvokeTime
-	expired = lastUpdateTime is None or now - lastUpdateTime > DATA_EXPIRE_SECOND
-	lockData = lastInvokeTime is not None and now - lastInvokeTime < INVOKE_LOCK_SECOND
-	if len(s) == 0 or (expired and not lockData): # TODO，在下个KCPS版本里加入新的入口点，不再依赖超时时间估算调用周期
-		lastUpdateTime = now
-		buildSets()
-		it.clear()
+	if len(s) == 0: # TODO，以后更新时删掉这个
+		initialize()
 	if key not in it: # 创建迭代器
 		it[key] = iter(getIds(s[key]))
-	lastInvokeTime = now
 	return it[key]
 
 def getOne(key):
@@ -155,10 +147,15 @@ def getOne(key):
 		return None # 返回-1也行
 
 # 导出函数
+def OnCandidate(): # 编成计算时会调用
+	global s
+	global it
+	buildSets()
+	it.clear()
+
 dd_dlc = lambda : getOne("dd_dlc")
 cl_dlc = lambda : getOne("cl_dlc")
 av_leveling = lambda : getOne("av_leveling")
-av = av_leveling # TODO：下次更新时删掉这个
 cl_leveling = lambda : getOne("cl_leveling")
 dd_leveling = lambda : getOne("dd_leveling")
 de_leveling = lambda : getOne("de_leveling")
@@ -180,5 +177,5 @@ def disposable(): # 因为狗粮受拆船影响大，所以需要经常更新候
 def dock_expedition(id): # 用于刷闪修理防止入渠不用于远征的船
 	global s
 	if len(s) == 0:
-		buildSets()
+		initialize()
 	return id in getIds(s["expedition"])
