@@ -1,6 +1,6 @@
 ﻿[
 	{
-		Name: "【全自动带闪跑桶演示】",
+		Name: "【自动带闪跑桶远征】",
 		List: [
 			{
 				Type: "KancollePlayerSimulatorKai.MemoWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
