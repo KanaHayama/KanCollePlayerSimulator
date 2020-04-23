@@ -1,0 +1,731 @@
+﻿{
+	Name: "【自动演习】",
+	List: [
+		{
+			Type: "KancollePlayerSimulatorKai.MemoWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
+			Guid: "5425acb4-71b3-4e99-be6f-d60fa0f56774",
+			Name: "注意事项",
+			EnableOnLoad: false,
+			Memo: "【概述】\r\n用于每天自动打两次演习。\r\n本配置不使用Python脚本，但提供了脚本样例，你可以参考其中的函数原型，以深度自定义。\r\n\r\n【使用前准备】\r\n设置好[编成]和[改装]才能使用。\r\n默认提供了两种配置，有其他需求请自行增减和调整。\r\n选用配置的逻辑较简单，需要更复杂逻辑的请用Python。\r\n\r\n【使用】\r\n保持[随机延迟]启用状态，每日定时会自动开始执行。\r\n也可以通过直接手动触发[总控]立即打演习。\r\n\r\n【任务优先级】\r\n这里指的是接游戏中的任务的优先级，和KCPS内部任务的优先级同名，但二者无关。\r\n优先级越小越不重要，这里的策略是优先完成时限较短的任务。\r\n优先级设置成了负数，为的是不影响你自己接的任务，如果任务接满了，这里就会接不到。\r\n\r\n【阵型和夜战】\r\n目前不支持使用Python动态决定。\r\n目前无法基于昼战后的状态选择是否夜战。\r\n\r\n【TODO】\r\n接任务失败导致拒绝演习的情况尚未设计重试的方案\r\n但因为允许替换低优先级的任务，只要没有手动接任务却不做，遇到这个问题的几率应该不高\r\n\r\n[20200415]",
+			EnableScript: true,
+			Script: null,
+			TriggerOnEnabled: false
+		},
+		{
+			Type: "KancollePlayerSimulatorKai.SeriesByTimerWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
+			Guid: "33f7b8a5-622c-4221-9f1e-96996e21983e",
+			Name: "随机延迟",
+			EnableOnLoad: true,
+			Days: 0,
+			Hours: 0,
+			Minutes: 0,
+			Seconds: 0,
+			Random: "02:00:00",
+			Restart: false,
+			TriggerType: 1,
+			Workflows: [
+				{
+					Guid: "1c5f5ac2-0eca-40d7-9a86-743468893376",
+					Enabled: true,
+					IgnoreTriggerFailure: true
+				}
+			],
+			EnableScript: true,
+			Script: "# Auto Generated Python Script\nfrom KancollePlayerSimulatorKai import *\nfrom KancollePlayerSimulatorKaiCore import *\ndef OnEvent(e):\n\tif isinstance(e, DailyQuestRefreshAnnouncementEvent):\n\t\treturn True\n\tif isinstance(e, FirstExerciseRefreshAnnouncementEvent):\n\t\treturn True\n\tpass\n\treturn False",
+			TriggerOnEnabled: false
+		},
+		{
+			Type: "KancollePlayerSimulatorKai.RelationalExerciseWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
+			Guid: "1c5f5ac2-0eca-40d7-9a86-743468893376",
+			Name: "总控",
+			EnableOnLoad: false,
+			PickOpponentType: 2,
+			ConditionalStrategies: [
+				{
+					Enabled: true,
+					Type: 5,
+					Value: "80",
+					Fleet: 1,
+					Name: "单横&不夜战",
+					Memo: "",
+					Formation: 5,
+					Midnight: 1,
+					OrganizeBeforeWorkflows: [
+						{
+							Guid: "a8fced98-ae73-4b37-a239-6c3454e00cd6",
+							Enabled: true,
+							IgnoreTriggerFailure: false
+						}
+					],
+					OrganizeBeforeFinishedEventThreshold: 1,
+					RefitEquipmentBeforeWorkflows: [
+						{
+							Guid: "cd258b61-a609-42e9-b16e-a7be0d147bd7",
+							Enabled: true,
+							IgnoreTriggerFailure: false
+						}
+					],
+					RefitEquipmentBeforeFinishedEventThreshold: 1,
+					DockingBeforeWorkflows: [
+						{
+							Guid: "e8e81a42-fb35-4ede-92df-9d4959506a43",
+							Enabled: true,
+							IgnoreTriggerFailure: false
+						}
+					],
+					DockingBeforeFinishedEventThreshold: 1,
+					SupplyBeforeWorkflows: [
+						{
+							Guid: "0ab15934-0ce2-47ac-b4c8-ce1bf428c2c4",
+							Enabled: true,
+							IgnoreTriggerFailure: false
+						}
+					],
+					SupplyBeforeFinishedEventThreshold: 1,
+					SupplyAfterWorkflows: [
+						{
+							Guid: "0ab15934-0ce2-47ac-b4c8-ce1bf428c2c4",
+							Enabled: true,
+							IgnoreTriggerFailure: false
+						}
+					],
+					SupplyAfterFinishedEventThreshold: 1,
+					OrganizeBeforeFinishedEventCount: 0,
+					RefitEquipmentBeforeFinishedEventCount: 0,
+					DockingBeforeFinishedEventCount: 0,
+					SupplyBeforeFinishedEventCount: 0,
+					SupplyAfterFinishedEventCount: 0
+				},
+				{
+					Enabled: true,
+					Type: 5,
+					Value: "20",
+					Fleet: 1,
+					Name: "复纵&夜战",
+					Memo: "",
+					Formation: 2,
+					Midnight: 2,
+					OrganizeBeforeWorkflows: [
+						{
+							Guid: "a8fced98-ae73-4b37-a239-6c3454e00cd6",
+							Enabled: true,
+							IgnoreTriggerFailure: false
+						}
+					],
+					OrganizeBeforeFinishedEventThreshold: 1,
+					RefitEquipmentBeforeWorkflows: [
+						{
+							Guid: "cd258b61-a609-42e9-b16e-a7be0d147bd7",
+							Enabled: true,
+							IgnoreTriggerFailure: false
+						}
+					],
+					RefitEquipmentBeforeFinishedEventThreshold: 1,
+					DockingBeforeWorkflows: [
+						{
+							Guid: "e8e81a42-fb35-4ede-92df-9d4959506a43",
+							Enabled: true,
+							IgnoreTriggerFailure: false
+						}
+					],
+					DockingBeforeFinishedEventThreshold: 1,
+					SupplyBeforeWorkflows: [
+						{
+							Guid: "0ab15934-0ce2-47ac-b4c8-ce1bf428c2c4",
+							Enabled: true,
+							IgnoreTriggerFailure: false
+						}
+					],
+					SupplyBeforeFinishedEventThreshold: 1,
+					SupplyAfterWorkflows: [
+						{
+							Guid: "0ab15934-0ce2-47ac-b4c8-ce1bf428c2c4",
+							Enabled: true,
+							IgnoreTriggerFailure: false
+						}
+					],
+					SupplyAfterFinishedEventThreshold: 1,
+					OrganizeBeforeFinishedEventCount: 0,
+					RefitEquipmentBeforeFinishedEventCount: 0,
+					DockingBeforeFinishedEventCount: 0,
+					SupplyBeforeFinishedEventCount: 0,
+					SupplyAfterFinishedEventCount: 0
+				},
+				{
+					Enabled: true,
+					Type: 0,
+					Value: "testPredicate",
+					Fleet: 1,
+					Name: "不会被选中的策略",
+					Memo: "演示如何使用脚本选择策略。该策略并不会被选择，用不着可以删掉",
+					Formation: 1,
+					Midnight: 2,
+					OrganizeBeforeWorkflows: [],
+					OrganizeBeforeFinishedEventThreshold: 1,
+					RefitEquipmentBeforeWorkflows: [],
+					RefitEquipmentBeforeFinishedEventThreshold: 1,
+					DockingBeforeWorkflows: [],
+					DockingBeforeFinishedEventThreshold: 1,
+					SupplyBeforeWorkflows: [],
+					SupplyBeforeFinishedEventThreshold: 1,
+					SupplyAfterWorkflows: [],
+					SupplyAfterFinishedEventThreshold: 1,
+					OrganizeBeforeFinishedEventCount: 0,
+					RefitEquipmentBeforeFinishedEventCount: 0,
+					DockingBeforeFinishedEventCount: 0,
+					SupplyBeforeFinishedEventCount: 0,
+					SupplyAfterFinishedEventCount: 0
+				}
+			],
+			DefaultStrategy: {
+				Fleet: 1,
+				Name: "默认策略",
+				Memo: "",
+				Formation: 1,
+				Midnight: 2,
+				OrganizeBeforeWorkflows: [
+					{
+						Guid: "24bec461-4b76-4221-a2b0-44025d72c1e5",
+						Enabled: true,
+						IgnoreTriggerFailure: false
+					}
+				],
+				OrganizeBeforeFinishedEventThreshold: 1,
+				RefitEquipmentBeforeWorkflows: [
+					{
+						Guid: "f3c851c1-5383-4924-9798-3139d3d4219b",
+						Enabled: true,
+						IgnoreTriggerFailure: false
+					}
+				],
+				RefitEquipmentBeforeFinishedEventThreshold: 1,
+				DockingBeforeWorkflows: [
+					{
+						Guid: "e8e81a42-fb35-4ede-92df-9d4959506a43",
+						Enabled: true,
+						IgnoreTriggerFailure: false
+					}
+				],
+				DockingBeforeFinishedEventThreshold: 1,
+				SupplyBeforeWorkflows: [
+					{
+						Guid: "0ab15934-0ce2-47ac-b4c8-ce1bf428c2c4",
+						Enabled: true,
+						IgnoreTriggerFailure: false
+					}
+				],
+				SupplyBeforeFinishedEventThreshold: 1,
+				SupplyAfterWorkflows: [
+					{
+						Guid: "0ab15934-0ce2-47ac-b4c8-ce1bf428c2c4",
+						Enabled: true,
+						IgnoreTriggerFailure: false
+					}
+				],
+				SupplyAfterFinishedEventThreshold: 1,
+				OrganizeBeforeFinishedEventCount: 0,
+				RefitEquipmentBeforeFinishedEventCount: 0,
+				DockingBeforeFinishedEventCount: 0,
+				SupplyBeforeFinishedEventCount: 0,
+				SupplyAfterFinishedEventCount: 0
+			},
+			QuestBeforeFinishedEventThreshold: 1,
+			QuestAfterFinishedEventThreshold: 1,
+			QuestAfterOnlyTargetFleetFinishedEventCounted: true,
+			QuestBeforeWorkflows: [
+				{
+					Guid: "5e1292cf-90a2-48c5-843c-a53dd33c05e5",
+					Enabled: true,
+					IgnoreTriggerFailure: false
+				}
+			],
+			QuestAfterWorkflows: [
+				{
+					Guid: "cd1ccac2-0ec0-4cd9-aba3-8ec83ba556d8",
+					Enabled: true,
+					IgnoreTriggerFailure: false
+				}
+			],
+			StopIfLoopCountLargerOrEqualThanFlag: false,
+			StopIfLoopCountLargerOrEqualThanValue: 1,
+			StopIfExecuteCountLargerOrEqualThanFlag: false,
+			StopIfExecuteCountLargerOrEqualThanValue: 3,
+			StopIfQuestBeforeActuralAcceptedQuestLessThanFlag: false,
+			StopIfQuestBeforeActuralAcceptedQuestLessThanValue: 0,
+			StopIfQuestAfterLoopActuralAcceptedQuestLessThanFlag: false,
+			StopIfQuestAfterLoopActuralAcceptedQuestLessThanValue: 0,
+			StopIfQuestBeforeTotalActuralSubmittedHigherOrEqualThanFlag: false,
+			StopIfQuestBeforeTotalActuralSubmittedHigherOrEqualThanValue: 1,
+			StopIfQuestAfterTotalActuralSubmittedHigherOrEqualThanFlag: false,
+			StopIfQuestAfterTotalActuralSubmittedHigherOrEqualThanValue: 1,
+			StopIfQuestBeforeQuestNotExist: false,
+			StopIfQuestAfterQuestNotExist: false,
+			StopIfBattleRankHigherOrEqualThanFlag: false,
+			StopIfBattleRankHigherOrEqualThanValueRank: 4,
+			StopIfBattleRankHigherOrEqualThanValueThreshold: 1,
+			IgnoreQuestBeforeFailure: false,
+			IgnoreQuestAfterFailure: false,
+			FinishLoopIfQuestBeforeFailureFlag: false,
+			FinishLoopIfQuestBeforeFailureValueThreshold: 1,
+			FinishLoopIfQuestAfterFailureFlag: false,
+			FinishLoopIfQuestAfterFailureValueThreshold: 1,
+			ExerciseTaskPriority: 0,
+			WaitHomeAtFirst: false,
+			ReturnRoomAtLast: false,
+			Running: false,
+			LoopCount: 0,
+			ExecuteCount: 0,
+			QuestBeforeFinishedEventCount: 0,
+			QuestAfterFinishedEventCount: 0,
+			StopIfQuestBeforeLoopActuralAcceptedCount: 0,
+			StopIfQuestAfterLoopActuralAcceptedCount: 0,
+			StopIfQuestBeforeTotalActuralSubmittedCount: 0,
+			StopIfQuestAfterTotalActuralSubmittedCount: 0,
+			StopIfBattleRankHigherOrEqualThanCount: 0,
+			FinishLoopIfExerciseFailureCount: 0,
+			FinishLoopIfQuestBeforeFailureCount: 0,
+			FinishLoopIfQuestAfterFailureCount: 0,
+			ForceAutoStopAfterThisLoop: false,
+			PickedOpponent: null,
+			ActiveStrategy: null,
+			BeforeLoopsEnableWorkflows: [],
+			BeforeLoopsDisableWorkflows: [],
+			BeforeLoopsTriggerWorkflows: [],
+			AutoStoppedEnableWorkflows: [],
+			AutoStoppedDisableWorkflows: [],
+			AutoStoppedTriggerWorkflows: [
+				{
+					Guid: "a85045b4-ae2f-4d3b-af82-8f0dbff23da5",
+					Enabled: true,
+					IgnoreTriggerFailure: true
+				},
+				{
+					Guid: "10105b42-f86b-4c49-a36f-7316d07f1efc",
+					Enabled: true,
+					IgnoreTriggerFailure: true
+				}
+			],
+			Repeat: true,
+			ExclusiveExecution: true,
+			EnableScript: true,
+			Script: "# exercise function prototype\r\n\r\ndef OnPick(candidates):\r\n\t\"\"\"select exercise opponent\"\"\"\r\n\tfor candidate in candidates:\r\n\t\tlevel = candidate.Level\r\n\t\tdetail = candidate.Detail\r\n\t\tif detail:\r\n\t\t\tfor ship in detail.Fleet.Ships:\r\n\t\t\t\tshipConstId = ship.ConstId\r\n\t\t\t\tshipLevel = ship.Level\r\n\t# return None to cancel this iteration\r\n\t# otherwise return an opponent\r\n\treturn candidates[len(candidates) - 1]\r\n\r\ndef testPredicate(opponent):\r\n\t\"\"\"test strategy\"\"\"\r\n\t# \"opponent\" is the same type as\r\n\t# the previsous variable \"candidate\"\r\n\t\r\n\t# return True to select strategy\r\n\treturn False",
+			TriggerOnEnabled: false
+		},
+		{
+			Type: "KancollePlayerSimulatorKai.BasicAcceptQuestWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
+			Guid: "5e1292cf-90a2-48c5-843c-a53dd33c05e5",
+			Name: "接任务",
+			EnableOnLoad: false,
+			Quests: [
+				{
+					Enabled: true,
+					SelectMethod: 0,
+					SelectValue: "303",
+					Memo: "日常",
+					Priority: -11,
+					AllowReplaceLowPriorityTasks: true,
+					FailIfNotExist: false,
+					FailIfAccepted: false,
+					SuccessIfFull: false,
+					EnableAcceptedQuestCache: true,
+					EnableExistanceQuestCache: false,
+					PredictionAcceptanceTimeThreadhold: "7.00:00:00",
+					TypeHint: 0
+				},
+				{
+					Enabled: true,
+					SelectMethod: 0,
+					SelectValue: "304",
+					Memo: "日常",
+					Priority: -11,
+					AllowReplaceLowPriorityTasks: true,
+					FailIfNotExist: false,
+					FailIfAccepted: false,
+					SuccessIfFull: false,
+					EnableAcceptedQuestCache: true,
+					EnableExistanceQuestCache: false,
+					PredictionAcceptanceTimeThreadhold: "7.00:00:00",
+					TypeHint: 0
+				},
+				{
+					Enabled: true,
+					SelectMethod: 0,
+					SelectValue: "302",
+					Memo: "周常",
+					Priority: -12,
+					AllowReplaceLowPriorityTasks: true,
+					FailIfNotExist: false,
+					FailIfAccepted: false,
+					SuccessIfFull: false,
+					EnableAcceptedQuestCache: true,
+					EnableExistanceQuestCache: false,
+					PredictionAcceptanceTimeThreadhold: "7.00:00:00",
+					TypeHint: 0
+				},
+				{
+					Enabled: true,
+					SelectMethod: 0,
+					SelectValue: "311",
+					Memo: "月常",
+					Priority: -13,
+					AllowReplaceLowPriorityTasks: true,
+					FailIfNotExist: false,
+					FailIfAccepted: false,
+					SuccessIfFull: false,
+					EnableAcceptedQuestCache: true,
+					EnableExistanceQuestCache: false,
+					PredictionAcceptanceTimeThreadhold: "7.00:00:00",
+					TypeHint: 0
+				},
+				{
+					Enabled: true,
+					SelectMethod: 0,
+					SelectValue: "315",
+					Memo: "春季大演习",
+					Priority: -14,
+					AllowReplaceLowPriorityTasks: true,
+					FailIfNotExist: false,
+					FailIfAccepted: false,
+					SuccessIfFull: false,
+					EnableAcceptedQuestCache: true,
+					EnableExistanceQuestCache: false,
+					PredictionAcceptanceTimeThreadhold: "7.00:00:00",
+					TypeHint: 0
+				}
+			],
+			RefreshDataTaskPriority: 0,
+			AcceptQuestTaskPriority: 0,
+			WaitHomeAtFirst: false,
+			ReturnRoomAtLast: false,
+			EnableScript: true,
+			Script: null,
+			TriggerOnEnabled: false
+		},
+		{
+			Type: "KancollePlayerSimulatorKai.BasicSubmitQuestWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
+			Guid: "cd1ccac2-0ec0-4cd9-aba3-8ec83ba556d8",
+			Name: "交任务",
+			EnableOnLoad: false,
+			Quests: [
+				{
+					Enabled: true,
+					SelectMethod: 0,
+					SelectValue: "303",
+					Memo: "",
+					FailIfNotAccepted: false,
+					FailIfNotExist: false,
+					FailIfOperationNotAllowed: false,
+					Operation: 2,
+					Rewards: [],
+					EnableAcceptedQuestCache: true,
+					EnableExistanceQuestCache: false,
+					PredictionAcceptanceTimeThreadhold: "7.00:00:00",
+					TypeHint: 0
+				},
+				{
+					Enabled: true,
+					SelectMethod: 0,
+					SelectValue: "304",
+					Memo: "",
+					FailIfNotAccepted: false,
+					FailIfNotExist: false,
+					FailIfOperationNotAllowed: false,
+					Operation: 2,
+					Rewards: [],
+					EnableAcceptedQuestCache: true,
+					EnableExistanceQuestCache: false,
+					PredictionAcceptanceTimeThreadhold: "7.00:00:00",
+					TypeHint: 0
+				},
+				{
+					Enabled: true,
+					SelectMethod: 0,
+					SelectValue: "302",
+					Memo: "",
+					FailIfNotAccepted: false,
+					FailIfNotExist: false,
+					FailIfOperationNotAllowed: false,
+					Operation: 2,
+					Rewards: [],
+					EnableAcceptedQuestCache: true,
+					EnableExistanceQuestCache: false,
+					PredictionAcceptanceTimeThreadhold: "7.00:00:00",
+					TypeHint: 0
+				},
+				{
+					Enabled: true,
+					SelectMethod: 0,
+					SelectValue: "311",
+					Memo: "",
+					FailIfNotAccepted: false,
+					FailIfNotExist: false,
+					FailIfOperationNotAllowed: false,
+					Operation: 2,
+					Rewards: [],
+					EnableAcceptedQuestCache: true,
+					EnableExistanceQuestCache: false,
+					PredictionAcceptanceTimeThreadhold: "7.00:00:00",
+					TypeHint: 0
+				},
+				{
+					Enabled: true,
+					SelectMethod: 0,
+					SelectValue: "315",
+					Memo: "",
+					FailIfNotAccepted: false,
+					FailIfNotExist: false,
+					FailIfOperationNotAllowed: false,
+					Operation: 2,
+					Rewards: [],
+					EnableAcceptedQuestCache: true,
+					EnableExistanceQuestCache: false,
+					PredictionAcceptanceTimeThreadhold: "7.00:00:00",
+					TypeHint: 0
+				}
+			],
+			RefreshDataTaskPriority: 0,
+			SubmitQuestTaskPriority: 0,
+			WaitHomeAtFirst: false,
+			ReturnRoomAtLast: false,
+			EnableScript: true,
+			Script: null,
+			TriggerOnEnabled: false
+		},
+		{
+			Type: "KancollePlayerSimulatorKai.BasicSubmitQuestWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
+			Guid: "a85045b4-ae2f-4d3b-af82-8f0dbff23da5",
+			Name: "取消任务",
+			EnableOnLoad: false,
+			Quests: [
+				{
+					Enabled: true,
+					SelectMethod: 0,
+					SelectValue: "303",
+					Memo: "",
+					FailIfNotAccepted: false,
+					FailIfNotExist: false,
+					FailIfOperationNotAllowed: false,
+					Operation: 1,
+					Rewards: [],
+					EnableAcceptedQuestCache: true,
+					EnableExistanceQuestCache: false,
+					PredictionAcceptanceTimeThreadhold: "7.00:00:00",
+					TypeHint: 0
+				},
+				{
+					Enabled: true,
+					SelectMethod: 0,
+					SelectValue: "304",
+					Memo: "",
+					FailIfNotAccepted: false,
+					FailIfNotExist: false,
+					FailIfOperationNotAllowed: false,
+					Operation: 1,
+					Rewards: [],
+					EnableAcceptedQuestCache: true,
+					EnableExistanceQuestCache: false,
+					PredictionAcceptanceTimeThreadhold: "7.00:00:00",
+					TypeHint: 0
+				},
+				{
+					Enabled: true,
+					SelectMethod: 0,
+					SelectValue: "302",
+					Memo: "",
+					FailIfNotAccepted: false,
+					FailIfNotExist: false,
+					FailIfOperationNotAllowed: false,
+					Operation: 1,
+					Rewards: [],
+					EnableAcceptedQuestCache: true,
+					EnableExistanceQuestCache: false,
+					PredictionAcceptanceTimeThreadhold: "7.00:00:00",
+					TypeHint: 0
+				},
+				{
+					Enabled: true,
+					SelectMethod: 0,
+					SelectValue: "311",
+					Memo: "",
+					FailIfNotAccepted: false,
+					FailIfNotExist: false,
+					FailIfOperationNotAllowed: false,
+					Operation: 1,
+					Rewards: [],
+					EnableAcceptedQuestCache: true,
+					EnableExistanceQuestCache: false,
+					PredictionAcceptanceTimeThreadhold: "7.00:00:00",
+					TypeHint: 0
+				},
+				{
+					Enabled: true,
+					SelectMethod: 0,
+					SelectValue: "315",
+					Memo: "",
+					FailIfNotAccepted: false,
+					FailIfNotExist: false,
+					FailIfOperationNotAllowed: false,
+					Operation: 1,
+					Rewards: [],
+					EnableAcceptedQuestCache: true,
+					EnableExistanceQuestCache: false,
+					PredictionAcceptanceTimeThreadhold: "7.00:00:00",
+					TypeHint: 0
+				}
+			],
+			RefreshDataTaskPriority: 0,
+			SubmitQuestTaskPriority: 22,
+			WaitHomeAtFirst: false,
+			ReturnRoomAtLast: true,
+			EnableScript: true,
+			Script: null,
+			TriggerOnEnabled: false
+		},
+		{
+			Type: "KancollePlayerSimulatorKai.BasicDockingWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
+			Guid: "e8e81a42-fb35-4ede-92df-9d4959506a43",
+			Name: "入渠",
+			EnableOnLoad: false,
+			LimitFleetFlag: true,
+			LimitFleetValue: 3,
+			LimitHpPercentFlag: true,
+			LimitHpPercentMinValue: 0.0,
+			LimitHpPercentMaxValue: 0.75,
+			LimitRepairTimeFlag: false,
+			LimitRepairTimeMinValue: "00:00:00",
+			LimitRepairTimeMaxValue: "4.04:00:00",
+			LimitMoraleFlag: false,
+			LimitMoraleMinValue: 0,
+			LimitMoraleMaxValue: 100,
+			LimitLevelFlag: false,
+			LimitLevelMinValue: 1,
+			LimitLevelMaxValue: 999,
+			LimitLockStateFlag: false,
+			LimitLockStateValueLocked: true,
+			LimitLockStateValueUnlocked: false,
+			LimitDockingStateFlag: false,
+			LimitDockingStateValueDocking: true,
+			LimitDockingStateValueIdle: false,
+			LimitShipTypeFlag: false,
+			LimitShipTypeValue: [],
+			SelectStrategy: 0,
+			Docks: 15,
+			ForceDocking: true,
+			InstantRepair: true,
+			ApplyInstantRepairToDockingShips: true,
+			InstantRepairTimeLimit: "00:00:00",
+			AutoStop: true,
+			Repeat: true,
+			SkipExpeditioningShips: true,
+			EnableScriptFilter: false,
+			FilterFunctionName: "OnFilter",
+			RefreshDataTaskPriority: 0,
+			DockingTaskPriority: 0,
+			DelaySecondsAfterRepairFinishedBase: 0,
+			DelaySecondsAfterRepairFinishedRandomMax: -60,
+			SetNonSetDockingTimersAtFirst: true,
+			WaitHomeAtFirst: false,
+			RefreshDataBeforeDocking: false,
+			ReturnRoomAtLast: false,
+			EnableScript: true,
+			Script: null,
+			TriggerOnEnabled: false
+		},
+		{
+			Type: "KancollePlayerSimulatorKai.BasicSupplyFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
+			Guid: "0ab15934-0ce2-47ac-b4c8-ce1bf428c2c4",
+			Name: "补给",
+			EnableOnLoad: false,
+			Fleet: 1,
+			Setting: 32767,
+			SkipIfAllResourcePercentHigherThanFlag: false,
+			SkipIfAllResourcePercentHigherThanValue: 100,
+			RefreshDataTaskPriority: 0,
+			SupplyFleetTaskPriority: 0,
+			WaitHomeAtFirst: false,
+			RefreshDataBeforeSupplyFleet: false,
+			ReturnRoomAtLast: false,
+			EnableScript: true,
+			Script: null,
+			TriggerOnEnabled: false
+		},
+		{
+			Type: "KancollePlayerSimulatorKai.SimpleRaiseUserEventWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
+			Guid: "10105b42-f86b-4c49-a36f-7316d07f1efc",
+			Name: "通知完成",
+			EnableOnLoad: false,
+			Message: "已空出任务槽",
+			EnableScript: true,
+			Script: null,
+			TriggerOnEnabled: false
+		},
+		{
+			Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
+			Guid: "a8fced98-ae73-4b37-a239-6c3454e00cd6",
+			Name: "编成(对潜)",
+			EnableOnLoad: false,
+			Fleet: 1,
+			Positions: [],
+			AllowRemoveEscortShips: true,
+			RollBackProgressIfOrganizeFailed: true,
+			ResetAllCurrentStrategiesIfDisabled: true,
+			RefreshDataTaskPriority: 0,
+			OrganizeFleetTaskPriority: 0,
+			WaitHomeAtFirst: false,
+			RefreshDataBeforeOrganize: false,
+			ReturnRoomAtLast: false,
+			EnableScript: true,
+			Script: null,
+			TriggerOnEnabled: false
+		},
+		{
+			Type: "KancollePlayerSimulatorKai.BasicRefitEquipmentWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
+			Guid: "cd258b61-a609-42e9-b16e-a7be0d147bd7",
+			Name: "改装(对潜)",
+			EnableOnLoad: false,
+			Ships: [],
+			RefreshDataTaskPriority: 0,
+			RefitEquipmentTaskPriority: 0,
+			WaitHomeAtFirst: false,
+			RefreshDataBeforeRefit: false,
+			ReturnRoomAtLast: false,
+			EnableScript: true,
+			Script: null,
+			TriggerOnEnabled: false
+		},
+		{
+			Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
+			Guid: "24bec461-4b76-4221-a2b0-44025d72c1e5",
+			Name: "编成(默认)",
+			EnableOnLoad: false,
+			Fleet: 1,
+			Positions: [],
+			AllowRemoveEscortShips: true,
+			RollBackProgressIfOrganizeFailed: true,
+			ResetAllCurrentStrategiesIfDisabled: true,
+			RefreshDataTaskPriority: 0,
+			OrganizeFleetTaskPriority: 0,
+			WaitHomeAtFirst: false,
+			RefreshDataBeforeOrganize: false,
+			ReturnRoomAtLast: false,
+			EnableScript: true,
+			Script: null,
+			TriggerOnEnabled: false
+		},
+		{
+			Type: "KancollePlayerSimulatorKai.BasicRefitEquipmentWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
+			Guid: "f3c851c1-5383-4924-9798-3139d3d4219b",
+			Name: "改装(默认)",
+			EnableOnLoad: false,
+			Ships: [],
+			RefreshDataTaskPriority: 0,
+			RefitEquipmentTaskPriority: 0,
+			WaitHomeAtFirst: false,
+			RefreshDataBeforeRefit: false,
+			ReturnRoomAtLast: false,
+			EnableScript: true,
+			Script: null,
+			TriggerOnEnabled: false
+		}
+	]
+}

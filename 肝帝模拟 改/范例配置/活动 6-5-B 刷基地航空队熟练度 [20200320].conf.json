@@ -1,0 +1,1018 @@
+﻿{
+	Name: "6-5-B 刷基地航空队熟练度",
+	List: [
+		{
+			Type: "KancollePlayerSimulatorKai.MemoWorkflow, KancollePlayerSimulatorKai, Version=1.3.3.3, Culture=neutral, PublicKeyToken=null",
+			Guid: "200b8372-ef2b-4423-b85e-3c39d6046ad8",
+			Name: "注意事项",
+			EnableOnLoad: false,
+			Memo: "使用前需配好足够陪练的编成候选舰船\r\n自行掌握停止时机\r\n\r\n[20200320]",
+			EnableScript: true,
+			Script: null,
+			TriggerOnEnabled: false
+		},
+		{
+			Type: "KancollePlayerSimulatorKai.RelationalSortieWorkflow, KancollePlayerSimulatorKai, Version=1.3.3.3, Culture=neutral, PublicKeyToken=null",
+			Guid: "eb652bed-7604-45fa-a579-5d9e3645088c",
+			Name: "总控",
+			EnableOnLoad: false,
+			SleepTimeBase: "00:00:00",
+			SleepTimeRandomMax: "00:00:00",
+			DoNotSleepAtFirstLoop: true,
+			SleepUntilMoraleRecoveredFlag: false,
+			SleepUntilMoraleRecoveredValueMorale: 49,
+			SleepUntilAnyDockEmptyFlag: false,
+			SleepUntilAnyDockEmptyValueDocks: 15,
+			SleepUntilAllDocksEmptyFlag: false,
+			SleepUntilAllDocksEmptyValueDocks: 15,
+			OrganizeBeforeFinishedEventThreshold: 1,
+			OrganizeAfterFinishedEventThreshold: 1,
+			OrganizeAfterOnlyTargetFleetFinishedEventCounted: true,
+			OrganizeBeforeWorkflows: [
+				{
+					Guid: "a4a9f3de-091a-4594-bd4e-a99d1a531b9d",
+					Enabled: true,
+					IgnoreTriggerFailure: false
+				}
+			],
+			OrganizeAfterWorkflows: [],
+			RefitEquipmentBeforeFinishedEventThreshold: 1,
+			RefitEquipmentAfterFinishedEventThreshold: 1,
+			RefitEquipmentAfterOnlyTargetFleetFinishedEventCounted: true,
+			RefitEquipmentBeforeWorkflows: [
+				{
+					Guid: "a6abd4a7-7323-4a0b-bcd9-a96a88cbbf0a",
+					Enabled: true,
+					IgnoreTriggerFailure: false
+				}
+			],
+			RefitEquipmentAfterWorkflows: [],
+			ScrapShipBeforeFinishedEventThreshold: 1,
+			ScrapShipAfterFinishedEventThreshold: 1,
+			ScrapShipBeforeWorkflows: [],
+			ScrapShipAfterWorkflows: [],
+			DockingBeforeFinishedEventThreshold: 1,
+			DockingAfterFinishedEventThreshold: 1,
+			DockingBeforeWorkflows: [
+				{
+					Guid: "521612b6-c733-4611-ab64-38b28f25f18c",
+					Enabled: true,
+					IgnoreTriggerFailure: false
+				}
+			],
+			DockingAfterWorkflows: [],
+			SupplyBeforeFinishedEventThreshold: 1,
+			SupplyAfterFinishedEventThreshold: 1,
+			SupplyAfterOnlyTargetFleetFinishedEventCounted: true,
+			SupplyBeforeWorkflows: [
+				{
+					Guid: "51571a1e-a57f-42db-abb8-e4830b3e089d",
+					Enabled: true,
+					IgnoreTriggerFailure: false
+				}
+			],
+			SupplyAfterWorkflows: [
+				{
+					Guid: "51571a1e-a57f-42db-abb8-e4830b3e089d",
+					Enabled: true,
+					IgnoreTriggerFailure: false
+				}
+			],
+			SortieWorkflow: {
+				Guid: "d7610c10-dd36-456d-86b1-461f5c6d1802",
+				Enabled: true,
+				IgnoreTriggerFailure: false
+			},
+			StopIfLoopCountLargerOrEqualThanFlag: true,
+			StopIfLoopCountLargerOrEqualThanValue: 10,
+			StopIfRuntimeLengthExceedFlag: false,
+			StopIfRuntimeLengthExceedValueDays: 0,
+			StopIfRuntimeLengthExceedValueHours: 0,
+			StopIfRuntimeLengthExceedValueMinutes: 0,
+			StopIfRuntimeLengthExceedValueSeconds: 0,
+			StopIfWithinTimePeriodFlag: false,
+			StopIfWithinTimePeriodValueStartHours: 22,
+			StopIfWithinTimePeriodValueStartMinutes: 0,
+			StopIfWithinTimePeriodValueEndHours: 8,
+			StopIfWithinTimePeriodValueEndMinutes: 0,
+			StopIfShipVacancyLessOrEqualThanFlag: false,
+			StopIfShipVacancyLessOrEqualThanValue: 0,
+			StopIfEquipmentVacancyLessOrEqualThanFlag: false,
+			StopIfEquipmentVacancyLessOrEqualThanValue: 0,
+			StopIfOrganizeBeforeSelectFailed: false,
+			StopIfOrganizeAfterSelectFailed: false,
+			StopIfGetMedal: false,
+			StopIfGetShipFlag: false,
+			StopIfGetShipValueShipName: "大鯨",
+			StopIfEnemyFlagShipSunkFlag: false,
+			StopIfEnemyFlagShipSunkValueThreshold: 1,
+			StopIfEnemyFlagShipSunkValueConditionType: 0,
+			StopIfEnemyFlagShipSunkValueConditionValue: "1",
+			StopIfBattleRankHigherOrEqualThanFlag: false,
+			StopIfBattleRankHigherOrEqualThanValueConditionType: 0,
+			StopIfBattleRankHigherOrEqualThanValueConditionValue: "1",
+			StopIfBattleRankHigherOrEqualThanValueRank: 4,
+			StopIfBattleRankHigherOrEqualThanValueThreshold: 1,
+			IgnoreOrganizeBeforeFailure: false,
+			IgnoreOrganizeAfterFailure: false,
+			IgnoreRefitEquipmentBeforeFailure: false,
+			IgnoreRefitEquipmentAfterFailure: false,
+			IgnoreSortieFailure: false,
+			FinishLoopIfOrganizeBeforeFailureFlag: false,
+			FinishLoopIfOrganizeBeforeFailureValueThreshold: 1,
+			FinishLoopIfOrganizeAfterFailureFlag: false,
+			FinishLoopIfOrganizeAfterFailureValueThreshold: 1,
+			FinishLoopIfRefitEquipmentBeforeFailureFlag: false,
+			FinishLoopIfRefitEquipmentBeforeFailureValueThreshold: 1,
+			FinishLoopIfRefitEquipmentAfterFailureFlag: false,
+			FinishLoopIfRefitEquipmentAfterFailureValueThreshold: 1,
+			FinishLoopIfSortieFailureFlag: true,
+			FinishLoopIfSortieFailureValueThreshold: 4,
+			MinimalSleepSecondsAfterFailureOccuredFlag: true,
+			MinimalSleepSecondsAfterFailureOccuredValue: 300,
+			Fleet: 1,
+			RefreshDataTaskPriority: 0,
+			WaitHomeBeforeSleep: false,
+			WaitHomeAfterSleep: false,
+			RefreshDataBeforeSortie: false,
+			ReturnRoomAtLast: true,
+			BeforeLoopsEnableWorkflows: [],
+			BeforeLoopsDisableWorkflows: [],
+			BeforeLoopsTriggerWorkflows: [],
+			AutoStoppedEnableWorkflows: [],
+			AutoStoppedDisableWorkflows: [],
+			AutoStoppedTriggerWorkflows: [],
+			Repeat: true,
+			ExclusiveExecution: true,
+			EnableScript: true,
+			Script: null,
+			TriggerOnEnabled: true
+		},
+		{
+			Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.3.3.3, Culture=neutral, PublicKeyToken=null",
+			Guid: "a4a9f3de-091a-4594-bd4e-a99d1a531b9d",
+			Name: "编成（轻巡）",
+			EnableOnLoad: false,
+			Fleet: 1,
+			Positions: [
+				{
+					Selections: [
+						{
+							Type: 5,
+							Value: "大淀",
+							Memo: ""
+						}
+					],
+					ChangeIfInitial: true,
+					ChangeIfHpInRangeFlag: false,
+					ChangeIfHpInRangeValueMin: 0.0,
+					ChangeIfHpInRangeValueMax: 0.25,
+					ChangeIfMoraleInRangeFlag: false,
+					ChangeIfMoraleInRangeValueMin: 0,
+					ChangeIfMoraleInRangeValueMax: 39,
+					SkipWrongShips: true,
+					SkipRepairingShips: true,
+					SkipExpeditioningShips: true,
+					SkipShipsInThisFleet: false,
+					IgnoreSkipShipsInThisFleetIfInitial: true,
+					SkipShipsInOtherFleets: true,
+					IgnoreSkipShipsInOtherFleetsIfInitial: false,
+					SkipHpInRangeFlag: false,
+					SkipHpInRangeValueMin: 0.0,
+					SkipHpInRangeValueMax: 0.25,
+					SkipMoraleInRangeFlag: false,
+					SkipMoraleInRangeValueMin: 0,
+					SkipMoraleInRangeValueMax: 39,
+					SkipLocked: false,
+					SkipUnlocked: false,
+					SkipNoConventionalEquipments: false,
+					EnableScriptFilter: false,
+					FilterFunctionName: "",
+					SelectionSortingMethod: 1,
+					IncludeCurrentShip: false,
+					IncludeCurrentSelection: true,
+					KeepIfAllSelectionsFailed: false,
+					KeepIfSelectionCollectionEmpty: false
+				}
+			],
+			AllowRemoveEscortShips: true,
+			RollBackProgressIfOrganizeFailed: true,
+			ResetAllCurrentStrategiesIfDisabled: true,
+			RefreshDataTaskPriority: 0,
+			OrganizeFleetTaskPriority: 0,
+			WaitHomeAtFirst: false,
+			RefreshDataBeforeOrganize: false,
+			ReturnRoomAtLast: true,
+			EnableScript: true,
+			Script: null,
+			TriggerOnEnabled: false
+		},
+		{
+			Type: "KancollePlayerSimulatorKai.BasicRefitEquipmentWorkflow, KancollePlayerSimulatorKai, Version=1.3.3.3, Culture=neutral, PublicKeyToken=null",
+			Guid: "a6abd4a7-7323-4a0b-bcd9-a96a88cbbf0a",
+			Name: "改装",
+			EnableOnLoad: false,
+			Ships: [
+				{
+					Slots: [
+						{
+							Equipments: [
+								{
+									SelectMethod: 0,
+									SelectValue: "式水中",
+									SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
+									StatusPriority: 2,
+									LevelPriority: 0,
+									ProficiencyPriority: 0,
+									IdPriority: 1,
+									Deprive: 2
+								}
+							],
+							Slot: 1,
+							IgnoreNoEquipmentMatched: false,
+							IgnoreSlotNotAvailable: true,
+							IgnoreSlotNotReachable: false
+						},
+						{
+							Equipments: [
+								{
+									SelectMethod: 0,
+									SelectValue: "式爆雷投射",
+									SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
+									StatusPriority: 2,
+									LevelPriority: 0,
+									ProficiencyPriority: 0,
+									IdPriority: 1,
+									Deprive: 2
+								}
+							],
+							Slot: 2,
+							IgnoreNoEquipmentMatched: false,
+							IgnoreSlotNotAvailable: true,
+							IgnoreSlotNotReachable: false
+						},
+						{
+							Equipments: [
+								{
+									SelectMethod: 0,
+									SelectValue: "式爆雷$",
+									SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
+									StatusPriority: 2,
+									LevelPriority: 0,
+									ProficiencyPriority: 0,
+									IdPriority: 1,
+									Deprive: 2
+								}
+							],
+							Slot: 3,
+							IgnoreNoEquipmentMatched: false,
+							IgnoreSlotNotAvailable: true,
+							IgnoreSlotNotReachable: false
+						},
+						{
+							Equipments: [
+								{
+									SelectMethod: 0,
+									SelectValue: "迫撃砲",
+									SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
+									StatusPriority: 2,
+									LevelPriority: 0,
+									ProficiencyPriority: 0,
+									IdPriority: 1,
+									Deprive: 2
+								}
+							],
+							Slot: 4,
+							IgnoreNoEquipmentMatched: false,
+							IgnoreSlotNotAvailable: true,
+							IgnoreSlotNotReachable: false
+						},
+						{
+							Equipments: [
+								{
+									SelectMethod: 0,
+									SelectValue: "改良型艦本式タービン",
+									SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
+									StatusPriority: 2,
+									LevelPriority: 0,
+									ProficiencyPriority: 0,
+									IdPriority: 1,
+									Deprive: 2
+								}
+							],
+							Slot: 6,
+							IgnoreNoEquipmentMatched: false,
+							IgnoreSlotNotAvailable: true,
+							IgnoreSlotNotReachable: false
+						}
+					],
+					Fleet: 1,
+					SelectMethod: 0,
+					SelectValue: "1",
+					Memo: "",
+					IgnoreNoShipMatched: true,
+					IgnoreExpedition: false,
+					IgnoreDocking: false
+				},
+				{
+					Slots: [
+						{
+							Equipments: [
+								{
+									SelectMethod: 0,
+									SelectValue: "式水中",
+									SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
+									StatusPriority: 2,
+									LevelPriority: 0,
+									ProficiencyPriority: 0,
+									IdPriority: 1,
+									Deprive: 2
+								}
+							],
+							Slot: 1,
+							IgnoreNoEquipmentMatched: false,
+							IgnoreSlotNotAvailable: true,
+							IgnoreSlotNotReachable: false
+						},
+						{
+							Equipments: [
+								{
+									SelectMethod: 0,
+									SelectValue: "式爆雷投射",
+									SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
+									StatusPriority: 2,
+									LevelPriority: 0,
+									ProficiencyPriority: 0,
+									IdPriority: 1,
+									Deprive: 2
+								}
+							],
+							Slot: 2,
+							IgnoreNoEquipmentMatched: false,
+							IgnoreSlotNotAvailable: true,
+							IgnoreSlotNotReachable: false
+						},
+						{
+							Equipments: [
+								{
+									SelectMethod: 0,
+									SelectValue: "式爆雷$",
+									SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
+									StatusPriority: 2,
+									LevelPriority: 0,
+									ProficiencyPriority: 0,
+									IdPriority: 1,
+									Deprive: 2
+								}
+							],
+							Slot: 3,
+							IgnoreNoEquipmentMatched: false,
+							IgnoreSlotNotAvailable: true,
+							IgnoreSlotNotReachable: false
+						},
+						{
+							Equipments: [
+								{
+									SelectMethod: 0,
+									SelectValue: "迫撃砲",
+									SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
+									StatusPriority: 2,
+									LevelPriority: 0,
+									ProficiencyPriority: 0,
+									IdPriority: 1,
+									Deprive: 2
+								}
+							],
+							Slot: 4,
+							IgnoreNoEquipmentMatched: false,
+							IgnoreSlotNotAvailable: true,
+							IgnoreSlotNotReachable: false
+						},
+						{
+							Equipments: [
+								{
+									SelectMethod: 0,
+									SelectValue: "改良型艦本式タービン",
+									SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
+									StatusPriority: 2,
+									LevelPriority: 0,
+									ProficiencyPriority: 0,
+									IdPriority: 1,
+									Deprive: 2
+								}
+							],
+							Slot: 6,
+							IgnoreNoEquipmentMatched: false,
+							IgnoreSlotNotAvailable: true,
+							IgnoreSlotNotReachable: false
+						}
+					],
+					Fleet: 1,
+					SelectMethod: 0,
+					SelectValue: "2",
+					Memo: "",
+					IgnoreNoShipMatched: true,
+					IgnoreExpedition: false,
+					IgnoreDocking: false
+				},
+				{
+					Slots: [
+						{
+							Equipments: [
+								{
+									SelectMethod: 0,
+									SelectValue: "式水中",
+									SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
+									StatusPriority: 2,
+									LevelPriority: 0,
+									ProficiencyPriority: 0,
+									IdPriority: 1,
+									Deprive: 2
+								}
+							],
+							Slot: 1,
+							IgnoreNoEquipmentMatched: false,
+							IgnoreSlotNotAvailable: true,
+							IgnoreSlotNotReachable: false
+						},
+						{
+							Equipments: [
+								{
+									SelectMethod: 0,
+									SelectValue: "式爆雷投射",
+									SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
+									StatusPriority: 2,
+									LevelPriority: 0,
+									ProficiencyPriority: 0,
+									IdPriority: 1,
+									Deprive: 2
+								}
+							],
+							Slot: 2,
+							IgnoreNoEquipmentMatched: false,
+							IgnoreSlotNotAvailable: true,
+							IgnoreSlotNotReachable: false
+						},
+						{
+							Equipments: [
+								{
+									SelectMethod: 0,
+									SelectValue: "式爆雷$",
+									SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
+									StatusPriority: 2,
+									LevelPriority: 0,
+									ProficiencyPriority: 0,
+									IdPriority: 1,
+									Deprive: 2
+								}
+							],
+							Slot: 3,
+							IgnoreNoEquipmentMatched: false,
+							IgnoreSlotNotAvailable: true,
+							IgnoreSlotNotReachable: false
+						},
+						{
+							Equipments: [
+								{
+									SelectMethod: 0,
+									SelectValue: "迫撃砲",
+									SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
+									StatusPriority: 2,
+									LevelPriority: 0,
+									ProficiencyPriority: 0,
+									IdPriority: 1,
+									Deprive: 2
+								}
+							],
+							Slot: 4,
+							IgnoreNoEquipmentMatched: false,
+							IgnoreSlotNotAvailable: true,
+							IgnoreSlotNotReachable: false
+						},
+						{
+							Equipments: [
+								{
+									SelectMethod: 0,
+									SelectValue: "改良型艦本式タービン",
+									SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
+									StatusPriority: 2,
+									LevelPriority: 0,
+									ProficiencyPriority: 0,
+									IdPriority: 1,
+									Deprive: 2
+								}
+							],
+							Slot: 6,
+							IgnoreNoEquipmentMatched: false,
+							IgnoreSlotNotAvailable: true,
+							IgnoreSlotNotReachable: false
+						}
+					],
+					Fleet: 1,
+					SelectMethod: 0,
+					SelectValue: "3",
+					Memo: "",
+					IgnoreNoShipMatched: true,
+					IgnoreExpedition: false,
+					IgnoreDocking: false
+				},
+				{
+					Slots: [
+						{
+							Equipments: [
+								{
+									SelectMethod: 0,
+									SelectValue: "式水中",
+									SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
+									StatusPriority: 2,
+									LevelPriority: 0,
+									ProficiencyPriority: 0,
+									IdPriority: 1,
+									Deprive: 2
+								}
+							],
+							Slot: 1,
+							IgnoreNoEquipmentMatched: false,
+							IgnoreSlotNotAvailable: true,
+							IgnoreSlotNotReachable: false
+						},
+						{
+							Equipments: [
+								{
+									SelectMethod: 0,
+									SelectValue: "式爆雷投射",
+									SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
+									StatusPriority: 2,
+									LevelPriority: 0,
+									ProficiencyPriority: 0,
+									IdPriority: 1,
+									Deprive: 2
+								}
+							],
+							Slot: 2,
+							IgnoreNoEquipmentMatched: false,
+							IgnoreSlotNotAvailable: true,
+							IgnoreSlotNotReachable: false
+						},
+						{
+							Equipments: [
+								{
+									SelectMethod: 0,
+									SelectValue: "式爆雷$",
+									SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
+									StatusPriority: 2,
+									LevelPriority: 0,
+									ProficiencyPriority: 0,
+									IdPriority: 1,
+									Deprive: 2
+								}
+							],
+							Slot: 3,
+							IgnoreNoEquipmentMatched: false,
+							IgnoreSlotNotAvailable: true,
+							IgnoreSlotNotReachable: false
+						},
+						{
+							Equipments: [
+								{
+									SelectMethod: 0,
+									SelectValue: "迫撃砲",
+									SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
+									StatusPriority: 2,
+									LevelPriority: 0,
+									ProficiencyPriority: 0,
+									IdPriority: 1,
+									Deprive: 2
+								}
+							],
+							Slot: 4,
+							IgnoreNoEquipmentMatched: false,
+							IgnoreSlotNotAvailable: true,
+							IgnoreSlotNotReachable: false
+						},
+						{
+							Equipments: [
+								{
+									SelectMethod: 0,
+									SelectValue: "改良型艦本式タービン",
+									SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
+									StatusPriority: 2,
+									LevelPriority: 0,
+									ProficiencyPriority: 0,
+									IdPriority: 1,
+									Deprive: 2
+								}
+							],
+							Slot: 6,
+							IgnoreNoEquipmentMatched: false,
+							IgnoreSlotNotAvailable: true,
+							IgnoreSlotNotReachable: false
+						}
+					],
+					Fleet: 1,
+					SelectMethod: 0,
+					SelectValue: "4",
+					Memo: "",
+					IgnoreNoShipMatched: true,
+					IgnoreExpedition: false,
+					IgnoreDocking: false
+				},
+				{
+					Slots: [
+						{
+							Equipments: [
+								{
+									SelectMethod: 0,
+									SelectValue: "式水中",
+									SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
+									StatusPriority: 2,
+									LevelPriority: 0,
+									ProficiencyPriority: 0,
+									IdPriority: 1,
+									Deprive: 2
+								}
+							],
+							Slot: 1,
+							IgnoreNoEquipmentMatched: false,
+							IgnoreSlotNotAvailable: true,
+							IgnoreSlotNotReachable: false
+						},
+						{
+							Equipments: [
+								{
+									SelectMethod: 0,
+									SelectValue: "式爆雷投射",
+									SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
+									StatusPriority: 2,
+									LevelPriority: 0,
+									ProficiencyPriority: 0,
+									IdPriority: 1,
+									Deprive: 2
+								}
+							],
+							Slot: 2,
+							IgnoreNoEquipmentMatched: false,
+							IgnoreSlotNotAvailable: true,
+							IgnoreSlotNotReachable: false
+						},
+						{
+							Equipments: [
+								{
+									SelectMethod: 0,
+									SelectValue: "式爆雷$",
+									SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
+									StatusPriority: 2,
+									LevelPriority: 0,
+									ProficiencyPriority: 0,
+									IdPriority: 1,
+									Deprive: 2
+								}
+							],
+							Slot: 3,
+							IgnoreNoEquipmentMatched: false,
+							IgnoreSlotNotAvailable: true,
+							IgnoreSlotNotReachable: false
+						},
+						{
+							Equipments: [
+								{
+									SelectMethod: 0,
+									SelectValue: "迫撃砲",
+									SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
+									StatusPriority: 2,
+									LevelPriority: 0,
+									ProficiencyPriority: 0,
+									IdPriority: 1,
+									Deprive: 2
+								}
+							],
+							Slot: 4,
+							IgnoreNoEquipmentMatched: false,
+							IgnoreSlotNotAvailable: true,
+							IgnoreSlotNotReachable: false
+						},
+						{
+							Equipments: [
+								{
+									SelectMethod: 0,
+									SelectValue: "改良型艦本式タービン",
+									SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
+									StatusPriority: 2,
+									LevelPriority: 0,
+									ProficiencyPriority: 0,
+									IdPriority: 1,
+									Deprive: 2
+								}
+							],
+							Slot: 6,
+							IgnoreNoEquipmentMatched: false,
+							IgnoreSlotNotAvailable: true,
+							IgnoreSlotNotReachable: false
+						}
+					],
+					Fleet: 1,
+					SelectMethod: 0,
+					SelectValue: "5",
+					Memo: "",
+					IgnoreNoShipMatched: true,
+					IgnoreExpedition: false,
+					IgnoreDocking: false
+				},
+				{
+					Slots: [
+						{
+							Equipments: [
+								{
+									SelectMethod: 0,
+									SelectValue: "式水中",
+									SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
+									StatusPriority: 2,
+									LevelPriority: 0,
+									ProficiencyPriority: 0,
+									IdPriority: 1,
+									Deprive: 2
+								}
+							],
+							Slot: 1,
+							IgnoreNoEquipmentMatched: false,
+							IgnoreSlotNotAvailable: true,
+							IgnoreSlotNotReachable: false
+						},
+						{
+							Equipments: [
+								{
+									SelectMethod: 0,
+									SelectValue: "式爆雷投射",
+									SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
+									StatusPriority: 2,
+									LevelPriority: 0,
+									ProficiencyPriority: 0,
+									IdPriority: 1,
+									Deprive: 2
+								}
+							],
+							Slot: 2,
+							IgnoreNoEquipmentMatched: false,
+							IgnoreSlotNotAvailable: true,
+							IgnoreSlotNotReachable: false
+						},
+						{
+							Equipments: [
+								{
+									SelectMethod: 0,
+									SelectValue: "式爆雷$",
+									SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
+									StatusPriority: 2,
+									LevelPriority: 0,
+									ProficiencyPriority: 0,
+									IdPriority: 1,
+									Deprive: 2
+								}
+							],
+							Slot: 3,
+							IgnoreNoEquipmentMatched: false,
+							IgnoreSlotNotAvailable: true,
+							IgnoreSlotNotReachable: false
+						},
+						{
+							Equipments: [
+								{
+									SelectMethod: 0,
+									SelectValue: "迫撃砲",
+									SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
+									StatusPriority: 2,
+									LevelPriority: 0,
+									ProficiencyPriority: 0,
+									IdPriority: 1,
+									Deprive: 2
+								}
+							],
+							Slot: 4,
+							IgnoreNoEquipmentMatched: false,
+							IgnoreSlotNotAvailable: true,
+							IgnoreSlotNotReachable: false
+						},
+						{
+							Equipments: [
+								{
+									SelectMethod: 0,
+									SelectValue: "改良型艦本式タービン",
+									SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
+									StatusPriority: 2,
+									LevelPriority: 0,
+									ProficiencyPriority: 0,
+									IdPriority: 1,
+									Deprive: 2
+								}
+							],
+							Slot: 6,
+							IgnoreNoEquipmentMatched: false,
+							IgnoreSlotNotAvailable: true,
+							IgnoreSlotNotReachable: false
+						}
+					],
+					Fleet: 1,
+					SelectMethod: 0,
+					SelectValue: "6",
+					Memo: "",
+					IgnoreNoShipMatched: true,
+					IgnoreExpedition: false,
+					IgnoreDocking: false
+				}
+			],
+			RefreshDataTaskPriority: 0,
+			RefitEquipmentTaskPriority: 0,
+			WaitHomeAtFirst: false,
+			RefreshDataBeforeRefit: false,
+			ReturnRoomAtLast: true,
+			EnableScript: true,
+			Script: null,
+			TriggerOnEnabled: false
+		},
+		{
+			Type: "KancollePlayerSimulatorKai.BasicDockingWorkflow, KancollePlayerSimulatorKai, Version=1.3.3.3, Culture=neutral, PublicKeyToken=null",
+			Guid: "521612b6-c733-4611-ab64-38b28f25f18c",
+			Name: "入渠（出击前）",
+			EnableOnLoad: false,
+			LimitFleetFlag: true,
+			LimitFleetValue: 3,
+			LimitHpPercentFlag: true,
+			LimitHpPercentMinValue: 0.0,
+			LimitHpPercentMaxValue: 0.25,
+			LimitRepairTimeFlag: false,
+			LimitRepairTimeMinValue: "00:00:00",
+			LimitRepairTimeMaxValue: "4.04:00:00",
+			LimitMoraleFlag: false,
+			LimitMoraleMinValue: 0,
+			LimitMoraleMaxValue: 100,
+			LimitLevelFlag: false,
+			LimitLevelMinValue: 1,
+			LimitLevelMaxValue: 999,
+			LimitLockStateFlag: false,
+			LimitLockStateValueLocked: true,
+			LimitLockStateValueUnlocked: false,
+			LimitDockingStateFlag: false,
+			LimitDockingStateValueDocking: true,
+			LimitDockingStateValueIdle: false,
+			LimitShipTypeFlag: false,
+			LimitShipTypeValue: [],
+			SelectStrategy: 0,
+			Docks: 15,
+			ForceDocking: false,
+			InstantRepair: true,
+			ApplyInstantRepairToDockingShips: true,
+			InstantRepairTimeLimit: "00:00:00",
+			AutoStop: true,
+			Repeat: true,
+			SkipExpeditioningShips: true,
+			EnableScriptFilter: false,
+			FilterFunctionName: "OnFilter",
+			RefreshDataTaskPriority: 0,
+			DockingTaskPriority: 0,
+			DelaySecondsAfterRepairFinishedBase: 0,
+			DelaySecondsAfterRepairFinishedRandomMax: -60,
+			SetNonSetDockingTimersAtFirst: true,
+			WaitHomeAtFirst: false,
+			RefreshDataBeforeDocking: false,
+			ReturnRoomAtLast: true,
+			EnableScript: true,
+			Script: null,
+			TriggerOnEnabled: false
+		},
+		{
+			Type: "KancollePlayerSimulatorKai.SimpleSortieWorkflow, KancollePlayerSimulatorKai, Version=1.3.3.3, Culture=neutral, PublicKeyToken=null",
+			Guid: "d7610c10-dd36-456d-86b1-461f5c6d1802",
+			Name: "6-4-B",
+			EnableOnLoad: false,
+			Fleet: 1,
+			Sea: 6,
+			Area: 5,
+			ResetDifficulty: false,
+			Difficulty: 0,
+			EscortShipNoHeavilyDamaged: true,
+			FlagShipFullySupplied: false,
+			EscortShipFullySupplied: false,
+			FlagShipMoraleLargerOrEqualThanFlag: false,
+			FlagShipMoraleLargerOrEqualThanValue: 40,
+			EscortShipMoraleLargerOrEqualThanFlag: false,
+			EscortShipMoraleLargerOrEqualThanValue: 40,
+			NormalSupportExpedition: false,
+			NormalSupportExpeditionFleet: 3,
+			NormalSupportExpeditionTemporaryResupply: true,
+			NormalSupportExpeditionCheckFullySupplied: true,
+			NormalSupportExpeditionCheckMorale: true,
+			BossSupportExpedition: false,
+			BossSupportExpeditionFleet: 4,
+			BossSupportExpeditionTemporaryResupply: true,
+			BossSupportExpeditionCheckFullySupplied: true,
+			BossSupportExpeditionCheckMorale: true,
+			LandBasedAirCorps1Action: 1,
+			LandBasedAirCorps1Resupply: 15,
+			LandBasedAirCorps1Point1: {
+				Name: "B",
+				Memo: "",
+				Left: 0.3691832566380392,
+				Top: 0.6264734109309251,
+				Width: 0.011221300784998892,
+				Height: 0.020178654920392745
+			},
+			LandBasedAirCorps1Point2: {
+				Name: "B",
+				Memo: "",
+				Left: 0.3691832566380392,
+				Top: 0.6264734109309251,
+				Width: 0.011221300784998892,
+				Height: 0.020178654920392745
+			},
+			LandBasedAirCorps1CheckFatigue: true,
+			LandBasedAirCorps2Action: 1,
+			LandBasedAirCorps2Resupply: 15,
+			LandBasedAirCorps2Point1: {
+				Name: "B",
+				Memo: "",
+				Left: 0.36977385141619706,
+				Top: 0.6289342225065827,
+				Width: 0.010630706006841057,
+				Height: 0.015749194084208974
+			},
+			LandBasedAirCorps2Point2: {
+				Name: "B",
+				Memo: "",
+				Left: 0.36977385141619706,
+				Top: 0.6289342225065827,
+				Width: 0.010630706006841057,
+				Height: 0.015749194084208974
+			},
+			LandBasedAirCorps2CheckFatigue: true,
+			LandBasedAirCorps3Action: 0,
+			LandBasedAirCorps3Resupply: 15,
+			LandBasedAirCorps3Point1: null,
+			LandBasedAirCorps3Point2: null,
+			LandBasedAirCorps3CheckFatigue: false,
+			DefaultStrategy: {
+				Memo: "",
+				DefaultWayPoint: null,
+				DefaultBattleRations: 0,
+				DefaultMaritimeResupply: 0,
+				DefaultEmergencyAnchorageRepair: 0,
+				DefaultFormation: 0,
+				DefaultMidnight: 0,
+				DefalutFlagShipDamageControl: 0,
+				DefaultEscortRetreat: 0,
+				DefaultAdvance: 0,
+				RejectEscortRetreatIfMoreOrEqualThanTwoEscortShipsHeavilyDamaged: true,
+				EscortShipsHeavilyDamagedStrategy: 1,
+				RetreatIfModerateOrHeavierDamagedCountLargerOrEqualThanFlag: false,
+				RetreatIfModerateOrHeavierDamagedCountLargerOrEqualThanValue: 1
+			},
+			Strategies: [
+				{
+					Condition: {
+						Type: 1,
+						Value: 2
+					},
+					Strategy: {
+						Memo: "B",
+						DefaultWayPoint: null,
+						DefaultBattleRations: 0,
+						DefaultMaritimeResupply: 0,
+						DefaultEmergencyAnchorageRepair: 0,
+						DefaultFormation: 5,
+						DefaultMidnight: 1,
+						DefalutFlagShipDamageControl: 0,
+						DefaultEscortRetreat: 0,
+						DefaultAdvance: 2,
+						RejectEscortRetreatIfMoreOrEqualThanTwoEscortShipsHeavilyDamaged: true,
+						EscortShipsHeavilyDamagedStrategy: 1,
+						RetreatIfModerateOrHeavierDamagedCountLargerOrEqualThanFlag: false,
+						RetreatIfModerateOrHeavierDamagedCountLargerOrEqualThanValue: 1
+					}
+				}
+			],
+			EnableScriptSortieChecker: false,
+			SoriteCheckerFunctionName: "OnCheck",
+			SortieTaskPriority: -32768,
+			EnableScript: true,
+			Script: null,
+			TriggerOnEnabled: false
+		},
+		{
+			Type: "KancollePlayerSimulatorKai.BasicSupplyFleetWorkflow, KancollePlayerSimulatorKai, Version=1.3.3.3, Culture=neutral, PublicKeyToken=null",
+			Guid: "51571a1e-a57f-42db-abb8-e4830b3e089d",
+			Name: "补给",
+			EnableOnLoad: false,
+			Fleet: 1,
+			Setting: 32767,
+			SkipIfAllResourcePercentHigherThanFlag: true,
+			SkipIfAllResourcePercentHigherThanValue: 20,
+			RefreshDataTaskPriority: 0,
+			SupplyFleetTaskPriority: 0,
+			WaitHomeAtFirst: false,
+			RefreshDataBeforeSupplyFleet: false,
+			ReturnRoomAtLast: true,
+			EnableScript: true,
+			Script: null,
+			TriggerOnEnabled: false
+		}
+	]
+}
