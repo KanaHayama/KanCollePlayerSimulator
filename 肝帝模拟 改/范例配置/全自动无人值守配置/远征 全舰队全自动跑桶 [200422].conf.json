@@ -3,17 +3,17 @@
 		Name: "【全自动带闪跑桶演示】",
 		List: [
 			{
-				Type: "KancollePlayerSimulatorKai.MemoWorkflow, KancollePlayerSimulatorKai, Version=1.3.3.0, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.MemoWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
 				Guid: "f112774b-a87a-463c-b6be-de0bf3bcbad8",
 				Name: "使用说明",
 				EnableOnLoad: false,
-				Memo: "本范例相比普通版的《全舰队全自动跑桶》使用了Python脚本解决了以下痛点：\r\n①狗粮经常会选成刚得到的大船，抢了MVP，导致刷闪失败\r\n②选取特定舰种的舰船相当麻烦，比如新得到了一艘船，想加到远征队的话就得加到所有编成配置里\r\n③入渠时可能入渠刚刚用来出击做任务的驱逐，导致出击失败\r\n\r\n使用本Python版配置有以下额外需要注意的地方：\r\n①此处使用的脚本每次载入配置时会经网络从Github上获取脚本，无法访问Github时不能正常使用。如有此方面顾虑，可自行下载并改用本地版本脚本\r\n②因为配置初始化时需要调用Python代码，而Python代码很慢，所以带着本配置启动KCPS以及启动本配置时会卡顿较长时间\r\n③脚本部分使用了我个人喜欢的设定，如果你想要修改，需要看得懂Python\r\n\r\n其他你可能想改的设置：\r\n①要跑的远征以及对应的编成、装备\r\n②允许用来修复刷闪船的修复渠（默认不使用第1修复渠）\r\n③是否使用第一舰队泊地修理（默认使用）\r\n④每天停止发出远征的时间段\r\n\r\n【以下为普通版的使用说明】\r\n\r\n每天大量短远征极容易被发猫，请勿连续多天使用本配置！\r\n本配置已经限制了每日运行时长，每天下半夜休息4小时，但对于3个短远征来说仍然极其危险。\r\n\r\n本配置为通用配置，只要不是萌新账号缺这个少那个的话，应该都能运行。如果出现问题，请依据遇到的具体问题修改配置。\r\n使用到4个舰队、临时补给功能、一些二改的驱逐、一些水母、一些一改的轻巡、一些一改的驱逐、一些对潜装备、越多越好的大发。\r\n如果你有哪些船不想用于此配置，请将其从配置中删除，但请保证对应舰种有足够多的船轮换。\r\n\r\n因为本配置是通用配置，所以舰船选择是按名称筛选的，这种筛选方法在候选船多的时候很慢。想要加速的话请换成ID方式。\r\n\r\n补闪配置为1-1，带1个狗粮，如有不需要带狗粮或者去其他图刷的请自行修改。\r\n禁止沉船，包括狗粮。\r\n本配置会拆所有没上锁的驱逐，以保证总有位置放新的狗粮，请在使用前确保已经锁定了不想拆的船。\r\n因为还没有拆装备功能，为避免装备爆仓，所以狗粮不卸装备。\r\n需留出足够的空闲舰船和装备位以便接收新的狗粮。\r\n\r\n本配置使用全部修复渠，还使用泊地修理。\r\n如果你要同时做别的出击，请修改本配置中这两项修复设置，“刷完修理”空出一个修复渠不使用，禁用泊地修理关联项。\r\n同时做别的出击不会冲突（手动玩游戏除外），不需要关闭本配置。\r\n\r\n小破的船也会被送去远征，如果你不想这样，请修改远征配置里的编成功能，跳过血量在0%~99%的船。\r\n\r\n[20200210]\r\n",
+				Memo: "本配置演示了（不编写Python脚本的情况下）能达成的功能以及展示这些功能的用法。\r\n（如果使用Python还可以更容易地实现更复杂的功能）\r\n\r\n本配置已经限制了每日运行时长，每天下半夜休息6小时，但对于3个短远征来说仍然比较危险。\r\n\r\n本配置为通用配置，只要不是萌新账号缺这个少那个的话，应该都能运行。如果出现问题，请依据遇到的具体问题修改配置。\r\n使用到4个舰队、临时补给功能、一些二改的驱逐、一些水母、一些一改的轻巡、一些一改的驱逐、一些对潜装备、越多越好的大发。\r\n如果你有哪些船不想用于此配置，请将其从配置中删除，但请保证对应舰种有足够多的船轮换。\r\n\r\n因为本配置是通用配置，所以舰船选择是按名称筛选的，这种筛选方法在候选船多的时候很慢。想要加速的话请换成ID方式。\r\n\r\n补闪配置为1-1，带1个狗粮，如有不需要带狗粮或者去其他图刷的请自行修改。\r\n禁止沉船，包括狗粮。\r\n本配置会拆所有没上锁的驱逐，以保证总有位置放新的狗粮，请在使用前确保已经锁定了不想拆的船。\r\n因为还没有拆装备功能，为避免装备爆仓，所以狗粮不卸装备。\r\n\r\n本配置使用全部修复渠，还使用泊地修理。\r\n如果你要同时做别的出击，请修改本配置中这两项修复设置，“刷完修理”空出一个修复渠不使用，禁用泊地修理关联项。\r\n同时做别的出击不会冲突（手动玩游戏除外），不需要关闭本配置。\r\n\r\n小破的船也会被送去远征，如果你不想这样，请修改远征配置里的编成功能，跳过血量在0%~99%的船。\r\n\r\n本配置不使用海防舰。如果你非要纠结海防甚至潜艇比驱逐的消耗小，请自行调整。\r\n\r\n触发[启动！]以开始执行。\r\n\r\n[200422]\r\n",
 				EnableScript: true,
 				Script: null,
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.SimpleRaiseUserEventWorkflow, KancollePlayerSimulatorKai, Version=1.3.3.0, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.SimpleRaiseUserEventWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
 				Guid: "c6381ff5-dfb5-4f0d-8a51-f2d123b823cb",
 				Name: "启动！",
 				EnableOnLoad: false,
@@ -28,7 +28,7 @@
 		Name: "② 远征 2队A2",
 		List: [
 			{
-				Type: "KancollePlayerSimulatorKai.RelationalExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.3.3.0, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.RelationalExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
 				Guid: "9a8e9744-73cc-4be6-aeb7-c56ea6aed5e2",
 				Name: "总控",
 				EnableOnLoad: true,
@@ -65,7 +65,8 @@
 				StopIfRuntimeLengthExceedValueMinutes: 0,
 				StopIfRuntimeLengthExceedValueSeconds: 0,
 				StopIfWithinTimePeriodFlag: true,
-				StopIfWithinTimePeriodValueStartHours: 2,
+				StopIfWithinTimePeriodReferenceTime: 1,
+				StopIfWithinTimePeriodValueStartHours: 0,
 				StopIfWithinTimePeriodValueStartMinutes: 0,
 				StopIfWithinTimePeriodValueEndHours: 6,
 				StopIfWithinTimePeriodValueEndMinutes: 0,
@@ -96,7 +97,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.3.3.0, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
 				Guid: "61b9e3ac-a4f3-433e-8cc3-ae73d7a0e421",
 				Name: "编成",
 				EnableOnLoad: false,
@@ -105,89 +106,78 @@
 					{
 						Selections: [
 							{
-								Type: 8,
-								Value: "dd_dlc",
-								Memo: ""
-							}
-						],
-						ChangeIfInitial: true,
-						ChangeIfHpInRangeFlag: false,
-						ChangeIfHpInRangeValueMin: 0.0,
-						ChangeIfHpInRangeValueMax: 0.25,
-						ChangeIfMoraleInRangeFlag: true,
-						ChangeIfMoraleInRangeValueMin: 0,
-						ChangeIfMoraleInRangeValueMax: 49,
-						SkipWrongShips: true,
-						SkipRepairingShips: true,
-						SkipExpeditioningShips: true,
-						SkipShipsInThisFleet: true,
-						IgnoreSkipShipsInThisFleetIfInitial: true,
-						SkipShipsInOtherFleets: true,
-						IgnoreSkipShipsInOtherFleetsIfInitial: false,
-						SkipHpInRangeFlag: true,
-						SkipHpInRangeValueMin: 0.0,
-						SkipHpInRangeValueMax: 0.5,
-						SkipMoraleInRangeFlag: true,
-						SkipMoraleInRangeValueMin: 0,
-						SkipMoraleInRangeValueMax: 49,
-						SkipLocked: false,
-						SkipUnlocked: false,
-						SkipNoConventionalEquipments: false,
-						EnableScriptFilter: false,
-						FilterFunctionName: "",
-						SelectionSortingMethod: 4,
-						IncludeCurrentSelection: true,
-						KeepIfAllSelectionsFailed: false,
-						KeepIfSelectionCollectionEmpty: false
-					},
-					{
-						Selections: [
+								Type: 6,
+								Value: "Верный",
+								Memo: "驱逐（能带大发的）"
+							},
 							{
-								Type: 8,
-								Value: "dd_dlc",
-								Memo: ""
-							}
-						],
-						ChangeIfInitial: true,
-						ChangeIfHpInRangeFlag: false,
-						ChangeIfHpInRangeValueMin: 0.0,
-						ChangeIfHpInRangeValueMax: 0.25,
-						ChangeIfMoraleInRangeFlag: true,
-						ChangeIfMoraleInRangeValueMin: 0,
-						ChangeIfMoraleInRangeValueMax: 49,
-						SkipWrongShips: true,
-						SkipRepairingShips: true,
-						SkipExpeditioningShips: true,
-						SkipShipsInThisFleet: true,
-						IgnoreSkipShipsInThisFleetIfInitial: true,
-						SkipShipsInOtherFleets: true,
-						IgnoreSkipShipsInOtherFleetsIfInitial: false,
-						SkipHpInRangeFlag: true,
-						SkipHpInRangeValueMin: 0.0,
-						SkipHpInRangeValueMax: 0.5,
-						SkipMoraleInRangeFlag: true,
-						SkipMoraleInRangeValueMin: 0,
-						SkipMoraleInRangeValueMax: 49,
-						SkipLocked: false,
-						SkipUnlocked: false,
-						SkipNoConventionalEquipments: false,
-						EnableScriptFilter: false,
-						FilterFunctionName: "",
-						SelectionSortingMethod: 4,
-						IncludeCurrentSelection: true,
-						KeepIfAllSelectionsFailed: false,
-						KeepIfSelectionCollectionEmpty: false
-					},
-					{
-						Selections: [
-							{
-								Type: 8,
-								Value: "dd_leveling",
+								Type: 6,
+								Value: "霰改二",
 								Memo: ""
 							},
 							{
-								Type: 8,
-								Value: "de_leveling",
+								Type: 6,
+								Value: "大潮改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "皐月改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "睦月改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "如月改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "霞改二乙?",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "朝潮改二丁",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "江風改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "満潮改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "荒潮改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "村雨改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "文月改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "巻雲改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "海風改二",
 								Memo: ""
 							}
 						],
@@ -217,20 +207,86 @@
 						EnableScriptFilter: false,
 						FilterFunctionName: "",
 						SelectionSortingMethod: 4,
-						IncludeCurrentSelection: true,
+						IncludeCurrentShip: false,
+						IncludeCurrentSelection: false,
 						KeepIfAllSelectionsFailed: false,
 						KeepIfSelectionCollectionEmpty: false
 					},
 					{
 						Selections: [
 							{
-								Type: 8,
-								Value: "dd_leveling",
+								Type: 6,
+								Value: "Верный",
+								Memo: "驱逐（能带大发的）"
+							},
+							{
+								Type: 6,
+								Value: "霰改二",
 								Memo: ""
 							},
 							{
-								Type: 8,
-								Value: "de_leveling",
+								Type: 6,
+								Value: "大潮改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "皐月改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "睦月改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "如月改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "霞改二乙?",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "朝潮改二丁",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "江風改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "満潮改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "荒潮改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "村雨改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "文月改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "巻雲改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "海風改二",
 								Memo: ""
 							}
 						],
@@ -260,20 +316,141 @@
 						EnableScriptFilter: false,
 						FilterFunctionName: "",
 						SelectionSortingMethod: 4,
-						IncludeCurrentSelection: true,
+						IncludeCurrentShip: false,
+						IncludeCurrentSelection: false,
 						KeepIfAllSelectionsFailed: false,
 						KeepIfSelectionCollectionEmpty: false
 					},
 					{
 						Selections: [
 							{
-								Type: 8,
-								Value: "dd_leveling",
+								Type: 6,
+								Value: "弥生改",
+								Memo: "驱逐（这些驱逐连改二都没有，选了一部分顺便练练级）"
+							},
+							{
+								Type: 6,
+								Value: "卯月改",
 								Memo: ""
 							},
 							{
-								Type: 8,
-								Value: "de_leveling",
+								Type: 6,
+								Value: "水無月改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "長月改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "三日月改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "望月改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "神風改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "朝風改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "春風改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "松風改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "旗風改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "白雪改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "初雪改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "深雪改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "磯波改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "浦波改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "雷改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "電改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "敷波改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "天霧改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "狭霧改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "朧改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "曙改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "漣改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "子日改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "若葉改",
 								Memo: ""
 							}
 						],
@@ -303,7 +480,336 @@
 						EnableScriptFilter: false,
 						FilterFunctionName: "",
 						SelectionSortingMethod: 4,
-						IncludeCurrentSelection: true,
+						IncludeCurrentShip: false,
+						IncludeCurrentSelection: false,
+						KeepIfAllSelectionsFailed: false,
+						KeepIfSelectionCollectionEmpty: false
+					},
+					{
+						Selections: [
+							{
+								Type: 6,
+								Value: "弥生改",
+								Memo: "驱逐（这些驱逐连改二都没有，选了一部分顺便练练级）"
+							},
+							{
+								Type: 6,
+								Value: "卯月改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "水無月改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "長月改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "三日月改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "望月改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "神風改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "朝風改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "春風改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "松風改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "旗風改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "白雪改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "初雪改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "深雪改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "磯波改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "浦波改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "雷改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "電改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "敷波改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "天霧改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "狭霧改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "朧改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "曙改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "漣改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "子日改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "若葉改",
+								Memo: ""
+							}
+						],
+						ChangeIfInitial: true,
+						ChangeIfHpInRangeFlag: false,
+						ChangeIfHpInRangeValueMin: 0.0,
+						ChangeIfHpInRangeValueMax: 0.25,
+						ChangeIfMoraleInRangeFlag: true,
+						ChangeIfMoraleInRangeValueMin: 0,
+						ChangeIfMoraleInRangeValueMax: 49,
+						SkipWrongShips: true,
+						SkipRepairingShips: true,
+						SkipExpeditioningShips: true,
+						SkipShipsInThisFleet: true,
+						IgnoreSkipShipsInThisFleetIfInitial: true,
+						SkipShipsInOtherFleets: true,
+						IgnoreSkipShipsInOtherFleetsIfInitial: false,
+						SkipHpInRangeFlag: true,
+						SkipHpInRangeValueMin: 0.0,
+						SkipHpInRangeValueMax: 0.5,
+						SkipMoraleInRangeFlag: true,
+						SkipMoraleInRangeValueMin: 0,
+						SkipMoraleInRangeValueMax: 49,
+						SkipLocked: false,
+						SkipUnlocked: false,
+						SkipNoConventionalEquipments: false,
+						EnableScriptFilter: false,
+						FilterFunctionName: "",
+						SelectionSortingMethod: 4,
+						IncludeCurrentShip: false,
+						IncludeCurrentSelection: false,
+						KeepIfAllSelectionsFailed: false,
+						KeepIfSelectionCollectionEmpty: false
+					},
+					{
+						Selections: [
+							{
+								Type: 6,
+								Value: "弥生改",
+								Memo: "驱逐（这些驱逐连改二都没有，选了一部分顺便练练级）"
+							},
+							{
+								Type: 6,
+								Value: "卯月改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "水無月改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "長月改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "三日月改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "望月改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "神風改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "朝風改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "春風改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "松風改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "旗風改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "白雪改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "初雪改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "深雪改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "磯波改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "浦波改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "雷改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "電改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "敷波改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "天霧改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "狭霧改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "朧改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "曙改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "漣改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "子日改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "若葉改",
+								Memo: ""
+							}
+						],
+						ChangeIfInitial: true,
+						ChangeIfHpInRangeFlag: false,
+						ChangeIfHpInRangeValueMin: 0.0,
+						ChangeIfHpInRangeValueMax: 0.25,
+						ChangeIfMoraleInRangeFlag: true,
+						ChangeIfMoraleInRangeValueMin: 0,
+						ChangeIfMoraleInRangeValueMax: 49,
+						SkipWrongShips: true,
+						SkipRepairingShips: true,
+						SkipExpeditioningShips: true,
+						SkipShipsInThisFleet: true,
+						IgnoreSkipShipsInThisFleetIfInitial: true,
+						SkipShipsInOtherFleets: true,
+						IgnoreSkipShipsInOtherFleetsIfInitial: false,
+						SkipHpInRangeFlag: true,
+						SkipHpInRangeValueMin: 0.0,
+						SkipHpInRangeValueMax: 0.5,
+						SkipMoraleInRangeFlag: true,
+						SkipMoraleInRangeValueMin: 0,
+						SkipMoraleInRangeValueMax: 49,
+						SkipLocked: false,
+						SkipUnlocked: false,
+						SkipNoConventionalEquipments: false,
+						EnableScriptFilter: false,
+						FilterFunctionName: "",
+						SelectionSortingMethod: 4,
+						IncludeCurrentShip: false,
+						IncludeCurrentSelection: false,
 						KeepIfAllSelectionsFailed: false,
 						KeepIfSelectionCollectionEmpty: false
 					}
@@ -317,11 +823,11 @@
 				RefreshDataBeforeOrganize: false,
 				ReturnRoomAtLast: false,
 				EnableScript: true,
-				Script: "https://raw.githubusercontent.com/KanaHayama/KanCollePlayerSimulator/master/肝帝模拟%20改/Python脚本/附加/编成助手.py",
+				Script: null,
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.BasicRefitEquipmentWorkflow, KancollePlayerSimulatorKai, Version=1.3.3.0, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.BasicRefitEquipmentWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
 				Guid: "d4243af7-3527-444a-9217-d30e731b93c4",
 				Name: "改装",
 				EnableOnLoad: false,
@@ -932,7 +1438,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.SimpleExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.3.3.0, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.SimpleExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
 				Guid: "47f82809-67ac-460f-90bf-f51d68423812",
 				Name: "发出远征",
 				EnableOnLoad: false,
@@ -945,10 +1451,11 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.SeriesByAlarmWorkflow, KancollePlayerSimulatorKai, Version=1.3.3.0, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.SeriesByAlarmWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
 				Guid: "1c411be6-5386-41c2-a880-8d7fb1a3ffce",
 				Name: "定时启动",
 				EnableOnLoad: false,
+				ReferenceTime: 1,
 				Hours: 6,
 				Minutes: 0,
 				TriggerType: 1,
@@ -969,7 +1476,7 @@
 		Name: "③ 远征 3队B1",
 		List: [
 			{
-				Type: "KancollePlayerSimulatorKai.RelationalExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.3.3.0, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.RelationalExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
 				Guid: "91f91227-6c17-4938-9ee9-54344058238f",
 				Name: "总控",
 				EnableOnLoad: true,
@@ -1006,7 +1513,8 @@
 				StopIfRuntimeLengthExceedValueMinutes: 0,
 				StopIfRuntimeLengthExceedValueSeconds: 0,
 				StopIfWithinTimePeriodFlag: true,
-				StopIfWithinTimePeriodValueStartHours: 2,
+				StopIfWithinTimePeriodReferenceTime: 1,
+				StopIfWithinTimePeriodValueStartHours: 0,
 				StopIfWithinTimePeriodValueStartMinutes: 0,
 				StopIfWithinTimePeriodValueEndHours: 6,
 				StopIfWithinTimePeriodValueEndMinutes: 0,
@@ -1037,7 +1545,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.3.3.0, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
 				Guid: "b0e7a448-c000-4045-a51e-b75412d31afd",
 				Name: "编成",
 				EnableOnLoad: false,
@@ -1046,165 +1554,78 @@
 					{
 						Selections: [
 							{
-								Type: 8,
-								Value: "dd_dlc",
-								Memo: ""
-							}
-						],
-						ChangeIfInitial: true,
-						ChangeIfHpInRangeFlag: false,
-						ChangeIfHpInRangeValueMin: 0.0,
-						ChangeIfHpInRangeValueMax: 0.25,
-						ChangeIfMoraleInRangeFlag: true,
-						ChangeIfMoraleInRangeValueMin: 0,
-						ChangeIfMoraleInRangeValueMax: 49,
-						SkipWrongShips: true,
-						SkipRepairingShips: true,
-						SkipExpeditioningShips: true,
-						SkipShipsInThisFleet: true,
-						IgnoreSkipShipsInThisFleetIfInitial: true,
-						SkipShipsInOtherFleets: true,
-						IgnoreSkipShipsInOtherFleetsIfInitial: false,
-						SkipHpInRangeFlag: true,
-						SkipHpInRangeValueMin: 0.0,
-						SkipHpInRangeValueMax: 0.5,
-						SkipMoraleInRangeFlag: true,
-						SkipMoraleInRangeValueMin: 0,
-						SkipMoraleInRangeValueMax: 49,
-						SkipLocked: false,
-						SkipUnlocked: false,
-						SkipNoConventionalEquipments: false,
-						EnableScriptFilter: false,
-						FilterFunctionName: "",
-						SelectionSortingMethod: 4,
-						IncludeCurrentSelection: true,
-						KeepIfAllSelectionsFailed: false,
-						KeepIfSelectionCollectionEmpty: false
-					},
-					{
-						Selections: [
+								Type: 6,
+								Value: "Верный",
+								Memo: "驱逐（能带大发的）"
+							},
 							{
-								Type: 8,
-								Value: "dd_dlc",
-								Memo: ""
-							}
-						],
-						ChangeIfInitial: true,
-						ChangeIfHpInRangeFlag: false,
-						ChangeIfHpInRangeValueMin: 0.0,
-						ChangeIfHpInRangeValueMax: 0.25,
-						ChangeIfMoraleInRangeFlag: true,
-						ChangeIfMoraleInRangeValueMin: 0,
-						ChangeIfMoraleInRangeValueMax: 49,
-						SkipWrongShips: true,
-						SkipRepairingShips: true,
-						SkipExpeditioningShips: true,
-						SkipShipsInThisFleet: true,
-						IgnoreSkipShipsInThisFleetIfInitial: true,
-						SkipShipsInOtherFleets: true,
-						IgnoreSkipShipsInOtherFleetsIfInitial: false,
-						SkipHpInRangeFlag: true,
-						SkipHpInRangeValueMin: 0.0,
-						SkipHpInRangeValueMax: 0.5,
-						SkipMoraleInRangeFlag: true,
-						SkipMoraleInRangeValueMin: 0,
-						SkipMoraleInRangeValueMax: 49,
-						SkipLocked: false,
-						SkipUnlocked: false,
-						SkipNoConventionalEquipments: false,
-						EnableScriptFilter: false,
-						FilterFunctionName: "",
-						SelectionSortingMethod: 4,
-						IncludeCurrentSelection: true,
-						KeepIfAllSelectionsFailed: false,
-						KeepIfSelectionCollectionEmpty: false
-					},
-					{
-						Selections: [
-							{
-								Type: 8,
-								Value: "av_leveling",
-								Memo: ""
-							}
-						],
-						ChangeIfInitial: true,
-						ChangeIfHpInRangeFlag: false,
-						ChangeIfHpInRangeValueMin: 0.0,
-						ChangeIfHpInRangeValueMax: 0.25,
-						ChangeIfMoraleInRangeFlag: true,
-						ChangeIfMoraleInRangeValueMin: 0,
-						ChangeIfMoraleInRangeValueMax: 49,
-						SkipWrongShips: true,
-						SkipRepairingShips: true,
-						SkipExpeditioningShips: true,
-						SkipShipsInThisFleet: true,
-						IgnoreSkipShipsInThisFleetIfInitial: true,
-						SkipShipsInOtherFleets: true,
-						IgnoreSkipShipsInOtherFleetsIfInitial: false,
-						SkipHpInRangeFlag: true,
-						SkipHpInRangeValueMin: 0.0,
-						SkipHpInRangeValueMax: 0.5,
-						SkipMoraleInRangeFlag: true,
-						SkipMoraleInRangeValueMin: 0,
-						SkipMoraleInRangeValueMax: 49,
-						SkipLocked: false,
-						SkipUnlocked: false,
-						SkipNoConventionalEquipments: false,
-						EnableScriptFilter: false,
-						FilterFunctionName: "",
-						SelectionSortingMethod: 4,
-						IncludeCurrentSelection: true,
-						KeepIfAllSelectionsFailed: false,
-						KeepIfSelectionCollectionEmpty: false
-					},
-					{
-						Selections: [
-							{
-								Type: 8,
-								Value: "cl_leveling",
-								Memo: ""
-							}
-						],
-						ChangeIfInitial: true,
-						ChangeIfHpInRangeFlag: false,
-						ChangeIfHpInRangeValueMin: 0.0,
-						ChangeIfHpInRangeValueMax: 0.25,
-						ChangeIfMoraleInRangeFlag: true,
-						ChangeIfMoraleInRangeValueMin: 0,
-						ChangeIfMoraleInRangeValueMax: 49,
-						SkipWrongShips: true,
-						SkipRepairingShips: true,
-						SkipExpeditioningShips: true,
-						SkipShipsInThisFleet: true,
-						IgnoreSkipShipsInThisFleetIfInitial: true,
-						SkipShipsInOtherFleets: true,
-						IgnoreSkipShipsInOtherFleetsIfInitial: false,
-						SkipHpInRangeFlag: true,
-						SkipHpInRangeValueMin: 0.0,
-						SkipHpInRangeValueMax: 0.5,
-						SkipMoraleInRangeFlag: true,
-						SkipMoraleInRangeValueMin: 0,
-						SkipMoraleInRangeValueMax: 49,
-						SkipLocked: false,
-						SkipUnlocked: false,
-						SkipNoConventionalEquipments: false,
-						EnableScriptFilter: false,
-						FilterFunctionName: "",
-						SelectionSortingMethod: 4,
-						IncludeCurrentSelection: true,
-						KeepIfAllSelectionsFailed: false,
-						KeepIfSelectionCollectionEmpty: false
-					},
-					{
-						Selections: [
-							{
-								Type: 8,
-								Value: "dd_leveling",
+								Type: 6,
+								Value: "霰改二",
 								Memo: ""
 							},
 							{
-								Type: 8,
-								Value: "de_leveling",
+								Type: 6,
+								Value: "大潮改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "皐月改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "睦月改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "如月改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "霞改二乙?",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "朝潮改二丁",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "江風改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "満潮改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "荒潮改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "村雨改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "文月改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "巻雲改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "海風改二",
 								Memo: ""
 							}
 						],
@@ -1234,20 +1655,86 @@
 						EnableScriptFilter: false,
 						FilterFunctionName: "",
 						SelectionSortingMethod: 4,
-						IncludeCurrentSelection: true,
+						IncludeCurrentShip: false,
+						IncludeCurrentSelection: false,
 						KeepIfAllSelectionsFailed: false,
 						KeepIfSelectionCollectionEmpty: false
 					},
 					{
 						Selections: [
 							{
-								Type: 8,
-								Value: "dd_leveling",
+								Type: 6,
+								Value: "Верный",
+								Memo: "驱逐（能带大发的）"
+							},
+							{
+								Type: 6,
+								Value: "霰改二",
 								Memo: ""
 							},
 							{
-								Type: 8,
-								Value: "de_leveling",
+								Type: 6,
+								Value: "大潮改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "皐月改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "睦月改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "如月改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "霞改二乙?",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "朝潮改二丁",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "江風改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "満潮改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "荒潮改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "村雨改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "文月改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "巻雲改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "海風改二",
 								Memo: ""
 							}
 						],
@@ -1277,7 +1764,469 @@
 						EnableScriptFilter: false,
 						FilterFunctionName: "",
 						SelectionSortingMethod: 4,
-						IncludeCurrentSelection: true,
+						IncludeCurrentShip: false,
+						IncludeCurrentSelection: false,
+						KeepIfAllSelectionsFailed: false,
+						KeepIfSelectionCollectionEmpty: false
+					},
+					{
+						Selections: [
+							{
+								Type: 6,
+								Value: "千歳(甲|改)",
+								Memo: "水母（只有这几个水母）"
+							},
+							{
+								Type: 6,
+								Value: "千歳(甲|改)",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "Commandant Teste改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "瑞穂改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "秋津洲改",
+								Memo: ""
+							}
+						],
+						ChangeIfInitial: true,
+						ChangeIfHpInRangeFlag: false,
+						ChangeIfHpInRangeValueMin: 0.0,
+						ChangeIfHpInRangeValueMax: 0.25,
+						ChangeIfMoraleInRangeFlag: true,
+						ChangeIfMoraleInRangeValueMin: 0,
+						ChangeIfMoraleInRangeValueMax: 49,
+						SkipWrongShips: true,
+						SkipRepairingShips: true,
+						SkipExpeditioningShips: true,
+						SkipShipsInThisFleet: true,
+						IgnoreSkipShipsInThisFleetIfInitial: true,
+						SkipShipsInOtherFleets: true,
+						IgnoreSkipShipsInOtherFleetsIfInitial: false,
+						SkipHpInRangeFlag: true,
+						SkipHpInRangeValueMin: 0.0,
+						SkipHpInRangeValueMax: 0.5,
+						SkipMoraleInRangeFlag: true,
+						SkipMoraleInRangeValueMin: 0,
+						SkipMoraleInRangeValueMax: 49,
+						SkipLocked: false,
+						SkipUnlocked: false,
+						SkipNoConventionalEquipments: false,
+						EnableScriptFilter: false,
+						FilterFunctionName: "",
+						SelectionSortingMethod: 4,
+						IncludeCurrentShip: false,
+						IncludeCurrentSelection: false,
+						KeepIfAllSelectionsFailed: false,
+						KeepIfSelectionCollectionEmpty: false
+					},
+					{
+						Selections: [
+							{
+								Type: 6,
+								Value: "酒匂改",
+								Memo: "轻巡（这些轻巡连改二都没有，顺便练练级）"
+							},
+							{
+								Type: 6,
+								Value: "矢矧改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "能代改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "阿賀野改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "夕張改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "名取改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "長良改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "球磨改",
+								Memo: ""
+							}
+						],
+						ChangeIfInitial: true,
+						ChangeIfHpInRangeFlag: false,
+						ChangeIfHpInRangeValueMin: 0.0,
+						ChangeIfHpInRangeValueMax: 0.25,
+						ChangeIfMoraleInRangeFlag: true,
+						ChangeIfMoraleInRangeValueMin: 0,
+						ChangeIfMoraleInRangeValueMax: 49,
+						SkipWrongShips: true,
+						SkipRepairingShips: true,
+						SkipExpeditioningShips: true,
+						SkipShipsInThisFleet: true,
+						IgnoreSkipShipsInThisFleetIfInitial: true,
+						SkipShipsInOtherFleets: true,
+						IgnoreSkipShipsInOtherFleetsIfInitial: false,
+						SkipHpInRangeFlag: true,
+						SkipHpInRangeValueMin: 0.0,
+						SkipHpInRangeValueMax: 0.5,
+						SkipMoraleInRangeFlag: true,
+						SkipMoraleInRangeValueMin: 0,
+						SkipMoraleInRangeValueMax: 49,
+						SkipLocked: false,
+						SkipUnlocked: false,
+						SkipNoConventionalEquipments: false,
+						EnableScriptFilter: false,
+						FilterFunctionName: "",
+						SelectionSortingMethod: 4,
+						IncludeCurrentShip: false,
+						IncludeCurrentSelection: false,
+						KeepIfAllSelectionsFailed: false,
+						KeepIfSelectionCollectionEmpty: false
+					},
+					{
+						Selections: [
+							{
+								Type: 6,
+								Value: "弥生改",
+								Memo: "驱逐（这些驱逐连改二都没有，选了一部分顺便练练级）"
+							},
+							{
+								Type: 6,
+								Value: "卯月改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "水無月改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "長月改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "三日月改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "望月改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "神風改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "朝風改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "春風改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "松風改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "旗風改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "白雪改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "初雪改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "深雪改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "磯波改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "浦波改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "雷改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "電改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "敷波改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "天霧改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "狭霧改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "朧改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "曙改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "漣改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "子日改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "若葉改",
+								Memo: ""
+							}
+						],
+						ChangeIfInitial: true,
+						ChangeIfHpInRangeFlag: false,
+						ChangeIfHpInRangeValueMin: 0.0,
+						ChangeIfHpInRangeValueMax: 0.25,
+						ChangeIfMoraleInRangeFlag: true,
+						ChangeIfMoraleInRangeValueMin: 0,
+						ChangeIfMoraleInRangeValueMax: 49,
+						SkipWrongShips: true,
+						SkipRepairingShips: true,
+						SkipExpeditioningShips: true,
+						SkipShipsInThisFleet: true,
+						IgnoreSkipShipsInThisFleetIfInitial: true,
+						SkipShipsInOtherFleets: true,
+						IgnoreSkipShipsInOtherFleetsIfInitial: false,
+						SkipHpInRangeFlag: true,
+						SkipHpInRangeValueMin: 0.0,
+						SkipHpInRangeValueMax: 0.5,
+						SkipMoraleInRangeFlag: true,
+						SkipMoraleInRangeValueMin: 0,
+						SkipMoraleInRangeValueMax: 49,
+						SkipLocked: false,
+						SkipUnlocked: false,
+						SkipNoConventionalEquipments: false,
+						EnableScriptFilter: false,
+						FilterFunctionName: "",
+						SelectionSortingMethod: 4,
+						IncludeCurrentShip: false,
+						IncludeCurrentSelection: false,
+						KeepIfAllSelectionsFailed: false,
+						KeepIfSelectionCollectionEmpty: false
+					},
+					{
+						Selections: [
+							{
+								Type: 6,
+								Value: "弥生改",
+								Memo: "驱逐（这些驱逐连改二都没有，选了一部分顺便练练级）"
+							},
+							{
+								Type: 6,
+								Value: "卯月改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "水無月改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "長月改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "三日月改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "望月改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "神風改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "朝風改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "春風改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "松風改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "旗風改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "白雪改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "初雪改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "深雪改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "磯波改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "浦波改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "雷改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "電改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "敷波改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "天霧改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "狭霧改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "朧改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "曙改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "漣改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "子日改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "若葉改",
+								Memo: ""
+							}
+						],
+						ChangeIfInitial: true,
+						ChangeIfHpInRangeFlag: false,
+						ChangeIfHpInRangeValueMin: 0.0,
+						ChangeIfHpInRangeValueMax: 0.25,
+						ChangeIfMoraleInRangeFlag: true,
+						ChangeIfMoraleInRangeValueMin: 0,
+						ChangeIfMoraleInRangeValueMax: 49,
+						SkipWrongShips: true,
+						SkipRepairingShips: true,
+						SkipExpeditioningShips: true,
+						SkipShipsInThisFleet: true,
+						IgnoreSkipShipsInThisFleetIfInitial: true,
+						SkipShipsInOtherFleets: true,
+						IgnoreSkipShipsInOtherFleetsIfInitial: false,
+						SkipHpInRangeFlag: true,
+						SkipHpInRangeValueMin: 0.0,
+						SkipHpInRangeValueMax: 0.5,
+						SkipMoraleInRangeFlag: true,
+						SkipMoraleInRangeValueMin: 0,
+						SkipMoraleInRangeValueMax: 49,
+						SkipLocked: false,
+						SkipUnlocked: false,
+						SkipNoConventionalEquipments: false,
+						EnableScriptFilter: false,
+						FilterFunctionName: "",
+						SelectionSortingMethod: 4,
+						IncludeCurrentShip: false,
+						IncludeCurrentSelection: false,
 						KeepIfAllSelectionsFailed: false,
 						KeepIfSelectionCollectionEmpty: false
 					}
@@ -1291,11 +2240,11 @@
 				RefreshDataBeforeOrganize: false,
 				ReturnRoomAtLast: false,
 				EnableScript: true,
-				Script: "https://raw.githubusercontent.com/KanaHayama/KanCollePlayerSimulator/master/肝帝模拟%20改/Python脚本/附加/编成助手.py",
+				Script: null,
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.BasicRefitEquipmentWorkflow, KancollePlayerSimulatorKai, Version=1.3.3.0, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.BasicRefitEquipmentWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
 				Guid: "91c4f119-c555-4dc5-b740-6a7f39352884",
 				Name: "改装",
 				EnableOnLoad: false,
@@ -2025,7 +2974,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.SimpleExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.3.3.0, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.SimpleExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
 				Guid: "40e94794-0531-4bf1-ab21-967a406cb01b",
 				Name: "发出远征",
 				EnableOnLoad: false,
@@ -2038,10 +2987,11 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.SeriesByAlarmWorkflow, KancollePlayerSimulatorKai, Version=1.3.3.0, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.SeriesByAlarmWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
 				Guid: "665f6878-30c7-4c0b-ab0c-6fb61c9b791e",
 				Name: "定时启动",
 				EnableOnLoad: false,
+				ReferenceTime: 1,
 				Hours: 6,
 				Minutes: 0,
 				TriggerType: 1,
@@ -2062,7 +3012,7 @@
 		Name: "① 远征 4队41",
 		List: [
 			{
-				Type: "KancollePlayerSimulatorKai.RelationalExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.3.3.0, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.RelationalExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
 				Guid: "91f91227-6c17-4938-9ee9-54344058238f",
 				Name: "总控",
 				EnableOnLoad: true,
@@ -2099,7 +3049,8 @@
 				StopIfRuntimeLengthExceedValueMinutes: 0,
 				StopIfRuntimeLengthExceedValueSeconds: 0,
 				StopIfWithinTimePeriodFlag: true,
-				StopIfWithinTimePeriodValueStartHours: 2,
+				StopIfWithinTimePeriodReferenceTime: 1,
+				StopIfWithinTimePeriodValueStartHours: 0,
 				StopIfWithinTimePeriodValueStartMinutes: 0,
 				StopIfWithinTimePeriodValueEndHours: 6,
 				StopIfWithinTimePeriodValueEndMinutes: 0,
@@ -2130,7 +3081,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.3.3.0, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
 				Guid: "b0e7a448-c000-4045-a51e-b75412d31afd",
 				Name: "编成",
 				EnableOnLoad: false,
@@ -2139,89 +3090,78 @@
 					{
 						Selections: [
 							{
-								Type: 8,
-								Value: "dd_dlc",
-								Memo: ""
-							}
-						],
-						ChangeIfInitial: true,
-						ChangeIfHpInRangeFlag: false,
-						ChangeIfHpInRangeValueMin: 0.0,
-						ChangeIfHpInRangeValueMax: 0.25,
-						ChangeIfMoraleInRangeFlag: true,
-						ChangeIfMoraleInRangeValueMin: 0,
-						ChangeIfMoraleInRangeValueMax: 49,
-						SkipWrongShips: true,
-						SkipRepairingShips: true,
-						SkipExpeditioningShips: true,
-						SkipShipsInThisFleet: true,
-						IgnoreSkipShipsInThisFleetIfInitial: true,
-						SkipShipsInOtherFleets: true,
-						IgnoreSkipShipsInOtherFleetsIfInitial: false,
-						SkipHpInRangeFlag: true,
-						SkipHpInRangeValueMin: 0.0,
-						SkipHpInRangeValueMax: 0.5,
-						SkipMoraleInRangeFlag: true,
-						SkipMoraleInRangeValueMin: 0,
-						SkipMoraleInRangeValueMax: 49,
-						SkipLocked: false,
-						SkipUnlocked: false,
-						SkipNoConventionalEquipments: false,
-						EnableScriptFilter: false,
-						FilterFunctionName: "",
-						SelectionSortingMethod: 4,
-						IncludeCurrentSelection: true,
-						KeepIfAllSelectionsFailed: false,
-						KeepIfSelectionCollectionEmpty: false
-					},
-					{
-						Selections: [
+								Type: 6,
+								Value: "Верный",
+								Memo: "驱逐（能带大发的）"
+							},
 							{
-								Type: 8,
-								Value: "dd_dlc",
-								Memo: ""
-							}
-						],
-						ChangeIfInitial: true,
-						ChangeIfHpInRangeFlag: false,
-						ChangeIfHpInRangeValueMin: 0.0,
-						ChangeIfHpInRangeValueMax: 0.25,
-						ChangeIfMoraleInRangeFlag: true,
-						ChangeIfMoraleInRangeValueMin: 0,
-						ChangeIfMoraleInRangeValueMax: 49,
-						SkipWrongShips: true,
-						SkipRepairingShips: true,
-						SkipExpeditioningShips: true,
-						SkipShipsInThisFleet: true,
-						IgnoreSkipShipsInThisFleetIfInitial: true,
-						SkipShipsInOtherFleets: true,
-						IgnoreSkipShipsInOtherFleetsIfInitial: false,
-						SkipHpInRangeFlag: true,
-						SkipHpInRangeValueMin: 0.0,
-						SkipHpInRangeValueMax: 0.5,
-						SkipMoraleInRangeFlag: true,
-						SkipMoraleInRangeValueMin: 0,
-						SkipMoraleInRangeValueMax: 49,
-						SkipLocked: false,
-						SkipUnlocked: false,
-						SkipNoConventionalEquipments: false,
-						EnableScriptFilter: false,
-						FilterFunctionName: "",
-						SelectionSortingMethod: 4,
-						IncludeCurrentSelection: true,
-						KeepIfAllSelectionsFailed: false,
-						KeepIfSelectionCollectionEmpty: false
-					},
-					{
-						Selections: [
-							{
-								Type: 8,
-								Value: "dd_leveling",
+								Type: 6,
+								Value: "霰改二",
 								Memo: ""
 							},
 							{
-								Type: 8,
-								Value: "de_leveling",
+								Type: 6,
+								Value: "大潮改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "皐月改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "睦月改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "如月改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "霞改二乙?",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "朝潮改二丁",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "江風改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "満潮改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "荒潮改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "村雨改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "文月改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "巻雲改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "海風改二",
 								Memo: ""
 							}
 						],
@@ -2251,20 +3191,86 @@
 						EnableScriptFilter: false,
 						FilterFunctionName: "",
 						SelectionSortingMethod: 4,
-						IncludeCurrentSelection: true,
+						IncludeCurrentShip: false,
+						IncludeCurrentSelection: false,
 						KeepIfAllSelectionsFailed: false,
 						KeepIfSelectionCollectionEmpty: false
 					},
 					{
 						Selections: [
 							{
-								Type: 8,
-								Value: "dd_leveling",
+								Type: 6,
+								Value: "Верный",
+								Memo: "驱逐（能带大发的）"
+							},
+							{
+								Type: 6,
+								Value: "霰改二",
 								Memo: ""
 							},
 							{
-								Type: 8,
-								Value: "de_leveling",
+								Type: 6,
+								Value: "大潮改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "皐月改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "睦月改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "如月改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "霞改二乙?",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "朝潮改二丁",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "江風改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "満潮改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "荒潮改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "村雨改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "文月改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "巻雲改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "海風改二",
 								Memo: ""
 							}
 						],
@@ -2294,20 +3300,141 @@
 						EnableScriptFilter: false,
 						FilterFunctionName: "",
 						SelectionSortingMethod: 4,
-						IncludeCurrentSelection: true,
+						IncludeCurrentShip: false,
+						IncludeCurrentSelection: false,
 						KeepIfAllSelectionsFailed: false,
 						KeepIfSelectionCollectionEmpty: false
 					},
 					{
 						Selections: [
 							{
-								Type: 8,
-								Value: "dd_leveling",
+								Type: 6,
+								Value: "弥生改",
+								Memo: "驱逐（这些驱逐连改二都没有，选了一部分顺便练练级）"
+							},
+							{
+								Type: 6,
+								Value: "卯月改",
 								Memo: ""
 							},
 							{
-								Type: 8,
-								Value: "de_leveling",
+								Type: 6,
+								Value: "水無月改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "長月改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "三日月改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "望月改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "神風改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "朝風改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "春風改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "松風改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "旗風改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "白雪改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "初雪改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "深雪改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "磯波改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "浦波改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "雷改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "電改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "敷波改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "天霧改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "狭霧改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "朧改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "曙改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "漣改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "子日改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "若葉改",
 								Memo: ""
 							}
 						],
@@ -2337,20 +3464,141 @@
 						EnableScriptFilter: false,
 						FilterFunctionName: "",
 						SelectionSortingMethod: 4,
-						IncludeCurrentSelection: true,
+						IncludeCurrentShip: false,
+						IncludeCurrentSelection: false,
 						KeepIfAllSelectionsFailed: false,
 						KeepIfSelectionCollectionEmpty: false
 					},
 					{
 						Selections: [
 							{
-								Type: 8,
-								Value: "dd_leveling",
+								Type: 6,
+								Value: "弥生改",
+								Memo: "驱逐（这些驱逐连改二都没有，选了一部分顺便练练级）"
+							},
+							{
+								Type: 6,
+								Value: "卯月改",
 								Memo: ""
 							},
 							{
-								Type: 8,
-								Value: "de_leveling",
+								Type: 6,
+								Value: "水無月改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "長月改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "三日月改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "望月改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "神風改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "朝風改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "春風改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "松風改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "旗風改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "白雪改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "初雪改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "深雪改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "磯波改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "浦波改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "雷改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "電改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "敷波改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "天霧改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "狭霧改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "朧改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "曙改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "漣改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "子日改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "若葉改",
 								Memo: ""
 							}
 						],
@@ -2380,7 +3628,336 @@
 						EnableScriptFilter: false,
 						FilterFunctionName: "",
 						SelectionSortingMethod: 4,
-						IncludeCurrentSelection: true,
+						IncludeCurrentShip: false,
+						IncludeCurrentSelection: false,
+						KeepIfAllSelectionsFailed: false,
+						KeepIfSelectionCollectionEmpty: false
+					},
+					{
+						Selections: [
+							{
+								Type: 6,
+								Value: "弥生改",
+								Memo: "驱逐（这些驱逐连改二都没有，选了一部分顺便练练级）"
+							},
+							{
+								Type: 6,
+								Value: "卯月改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "水無月改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "長月改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "三日月改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "望月改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "神風改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "朝風改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "春風改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "松風改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "旗風改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "白雪改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "初雪改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "深雪改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "磯波改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "浦波改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "雷改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "電改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "敷波改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "天霧改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "狭霧改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "朧改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "曙改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "漣改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "子日改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "若葉改",
+								Memo: ""
+							}
+						],
+						ChangeIfInitial: true,
+						ChangeIfHpInRangeFlag: false,
+						ChangeIfHpInRangeValueMin: 0.0,
+						ChangeIfHpInRangeValueMax: 0.25,
+						ChangeIfMoraleInRangeFlag: true,
+						ChangeIfMoraleInRangeValueMin: 0,
+						ChangeIfMoraleInRangeValueMax: 49,
+						SkipWrongShips: true,
+						SkipRepairingShips: true,
+						SkipExpeditioningShips: true,
+						SkipShipsInThisFleet: true,
+						IgnoreSkipShipsInThisFleetIfInitial: true,
+						SkipShipsInOtherFleets: true,
+						IgnoreSkipShipsInOtherFleetsIfInitial: false,
+						SkipHpInRangeFlag: true,
+						SkipHpInRangeValueMin: 0.0,
+						SkipHpInRangeValueMax: 0.5,
+						SkipMoraleInRangeFlag: true,
+						SkipMoraleInRangeValueMin: 0,
+						SkipMoraleInRangeValueMax: 49,
+						SkipLocked: false,
+						SkipUnlocked: false,
+						SkipNoConventionalEquipments: false,
+						EnableScriptFilter: false,
+						FilterFunctionName: "",
+						SelectionSortingMethod: 4,
+						IncludeCurrentShip: false,
+						IncludeCurrentSelection: false,
+						KeepIfAllSelectionsFailed: false,
+						KeepIfSelectionCollectionEmpty: false
+					},
+					{
+						Selections: [
+							{
+								Type: 6,
+								Value: "弥生改",
+								Memo: "驱逐（这些驱逐连改二都没有，选了一部分顺便练练级）"
+							},
+							{
+								Type: 6,
+								Value: "卯月改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "水無月改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "長月改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "三日月改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "望月改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "神風改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "朝風改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "春風改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "松風改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "旗風改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "白雪改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "初雪改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "深雪改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "磯波改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "浦波改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "雷改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "電改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "敷波改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "天霧改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "狭霧改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "朧改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "曙改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "漣改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "子日改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "若葉改",
+								Memo: ""
+							}
+						],
+						ChangeIfInitial: true,
+						ChangeIfHpInRangeFlag: false,
+						ChangeIfHpInRangeValueMin: 0.0,
+						ChangeIfHpInRangeValueMax: 0.25,
+						ChangeIfMoraleInRangeFlag: true,
+						ChangeIfMoraleInRangeValueMin: 0,
+						ChangeIfMoraleInRangeValueMax: 49,
+						SkipWrongShips: true,
+						SkipRepairingShips: true,
+						SkipExpeditioningShips: true,
+						SkipShipsInThisFleet: true,
+						IgnoreSkipShipsInThisFleetIfInitial: true,
+						SkipShipsInOtherFleets: true,
+						IgnoreSkipShipsInOtherFleetsIfInitial: false,
+						SkipHpInRangeFlag: true,
+						SkipHpInRangeValueMin: 0.0,
+						SkipHpInRangeValueMax: 0.5,
+						SkipMoraleInRangeFlag: true,
+						SkipMoraleInRangeValueMin: 0,
+						SkipMoraleInRangeValueMax: 49,
+						SkipLocked: false,
+						SkipUnlocked: false,
+						SkipNoConventionalEquipments: false,
+						EnableScriptFilter: false,
+						FilterFunctionName: "",
+						SelectionSortingMethod: 4,
+						IncludeCurrentShip: false,
+						IncludeCurrentSelection: false,
 						KeepIfAllSelectionsFailed: false,
 						KeepIfSelectionCollectionEmpty: false
 					}
@@ -2394,11 +3971,11 @@
 				RefreshDataBeforeOrganize: false,
 				ReturnRoomAtLast: false,
 				EnableScript: true,
-				Script: "https://raw.githubusercontent.com/KanaHayama/KanCollePlayerSimulator/master/肝帝模拟%20改/Python脚本/附加/编成助手.py",
+				Script: null,
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.BasicRefitEquipmentWorkflow, KancollePlayerSimulatorKai, Version=1.3.3.0, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.BasicRefitEquipmentWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
 				Guid: "a9bf8ea4-9588-474a-9dc4-e7235603f9b4",
 				Name: "改装",
 				EnableOnLoad: false,
@@ -3312,7 +4889,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.SimpleExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.3.3.0, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.SimpleExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
 				Guid: "40e94794-0531-4bf1-ab21-967a406cb01b",
 				Name: "发出远征",
 				EnableOnLoad: false,
@@ -3325,10 +4902,11 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.SeriesByAlarmWorkflow, KancollePlayerSimulatorKai, Version=1.3.3.0, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.SeriesByAlarmWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
 				Guid: "17757bd8-bbff-4439-9177-3d066f89f000",
 				Name: "定时启动",
 				EnableOnLoad: false,
+				ReferenceTime: 1,
 				Hours: 6,
 				Minutes: 0,
 				TriggerType: 1,
@@ -3349,7 +4927,7 @@
 		Name: "④ 1-1补闪",
 		List: [
 			{
-				Type: "KancollePlayerSimulatorKai.RelationalSortieWorkflow, KancollePlayerSimulatorKai, Version=1.3.3.0, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.RelationalSortieWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
 				Guid: "2656b3b6-db1d-43d0-87f7-a2596c8a08dc",
 				Name: "总控",
 				EnableOnLoad: true,
@@ -3362,6 +4940,11 @@
 				SleepUntilAnyDockEmptyValueDocks: 15,
 				SleepUntilAllDocksEmptyFlag: false,
 				SleepUntilAllDocksEmptyValueDocks: 15,
+				QuestBeforeFinishedEventThreshold: 1,
+				QuestAfterFinishedEventThreshold: 1,
+				QuestAfterOnlyTargetFleetFinishedEventCounted: true,
+				QuestBeforeWorkflows: [],
+				QuestAfterWorkflows: [],
 				OrganizeBeforeFinishedEventThreshold: 1,
 				OrganizeAfterFinishedEventThreshold: 1,
 				OrganizeAfterOnlyTargetFleetFinishedEventCounted: true,
@@ -3445,6 +5028,7 @@
 				StopIfRuntimeLengthExceedValueMinutes: 0,
 				StopIfRuntimeLengthExceedValueSeconds: 0,
 				StopIfWithinTimePeriodFlag: false,
+				StopIfWithinTimePeriodReferenceTime: 1,
 				StopIfWithinTimePeriodValueStartHours: 2,
 				StopIfWithinTimePeriodValueStartMinutes: 0,
 				StopIfWithinTimePeriodValueEndHours: 6,
@@ -3453,6 +5037,16 @@
 				StopIfShipVacancyLessOrEqualThanValue: 0,
 				StopIfEquipmentVacancyLessOrEqualThanFlag: false,
 				StopIfEquipmentVacancyLessOrEqualThanValue: 0,
+				StopIfQuestBeforeActuralAcceptedQuestLessThanFlag: false,
+				StopIfQuestBeforeActuralAcceptedQuestLessThanValue: 1,
+				StopIfQuestAfterLoopActuralAcceptedQuestLessThanFlag: false,
+				StopIfQuestAfterLoopActuralAcceptedQuestLessThanValue: 1,
+				StopIfQuestBeforeTotalActuralSubmittedHigherOrEqualThanFlag: false,
+				StopIfQuestBeforeTotalActuralSubmittedHigherOrEqualThanValue: 1,
+				StopIfQuestAfterTotalActuralSubmittedHigherOrEqualThanFlag: false,
+				StopIfQuestAfterTotalActuralSubmittedHigherOrEqualThanValue: 1,
+				StopIfQuestBeforeQuestNotExist: false,
+				StopIfQuestAfterQuestNotExist: false,
 				StopIfOrganizeBeforeSelectFailed: true,
 				StopIfOrganizeAfterSelectFailed: false,
 				StopIfGetMedal: false,
@@ -3467,11 +5061,17 @@
 				StopIfBattleRankHigherOrEqualThanValueConditionValue: "1",
 				StopIfBattleRankHigherOrEqualThanValueRank: 4,
 				StopIfBattleRankHigherOrEqualThanValueThreshold: 1,
+				IgnoreQuestBeforeFailure: false,
+				IgnoreQuestAfterFailure: false,
 				IgnoreOrganizeBeforeFailure: false,
 				IgnoreOrganizeAfterFailure: false,
 				IgnoreRefitEquipmentBeforeFailure: false,
 				IgnoreRefitEquipmentAfterFailure: false,
 				IgnoreSortieFailure: false,
+				FinishLoopIfQuestBeforeFailureFlag: false,
+				FinishLoopIfQuestBeforeFailureValueThreshold: 1,
+				FinishLoopIfQuestAfterFailureFlag: false,
+				FinishLoopIfQuestAfterFailureValueThreshold: 1,
 				FinishLoopIfOrganizeBeforeFailureFlag: false,
 				FinishLoopIfOrganizeBeforeFailureValueThreshold: 1,
 				FinishLoopIfOrganizeAfterFailureFlag: false,
@@ -3530,7 +5130,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.BasicDockingWorkflow, KancollePlayerSimulatorKai, Version=1.3.3.0, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.BasicDockingWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
 				Guid: "7d3e41e9-1fb2-4e7f-ad5c-38b0c921374d",
 				Name: "大破扔桶",
 				EnableOnLoad: false,
@@ -3555,10 +5155,9 @@
 				LimitDockingStateValueDocking: true,
 				LimitDockingStateValueIdle: false,
 				LimitShipTypeFlag: false,
-				EnableScriptFilter: false,
-				FilterFunctionName: "OnFilter",
 				LimitShipTypeValue: [],
 				SelectStrategy: 0,
+				Docks: 15,
 				ForceDocking: true,
 				InstantRepair: true,
 				ApplyInstantRepairToDockingShips: true,
@@ -3566,7 +5165,8 @@
 				AutoStop: true,
 				Repeat: true,
 				SkipExpeditioningShips: true,
-				Docks: 15,
+				EnableScriptFilter: false,
+				FilterFunctionName: "OnFilter",
 				RefreshDataTaskPriority: 0,
 				DockingTaskPriority: 233,
 				DelaySecondsAfterRepairFinishedBase: 0,
@@ -3580,9 +5180,9 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.BasicDockingWorkflow, KancollePlayerSimulatorKai, Version=1.3.3.0, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.BasicDockingWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
 				Guid: "0aa71eb0-8926-4d4d-a75d-9ec76c02f46d",
-				Name: "刷完修理-不在舰队中",
+				Name: "刷完修理-其他",
 				EnableOnLoad: false,
 				LimitFleetFlag: true,
 				LimitFleetValue: 4096,
@@ -3605,15 +5205,13 @@
 				LimitDockingStateValueDocking: true,
 				LimitDockingStateValueIdle: false,
 				LimitShipTypeFlag: true,
-				EnableScriptFilter: true,
-				FilterFunctionName: "dock_expedition",
 				LimitShipTypeValue: [
 					2,
 					3,
-					16,
-					1
+					16
 				],
 				SelectStrategy: 0,
+				Docks: 15,
 				ForceDocking: false,
 				InstantRepair: false,
 				ApplyInstantRepairToDockingShips: true,
@@ -3621,7 +5219,8 @@
 				AutoStop: true,
 				Repeat: true,
 				SkipExpeditioningShips: true,
-				Docks: 14,
+				EnableScriptFilter: false,
+				FilterFunctionName: "OnFilter",
 				RefreshDataTaskPriority: 0,
 				DockingTaskPriority: 233,
 				DelaySecondsAfterRepairFinishedBase: 0,
@@ -3631,11 +5230,11 @@
 				RefreshDataBeforeDocking: false,
 				ReturnRoomAtLast: true,
 				EnableScript: true,
-				Script: "https://raw.githubusercontent.com/KanaHayama/KanCollePlayerSimulator/master/肝帝模拟%20改/Python脚本/附加/编成助手.py",
+				Script: null,
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.BasicDockingWorkflow, KancollePlayerSimulatorKai, Version=1.3.3.0, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.BasicDockingWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
 				Guid: "59af9c18-0a22-4809-86e7-ff70356aff1d",
 				Name: "刷完修理-旗舰",
 				EnableOnLoad: false,
@@ -3660,15 +5259,13 @@
 				LimitDockingStateValueDocking: true,
 				LimitDockingStateValueIdle: false,
 				LimitShipTypeFlag: true,
-				EnableScriptFilter: false,
-				FilterFunctionName: "OnFilter",
 				LimitShipTypeValue: [
+					2,
 					3,
-					16,
-					1,
-					2
+					16
 				],
 				SelectStrategy: 0,
+				Docks: 15,
 				ForceDocking: false,
 				InstantRepair: false,
 				ApplyInstantRepairToDockingShips: true,
@@ -3676,7 +5273,8 @@
 				AutoStop: true,
 				Repeat: true,
 				SkipExpeditioningShips: true,
-				Docks: 14,
+				EnableScriptFilter: false,
+				FilterFunctionName: "OnFilter",
 				RefreshDataTaskPriority: 0,
 				DockingTaskPriority: 233,
 				DelaySecondsAfterRepairFinishedBase: 0,
@@ -3687,10 +5285,10 @@
 				ReturnRoomAtLast: true,
 				EnableScript: true,
 				Script: null,
-				TriggerOnEnabled: false
+				TriggerOnEnabled: true
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.BasicSupplyFleetWorkflow, KancollePlayerSimulatorKai, Version=1.3.3.0, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.BasicSupplyFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
 				Guid: "7c9f6e18-622f-4a63-8c28-d9e113482ad2",
 				Name: "补给",
 				EnableOnLoad: false,
@@ -3708,7 +5306,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.3.3.0, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
 				Guid: "aa2de0d7-b6d0-40ce-ba38-b7deeff9e452",
 				Name: "编成",
 				EnableOnLoad: false,
@@ -3717,33 +5315,273 @@
 					{
 						Selections: [
 							{
-								Type: 8,
-								Value: "dd_dlc",
+								Type: 6,
+								Value: "Верный",
+								Memo: "驱逐（能带大发的）"
+							},
+							{
+								Type: 6,
+								Value: "霰改二",
 								Memo: ""
 							},
 							{
-								Type: 8,
-								Value: "cl_dlc",
+								Type: 6,
+								Value: "大潮改二",
 								Memo: ""
 							},
 							{
-								Type: 8,
-								Value: "av_leveling",
+								Type: 6,
+								Value: "皐月改二",
 								Memo: ""
 							},
 							{
-								Type: 8,
-								Value: "cl_leveling",
+								Type: 6,
+								Value: "睦月改二",
 								Memo: ""
 							},
 							{
-								Type: 8,
-								Value: "dd_leveling",
+								Type: 6,
+								Value: "如月改二",
 								Memo: ""
 							},
 							{
-								Type: 8,
-								Value: "de_leveling",
+								Type: 6,
+								Value: "霞改二乙?",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "朝潮改二丁",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "江風改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "満潮改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "荒潮改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "村雨改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "文月改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "巻雲改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "海風改二",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "千歳(甲|改)",
+								Memo: "水母（只有这几个水母）"
+							},
+							{
+								Type: 6,
+								Value: "千歳(甲|改)",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "Commandant Teste改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "瑞穂改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "秋津洲改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "酒匂改",
+								Memo: "轻巡（这些轻巡连改二都没有，顺便练练级）"
+							},
+							{
+								Type: 6,
+								Value: "矢矧改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "能代改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "阿賀野改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "夕張改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "名取改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "長良改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "球磨改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "弥生改",
+								Memo: "驱逐（这些驱逐连改二都没有，选了一部分顺便练练级）"
+							},
+							{
+								Type: 6,
+								Value: "卯月改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "水無月改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "長月改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "三日月改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "望月改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "神風改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "朝風改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "春風改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "松風改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "旗風改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "白雪改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "初雪改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "深雪改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "磯波改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "浦波改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "雷改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "電改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "敷波改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "天霧改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "狭霧改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "朧改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "曙改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "漣改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "子日改",
+								Memo: ""
+							},
+							{
+								Type: 6,
+								Value: "若葉改",
 								Memo: ""
 							}
 						],
@@ -3773,6 +5611,7 @@
 						EnableScriptFilter: false,
 						FilterFunctionName: "",
 						SelectionSortingMethod: 3,
+						IncludeCurrentShip: false,
 						IncludeCurrentSelection: true,
 						KeepIfAllSelectionsFailed: false,
 						KeepIfSelectionCollectionEmpty: false
@@ -3780,8 +5619,53 @@
 					{
 						Selections: [
 							{
-								Type: 8,
-								Value: "disposable",
+								Type: 2,
+								Value: "10",
+								Memo: "从中选出一个狗粮"
+							},
+							{
+								Type: 2,
+								Value: "9",
+								Memo: ""
+							},
+							{
+								Type: 2,
+								Value: "8",
+								Memo: ""
+							},
+							{
+								Type: 2,
+								Value: "7",
+								Memo: ""
+							},
+							{
+								Type: 2,
+								Value: "6",
+								Memo: ""
+							},
+							{
+								Type: 2,
+								Value: "5",
+								Memo: ""
+							},
+							{
+								Type: 2,
+								Value: "4",
+								Memo: ""
+							},
+							{
+								Type: 2,
+								Value: "3",
+								Memo: ""
+							},
+							{
+								Type: 2,
+								Value: "2",
+								Memo: ""
+							},
+							{
+								Type: 2,
+								Value: "1",
 								Memo: ""
 							}
 						],
@@ -3811,6 +5695,7 @@
 						EnableScriptFilter: false,
 						FilterFunctionName: "",
 						SelectionSortingMethod: 7,
+						IncludeCurrentShip: false,
 						IncludeCurrentSelection: true,
 						KeepIfAllSelectionsFailed: true,
 						KeepIfSelectionCollectionEmpty: false
@@ -3825,11 +5710,11 @@
 				RefreshDataBeforeOrganize: false,
 				ReturnRoomAtLast: false,
 				EnableScript: true,
-				Script: "https://raw.githubusercontent.com/KanaHayama/KanCollePlayerSimulator/master/肝帝模拟%20改/Python脚本/附加/编成助手.py",
+				Script: null,
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.BasicRefitEquipmentWorkflow, KancollePlayerSimulatorKai, Version=1.3.3.0, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.BasicRefitEquipmentWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
 				Guid: "42c715e3-873a-4d00-b33d-48cdb3ec2ae6",
 				Name: "改装",
 				EnableOnLoad: false,
@@ -3994,7 +5879,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.BasicScrapShipWorkflow, KancollePlayerSimulatorKai, Version=1.3.3.0, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.BasicScrapShipWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
 				Guid: "fe27fe08-33ea-4c51-8881-06f06b6450f9",
 				Name: "拆狗粮",
 				EnableOnLoad: false,
@@ -4026,7 +5911,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.SimpleSortieWorkflow, KancollePlayerSimulatorKai, Version=1.3.3.0, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.SimpleSortieWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
 				Guid: "bca50d27-ae0b-4711-98fd-29f45a361203",
 				Name: "1-1",
 				EnableOnLoad: false,
@@ -4092,7 +5977,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.SimpleRaiseUserEventWorkflow, KancollePlayerSimulatorKai, Version=1.3.3.0, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.SimpleRaiseUserEventWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
 				Guid: "db450bf8-9df3-4470-8130-ac0953b17472",
 				Name: "启动远征",
 				EnableOnLoad: false,
@@ -4102,7 +5987,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.BasicAnchorageRepairWorkflow, KancollePlayerSimulatorKai, Version=1.3.3.0, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.BasicAnchorageRepairWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
 				Guid: "8b9e2d7e-0e56-4b20-abe1-ace6ba715f46",
 				Name: "泊地修理",
 				EnableOnLoad: false,
@@ -4123,10 +6008,11 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.SeriesByAlarmWorkflow, KancollePlayerSimulatorKai, Version=1.3.3.0, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.SeriesByAlarmWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
 				Guid: "2917b502-20c4-4e8e-9cc1-a4c831b300ee",
 				Name: "定时启动",
 				EnableOnLoad: false,
+				ReferenceTime: 1,
 				Hours: 6,
 				Minutes: 0,
 				TriggerType: 1,
@@ -4142,11 +6028,12 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.SeriesByTimeWorkflow, KancollePlayerSimulatorKai, Version=1.3.3.0, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.SeriesByTimeWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
 				Guid: "0ce60069-84e0-4c50-9c42-b18fb1f32730",
 				Name: "按时间执行",
 				EnableOnLoad: false,
-				StartHours: 2,
+				ReferenceTime: 1,
+				StartHours: 0,
 				StartMinutes: 0,
 				EndHours: 6,
 				EndMinutes: 0,
