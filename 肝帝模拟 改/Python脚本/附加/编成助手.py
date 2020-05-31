@@ -87,10 +87,10 @@ def filterLevelAbove(shipObjs, level): # 筛选对应等级以上
 def filterLevelBelow(shipObjs, level): # 筛选对应等级以下
 	return [shipObj for shipObj in shipObjs if getLevel(shipObj) < level]
 
-def filterLowLevelByProportion(shipObjs, proportion): # 按比例保留低等级舰船，传入的数组应当是升序的
+def filterFrontProportion(shipObjs, proportion): # 保留前一定比例的船
 	return shipObjs[:int(math.ceil(len(shipObjs) * proportion))]
 
-def filterHighLevelByProportion(shipObjs, proportion): # 按比例保留高等级舰船，传入的数组应当是升序的
+def filterBackProportion(shipObjs, proportion): # 保留后一定比例的船
 	return shipObjs[-int(math.ceil(len(shipObjs) * proportion)):]
 
 # 排序
@@ -170,21 +170,16 @@ lambdas["cl_no_dlc"] = lambda: filterNotEquiptable(getList("cl_upgraded"), DLC_C
 lambdas["dd_no_dlc"] = lambda: filterNotEquiptable(getList("dd_upgraded"), DLC_CONST_ID) # 不可以带大发的DD
 lambdas["cl_kht"] = lambda: filterEquiptable(getList("cl_upgraded"), KHT_CONST_ID) # 可以带甲标的CL
 
-lambdas["cl_expedition"] = lambda: sortByLevelingPreference(getList("cl_no_dlc")) # 需要靠远征练级的CL
-lambdas["dd_expedition"] = lambda: sortByLevelingPreference(getList("dd_no_dlc")) # 需要靠远征练级的DD
-lambdas["av_expedition"] = lambda: sortByLevelingPreference(getList("av_upgraded")) # 需要靠远征练级的AV
-lambdas["de_expedition"] = lambda: sortByLevelingPreference(getList("de_upgraded")) # 需要靠远征练级的DE
+lambdas["cl_expedition"] = lambda: filterFrontProportion(sortByLevelingPreference(getList("cl_no_dlc")), 0.8) # 需要靠远征练级的CL
+lambdas["dd_expedition"] = lambda: filterFrontProportion(sortByLevelingPreference(getList("dd_no_dlc")), 0.8) # 需要靠远征练级的DD
+lambdas["av_expedition"] = lambda: filterFrontProportion(sortByLevelingPreference(getList("av_upgraded")), 0.8) # 需要靠远征练级的AV
+lambdas["de_expedition"] = lambda: filterFrontProportion(sortByLevelingPreference(getList("de_upgraded")), 0.8) # 需要靠远征练级的DE
 lambdas["cl_leveling"] = lambdas["cl_expedition"] # 保持与旧版全自动远征配置兼容性 TODO: 以后删掉
 lambdas["dd_leveling"] = lambdas["dd_expedition"] # 保持与旧版全自动远征配置兼容性 TODO: 以后删掉
 lambdas["av_leveling"] = lambdas["av_expedition"] # 保持与旧版全自动远征配置兼容性 TODO: 以后删掉
 lambdas["de_leveling"] = lambdas["de_expedition"] # 保持与旧版全自动远征配置兼容性 TODO: 以后删掉
 
-lambdas["av_idle"] = lambda: filterLowLevelByProportion(getList("av_upgraded"), 0.8) # 80%低等级的AV
-lambdas["cl_idle"] = lambda: filterLowLevelByProportion(getList("cl_upgraded"), 0.8) # 80%低等级的CL
-lambdas["dd_idle"] = lambda: filterLowLevelByProportion(getList("dd_upgraded"), 0.8) # 80%低等级的DD
-lambdas["de_idle"] = lambda: filterLowLevelByProportion(getList("de_upgraded"), 0.8) # 80%低等级的DE
-
-lambdas["expedition"] = lambda: list(itertools.chain(getList("av_idle"), getList("cl_idle"), getList("dd_idle"), getList("de_idle"))) # 大概率会被用作全自动远征的船（高等级用作出击，避免误入渠）
+lambdas["expedition"] = lambda: list(itertools.chain(getList("cl_dlc"), getList("dd_dlc"), getList("cl_expedition"), getList("dd_expedition"), getList("av_expedition"), getList("de_expedition"))) # 被用作全自动远征的船
 lambdas["disposable"] = lambda: sortByIdAsc(filterLevelRange(getList("dd"), 1, 5)) # 狗粮
 
 lambdas["cvl_asc"] = lambda: sortByLevelingPreference(getList("cvl")) # CVL练级排序
