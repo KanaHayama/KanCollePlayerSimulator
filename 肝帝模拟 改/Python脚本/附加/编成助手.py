@@ -17,6 +17,8 @@
 		多处优化
 	20200208 - 1.0
 		随KCPS1.3.3.0发布
+	20200527 - 2.0
+		延迟初始化
 """
 
 # 导入
@@ -25,10 +27,12 @@ import time
 import itertools
 import math
 
-# 常数
-DLC_CONST_ID = EquipmentConstUtility.Id( \
-		[obj for obj in EquipmentConstUtility.All() \
-		if EquipmentConstUtility.Name(obj) == "大発動艇"][0]) #大发的ID，能带特大发的船大发也能带
+# 常量
+def getEquipConstId(name):
+	return EquipmentConstUtility.Id([obj for obj in EquipmentConstUtility.All() if EquipmentConstUtility.Name(obj) == name][0])
+
+DLC_CONST_ID = getEquipConstId("大発動艇") #大发的ID，能带特大发的船大发也能带
+KHT_CONST_ID = getEquipConstId("甲標的 甲型")
 
 # 属性获取助手
 def getConst(shipObj):
@@ -53,11 +57,11 @@ def getIds(shipObjs):
 	return [getId(shipObj) for shipObj in shipObjs]
 
 # 复杂过滤器（界面里没提供的）
-def filterDlcEquiptable(shipObjs): # 可以带大发的
-	return [shipObj for shipObj in shipObjs if DLC_CONST_ID in getAllowedEquipIds(getConst(shipObj))]
+def filterEquiptable(shipObjs, equip_const_id): # 可以带某装备的
+	return [shipObj for shipObj in shipObjs if equip_const_id in getAllowedEquipIds(getConst(shipObj))]
 
-def filterDlcNotEquiptable(shipObjs): # 不可以带大发的
-	return [shipObj for shipObj in shipObjs if DLC_CONST_ID not in getAllowedEquipIds(getConst(shipObj))]
+def filterNotEquiptable(shipObjs, equip_const_id): # 不可以带某装备的
+	return [shipObj for shipObj in shipObjs if equip_const_id not in getAllowedEquipIds(getConst(shipObj))]
 
 def filterLevelRange(shipObjs, low, high): # 筛选等级在范围内的船
 	return [shipObj for shipObj in shipObjs if low <= getLevel(shipObj) and getLevel(shipObj) <= high]
@@ -65,100 +69,164 @@ def filterLevelRange(shipObjs, low, high): # 筛选等级在范围内的船
 def filterUpgraded(shipObjs): # 筛选至少一改过后的
 	return [shipObj for shipObj in shipObjs if len([i for i in getBeforeUpgradeIds(getConst(shipObj))]) > 0]
 
-def filterNot99(shipObjs): # 排除99级的
-	return [shipObj for shipObj in shipObjs if getLevel(shipObj) != 99]
+def filterNotUpgraded(shipObjs): # 筛选没有一改的
+	return [shipObj for shipObj in shipObjs if len([i for i in getBeforeUpgradeIds(getConst(shipObj))]) == 0]
+
+def filterLevelAt(shipObjs, level): # 筛选对应等级
+	return [shipObj for shipObj in shipObjs if getLevel(shipObj) == level]
+
+def filterLevelNotAt(shipObjs, level): # 筛选非对应等级
+	return [shipObj for shipObj in shipObjs if getLevel(shipObj) != level]
+
+def filterLevelNotAt99(shipObjs): # 筛选非99级
+	return filterLevelNotAt(shipObjs, 99)
+
+def filterLevelAbove(shipObjs, level): # 筛选对应等级以上
+	return [shipObj for shipObj in shipObjs if getLevel(shipObj) > level]
+
+def filterLevelBelow(shipObjs, level): # 筛选对应等级以下
+	return [shipObj for shipObj in shipObjs if getLevel(shipObj) < level]
 
 def filterLowLevelByProportion(shipObjs, proportion): # 按比例保留低等级舰船，传入的数组应当是升序的
 	return shipObjs[:int(math.ceil(len(shipObjs) * proportion))]
+
+def filterHighLevelByProportion(shipObjs, proportion): # 按比例保留高等级舰船，传入的数组应当是升序的
+	return shipObjs[-int(math.ceil(len(shipObjs) * proportion)):]
 
 # 排序
 def sortByExperienceAsc(shipObjs): # 经验由低到高排序
 	return sorted(shipObjs, key=lambda x: getExperience(x))
 
+def sortByExperienceDesc(shipObjs): # 经验由高到低排序
+	return sorted(shipObjs, key=lambda x: getExperience(x), reverse=True)
+
 def sortByIdAsc(shipObjs): # ID由低到高排序
 	return sorted(shipObjs, key=lambda x: getId(x))
 
+def sortByLevelingPreference(shipObjs): # 以提升整体等级为目的的排序[改后99级以下，改后99级以上，改前99级以上，改前99级以下，改后99级，改前99级]（同类内等级升序）
+	shipObjs = sortByExperienceAsc(shipObjs)
+	upgraded = filterUpgraded(shipObjs)
+	notUpgraded = [shipObj for shipObj in shipObjs if shipObj not in upgraded]
+	upgraded_below = filterLevelBelow(upgraded, 99)
+	upgraded_above = filterLevelAbove(upgraded, 99)
+	upgraded_99 = filterLevelAt(upgraded, 99)
+	notUpgraded_below = filterLevelBelow(notUpgraded, 99)
+	notUpgraded_above = filterLevelAbove(notUpgraded, 99)
+	notUpgraded_99 = filterLevelAt(notUpgraded, 99)
+	return list(itertools.chain(upgraded_below, upgraded_above, notUpgraded_above, notUpgraded_below, upgraded_99, notUpgraded_99))
+
+def sortByForcePreference(shipObjs):
+	level_not_99 = filterLevelNotAt99(shipObjs)
+	level99 = [shipObj for shipObj in shipObjs if shipObj not in level_not_99]
+	return list(itertools.chain(sortByExperienceDesc(level_not_99), level99))
+
 # 舰船集合（只列出了普通远征用得着的；自行解除注释；舰船之后还会依据界面中的设置过滤一遍）
-s = {}
-def buildSets():
-	print("正在更新舰船集合，这需要一些时间")
-	global s
-	s.clear()
-	s["all"] = sortByExperienceAsc(ShipUtility.All()) # 所有舰船，经验升序
-	s["de"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.Escort] # DE
-	s["dd"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.Destroyer] # DD
-	s["cl"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.LightCruiser] # CL
-	s["av"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.SeaplaneCarrier] # AV
-	# s["ca"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.HeavyCruiser] # CA
-	# s["cav"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.AircraftCruiser] # CAV
-	# s["bbc"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.BattleCruiser] # BB（高速）
-	# s["bb"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) in (ShipType.Battleship, ShipType.SuperDreadnoughts)] # BB（低速）
-	# s["bbv"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.AviationBattleship] # BBV
-	# s["cv"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.AircraftCarrier] # CV
-	# s["cvb"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.ArmouredAircraftCarrier] # CVB
-	# s["cvl"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.LightAircraftCarrier] # CVL
-	# s["ss"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.Submarine] # SS
-	# s["ssv"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.AircraftCarryingSubmarine] # SSV
-	# s["as"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.SubmarineTender] # AS
-	# s["ar"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.RepairShip] # AR
-	# s["ao"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.FleetOiler] # AO
-	# s["ct"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.TrainingCruiser] # CT
-	# s["clt"] = [shipObj for shipObj in s["all"] if ShipUtility.Type(shipObj) == ShipType.TorpedoCruiser] # CLT
-	s["av_upgraded"] = filterUpgraded(s["av"]) # 至少一改之后的AV
-	s["cl_upgraded"] = filterUpgraded(s["cl"]) # 至少一改之后的CL
-	s["dd_upgraded"] = filterUpgraded(s["dd"]) # 至少一改之后的DD
-	s["de_upgraded"] = filterUpgraded(s["de"]) # 至少一改之后的DE
-	s["av_idle"] = filterLowLevelByProportion(s["av_upgraded"], 0.9) # 只选用90%低等级的AV（高等级用作出击，避免误入渠）
-	s["cl_idle"] = filterLowLevelByProportion(s["cl_upgraded"], 0.9) # 只选用90%低等级的CL（高等级用作出击，避免误入渠）
-	s["dd_idle"] = filterLowLevelByProportion(s["dd_upgraded"], 0.9) # 只选用90%低等级的DD（高等级用作出击，避免误入渠）
-	s["de_idle"] = filterLowLevelByProportion(s["de_upgraded"], 0.9) # 只选用90%低等级的DE（高等级用作出击，避免误入渠）
-	s["cl_dlc"] = filterDlcEquiptable(s["cl_idle"]) # 可以带大发的CL
-	s["dd_dlc"] = filterDlcEquiptable(s["dd_idle"]) # 可以带大发的DD
-	s["cl_no_dlc"] = filterDlcNotEquiptable(s["cl_idle"]) # 不可以带大发的CL
-	s["dd_no_dlc"] = filterDlcNotEquiptable(s["dd_idle"]) # 不可以带大发的DD
-	s["av_leveling"] = filterNot99(s["av_idle"]) # 需要靠远征练级的AV
-	s["cl_leveling"] = filterNot99(s["cl_no_dlc"]) # 需要靠远征练级的CL
-	s["dd_leveling"] = filterNot99(s["dd_no_dlc"]) # 需要靠远征练级的DD
-	s["de_leveling"] = filterNot99(filterUpgraded(s["de_idle"])) # 需要靠远征练级的DE（至少一改的）
-	s["expedition"] = list(itertools.chain(s["dd_dlc"], s["cl_dlc"], s["av_leveling"], s["cl_leveling"], s["dd_leveling"], s["de_leveling"])) # 全自动范例中用于远征的船
-	s["disposable"] = sortByIdAsc(filterLevelRange(s["dd"], 1, 3)) # 狗粮
+lambdas = {}
+lists = {}
+
+def getList(key):
+	global lambdas
+	global lists
+	if key not in lists:
+		lists[key] = lambdas[key]()
+	print(lists)
+	return lists[key]
+
+lambdas["all"] = lambda: sortByExperienceAsc(ShipUtility.All()) # 所有舰船，经验升序
+lambdas["de"] = lambda: [shipObj for shipObj in getList("all") if ShipUtility.Type(shipObj) == ShipType.Escort] # DE
+lambdas["dd"] = lambda: [shipObj for shipObj in getList("all") if ShipUtility.Type(shipObj) == ShipType.Destroyer] # DD
+lambdas["cl"] = lambda: [shipObj for shipObj in getList("all") if ShipUtility.Type(shipObj) == ShipType.LightCruiser] # CL
+lambdas["av"] = lambda: [shipObj for shipObj in getList("all") if ShipUtility.Type(shipObj) == ShipType.SeaplaneCarrier] # AV
+lambdas["ca"] = lambda: [shipObj for shipObj in getList("all") if ShipUtility.Type(shipObj) == ShipType.HeavyCruiser] # CA
+lambdas["cav"] = lambda: [shipObj for shipObj in getList("all") if ShipUtility.Type(shipObj) == ShipType.AircraftCruiser] # CAV
+lambdas["ca_cav"] = lambda: sortByExperienceAsc(itertools.chain(getList("ca"), getList("cav"))) # CA 和 CAV
+lambdas["bbc"] = lambda: [shipObj for shipObj in getList("all") if ShipUtility.Type(shipObj) == ShipType.BattleCruiser] # BB（高速）
+lambdas["bb"] = lambda: [shipObj for shipObj in getList("all") if ShipUtility.Type(shipObj) in (ShipType.Battleship, ShipType.SuperDreadnoughts)] # BB（低速）
+lambdas["bbv"] = lambda: [shipObj for shipObj in getList("all") if ShipUtility.Type(shipObj) == ShipType.AviationBattleship] # BBV
+lambdas["cv"] = lambda: [shipObj for shipObj in getList("all") if ShipUtility.Type(shipObj) == ShipType.AircraftCarrier] # CV
+lambdas["cvb"] = lambda: [shipObj for shipObj in getList("all") if ShipUtility.Type(shipObj) == ShipType.ArmouredAircraftCarrier] # CVB
+lambdas["cv_cvb"] = lambda: sortByExperienceAsc(itertools.chain(getList("cv"), getList("cvb"))) # CV 和 CVB
+lambdas["cvl"] = lambda: [shipObj for shipObj in getList("all") if ShipUtility.Type(shipObj) == ShipType.LightAircraftCarrier] # CVL
+lambdas["ss"] = lambda: [shipObj for shipObj in getList("all") if ShipUtility.Type(shipObj) == ShipType.Submarine] # SS
+lambdas["ssv"] = lambda: [shipObj for shipObj in getList("all") if ShipUtility.Type(shipObj) == ShipType.AircraftCarryingSubmarine] # SSV
+lambdas["ss_ssv"] = lambda: sortByExperienceAsc(itertools.chain(getList("ss"), getList("ssv"))) # SS 和 SSV
+lambdas["as"] = lambda: [shipObj for shipObj in getList("all") if ShipUtility.Type(shipObj) == ShipType.SubmarineTender] # AS
+lambdas["ar"] = lambda: [shipObj for shipObj in getList("all") if ShipUtility.Type(shipObj) == ShipType.RepairShip] # AR
+lambdas["ao"] = lambda: [shipObj for shipObj in getList("all") if ShipUtility.Type(shipObj) == ShipType.FleetOiler] # AO
+lambdas["ct"] = lambda: [shipObj for shipObj in getList("all") if ShipUtility.Type(shipObj) == ShipType.TrainingCruiser] # CT
+lambdas["clt"] = lambda: [shipObj for shipObj in getList("all") if ShipUtility.Type(shipObj) == ShipType.TorpedoCruiser] # CLT
+
+lambdas["cvl_upgraded"] = lambda: filterUpgraded(getList("cvl")) # 至少一改之后的CVL
+lambdas["av_upgraded"] = lambda: filterUpgraded(getList("av")) # 至少一改之后的AV
+lambdas["cl_upgraded"] = lambda: filterUpgraded(getList("cl")) # 至少一改之后的CL
+lambdas["dd_upgraded"] = lambda: filterUpgraded(getList("dd")) # 至少一改之后的DD
+lambdas["de_upgraded"] = lambda: filterUpgraded(getList("de")) # 至少一改之后的DE
+lambdas["ss_upgraded"] = lambda: filterUpgraded(getList("ss")) # 至少一改之后的SS
+lambdas["ssv_upgraded"] = lambda: filterUpgraded(getList("ssv")) # 至少一改之后的SSV
+
+lambdas["cl_dlc"] = lambda: filterEquiptable(getList("cl_upgraded"), DLC_CONST_ID) # 可以带大发的CL
+lambdas["dd_dlc"] = lambda: filterEquiptable(getList("dd_upgraded"), DLC_CONST_ID) # 可以带大发的DD
+lambdas["cl_no_dlc"] = lambda: filterNotEquiptable(getList("cl_upgraded"), DLC_CONST_ID) # 不可以带大发的CL
+lambdas["dd_no_dlc"] = lambda: filterNotEquiptable(getList("dd_upgraded"), DLC_CONST_ID) # 不可以带大发的DD
+lambdas["cl_kht"] = lambda: filterEquiptable(getList("cl_upgraded"), KHT_CONST_ID) # 可以带甲标的CL
+
+lambdas["cl_expedition"] = lambda: sortByLevelingPreference(getList("cl_no_dlc")) # 需要靠远征练级的CL
+lambdas["dd_expedition"] = lambda: sortByLevelingPreference(getList("dd_no_dlc")) # 需要靠远征练级的DD
+lambdas["av_expedition"] = lambda: sortByLevelingPreference(getList("av_upgraded")) # 需要靠远征练级的AV
+lambdas["de_expedition"] = lambda: sortByLevelingPreference(getList("de_upgraded")) # 需要靠远征练级的DE
+lambdas["cl_leveling"] = lambdas["cl_expedition"] # 保持与旧版全自动远征配置兼容性 TODO: 以后删掉
+lambdas["dd_leveling"] = lambdas["dd_expedition"] # 保持与旧版全自动远征配置兼容性 TODO: 以后删掉
+lambdas["av_leveling"] = lambdas["av_expedition"] # 保持与旧版全自动远征配置兼容性 TODO: 以后删掉
+lambdas["de_leveling"] = lambdas["de_expedition"] # 保持与旧版全自动远征配置兼容性 TODO: 以后删掉
+
+lambdas["av_idle"] = lambda: filterLowLevelByProportion(getList("av_upgraded"), 0.8) # 80%低等级的AV
+lambdas["cl_idle"] = lambda: filterLowLevelByProportion(getList("cl_upgraded"), 0.8) # 80%低等级的CL
+lambdas["dd_idle"] = lambda: filterLowLevelByProportion(getList("dd_upgraded"), 0.8) # 80%低等级的DD
+lambdas["de_idle"] = lambda: filterLowLevelByProportion(getList("de_upgraded"), 0.8) # 80%低等级的DE
+
+lambdas["expedition"] = lambda: list(itertools.chain(getList("av_idle"), getList("cl_idle"), getList("dd_idle"), getList("de_idle"))) # 大概率会被用作全自动远征的船（高等级用作出击，避免误入渠）
+lambdas["disposable"] = lambda: sortByIdAsc(filterLevelRange(getList("dd"), 1, 5)) # 狗粮
+
+lambdas["cvl_asc"] = lambda: sortByLevelingPreference(getList("cvl")) # CVL练级排序
+lambdas["clt_asc"] = lambda: sortByLevelingPreference(getList("clt")) # CLT练级排序
+lambdas["dd_asc"] = lambda: sortByLevelingPreference(getList("dd")) # DD练级排序
+lambdas["de_asc"] = lambda: sortByLevelingPreference(getList("de")) # DE练级排序
+lambdas["ss_ssv_asc"] = lambda: sortByLevelingPreference(getList("ss_ssv")) # SS和SSV练级排序
+
+lambdas["cv_cvb_desc"] = lambda: sortByForcePreference(getList("cv_cvb")) # CV和CVB强度排序
+lambdas["cvl_desc"] = lambda: sortByForcePreference(getList("cvl")) # CVL强度排序
+lambdas["cav_desc"] = lambda: sortByForcePreference(getList("cav")) # CAV强度排序
+lambdas["ca_desc"] = lambda: sortByForcePreference(getList("ca")) # CA强度排序
+lambdas["ca_cav_desc"] = lambda: sortByForcePreference(getList("ca_cav")) # CA和CAV强度排序
+lambdas["clt_desc"] = lambda: sortByForcePreference(getList("clt")) # CLT强度排序
+lambdas["cl_kht_desc"] = lambda: sortByForcePreference(getList("cl_kht")) # 可以带甲标的CL强度排序
+lambdas["dd_desc"] = lambda: sortByForcePreference(getList("dd")) # DD强度排序
+lambdas["de_desc"] = lambda: sortByForcePreference(getList("de")) # DE强度排序
 
 # 迭代器
-it = {}
-def initialize():
-	buildSets()
-	global it
-	it.clear()
+iters = {}
+def reset():
+	global lists
+	global iters
+	lists.clear()
+	iters.clear()
 
 def getIter(key):
-	global s
-	global it
-	if len(s) == 0: # TODO，以后更新时删掉这个
-		initialize()
-	if key not in it: # 创建迭代器
-		it[key] = iter(getIds(s[key]))
-	return it[key]
+	global iters
+	if key not in iters: # 创建迭代器
+		iters[key] = iter(getIds(getList(key)))
+	return iters[key]
 
 def getOne(key):
 	try:
 		return next(getIter(key))
 	except StopIteration:
-		it.pop(key)
+		iters.pop(key)
 		return None # 返回-1也行
 
 # 导出函数
 def OnCandidate(): # 编成计算时会调用
-	global s
-	global it
-	buildSets()
-	it.clear()
-
-dd_dlc = lambda : getOne("dd_dlc")
-cl_dlc = lambda : getOne("cl_dlc")
-av_leveling = lambda : getOne("av_leveling")
-cl_leveling = lambda : getOne("cl_leveling")
-dd_leveling = lambda : getOne("dd_leveling")
-de_leveling = lambda : getOne("de_leveling")
+	reset()
 
 def disposable(): # 因为狗粮受拆船影响大，所以需要经常更新候选
 	key = "disposable"
@@ -166,16 +234,39 @@ def disposable(): # 因为狗粮受拆船影响大，所以需要经常更新候
 	iterEnd = id is None
 	isInvalidId = not iterEnd and ShipUtility.Ship(id) is None # 查找不到船了，就说明解体过一次
 	if iterEnd or isInvalidId:
-		global s
-		s = {}
-		global it
-		it.pop(key, None)
-		if isInvalidId:
-			id = getOne(key)
+		reset()
+		id = getOne(key)
 	return id
 
 def dock_expedition(id): # 用于刷闪修理防止入渠不用于远征的船
-	global s
-	if len(s) == 0:
-		initialize()
-	return id in getIds(s["expedition"])
+	reset()
+	return id in getIds(getList("expedition"))
+
+dd_dlc = lambda : getOne("dd_dlc")
+cl_dlc = lambda : getOne("cl_dlc")
+cl_kht = lambda : getOne("cl_kht")
+
+av_expedition = lambda : getOne("av_expedition")
+cl_expedition = lambda : getOne("cl_expedition")
+dd_expedition = lambda : getOne("dd_expedition")
+de_expedition = lambda : getOne("de_expedition")
+av_leveling = av_expedition # 保持与旧版全自动远征配置兼容性 TODO: 以后删掉
+cl_leveling = cl_expedition # 保持与旧版全自动远征配置兼容性 TODO: 以后删掉
+dd_leveling = dd_expedition # 保持与旧版全自动远征配置兼容性 TODO: 以后删掉
+de_leveling = de_expedition # 保持与旧版全自动远征配置兼容性 TODO: 以后删掉
+
+cvl_asc = lambda : getOne("cvl_asc")
+clt_asc = lambda : getOne("clt_asc")
+dd_asc = lambda : getOne("dd_asc")
+de_asc = lambda : getOne("de_asc")
+ss_ssv_asc = lambda : getOne("ss_ssv_asc")
+
+cv_cvb_desc = lambda : getOne("cv_cvb_desc")
+cvl_desc = lambda : getOne("cvl_desc")
+cav_desc = lambda : getOne("cav_desc")
+ca_desc = lambda : getOne("ca_desc")
+ca_cav_desc = lambda : getOne("ca_cav_desc")
+clt_desc = lambda : getOne("clt_desc")
+cl_kht_desc = lambda : getOne("cl_kht_desc")
+dd_desc = lambda : getOne("dd_desc")
+de_desc = lambda : getOne("de_desc")
