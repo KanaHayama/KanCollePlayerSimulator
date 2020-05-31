@@ -233,7 +233,10 @@ def disposable(): # 因为狗粮受拆船影响大，所以需要经常更新候
 	return id
 
 def dock_expedition(id): # 用于刷闪修理防止入渠不用于远征的船
-	reset()
+	# 每次都查询就太慢了，但这个确实需要更新，但又不需要更新得太频
+	from random import random
+	if random() <= 0.1:
+		reset()
 	return id in getIds(getList("expedition"))
 
 dd_dlc = lambda : getOne("dd_dlc")
