@@ -129,7 +129,6 @@ def getList(key):
 	global lists
 	if key not in lists:
 		lists[key] = lambdas[key]()
-	print(lists)
 	return lists[key]
 
 lambdas["all"] = lambda: sortByExperienceAsc(ShipUtility.All()) # 所有舰船，经验升序
