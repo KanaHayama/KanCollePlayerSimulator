@@ -121,6 +121,7 @@ def sortByForcePreference(shipObjs):
 	return list(itertools.chain(sortByExperienceDesc(level_not_99), level99))
 
 # 舰船集合（只列出了普遍用得着的；返回的舰船之后还会依据界面中的设置过滤一遍）
+shipsState = None # ShipUtility的一个参数，不提供也可以，但会每次都查询这个值，此处复用的话可以加速执行
 lambdas = {}
 lists = {}
 
@@ -131,7 +132,7 @@ def getList(key):
 		lists[key] = lambdas[key]()
 	return lists[key]
 
-lambdas["all"] = lambda: sortByExperienceAsc(ShipUtility.All()) # 所有舰船，经验升序
+lambdas["all"] = lambda: sortByExperienceAsc(ShipUtility.All(shipsState)) # 所有舰船，经验升序
 lambdas["de"] = lambda: [shipObj for shipObj in getList("all") if ShipUtility.Type(shipObj) == ShipType.Escort] # DE
 lambdas["dd"] = lambda: [shipObj for shipObj in getList("all") if ShipUtility.Type(shipObj) == ShipType.Destroyer] # DD
 lambdas["cl"] = lambda: [shipObj for shipObj in getList("all") if ShipUtility.Type(shipObj) == ShipType.LightCruiser] # CL
@@ -203,8 +204,10 @@ lambdas["de_desc"] = lambda: sortByForcePreference(getList("de")) # DE强度排�
 # 迭代器
 iters = {}
 def reset():
+	global shipsState
 	global lists
 	global iters
+	shipsState = GameState.Ships()
 	lists.clear()
 	iters.clear()
 
@@ -241,6 +244,15 @@ def dock_expedition(id): # 用于刷闪修理防止入渠不用于远征的船
 	if random() <= 0.1:
 		reset()
 	return id in getIds(getList("expedition"))
+
+def filterLvGeqCommonTh(ship):
+	'''
+	用于过滤舰船等级，通常用于筛掉等级不足的远征旗舰。
+	因为不想每个等级都写个函数，所以这里取一个通用的等级（越高越通用）。
+	'''
+	threshold = 65 # 远征38的旗舰等级要求
+	global shipsState
+	return ShipUtility.Level(ship, shipsState) >= threshold
 
 dd_dlc = lambda : getOne("dd_dlc")
 cl_dlc = lambda : getOne("cl_dlc")
