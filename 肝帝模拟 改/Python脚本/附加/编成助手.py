@@ -9,6 +9,8 @@
 	在填写函数的地方填写需要的函数名（见范例配置中的示例）
 
 更新记录：
+	20200527 - 2.0
+		延迟初始化
 	20200211 - 1.3
 		修复Bug
 	20200210 - 1.2
@@ -17,8 +19,6 @@
 		多处优化
 	20200208 - 1.0
 		随KCPS1.3.3.0发布
-	20200527 - 2.0
-		延迟初始化
 """
 
 # 导入
@@ -120,7 +120,7 @@ def sortByForcePreference(shipObjs):
 	level99 = [shipObj for shipObj in shipObjs if shipObj not in level_not_99]
 	return list(itertools.chain(sortByExperienceDesc(level_not_99), level99))
 
-# 舰船集合（只列出了普通远征用得着的；自行解除注释；舰船之后还会依据界面中的设置过滤一遍）
+# 舰船集合（只列出了普遍用得着的；返回的舰船之后还会依据界面中的设置过滤一遍）
 lambdas = {}
 lists = {}
 
@@ -162,6 +162,7 @@ lambdas["dd_upgraded"] = lambda: filterUpgraded(getList("dd")) # 至少一改之
 lambdas["de_upgraded"] = lambda: filterUpgraded(getList("de")) # 至少一改之后的DE
 lambdas["ss_upgraded"] = lambda: filterUpgraded(getList("ss")) # 至少一改之后的SS
 lambdas["ssv_upgraded"] = lambda: filterUpgraded(getList("ssv")) # 至少一改之后的SSV
+lambdas["ss_ssv_upgraded"] = lambda: filterUpgraded(getList("ss_ssv")) # 至少一改之后的SS和SSV
 
 lambdas["cl_dlc"] = lambda: filterEquiptable(getList("cl_upgraded"), DLC_CONST_ID) # 可以带大发的CL
 lambdas["dd_dlc"] = lambda: filterEquiptable(getList("dd_upgraded"), DLC_CONST_ID) # 可以带大发的DD
@@ -173,6 +174,7 @@ lambdas["cl_expedition"] = lambda: filterFrontProportion(sortByLevelingPreferenc
 lambdas["dd_expedition"] = lambda: filterFrontProportion(sortByLevelingPreference(getList("dd_no_dlc")), 0.8) # 需要靠远征练级的DD
 lambdas["av_expedition"] = lambda: filterFrontProportion(sortByLevelingPreference(getList("av_upgraded")), 0.8) # 需要靠远征练级的AV
 lambdas["de_expedition"] = lambda: filterFrontProportion(sortByLevelingPreference(getList("de_upgraded")), 0.8) # 需要靠远征练级的DE
+lambdas["ss_ssv_expedition"] = lambda: filterFrontProportion(sortByLevelingPreference(getList("ss_ssv_upgraded")), 0.8) # 需要靠远征练级的SS和SSV
 lambdas["cl_leveling"] = lambdas["cl_expedition"] # 保持与旧版全自动远征配置兼容性 TODO: 以后删掉
 lambdas["dd_leveling"] = lambdas["dd_expedition"] # 保持与旧版全自动远征配置兼容性 TODO: 以后删掉
 lambdas["av_leveling"] = lambdas["av_expedition"] # 保持与旧版全自动远征配置兼容性 TODO: 以后删掉
@@ -247,6 +249,7 @@ av_expedition = lambda : getOne("av_expedition")
 cl_expedition = lambda : getOne("cl_expedition")
 dd_expedition = lambda : getOne("dd_expedition")
 de_expedition = lambda : getOne("de_expedition")
+ss_ssv_expedition = lambda : getOne("ss_ssv_expedition")
 av_leveling = av_expedition # 保持与旧版全自动远征配置兼容性 TODO: 以后删掉
 cl_leveling = cl_expedition # 保持与旧版全自动远征配置兼容性 TODO: 以后删掉
 dd_leveling = dd_expedition # 保持与旧版全自动远征配置兼容性 TODO: 以后删掉
