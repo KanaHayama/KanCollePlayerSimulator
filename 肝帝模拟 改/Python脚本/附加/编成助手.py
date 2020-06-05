@@ -172,6 +172,7 @@ lambdas["cl_kht"] = lambda: filterEquiptable(getList("cl_upgraded"), KHT_CONST_I
 
 lambdas["cl_expedition"] = lambda: filterFrontProportion(sortByLevelingPreference(getList("cl_no_dlc")), 0.8) # 需要靠远征练级的CL
 lambdas["dd_expedition"] = lambda: filterFrontProportion(sortByLevelingPreference(getList("dd_no_dlc")), 0.8) # 需要靠远征练级的DD
+lambdas["cvl_expedition"] = lambda: filterFrontProportion(sortByLevelingPreference(getList("cvl_upgraded")), 0.8) # 需要靠远征练级的CVL
 lambdas["av_expedition"] = lambda: filterFrontProportion(sortByLevelingPreference(getList("av_upgraded")), 0.8) # 需要靠远征练级的AV
 lambdas["de_expedition"] = lambda: filterFrontProportion(sortByLevelingPreference(getList("de_upgraded")), 0.8) # 需要靠远征练级的DE
 lambdas["ss_ssv_expedition"] = lambda: filterFrontProportion(sortByLevelingPreference(getList("ss_ssv_upgraded")), 0.8) # 需要靠远征练级的SS和SSV
@@ -180,7 +181,7 @@ lambdas["dd_leveling"] = lambdas["dd_expedition"] # 保持与旧版全自动远�
 lambdas["av_leveling"] = lambdas["av_expedition"] # 保持与旧版全自动远征配置兼容性 TODO: 以后删掉
 lambdas["de_leveling"] = lambdas["de_expedition"] # 保持与旧版全自动远征配置兼容性 TODO: 以后删掉
 
-lambdas["expedition"] = lambda: list(itertools.chain(getList("cl_dlc"), getList("dd_dlc"), getList("cl_expedition"), getList("dd_expedition"), getList("av_expedition"), getList("de_expedition"))) # 被用作全自动远征的船
+lambdas["expedition"] = lambda: list(itertools.chain(getList("cl_dlc"), getList("dd_dlc"), getList("cl_expedition"), getList("dd_expedition"), getList("cvl_expedition"), getList("av_expedition"), getList("de_expedition"), getList("ss_ssv_expedition"))) # 被用作全自动远征的船
 lambdas["disposable"] = lambda: sortByIdAsc(filterLevelRange(getList("dd"), 1, 5)) # 狗粮
 
 lambdas["cvl_asc"] = lambda: sortByLevelingPreference(getList("cvl")) # CVL练级排序
@@ -245,6 +246,7 @@ dd_dlc = lambda : getOne("dd_dlc")
 cl_dlc = lambda : getOne("cl_dlc")
 cl_kht = lambda : getOne("cl_kht")
 
+cvl_expedition = lambda : getOne("cvl_expedition")
 av_expedition = lambda : getOne("av_expedition")
 cl_expedition = lambda : getOne("cl_expedition")
 dd_expedition = lambda : getOne("dd_expedition")
