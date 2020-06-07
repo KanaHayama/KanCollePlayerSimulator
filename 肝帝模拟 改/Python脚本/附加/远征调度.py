@@ -217,7 +217,7 @@ def OnProcess():
 		global NUM_FLEET
 		for fleetIndex in range(1, NUM_FLEET):
 			notify(fleetIndex + 1)
-		if lastEvent and not isKirakiraFinishedEvent(lastEvent): # 刚被通知刷完闪就不要再去刷了，避免死循环
+		if not lastEvent or not isKirakiraFinishedEvent(lastEvent): # 刚被通知刷完闪就不要再去刷了，避免死循环
 			global MESSAGE_INITIATE_KIRAKIRA
 			sendEvent(MESSAGE_INITIATE_KIRAKIRA)
 	lastEvent = None
