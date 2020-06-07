@@ -10,7 +10,7 @@
 
 更新记录：
 	20200604 - 1.0
-		初始版本，随KCPS1.4.0.4发布。
+		初始版本，随KCPS1.4.1.0发布。
 """
 
 #===================================================#
@@ -44,7 +44,7 @@ EXPEDITION_LIST = [default + BACKUP_EXPEDITION_LIST for default in DEFAULT_EXPED
 
 RESOURCE_SCALE = (1, 1, 1, 1, 100, ) # 资源比较系数
 
-MESSAGE_INITIATE = "Full Auto Expedition" # 用于启动刷闪配置
+MESSAGE_INITIATE_KIRAKIRA = "Full Auto Expedition" # 用于启动刷闪配置
 MESSAGE_KIRAKIRA = "Expedition Ships Kirakira" # 用于检测刷闪完成
 MESSAGE_PREFIX = "Expedition:"
 MESSAGE_FORMAT_STRING = MESSAGE_PREFIX + "{}->{}" # 用于启动指定远征配置
@@ -150,6 +150,12 @@ def notify(fleet):
 	global fleetRecentExpedition
 	fleetRecentExpedition[fleet - 1] = expeditionId
 
+def isExpeditonReturnedEvent(e):
+	return isinstance(e, ExpeditionAboutToReturnedEvent)
+
+def isKirakiraFinishedEvent(e):
+	return isinstance(e, UserEvent) and e.Message == MESSAGE_KIRAKIRA
+
 #===================================================#
 #                                                   #
 #                        导出                       #
@@ -162,9 +168,8 @@ def OnEvent(e):
 	# 根据被附加执行单元类型不同，执行不同内容
 	if IS_MASTER: # 负责发出指示
 		global MESSAGE_KIRAKIRA
-		if isinstance(e, ExpeditionAboutToReturnedEvent) \
-				or (isinstance(e, UserEvent) and e.Message == MESSAGE_KIRAKIRA):
-			if isinstance(e, ExpeditionAboutToReturnedEvent): 
+		if isExpeditonReturnedEvent(e) or isKirakiraFinishedEvent(e):
+			if isExpeditonReturnedEvent(e): 
 				Logger.Debug("远征舰队{}归来".format(e.Fleet))
 			global lastEvent
 			lastEvent = e
@@ -208,10 +213,11 @@ def OnProcess():
 	if lastEvent and isinstance(lastEvent, ExpeditionAboutToReturnedEvent): # 某个舰队回来时
 		notify(lastEvent.Fleet)
 		Logger.Debug("处理了舰队{}的远征归来事件".format(lastEvent.Fleet))
-		lastEvent = None
 	else: # 发出所有舰队（刷闪完成或者手动点击“立即触发“时）
 		global NUM_FLEET
 		for fleetIndex in range(1, NUM_FLEET):
 			notify(fleetIndex + 1)
-		global MESSAGE_INITIATE
-		sendEvent(MESSAGE_INITIATE)
+		if lastEvent and not isKirakiraFinishedEvent(lastEvent): # 刚被通知刷完闪就不要再去刷了，避免死循环
+			global MESSAGE_INITIATE_KIRAKIRA
+			sendEvent(MESSAGE_INITIATE_KIRAKIRA)
+	lastEvent = None
