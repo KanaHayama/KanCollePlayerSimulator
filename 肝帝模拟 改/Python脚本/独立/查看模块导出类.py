@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 # 查看模块里都有什么东西能在python脚本里用
 
 import KancollePlayerSimulatorKaiCore

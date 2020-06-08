@@ -113,12 +113,12 @@ def sortByLevelingPreference(shipObjs): # 以提升整体等级为目的的排�
 	notUpgraded_below = filterLevelBelow(notUpgraded, 99)
 	notUpgraded_above = filterLevelAbove(notUpgraded, 99)
 	notUpgraded_99 = filterLevelAt(notUpgraded, 99)
-	return list(itertools.chain(upgraded_below, upgraded_above, notUpgraded_above, notUpgraded_below, upgraded_99, notUpgraded_99))
+	return upgraded_below + upgraded_above + notUpgraded_above + notUpgraded_below + upgraded_99 + notUpgraded_99
 
 def sortByForcePreference(shipObjs):
 	level_not_99 = filterLevelNotAt99(shipObjs)
 	level99 = [shipObj for shipObj in shipObjs if shipObj not in level_not_99]
-	return list(itertools.chain(sortByExperienceDesc(level_not_99), level99))
+	return sortByExperienceDesc(level_not_99) + level99
 
 # 舰船集合（只列出了普遍用得着的；返回的舰船之后还会依据界面中的设置过滤一遍）
 shipsState = None # ShipUtility的一个参数，不提供也可以，但会每次都查询这个值，此处复用的话可以加速执行
@@ -182,7 +182,7 @@ lambdas["dd_leveling"] = lambdas["dd_expedition"] # 保持与旧版全自动远�
 lambdas["av_leveling"] = lambdas["av_expedition"] # 保持与旧版全自动远征配置兼容性 TODO: 以后删掉
 lambdas["de_leveling"] = lambdas["de_expedition"] # 保持与旧版全自动远征配置兼容性 TODO: 以后删掉
 
-lambdas["expedition"] = lambda: list(itertools.chain(getList("cl_dlc"), getList("dd_dlc"), getList("cl_expedition"), getList("dd_expedition"), getList("cvl_expedition"), getList("av_expedition"), getList("de_expedition"), getList("ss_ssv_expedition"))) # 被用作全自动远征的船
+lambdas["expedition"] = lambda: getList("cl_dlc") + getList("dd_dlc") + getList("cl_expedition") + getList("dd_expedition") + getList("cvl_expedition") + getList("av_expedition") + getList("de_expedition") + getList("ss_ssv_expedition") # 被用作全自动远征的船
 lambdas["disposable"] = lambda: sortByIdAsc(filterLevelRange(getList("dd"), 1, 5)) # 狗粮
 
 lambdas["cvl_asc"] = lambda: sortByLevelingPreference(getList("cvl")) # CVL练级排序
