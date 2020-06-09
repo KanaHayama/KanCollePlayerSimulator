@@ -220,7 +220,7 @@ def OnProcess():
 		Logger.Debug("处理了舰队{}的远征归来事件".format(lastEvent.Fleet))
 	else: # 发出所有舰队（刷闪完成或者手动点击“立即触发“时）
 		causedByKirakiraFinished = lastEvent and isKirakiraFinishedEvent(lastEvent)
-		if causedByKirakiraFinished：
+		if causedByKirakiraFinished:
 			global lastKiraKiraFinishedTime
 			now = datetime.now()
 			if lastKiraKiraFinishedTime # 检查两次刷闪完成事件间的时间，过少说明一次都没出击
