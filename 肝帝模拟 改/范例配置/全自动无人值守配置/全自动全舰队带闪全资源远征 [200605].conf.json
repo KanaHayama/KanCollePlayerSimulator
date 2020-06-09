@@ -7,7 +7,7 @@
 				Guid: "f112774b-a87a-463c-b6be-de0bf3bcbad8",
 				Name: "使用说明",
 				EnableOnLoad: true,
-				Memo: "【介绍】\r\n本配置可以根据用户账户中的资源量选择远征，以均衡且快速地攒资源。\r\n用户无需提前设置舰队编成及装备。\r\n\r\n【Python脚本相关注意事项】\r\n本配置使用了Python脚本以实现更复杂的判断。\r\n①部分使用的脚本每次载入后首次使用时会经网络从Github上获取脚本，无法正常访问Github时配置不能正常运行。如有此方面顾虑，可自行下载脚本并替换为使用本地版本脚本。\r\n②脚本部分使用了我个人偏好的设定，如果你想要修改，需要看得懂Python。现在小学生都在学Python，所以看懂的难度还是很低的。\r\n\r\n【要求】\r\n本配置为通用配置，只要不是萌新账号缺这个少那个的话，应该都能运行。\r\n如果出现问题，请依据遇到的具体问题修改配置。\r\n配置中使用到：\r\n①全部舰队\r\n②临时补给功能\r\n③6个可以带大发的驱逐（如果实在没有，请自行修改设置）\r\n④远征会用到的各种一改后的船（CVL、AV、CL、DD、DE、SS/SSV）\r\n⑤越多越好的大发\r\n⑥足够的运输桶\r\n⑦其他一些用于满足远征舰队数值要求的装备\r\n\r\n【细节】\r\n该配置正在试验迭代阶段，之后可能还有提升空间，请留意配置的更新。\r\n\r\n只考虑油、弹、钢、铝、高速修复，五种资源。\r\n\r\n动态选择远征实现的原理是动态修改各个子配置中的各个执行单元的舰队属性。\r\n选择的远征并非综合考虑所有种类资源时获得资源最快的远征，而是某单项资源获取速度最快的远征。\r\n月常远征不包含在内。\r\n为了减少操作次数，优先选择单次时间长的远征。\r\n没开全所需远征的账号会无法正常使用。可自行替换为其他远征。\r\n\r\n部分远征附加了最基本的检查函数，但并未检查所有的远征成功条件。\r\n为了提升整体练度，远征优先使用等级低的船（但都至少要一改）。\r\n对于有舰队数值最低要求的远征，需自行确认是否满足要求（对于练度足够的账号，随便配都够用）。\r\n若自动配出的舰队不满足远征要求，请自行修改编成或装备设置。\r\n为了保持设置简洁，装备设置并未将一些数值优秀但少有的装备考虑在内，如确实需要，请自行添加。\r\n\r\n本配置已经限制了每日运行时长，每天下半夜休息6小时，但对于3个短远征来说仍然比较危险。\r\n建议改一个适合你自己的运行时间区间，否则用这个配置的人都早上6点开始放远征就不太妙了。\r\n此修改涉及所有远征子配置的两个时间设置相关的执行单元、刷闪中2个串联的时间。\r\n\r\n补闪配置为出击1-1，带1个狗粮，如有不需要带狗粮或者去其他图刷的请自行修改。\r\n禁止沉船，包括狗粮。\r\n\r\n本配置会拆所有没上锁的驱逐，以保证总有位置放新的狗粮，请在使用前确保已经锁定了不想拆的船。\r\n自动捞船时尤其要留心这一问题。如不需要拆狗粮，请自行修改设置。\r\n因为还没有拆装备功能，为避免装备爆仓，所以狗粮不卸装备。\r\n\r\n显然，同时手动打游戏是会冲突的。\r\n同时其他配置做别的出击不会冲突，不需要关闭本配置。\r\n但多个同时打开的本配置及本配置的修改版可能会冲突。\r\n\r\n小破的船也会被送去远征，如果你不想这样，请修改远征配置里的编成功能，跳过血量在0%~99%的船。\r\n\r\n【你可能想修改的设置】\r\n①要跑的远征以及对应的编成、装备。尤其是你可以带大发的驱逐不够时你需要把部分用大发驱逐的地方改成普通驱逐。\r\n②允许用来修复刷闪船的修复渠（默认不使用第1修复渠）。\r\n③是否允许小破的船远征（默认允许）。\r\n④每天停止发出远征的时间段（0点-6点）。\r\n⑤刷闪的方法。\r\n\r\n【使用方法】\r\n保持本执行单元（即[使用说明]）与每个子配置的控制用执行单元（对于刷闪是[总控]，对于远征是[时间区间]）启用状态，触发本执行单元，可以自动跑远征。\r\n\r\n[200605]",
+				Memo: "【介绍】\r\n本配置可以根据用户账户中的资源量选择远征，以均衡且快速地攒资源。\r\n用户无需提前设置舰队编成及装备。\r\n\r\n【Python脚本相关注意事项】\r\n本配置使用了Python脚本以实现更复杂的判断。\r\n①部分使用的脚本每次载入后首次使用时会经网络从Github上获取脚本，无法正常访问Github时配置不能正常运行。如有此方面顾虑，可自行下载脚本并替换为使用本地版本脚本。\r\n②脚本部分使用了我个人偏好的设定，如果你想要修改，需要看得懂Python。现在小学生都在学Python，所以看懂的难度还是很低的。\r\n\r\n【要求】\r\n本配置为通用配置，只要不是萌新账号缺这个少那个的话，应该都能运行。\r\n如果出现问题，请依据遇到的具体问题修改配置。\r\n配置中使用到：\r\n①全部舰队\r\n②临时补给功能\r\n③6个可以带大发的驱逐（如果实在没有，请自行修改设置）\r\n④远征会用到的各种一改后的船（CVL、AV、CL、DD、DE、SS/SSV）\r\n⑤越多越好的大发\r\n⑥足够的运输桶\r\n⑦其他一些用于满足远征舰队数值要求的装备\r\n\r\n【细节】\r\n该配置正在试验迭代阶段，之后可能还有提升空间，请留意配置的更新。\r\n\r\n只考虑油、弹、钢、铝、高速修复，五种资源。\r\n\r\n动态选择远征实现的原理是动态修改各个子配置中的各个执行单元的舰队属性。\r\n选择的远征并非综合考虑所有种类资源时获得资源最快的远征，而是某单项资源获取速度最快的远征。\r\n月常远征不包含在内。\r\n为了减少操作次数，优先选择单次时间长的远征。\r\n没开全所需远征的账号会无法正常使用。可自行替换为其他远征。\r\n\r\n部分远征附加了最基本的检查函数，但并未检查所有的远征成功条件。\r\n为了提升整体练度，远征优先使用等级低的船（但都至少要一改）。\r\n对于有舰队数值最低要求的远征，需自行确认是否满足要求（对于练度足够的账号，随便配都够用）。\r\n若自动配出的舰队不满足远征要求，请自行修改编成或装备设置。\r\n为了保持设置简洁，装备设置并未将一些数值优秀但少有的装备考虑在内，如确实需要，请自行添加。\r\n\r\n本配置已经限制了每日运行时长，每天下半夜休息6小时，但对于3个短远征来说仍然比较危险。\r\n建议改一个适合你自己的运行时间区间，否则用这个配置的人都早上6点开始放远征就不太妙了。\r\n此修改涉及所有远征子配置的两个时间设置相关的执行单元、刷闪中2个串联的时间。\r\n\r\n补闪配置为出击1-1，带1个狗粮，如有不需要带狗粮或者去其他图刷的请自行修改。\r\n禁止沉船，包括狗粮。\r\n\r\n本配置会拆所有没上锁的驱逐，以保证总有位置放新的狗粮，请在使用前确保已经锁定了不想拆的船。\r\n自动捞船时尤其要留心这一问题。如不需要拆狗粮，请自行修改设置。\r\n因为狗粮大破和中破后就不能继续使用了，如果缺少空闲船位或装备位用于补充狗粮，本配置会无法正常运行。\r\n因为还没有拆装备功能，为避免装备爆仓，所以狗粮不卸装备。\r\n\r\n显然，同时手动打游戏是会冲突的。\r\n同时其他配置做别的出击不会冲突，不需要关闭本配置。\r\n但多个同时打开的本配置及本配置的修改版可能会冲突。\r\n\r\n小破的船也会被送去远征，如果你不想这样，请修改远征配置里的编成功能，跳过血量在0%~99%的船。\r\n\r\n【你可能想修改的设置】\r\n①要跑的远征以及对应的编成、装备。尤其是你可以带大发的驱逐不够时你需要把部分用大发驱逐的地方改成普通驱逐。\r\n②允许用来修复刷闪船的修复渠（默认不使用第1修复渠）。\r\n③是否允许小破的船远征（默认允许）。\r\n④每天停止发出远征的时间段（0点-6点）。\r\n⑤刷闪的方法。\r\n\r\n【使用方法】\r\n保持本执行单元（即[使用说明]）与每个子配置的控制用执行单元（对于刷闪是[总控]，对于远征是[时间区间]）启用状态，触发本执行单元，可以自动跑远征。\r\n\r\n【TODO】\r\nDE带狗粮去1-1刷闪败率较高，可能需要对DE采用别的方法刷闪，或者干脆不用DE。\r\n\r\n[200605]",
 				EnableScript: true,
 				Script: "https://raw.githubusercontent.com/KanaHayama/KanCollePlayerSimulator/master/肝帝模拟%20改/Python脚本/附加/远征调度.py",
 				TriggerOnEnabled: false,
@@ -214,7 +214,7 @@
 				Repeat: true,
 				ExclusiveExecution: true,
 				EnableScript: true,
-				Script: "from KancollePlayerSimulatorKaiCore import *\r\nfrom datetime import datetime\r\n\r\nDELAY_DURATION = 30 * 60 # 默认避让时间，以秒计。\r\n\r\ndelayRequest = datetime.min\r\n\r\ndef isExpeditionFleetOrganizeEvent(e):\r\n\treturn isinstance(e, OrganizeChangeEvent) and 2 <= e.Fleet and e.Fleet <= 4\r\n\r\ndef isDirectlyRequested(e):\r\n\treturn isinstance(e, UserEvent) and e.Message == \"Full Auto Expedition\"\r\n\r\ndef recordDelayRequest(e):\r\n\tglobal delayRequest\r\n\tdelayRequest = datetime.utcnow() # 记录获得要求的时间\r\n\r\ndef OnFilterEvent(e):\r\n\tif isinstance(e, UserEvent) and e.Message == \"正在连续出击\":\r\n\t\trecordDelayRequest(e)\r\n\r\ndef OnEvent(e):\r\n\treturn isExpeditionFleetOrganizeEvent(e) or isDirectlyRequested(e)\r\n\r\ndef OnSetTimer(waitSec):\r\n\tglobal delayRequest\r\n\tglobal DELAY_DURATION\r\n\tpassedSec = (datetime.utcnow() - delayRequest).total_seconds()\r\n\tremainSec = int(DELAY_DURATION - passedSec) # 可能小于0\r\n\tnewWaitSec = max(waitSec, remainSec)\r\n\tif newWaitSec > waitSec:\r\n\t\tLogger.Info(\"因避让其他执行单元，本循环刷闪等待{}秒\".format(newWaitSec))\r\n\treturn newWaitSec",
+				Script: "from KancollePlayerSimulatorKaiCore import *\r\nfrom datetime import datetime\r\n\r\nDELAY_DURATION = 30 * 60 # 默认避让时间，以秒计。\r\n\r\ndelayRequest = datetime.min\r\n\r\ndef isExpeditionFleetOrganizeEvent(e):\r\n\treturn isinstance(e, OrganizeChangeEvent) and 2 <= e.Fleet and e.Fleet <= 4\r\n\r\ndef isDirectlyRequested(e):\r\n\treturn isinstance(e, UserEvent) and e.Message == \"开始全自动远征\"\r\n\r\ndef recordDelayRequest(e):\r\n\tglobal delayRequest\r\n\tdelayRequest = datetime.utcnow() # 记录获得要求的时间\r\n\r\ndef OnFilterEvent(e):\r\n\tif isinstance(e, UserEvent) and e.Message == \"正在连续出击\":\r\n\t\trecordDelayRequest(e)\r\n\r\ndef OnEvent(e):\r\n\treturn isExpeditionFleetOrganizeEvent(e) or isDirectlyRequested(e)\r\n\r\ndef OnSetTimer(waitSec):\r\n\tglobal delayRequest\r\n\tglobal DELAY_DURATION\r\n\tpassedSec = (datetime.utcnow() - delayRequest).total_seconds()\r\n\tremainSec = int(DELAY_DURATION - passedSec) # 可能小于0\r\n\tnewWaitSec = max(waitSec, remainSec)\r\n\tif newWaitSec > waitSec:\r\n\t\tLogger.Info(\"因避让其他执行单元，本循环刷闪等待{}秒\".format(newWaitSec))\r\n\treturn newWaitSec",
 				TriggerOnEnabled: false
 			},
 			{
@@ -554,6 +554,7 @@
 										SelectValue: "攻",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -563,6 +564,7 @@
 										SelectValue: "装砲",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -572,6 +574,7 @@
 										SelectValue: "魚雷",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -589,6 +592,7 @@
 										SelectValue: "攻",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -598,6 +602,7 @@
 										SelectValue: "装砲",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -607,6 +612,7 @@
 										SelectValue: "魚雷",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -624,6 +630,7 @@
 										SelectValue: "攻",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -633,6 +640,7 @@
 										SelectValue: "装砲",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -642,6 +650,7 @@
 										SelectValue: "魚雷",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -659,6 +668,7 @@
 										SelectValue: "新型高温高圧缶",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -668,6 +678,7 @@
 										SelectValue: "強化型艦本式缶",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -677,6 +688,7 @@
 										SelectValue: "改良型艦本式タービン",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -694,6 +706,7 @@
 										SelectValue: "新型高温高圧缶",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -703,6 +716,7 @@
 										SelectValue: "強化型艦本式缶",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -712,6 +726,7 @@
 										SelectValue: "改良型艦本式タービン",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -729,6 +744,7 @@
 										SelectValue: "増設",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -738,6 +754,7 @@
 										SelectValue: "改良型艦本式タービン",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -872,7 +889,7 @@
 				Guid: "db450bf8-9df3-4470-8130-ac0953b17472",
 				Name: "通知刷闪完成",
 				EnableOnLoad: false,
-				Message: "Expedition Ships Kirakira",
+				Message: "远征船刷闪完成",
 				EnableScript: true,
 				Script: null,
 				TriggerOnEnabled: false,
@@ -1097,7 +1114,7 @@
 						SkipUnlocked: false,
 						SkipNoConventionalEquipments: false,
 						EnableScriptFilter: true,
-						FilterFunctionName: "filterLvGeqCommonTh",
+						FilterFunctionName: "grantByLevel_50",
 						SelectionSortingMethod: 4,
 						IncludeCurrentShip: false,
 						IncludeCurrentSelection: true,
@@ -1345,6 +1362,7 @@
 										SelectValue: "対水上電探",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1354,6 +1372,7 @@
 										SelectValue: "電探",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1363,6 +1382,7 @@
 										SelectValue: "mm.*機銃",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1380,6 +1400,7 @@
 										SelectValue: "対水上電探",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1389,6 +1410,7 @@
 										SelectValue: "電探",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1398,6 +1420,7 @@
 										SelectValue: "mm.*機銃",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1415,6 +1438,7 @@
 										SelectValue: "mm.*機銃",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1424,6 +1448,7 @@
 										SelectValue: "対水上電探",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1433,6 +1458,7 @@
 										SelectValue: "電探",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1450,6 +1476,7 @@
 										SelectValue: "mm.*機銃",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1459,6 +1486,7 @@
 										SelectValue: "対水上電探",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1468,6 +1496,7 @@
 										SelectValue: "電探",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1485,6 +1514,7 @@
 										SelectValue: "mm.*機銃",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1513,6 +1543,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1522,6 +1553,7 @@
 										SelectValue: "式水中",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1531,6 +1563,7 @@
 										SelectValue: "爆雷投射机",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1540,6 +1573,7 @@
 										SelectValue: "爆雷$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1557,6 +1591,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1566,6 +1601,7 @@
 										SelectValue: "式水中",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1575,6 +1611,7 @@
 										SelectValue: "爆雷投射机",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1584,6 +1621,7 @@
 										SelectValue: "爆雷$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1601,6 +1639,7 @@
 										SelectValue: "mm.*機銃",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1610,6 +1649,7 @@
 										SelectValue: "電探",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1627,6 +1667,7 @@
 										SelectValue: "mm.*機銃",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1636,6 +1677,7 @@
 										SelectValue: "電探",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1653,6 +1695,7 @@
 										SelectValue: "mm.*機銃",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1681,6 +1724,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1690,6 +1734,7 @@
 										SelectValue: "式水中",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1699,6 +1744,7 @@
 										SelectValue: "爆雷投射机",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1708,6 +1754,7 @@
 										SelectValue: "爆雷$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1725,6 +1772,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1734,6 +1782,7 @@
 										SelectValue: "式水中",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1743,6 +1792,7 @@
 										SelectValue: "爆雷投射机",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1752,6 +1802,7 @@
 										SelectValue: "爆雷$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1769,6 +1820,7 @@
 										SelectValue: "mm.*機銃",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1778,6 +1830,7 @@
 										SelectValue: "電探",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1795,6 +1848,7 @@
 										SelectValue: "mm.*機銃",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1804,6 +1858,7 @@
 										SelectValue: "電探",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1821,6 +1876,7 @@
 										SelectValue: "mm.*機銃",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1849,6 +1905,7 @@
 										SelectValue: "式水中",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1858,6 +1915,7 @@
 										SelectValue: "爆雷投射机",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1867,6 +1925,7 @@
 										SelectValue: "爆雷$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1884,6 +1943,7 @@
 										SelectValue: "式水中",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1893,6 +1953,7 @@
 										SelectValue: "爆雷投射机",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1902,6 +1963,7 @@
 										SelectValue: "爆雷$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1919,6 +1981,7 @@
 										SelectValue: "mm.*機銃",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1928,6 +1991,7 @@
 										SelectValue: "電探",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1945,6 +2009,7 @@
 										SelectValue: "mm.*機銃",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1954,6 +2019,7 @@
 										SelectValue: "電探",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1971,6 +2037,7 @@
 										SelectValue: "mm.*機銃",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1999,6 +2066,7 @@
 										SelectValue: "式水中",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -2008,6 +2076,7 @@
 										SelectValue: "爆雷投射机",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -2017,6 +2086,7 @@
 										SelectValue: "爆雷$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -2034,6 +2104,7 @@
 										SelectValue: "式水中",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -2043,6 +2114,7 @@
 										SelectValue: "爆雷投射机",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -2052,6 +2124,7 @@
 										SelectValue: "爆雷$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -2069,6 +2142,7 @@
 										SelectValue: "mm.*機銃",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -2078,6 +2152,7 @@
 										SelectValue: "電探",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -2095,6 +2170,7 @@
 										SelectValue: "mm.*機銃",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -2104,6 +2180,7 @@
 										SelectValue: "電探",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -2121,6 +2198,7 @@
 										SelectValue: "mm.*機銃",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -2149,6 +2227,7 @@
 										SelectValue: "式水中",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -2158,6 +2237,7 @@
 										SelectValue: "爆雷投射机",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -2167,6 +2247,7 @@
 										SelectValue: "爆雷$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -2184,6 +2265,7 @@
 										SelectValue: "式水中",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -2193,6 +2275,7 @@
 										SelectValue: "爆雷投射机",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -2202,6 +2285,7 @@
 										SelectValue: "爆雷$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -2219,6 +2303,7 @@
 										SelectValue: "mm.*機銃",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -2228,6 +2313,7 @@
 										SelectValue: "電探",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -2245,6 +2331,7 @@
 										SelectValue: "mm.*機銃",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -2254,6 +2341,7 @@
 										SelectValue: "電探",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -2271,6 +2359,7 @@
 										SelectValue: "mm.*機銃",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -2475,7 +2564,7 @@
 						SkipUnlocked: false,
 						SkipNoConventionalEquipments: false,
 						EnableScriptFilter: true,
-						FilterFunctionName: "filterLvGeqCommonTh",
+						FilterFunctionName: "grantByLevel_65",
 						SelectionSortingMethod: 4,
 						IncludeCurrentShip: false,
 						IncludeCurrentSelection: true,
@@ -2713,6 +2802,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -2722,6 +2812,7 @@
 										SelectValue: "ドラム缶(輸送用)",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -2731,6 +2822,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -2748,6 +2840,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -2757,6 +2850,7 @@
 										SelectValue: "ドラム缶(輸送用)",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -2766,6 +2860,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -2783,6 +2878,7 @@
 										SelectValue: "ドラム缶(輸送用)",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -2792,6 +2888,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -2809,6 +2906,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -2826,6 +2924,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -2854,6 +2953,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -2863,6 +2963,7 @@
 										SelectValue: "ドラム缶(輸送用)",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -2872,6 +2973,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -2889,6 +2991,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -2898,6 +3001,7 @@
 										SelectValue: "ドラム缶(輸送用)",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -2907,6 +3011,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -2924,6 +3029,7 @@
 										SelectValue: "ドラム缶(輸送用)",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -2933,6 +3039,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -2950,6 +3057,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -2967,6 +3075,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -2995,6 +3104,7 @@
 										SelectValue: "ドラム缶(輸送用)",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -3004,6 +3114,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -3021,6 +3132,7 @@
 										SelectValue: "ドラム缶(輸送用)",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -3030,6 +3142,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -3047,6 +3160,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -3064,6 +3178,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -3081,6 +3196,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -3109,6 +3225,7 @@
 										SelectValue: "ドラム缶(輸送用)",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -3118,6 +3235,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -3135,6 +3253,7 @@
 										SelectValue: "ドラム缶(輸送用)",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -3144,6 +3263,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -3161,6 +3281,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -3178,6 +3299,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -3195,6 +3317,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -3223,6 +3346,7 @@
 										SelectValue: "ドラム缶(輸送用)",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -3232,6 +3356,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -3249,6 +3374,7 @@
 										SelectValue: "ドラム缶(輸送用)",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -3258,6 +3384,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -3275,6 +3402,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -3292,6 +3420,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -3309,6 +3438,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -3337,6 +3467,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -3354,6 +3485,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -3371,6 +3503,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -3388,6 +3521,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -3405,6 +3539,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -3609,7 +3744,7 @@
 						SkipUnlocked: false,
 						SkipNoConventionalEquipments: false,
 						EnableScriptFilter: true,
-						FilterFunctionName: "filterLvGeqCommonTh",
+						FilterFunctionName: "grantByLevel_50",
 						SelectionSortingMethod: 4,
 						IncludeCurrentShip: false,
 						IncludeCurrentSelection: true,
@@ -3842,6 +3977,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -3851,6 +3987,7 @@
 										SelectValue: "ドラム缶(輸送用)",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -3860,6 +3997,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -3877,6 +4015,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -3886,6 +4025,7 @@
 										SelectValue: "ドラム缶(輸送用)",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -3895,6 +4035,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -3912,6 +4053,7 @@
 										SelectValue: "ドラム缶(輸送用)",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -3921,6 +4063,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -3938,6 +4081,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -3955,6 +4099,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -3983,6 +4128,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -3992,6 +4138,7 @@
 										SelectValue: "ドラム缶(輸送用)",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -4001,6 +4148,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -4018,6 +4166,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -4027,6 +4176,7 @@
 										SelectValue: "ドラム缶(輸送用)",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -4036,6 +4186,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -4053,6 +4204,7 @@
 										SelectValue: "ドラム缶(輸送用)",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -4062,6 +4214,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -4079,6 +4232,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -4096,6 +4250,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -4124,6 +4279,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -4141,6 +4297,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -4158,6 +4315,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -4175,6 +4333,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -4192,6 +4351,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -4220,6 +4380,7 @@
 										SelectValue: "ドラム缶(輸送用)",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -4237,6 +4398,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -4254,6 +4416,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -4271,6 +4434,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -4288,6 +4452,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -4316,6 +4481,7 @@
 										SelectValue: "ドラム缶(輸送用)",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -4333,6 +4499,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -4350,6 +4517,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -4367,6 +4535,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -4384,6 +4553,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -4412,6 +4582,7 @@
 										SelectValue: "ドラム缶(輸送用)",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -4429,6 +4600,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -4446,6 +4618,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -4463,6 +4636,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -4480,6 +4654,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -4922,6 +5097,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -4931,6 +5107,7 @@
 										SelectValue: "ドラム缶(輸送用)",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -4940,6 +5117,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -4957,6 +5135,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -4966,6 +5145,7 @@
 										SelectValue: "ドラム缶(輸送用)",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -4975,6 +5155,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -4992,6 +5173,7 @@
 										SelectValue: "ドラム缶(輸送用)",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5001,6 +5183,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5018,6 +5201,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5035,6 +5219,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5052,6 +5237,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5080,6 +5266,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5089,6 +5276,7 @@
 										SelectValue: "ドラム缶(輸送用)",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5098,6 +5286,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5115,6 +5304,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5124,6 +5314,7 @@
 										SelectValue: "ドラム缶(輸送用)",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5133,6 +5324,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5150,6 +5342,7 @@
 										SelectValue: "ドラム缶(輸送用)",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5159,6 +5352,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5176,6 +5370,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5193,6 +5388,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5210,6 +5406,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5238,6 +5435,7 @@
 										SelectValue: "ドラム缶(輸送用)",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5247,6 +5445,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5264,6 +5463,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5281,6 +5481,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5298,6 +5499,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5315,6 +5517,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5332,6 +5535,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5360,6 +5564,7 @@
 										SelectValue: "ドラム缶(輸送用)",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5369,6 +5574,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5386,6 +5592,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5403,6 +5610,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5420,6 +5628,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5437,6 +5646,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5454,6 +5664,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5482,6 +5693,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5499,6 +5711,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5516,6 +5729,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5533,6 +5747,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5550,6 +5765,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5567,6 +5783,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5595,6 +5812,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5612,6 +5830,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5629,6 +5848,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5646,6 +5866,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5663,6 +5884,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5680,6 +5902,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -6127,6 +6350,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -6136,6 +6360,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -6153,6 +6378,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -6162,6 +6388,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -6179,6 +6406,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -6196,6 +6424,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -6213,6 +6442,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -6230,6 +6460,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -6258,6 +6489,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -6267,6 +6499,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -6284,6 +6517,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -6293,6 +6527,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -6310,6 +6545,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -6327,6 +6563,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -6344,6 +6581,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -6361,6 +6599,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -6389,6 +6628,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -6406,6 +6646,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -6423,6 +6664,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -6440,6 +6682,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -6457,6 +6700,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -6474,6 +6718,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -6502,6 +6747,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -6519,6 +6765,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -6536,6 +6783,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -6553,6 +6801,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -6570,6 +6819,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -6587,6 +6837,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -6615,6 +6866,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -6632,6 +6884,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -6649,6 +6902,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -6666,6 +6920,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -6683,6 +6938,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -6700,6 +6956,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -6728,6 +6985,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -6745,6 +7003,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -6762,6 +7021,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -6779,6 +7039,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -6796,6 +7057,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -6813,6 +7075,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7265,6 +7528,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7274,6 +7538,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7291,6 +7556,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7300,6 +7566,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7317,6 +7584,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7334,6 +7602,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7351,6 +7620,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7368,6 +7638,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7396,6 +7667,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7405,6 +7677,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7422,6 +7695,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7431,6 +7705,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7448,6 +7723,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7465,6 +7741,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7482,6 +7759,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7499,6 +7777,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7527,6 +7806,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7544,6 +7824,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7561,6 +7842,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7578,6 +7860,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7595,6 +7878,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7612,6 +7896,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7640,6 +7925,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7657,6 +7943,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7674,6 +7961,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7691,6 +7979,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7708,6 +7997,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7725,6 +8015,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7753,6 +8044,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7770,6 +8062,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7787,6 +8080,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7804,6 +8098,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7821,6 +8116,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7838,6 +8134,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7866,6 +8163,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7883,6 +8181,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7900,6 +8199,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7917,6 +8217,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7934,6 +8235,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7951,6 +8253,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8154,8 +8457,8 @@
 						SkipLocked: false,
 						SkipUnlocked: false,
 						SkipNoConventionalEquipments: false,
-						EnableScriptFilter: false,
-						FilterFunctionName: "",
+						EnableScriptFilter: true,
+						FilterFunctionName: "grantByLevel_30",
 						SelectionSortingMethod: 4,
 						IncludeCurrentShip: false,
 						IncludeCurrentSelection: true,
@@ -8408,6 +8711,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8417,6 +8721,7 @@
 										SelectValue: "式水中",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8426,6 +8731,7 @@
 										SelectValue: "爆雷投射机",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8435,6 +8741,7 @@
 										SelectValue: "爆雷$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8452,6 +8759,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8461,6 +8769,7 @@
 										SelectValue: "爆雷投射机",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8470,6 +8779,7 @@
 										SelectValue: "式水中",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8479,6 +8789,7 @@
 										SelectValue: "爆雷$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8496,6 +8807,7 @@
 										SelectValue: "爆雷$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8505,6 +8817,7 @@
 										SelectValue: "式水中",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8514,6 +8827,7 @@
 										SelectValue: "爆雷投射机",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8531,6 +8845,7 @@
 										SelectValue: "mm.*機銃",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8559,6 +8874,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8568,6 +8884,7 @@
 										SelectValue: "式水中",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8577,6 +8894,7 @@
 										SelectValue: "爆雷投射机",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8586,6 +8904,7 @@
 										SelectValue: "爆雷$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8603,6 +8922,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8612,6 +8932,7 @@
 										SelectValue: "爆雷投射机",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8621,6 +8942,7 @@
 										SelectValue: "式水中",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8630,6 +8952,7 @@
 										SelectValue: "爆雷$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8647,6 +8970,7 @@
 										SelectValue: "爆雷$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8656,6 +8980,7 @@
 										SelectValue: "式水中",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8665,6 +8990,7 @@
 										SelectValue: "爆雷投射机",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8682,6 +9008,7 @@
 										SelectValue: "mm.*機銃",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8710,6 +9037,7 @@
 										SelectValue: "式水中",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8719,6 +9047,7 @@
 										SelectValue: "爆雷投射机",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8728,6 +9057,7 @@
 										SelectValue: "爆雷$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8745,6 +9075,7 @@
 										SelectValue: "爆雷投射机",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8754,6 +9085,7 @@
 										SelectValue: "式水中",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8763,6 +9095,7 @@
 										SelectValue: "爆雷$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8780,6 +9113,7 @@
 										SelectValue: "爆雷$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8789,6 +9123,7 @@
 										SelectValue: "式水中",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8798,6 +9133,7 @@
 										SelectValue: "爆雷投射机",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8815,6 +9151,7 @@
 										SelectValue: "mm.*機銃",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8843,6 +9180,7 @@
 										SelectValue: "式水中",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8852,6 +9190,7 @@
 										SelectValue: "爆雷投射机",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8861,6 +9200,7 @@
 										SelectValue: "爆雷$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8878,6 +9218,7 @@
 										SelectValue: "爆雷投射机",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8887,6 +9228,7 @@
 										SelectValue: "式水中",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8896,6 +9238,7 @@
 										SelectValue: "爆雷$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8913,6 +9256,7 @@
 										SelectValue: "爆雷$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8922,6 +9266,7 @@
 										SelectValue: "式水中",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8931,6 +9276,7 @@
 										SelectValue: "爆雷投射机",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8948,6 +9294,7 @@
 										SelectValue: "mm.*機銃",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8976,6 +9323,7 @@
 										SelectValue: "式水中",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8985,6 +9333,7 @@
 										SelectValue: "爆雷投射机",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8994,6 +9343,7 @@
 										SelectValue: "爆雷$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -9011,6 +9361,7 @@
 										SelectValue: "爆雷投射机",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -9020,6 +9371,7 @@
 										SelectValue: "式水中",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -9029,6 +9381,7 @@
 										SelectValue: "爆雷$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -9046,6 +9399,7 @@
 										SelectValue: "爆雷$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -9055,6 +9409,7 @@
 										SelectValue: "式水中",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -9064,6 +9419,7 @@
 										SelectValue: "爆雷投射机",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -9081,6 +9437,7 @@
 										SelectValue: "mm.*機銃",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -9109,6 +9466,7 @@
 										SelectValue: "式水中",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -9118,6 +9476,7 @@
 										SelectValue: "爆雷投射机",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -9127,6 +9486,7 @@
 										SelectValue: "爆雷$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -9144,6 +9504,7 @@
 										SelectValue: "爆雷投射机",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -9153,6 +9514,7 @@
 										SelectValue: "式水中",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -9162,6 +9524,7 @@
 										SelectValue: "爆雷$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -9179,6 +9542,7 @@
 										SelectValue: "爆雷$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -9188,6 +9552,7 @@
 										SelectValue: "式水中",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -9197,6 +9562,7 @@
 										SelectValue: "爆雷投射机",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -9214,6 +9580,7 @@
 										SelectValue: "mm.*機銃",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -9417,8 +9784,8 @@
 						SkipLocked: false,
 						SkipUnlocked: false,
 						SkipNoConventionalEquipments: false,
-						EnableScriptFilter: false,
-						FilterFunctionName: "",
+						EnableScriptFilter: true,
+						FilterFunctionName: "grantByLevel_20",
 						SelectionSortingMethod: 4,
 						IncludeCurrentShip: false,
 						IncludeCurrentSelection: true,
@@ -9627,6 +9994,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -9636,6 +10004,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -9653,6 +10022,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -9662,6 +10032,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -9679,6 +10050,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -9696,6 +10068,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -9713,6 +10086,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -9730,6 +10104,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -9758,6 +10133,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -9767,6 +10143,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -9784,6 +10161,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -9793,6 +10171,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -9810,6 +10189,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -9827,6 +10207,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -9844,6 +10225,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -9861,6 +10243,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -9889,6 +10272,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -9906,6 +10290,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -9923,6 +10308,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -9940,6 +10326,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -9957,6 +10344,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -9974,6 +10362,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10002,6 +10391,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10019,6 +10409,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10036,6 +10427,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10053,6 +10445,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10070,6 +10463,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10087,6 +10481,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10115,6 +10510,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10132,6 +10528,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10149,6 +10546,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10166,6 +10564,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10183,6 +10582,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10200,6 +10600,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10657,6 +11058,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10666,6 +11068,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10683,6 +11086,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10692,6 +11096,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10709,6 +11114,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10726,6 +11132,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10743,6 +11150,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10760,6 +11168,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10788,6 +11197,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10797,6 +11207,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10814,6 +11225,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10823,6 +11235,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10840,6 +11253,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10857,6 +11271,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10874,6 +11289,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10891,6 +11307,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10919,6 +11336,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10936,6 +11354,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10953,6 +11372,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10970,6 +11390,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10987,6 +11408,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -11004,6 +11426,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -11032,6 +11455,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -11049,6 +11473,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -11066,6 +11491,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -11083,6 +11509,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -11100,6 +11527,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -11117,6 +11545,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -11145,6 +11574,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -11162,6 +11592,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -11179,6 +11610,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -11196,6 +11628,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -11213,6 +11646,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -11230,6 +11664,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -11258,6 +11693,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -11275,6 +11711,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -11292,6 +11729,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -11309,6 +11747,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -11326,6 +11765,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -11343,6 +11783,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -11547,7 +11988,7 @@
 						SkipUnlocked: false,
 						SkipNoConventionalEquipments: false,
 						EnableScriptFilter: true,
-						FilterFunctionName: "filterLvGeqCommonTh",
+						FilterFunctionName: "grantByLevel_40",
 						SelectionSortingMethod: 4,
 						IncludeCurrentShip: false,
 						IncludeCurrentSelection: true,
@@ -11790,6 +12231,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -11799,6 +12241,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -11816,6 +12259,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -11825,6 +12269,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -11842,6 +12287,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -11859,6 +12305,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -11876,6 +12323,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -11893,6 +12341,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -11921,6 +12370,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -11930,6 +12380,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -11947,6 +12398,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -11956,6 +12408,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -11973,6 +12426,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -11990,6 +12444,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12007,6 +12462,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12024,6 +12480,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12052,6 +12509,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12069,6 +12527,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12086,6 +12545,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12103,6 +12563,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12120,6 +12581,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12137,6 +12599,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12165,6 +12628,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12182,6 +12646,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12199,6 +12664,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12216,6 +12682,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12233,6 +12700,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12250,6 +12718,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12278,6 +12747,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12295,6 +12765,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12312,6 +12783,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12329,6 +12801,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12346,6 +12819,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12363,6 +12837,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12391,6 +12866,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12408,6 +12884,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12425,6 +12902,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12442,6 +12920,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12459,6 +12938,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12476,6 +12956,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12933,6 +13414,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12942,6 +13424,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12959,6 +13442,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12968,6 +13452,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12985,6 +13470,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -13002,6 +13488,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -13019,6 +13506,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -13036,6 +13524,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -13064,6 +13553,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -13073,6 +13563,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -13090,6 +13581,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -13099,6 +13591,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -13116,6 +13609,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -13133,6 +13627,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -13150,6 +13645,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -13167,6 +13663,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -13195,6 +13692,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -13212,6 +13710,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -13229,6 +13728,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -13246,6 +13746,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -13263,6 +13764,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -13280,6 +13782,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -13308,6 +13811,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -13325,6 +13829,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -13342,6 +13847,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -13359,6 +13865,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -13376,6 +13883,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -13393,6 +13901,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -13421,6 +13930,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -13438,6 +13948,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -13455,6 +13966,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -13472,6 +13984,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -13489,6 +14002,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -13506,6 +14020,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -13534,6 +14049,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -13551,6 +14067,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -13568,6 +14085,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -13585,6 +14103,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -13602,6 +14121,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -13619,6 +14139,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -14076,6 +14597,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -14085,6 +14607,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -14102,6 +14625,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -14111,6 +14635,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -14128,6 +14653,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -14145,6 +14671,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -14162,6 +14689,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -14179,6 +14707,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -14207,6 +14736,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -14216,6 +14746,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -14233,6 +14764,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -14242,6 +14774,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -14259,6 +14792,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -14276,6 +14810,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -14293,6 +14828,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -14310,6 +14846,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -14338,6 +14875,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -14355,6 +14893,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -14372,6 +14911,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -14389,6 +14929,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -14406,6 +14947,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -14423,6 +14965,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -14451,6 +14994,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -14468,6 +15012,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -14485,6 +15030,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -14502,6 +15048,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -14519,6 +15066,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -14536,6 +15084,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -14564,6 +15113,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -14581,6 +15131,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -14598,6 +15149,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -14615,6 +15167,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -14632,6 +15185,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -14649,6 +15203,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -14677,6 +15232,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -14694,6 +15250,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -14711,6 +15268,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -14728,6 +15286,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -14745,6 +15304,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -14762,6 +15322,7 @@
 										SelectValue: "",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
