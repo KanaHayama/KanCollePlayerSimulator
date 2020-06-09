@@ -53,6 +53,8 @@ MESSAGE_REGEX = re.compile(MESSAGE_REGEX_STRING)
 
 FLEET_ATTRIBUTE_NAME = "Fleet"
 
+MIN_KIRAKIRA_INTERVAL = 60 # 两次刷闪完成之间应至少间隔的秒数
+
 #===================================================#
 #                                                   #
 #                        变量                       #
@@ -62,6 +64,8 @@ FLEET_ATTRIBUTE_NAME = "Fleet"
 IS_MASTER = len([w for w in Workflow.ParentGroup if isinstance(w, SimpleExpeditionWorkflow)]) == 0
 
 fleetRecentExpedition = [None for _ in range(NUM_FLEET)] # 用于避免重复选择
+
+lastKiraKiraFinishedTime = None
 
 lastEvent = None
 
@@ -83,7 +87,7 @@ def convertExpeditionIdToName(id):
 	return ExpeditionUtility.GetExpeditionName(id)
 
 def getExpeditionId(fleet, fleetsState=None):
-	'''返回舰队(1-4)在跑的远征ID，没在跑返回0，舰队为开放返回-1'''
+	'''返回舰队(1-4)在跑的远征ID，没在跑返回0，舰队未开放返回-1'''
 	return FleetUtility.Expedition(fleet, fleetsState) \
 		if FleetUtility.Enabled(fleet, fleetsState) else -1
 
@@ -215,13 +219,23 @@ def OnProcess():
 		notify(lastEvent.Fleet)
 		Logger.Debug("处理了舰队{}的远征归来事件".format(lastEvent.Fleet))
 	else: # 发出所有舰队（刷闪完成或者手动点击“立即触发“时）
+		causedByKirakiraFinished = lastEvent and isKirakiraFinishedEvent(lastEvent)
+		if causedByKirakiraFinished：
+			global lastKiraKiraFinishedTime
+			now = datetime.now()
+			if lastKiraKiraFinishedTime # 检查两次刷闪完成事件间的时间，过少说明一次都没出击
+				global MIN_KIRAKIRA_INTERVAL
+				if (now - lastKiraKiraFinishedTime).total_seconds() <= MIN_KIRAKIRA_INTERVAL:
+					raise Exception("账号中的舰船不满足远征的要求，请检查后再试")
+					# 当然，这里也可以找出出错的远征然后换个远征跑，但那只是在掩盖问题
+			lastKiraKiraFinishedTime = now
 		global NUM_FLEET
 		fleetsState = GameState.Fleets()
-		for fleetIndex in range(1, NUM_FLEET):
+		for fleetIndex in range(1, NUM_FLEET): # 安排发出所有远征队
 			fleet = fleetIndex + 1
 			if FleetUtility.Enabled(fleet, fleetsState):
 				notify(fleet)
-		if not lastEvent or not isKirakiraFinishedEvent(lastEvent): # 刚被通知刷完闪就不要再去刷了，避免死循环
+		if not causedByKirakiraFinished:# 刚被通知刷完闪就不要再去刷了，避免死循环
 			global MESSAGE_INITIATE_KIRAKIRA
-			sendEvent(MESSAGE_INITIATE_KIRAKIRA)
-	lastEvent = None
+			sendEvent(MESSAGE_INITIATE_KIRAKIRA) # 去刷闪
+	lastEvent = None # 复位
