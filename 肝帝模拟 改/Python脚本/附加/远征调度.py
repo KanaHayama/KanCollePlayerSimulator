@@ -223,7 +223,7 @@ def OnProcess():
 		if causedByKirakiraFinished:
 			global lastKiraKiraFinishedTime
 			now = datetime.now()
-			if lastKiraKiraFinishedTime # 检查两次刷闪完成事件间的时间，过少说明一次都没出击
+			if lastKiraKiraFinishedTime: # 检查两次刷闪完成事件间的时间，过少说明一次都没出击
 				global MIN_KIRAKIRA_INTERVAL
 				if (now - lastKiraKiraFinishedTime).total_seconds() <= MIN_KIRAKIRA_INTERVAL:
 					raise Exception("账号中的舰船不满足远征的要求，请检查后再试")
