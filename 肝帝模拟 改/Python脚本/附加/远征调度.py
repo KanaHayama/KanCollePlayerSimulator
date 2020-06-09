@@ -227,6 +227,7 @@ def OnProcess():
 			if lastKiraKiraFinishedTime: # 检查两次刷闪完成事件间的时间，过少说明一次都没出击
 				global MIN_KIRAKIRA_INTERVAL
 				if (now - lastKiraKiraFinishedTime).total_seconds() <= MIN_KIRAKIRA_INTERVAL:
+					lastKiraKiraFinishedTime = None
 					raise Exception("账号中的舰船不满足远征的要求，请检查后再试")
 					# 当然，这里也可以找出出错的远征然后换个远征跑，但那只是在掩盖问题
 			lastKiraKiraFinishedTime = now
