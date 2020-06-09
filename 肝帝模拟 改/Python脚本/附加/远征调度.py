@@ -215,8 +215,11 @@ def OnProcess():
 		Logger.Debug("处理了舰队{}的远征归来事件".format(lastEvent.Fleet))
 	else: # 发出所有舰队（刷闪完成或者手动点击“立即触发“时）
 		global NUM_FLEET
+		fleetsState = GameState.Fleets()
 		for fleetIndex in range(1, NUM_FLEET):
-			notify(fleetIndex + 1)
+			fleet = fleetIndex + 1
+			if FleetUtility.Enabled(fleet, fleetsState):
+				notify(fleet)
 		if not lastEvent or not isKirakiraFinishedEvent(lastEvent): # 刚被通知刷完闪就不要再去刷了，避免死循环
 			global MESSAGE_INITIATE_KIRAKIRA
 			sendEvent(MESSAGE_INITIATE_KIRAKIRA)
