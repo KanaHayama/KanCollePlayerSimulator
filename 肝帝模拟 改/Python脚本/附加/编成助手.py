@@ -21,19 +21,32 @@
 		随KCPS1.3.3.0发布
 """
 
-# 导入
+#===================================================#
+#                                                   #
+#                        导入                       #
+#                                                   #
+#===================================================#
 from KancollePlayerSimulatorKaiCore import *
 import time
 import itertools
 import math
 
-# 常量
+#===================================================#
+#                                                   #
+#                        常量                       #
+#                                                   #
+#===================================================#
 def getEquipConstId(name):
 	return EquipmentConstUtility.Id([obj for obj in EquipmentConstUtility.All() if EquipmentConstUtility.Name(obj) == name][0])
 
 DLC_CONST_ID = getEquipConstId("大発動艇") #大发的ID，能带特大发的船大发也能带
 KHT_CONST_ID = getEquipConstId("甲標的 甲型")
 
+#===================================================#
+#                                                   #
+#                        工具                       #
+#                                                   #
+#===================================================#
 # 属性获取助手
 def getConst(shipObj):
 	return ShipConstUtility.ShipConst(shipObj)
@@ -224,7 +237,20 @@ def getOne(key):
 		iters.pop(key)
 		return None # 返回-1也行
 
-# 导出函数
+#===================================================#
+#                                                   #
+#                        导出                       #
+#                                                   #
+#===================================================#
+# 入渠
+def dock_expedition(id): # 用于刷闪修理防止入渠不用于远征的船
+	# 每次都查询就太慢了，但这个确实需要更新，但又不需要更新得太频
+	from random import random
+	if random() <= 0.1:
+		reset()
+	return id in getIds(getList("expedition"))
+
+# 编成舰队
 def OnCandidate(): # 编成计算时会调用
 	reset()
 
@@ -238,21 +264,25 @@ def disposable(): # 因为狗粮受拆船影响大，所以需要经常更新候
 		id = getOne(key)
 	return id
 
-def dock_expedition(id): # 用于刷闪修理防止入渠不用于远征的船
-	# 每次都查询就太慢了，但这个确实需要更新，但又不需要更新得太频
-	from random import random
-	if random() <= 0.1:
-		reset()
-	return id in getIds(getList("expedition"))
-
-def filterLvGeqCommonTh(ship):
-	'''
-	用于过滤舰船等级，通常用于筛掉等级不足的远征旗舰。
-	因为不想每个等级都写个函数，所以这里取一个通用的等级（越高越通用）。
-	'''
-	threshold = 65 # 远征38的旗舰等级要求
+def grantByLevel_65(ship): # 取自远征38的旗舰等级要求
 	global shipsState
-	return ShipUtility.Level(ship, shipsState) >= threshold
+	return ShipUtility.Level(ship, shipsState) >= 65
+
+def grantByLevel_50(ship): # 取自远征37、45的旗舰等级要求
+	global shipsState
+	return ShipUtility.Level(ship, shipsState) >= 50
+
+def grantByLevel_40(ship): # 取自远征B1的旗舰等级要求
+	global shipsState
+	return ShipUtility.Level(ship, shipsState) >= 40
+
+def grantByLevel_30(ship): # 取自远征41的旗舰等级要求
+	global shipsState
+	return ShipUtility.Level(ship, shipsState) >= 30
+
+def grantByLevel_20(ship): # 取自远征A2的旗舰等级要求
+	global shipsState
+	return ShipUtility.Level(ship, shipsState) >= 20
 
 dd_dlc = lambda : getOne("dd_dlc")
 cl_dlc = lambda : getOne("cl_dlc")

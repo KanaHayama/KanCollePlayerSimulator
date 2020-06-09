@@ -34,18 +34,18 @@ NUM_FLEET = 4
 
 DEFAULT_EXPEDITION_LIST = [ # 每项仅列出了恢复速度最快的3个常规远征（越前越优先）
 	["38", "21", "5", ], # 油
-	["37", "5", "2", ], # 弹
-	["37", "20", "3", ], # 钢
-	["45", "6", "B1", ], # 铝
-	["41", "A2", "B1", ], # 桶
+	["37", "2", "5", ], # 弹
+	["3", "37", "20", ], # 钢
+	["6", "45", "B1", ], # 铝
+	["B1", "A2", "41", ], # 桶
 ]
 BACKUP_EXPEDITION_LIST = ["3", "2", "B1", "6", ] # 避免冲突，后面接用于替补的远征（越前越优先）
 EXPEDITION_LIST = [default + BACKUP_EXPEDITION_LIST for default in DEFAULT_EXPEDITION_LIST]
 
 RESOURCE_SCALE = (1, 1, 1, 1, 100, ) # 资源比较系数
 
-MESSAGE_INITIATE_KIRAKIRA = "Full Auto Expedition" # 用于启动刷闪配置
-MESSAGE_KIRAKIRA = "Expedition Ships Kirakira" # 用于检测刷闪完成
+MESSAGE_INITIATE_KIRAKIRA = "开始全自动远征" # 用于启动刷闪配置
+MESSAGE_KIRAKIRA = "远征船刷闪完成" # 用于检测刷闪完成
 MESSAGE_PREFIX = "Expedition:"
 MESSAGE_FORMAT_STRING = MESSAGE_PREFIX + "{}->{}" # 用于启动指定远征配置
 MESSAGE_REGEX_STRING = MESSAGE_FORMAT_STRING.replace("{}", r"(\w+)")
