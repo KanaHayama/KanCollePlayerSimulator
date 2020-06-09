@@ -21,6 +21,7 @@
 
 from KancollePlayerSimulatorKai import *
 from KancollePlayerSimulatorKaiCore import *
+from datetime import datetime
 import re
 
 #===================================================#
