@@ -10,8 +10,7 @@
 				Memo: "【介绍】\r\n每周自动出击打周常。\r\n用户无需提前设置舰队编成及装备。\r\n\r\n【注意事项】\r\n0.该配置正在试验迭代阶段，之后可能还有提升空间，请留意配置的更新。\r\n1.该配置会自动选取各个任务使用的舰船和装备。这要求账号中该有的船都有、该改装的船都改完、各种装备够用、舰船等级够用。因为装备种类太多，所以没法把所有稀有装备都放入候选。如不满足以上要求或使用的配置你不喜欢，需自行调整。\r\n2.该配置使用了Python脚本，默认使用存放在Github上的版本，如果因网络问题获取不到则会执行出错。可自行替换为本地脚本文件以避免此问题。\r\n3.只有使用本程序交任务功能提交的前置任务，才会被后置任务的配置确认已经完成，否则无法成功串联执行。\r\n4.“あ号作戦”并不包含在本配置中，该任务可以依靠自动带闪远征配置配合自动接交基础任务配置完成。“海上通商破壊作戦”不需要单独的配置，会与“ろ号作戦”任务一起做。\r\n5.该配置仅包含出击相关的周常。即使这些任务的依赖关系并不是一个接一个，各个相关配置会串行执行，以避免不同配置同时执行导致的来回换船。\r\n6.建议同[自动接交基础任务]一同使用，以避免长时间出击过程中日常任务刷新，导致前置任务消失，后置任务接不到，或者占空间的任务过多没地方接任务导致执行失败。\r\n\r\n【具体要求】\r\n没改过的船不会被用到，以下都是指至少一改了的船。\r\n满足条件的船越多，越不用等待士气恢复。\r\n2-1配置需要6个SS或SSV。\r\n1-5配置需要4个DE。\r\n3-3、4-2、4-4配置需要能带甲标的CL，即阿武隈改二/由良改二/夕张改二。\r\n4-4配置需要3个CVE，即大鹰、神鹰、瑞凤改二、甘比尔湾。\r\n5-2配置需要打了孔（用于提速）的伊势改二/日向改二+翔鹤改二甲+瑞鹤改二甲，以及提速用的锅炉。\r\n\r\n【使用方法】\r\n保持各个子配置的[总控]启用，会自动在前置任务“あ号作戦”领取任务奖励后依次执行各个配置（但做あ号这个步骤自身不包含在本配置中）。\r\n在需要手动或因外部因素各个配置的串行执行被打断时，可以手动触发指定的配置继续执行。\r\n\r\n【TODO】\r\n使用脚本实现灵活选装备。\r\n还不知道任务槽没扩增的账号中会不会因为不够用导致执行中断。\r\n\r\n[200527]",
 				EnableScript: true,
 				Script: null,
-				TriggerOnEnabled: false,
-				AllowBreakIn: true
+				TriggerOnEnabled: false
 			}
 		]
 	},
@@ -23,7 +22,6 @@
 				Guid: "e647af79-c8c0-411a-bd55-acba91614c47",
 				Name: "总控",
 				EnableOnLoad: true,
-				AllowBreakIn: true,
 				SleepTimeBase: "00:00:00",
 				SleepTimeRandomMax: "00:00:00",
 				DoNotSleepAtFirstLoop: false,
@@ -315,15 +313,13 @@
 				SortieTaskPriority: -32768,
 				EnableScript: true,
 				Script: null,
-				TriggerOnEnabled: false,
-				AllowBreakIn: true
+				TriggerOnEnabled: false
 			},
 			{
 				Type: "KancollePlayerSimulatorKai.BasicSupplyFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.0, Culture=neutral, PublicKeyToken=null",
 				Guid: "f05b2f0f-8c34-4261-b0ce-b026b2f0037a",
 				Name: "补给",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				Fleet: 1,
 				Setting: 32767,
 				SkipIfAllResourcePercentHigherThanFlag: false,
@@ -342,7 +338,6 @@
 				Guid: "23e8ca84-7a83-4ee0-99a7-305fe8b0cb78",
 				Name: "入渠（出击前）",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				LimitFleetFlag: true,
 				LimitFleetValue: 3,
 				LimitHpPercentFlag: true,
@@ -393,7 +388,6 @@
 				Guid: "5814bac2-75f3-4834-9c84-12e526583850",
 				Name: "捞出",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				LimitFleetFlag: true,
 				LimitFleetValue: 3,
 				LimitHpPercentFlag: false,
@@ -444,7 +438,6 @@
 				Guid: "56034e74-0d0d-4584-9e40-2c8764c02329",
 				Name: "接任务",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				Quests: [
 					{
 						Enabled: true,
@@ -562,7 +555,6 @@
 				Guid: "e1f7550b-5b9c-4266-a13f-fd3bb3f632be",
 				Name: "交任务",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				Quests: [
 					{
 						Enabled: true,
@@ -676,22 +668,10 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.SimpleRaiseUserEventWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.0, Culture=neutral, PublicKeyToken=null",
-				Guid: "74e3040b-e31f-4cca-8e32-0b3407a4710b",
-				Name: "抑制其他配置",
-				EnableOnLoad: false,
-				Message: "正在连续出击",
-				EnableScript: true,
-				Script: null,
-				TriggerOnEnabled: false,
-				AllowBreakIn: true
-			},
-			{
 				Type: "KancollePlayerSimulatorKai.BasicSubmitQuestWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.0, Culture=neutral, PublicKeyToken=null",
 				Guid: "270e4bfc-dc57-4b87-88ef-29cc7a863f65",
 				Name: "取消任务",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				Quests: [
 					{
 						Enabled: true,
@@ -806,21 +786,29 @@
 			},
 			{
 				Type: "KancollePlayerSimulatorKai.SimpleRaiseUserEventWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.0, Culture=neutral, PublicKeyToken=null",
+				Guid: "74e3040b-e31f-4cca-8e32-0b3407a4710b",
+				Name: "抑制其他配置",
+				EnableOnLoad: false,
+				Message: "正在连续出击",
+				EnableScript: true,
+				Script: null,
+				TriggerOnEnabled: false
+			},
+			{
+				Type: "KancollePlayerSimulatorKai.SimpleRaiseUserEventWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.0, Culture=neutral, PublicKeyToken=null",
 				Guid: "b722e7fd-9b1f-4815-9f17-085c47f41f59",
 				Name: "通知完成",
 				EnableOnLoad: false,
 				Message: "已空出任务槽",
 				EnableScript: true,
 				Script: null,
-				TriggerOnEnabled: false,
-				AllowBreakIn: true
+				TriggerOnEnabled: false
 			},
 			{
 				Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.0, Culture=neutral, PublicKeyToken=null",
 				Guid: "0c4291ff-a85d-4d40-924a-5e26fafa052c",
 				Name: "编成",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				Fleet: 1,
 				Positions: [
 					{
@@ -1077,7 +1065,6 @@
 				Guid: "2234ae9a-c7fb-4c7f-97ff-f8596268c1f2",
 				Name: "改装",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				Ships: [
 					{
 						Slots: [
@@ -1088,6 +1075,7 @@
 										SelectValue: "^流星",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1097,6 +1085,7 @@
 										SelectValue: "^天山",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1114,6 +1103,7 @@
 										SelectValue: "^流星",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1123,6 +1113,7 @@
 										SelectValue: "^天山",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1140,6 +1131,7 @@
 										SelectValue: "^流星",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1149,6 +1141,7 @@
 										SelectValue: "^天山",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1166,6 +1159,7 @@
 										SelectValue: "^流星",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1175,6 +1169,7 @@
 										SelectValue: "^天山",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1192,6 +1187,7 @@
 										SelectValue: "改良型艦本式タービン",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1220,6 +1216,7 @@
 										SelectValue: "^流星",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1229,6 +1226,7 @@
 										SelectValue: "^天山",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1246,6 +1244,7 @@
 										SelectValue: "^流星",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1255,6 +1254,7 @@
 										SelectValue: "^天山",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1272,6 +1272,7 @@
 										SelectValue: "^流星",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1281,6 +1282,7 @@
 										SelectValue: "^天山",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1298,6 +1300,7 @@
 										SelectValue: "^流星",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1307,6 +1310,7 @@
 										SelectValue: "^天山",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1324,6 +1328,7 @@
 										SelectValue: "改良型艦本式タービン",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1352,6 +1357,7 @@
 										SelectValue: "^流星",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1361,6 +1367,7 @@
 										SelectValue: "^天山",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1378,6 +1385,7 @@
 										SelectValue: "^流星",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1387,6 +1395,7 @@
 										SelectValue: "^天山",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1404,6 +1413,7 @@
 										SelectValue: "^流星",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1413,6 +1423,7 @@
 										SelectValue: "^天山",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1430,6 +1441,7 @@
 										SelectValue: "^流星",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1439,6 +1451,7 @@
 										SelectValue: "^天山",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1456,6 +1469,7 @@
 										SelectValue: "改良型艦本式タービン",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1484,6 +1498,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1493,6 +1508,7 @@
 										SelectValue: "ドラム缶(輸送用)",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1502,6 +1518,7 @@
 										SelectValue: "魚雷",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1519,6 +1536,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1528,6 +1546,7 @@
 										SelectValue: "ドラム缶(輸送用)",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1537,6 +1556,7 @@
 										SelectValue: "魚雷",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1554,6 +1574,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1563,6 +1584,7 @@
 										SelectValue: "ドラム缶(輸送用)",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1572,6 +1594,7 @@
 										SelectValue: "魚雷",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1589,6 +1612,7 @@
 										SelectValue: "改良型艦本式タービン",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1617,6 +1641,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1626,6 +1651,7 @@
 										SelectValue: "ドラム缶(輸送用)",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1635,6 +1661,7 @@
 										SelectValue: "魚雷",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1652,6 +1679,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1661,6 +1689,7 @@
 										SelectValue: "ドラム缶(輸送用)",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1670,6 +1699,7 @@
 										SelectValue: "魚雷",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1687,6 +1717,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1696,6 +1727,7 @@
 										SelectValue: "ドラム缶(輸送用)",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1705,6 +1737,7 @@
 										SelectValue: "魚雷",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1722,6 +1755,7 @@
 										SelectValue: "改良型艦本式タービン",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1750,6 +1784,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1759,6 +1794,7 @@
 										SelectValue: "ドラム缶(輸送用)",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1768,6 +1804,7 @@
 										SelectValue: "魚雷",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1785,6 +1822,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1794,6 +1832,7 @@
 										SelectValue: "ドラム缶(輸送用)",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1803,6 +1842,7 @@
 										SelectValue: "魚雷",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1820,6 +1860,7 @@
 										SelectValue: "大発動艇$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1829,6 +1870,7 @@
 										SelectValue: "ドラム缶(輸送用)",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1838,6 +1880,7 @@
 										SelectValue: "魚雷",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1855,6 +1898,7 @@
 										SelectValue: "改良型艦本式タービン",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -1894,7 +1938,6 @@
 				Guid: "7420efd5-8b98-40e1-b071-2ebe3f8ab2d5",
 				Name: "总控",
 				EnableOnLoad: true,
-				AllowBreakIn: true,
 				SleepTimeBase: "00:00:00",
 				SleepTimeRandomMax: "00:00:00",
 				DoNotSleepAtFirstLoop: false,
@@ -2186,15 +2229,13 @@
 				SortieTaskPriority: -32768,
 				EnableScript: true,
 				Script: null,
-				TriggerOnEnabled: false,
-				AllowBreakIn: true
+				TriggerOnEnabled: false
 			},
 			{
 				Type: "KancollePlayerSimulatorKai.BasicSupplyFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.0, Culture=neutral, PublicKeyToken=null",
 				Guid: "c3990735-cd54-42f8-ba6a-ad59b791d3ed",
 				Name: "补给",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				Fleet: 1,
 				Setting: 32767,
 				SkipIfAllResourcePercentHigherThanFlag: false,
@@ -2213,7 +2254,6 @@
 				Guid: "82328154-9876-4c5e-b6da-9fd603adb5ca",
 				Name: "入渠（出击前）",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				LimitFleetFlag: true,
 				LimitFleetValue: 3,
 				LimitHpPercentFlag: true,
@@ -2264,7 +2304,6 @@
 				Guid: "527f1fd1-0572-4d64-a555-b876c93e5fd0",
 				Name: "捞出",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				LimitFleetFlag: true,
 				LimitFleetValue: 3,
 				LimitHpPercentFlag: false,
@@ -2315,7 +2354,6 @@
 				Guid: "d5daa2a7-2c2f-45ab-8c45-ceeedcbb41aa",
 				Name: "接任务",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				Quests: [
 					{
 						Enabled: true,
@@ -2382,7 +2420,6 @@
 				Guid: "3ec541f6-aff7-4d52-b334-10993956afc1",
 				Name: "交任务",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				Quests: [
 					{
 						Enabled: true,
@@ -2449,7 +2486,6 @@
 				Guid: "c4ec86da-3a5d-4333-a567-704d72946a2e",
 				Name: "取消任务",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				Quests: [
 					{
 						Enabled: true,
@@ -2519,8 +2555,7 @@
 				Message: "正在连续出击",
 				EnableScript: true,
 				Script: null,
-				TriggerOnEnabled: false,
-				AllowBreakIn: true
+				TriggerOnEnabled: false
 			},
 			{
 				Type: "KancollePlayerSimulatorKai.SimpleRaiseUserEventWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.0, Culture=neutral, PublicKeyToken=null",
@@ -2530,15 +2565,13 @@
 				Message: "已空出任务槽",
 				EnableScript: true,
 				Script: null,
-				TriggerOnEnabled: false,
-				AllowBreakIn: true
+				TriggerOnEnabled: false
 			},
 			{
 				Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.0, Culture=neutral, PublicKeyToken=null",
 				Guid: "5ab725ae-2189-485d-beaf-64e1e7e6d1d5",
 				Name: "编成",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				Fleet: 1,
 				Positions: [
 					{
@@ -2795,7 +2828,6 @@
 				Guid: "b478d86c-445b-4372-8c32-286cc787a76c",
 				Name: "改装",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				Ships: [
 					{
 						Slots: [
@@ -2806,6 +2838,7 @@
 										SelectValue: "魚雷",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -2823,6 +2856,7 @@
 										SelectValue: "魚雷",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -2840,6 +2874,7 @@
 										SelectValue: "魚雷",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -2857,6 +2892,7 @@
 										SelectValue: "改良型艦本式タービン",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -2885,6 +2921,7 @@
 										SelectValue: "魚雷",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -2902,6 +2939,7 @@
 										SelectValue: "魚雷",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -2919,6 +2957,7 @@
 										SelectValue: "魚雷",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -2936,6 +2975,7 @@
 										SelectValue: "改良型艦本式タービン",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -2964,6 +3004,7 @@
 										SelectValue: "魚雷",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -2981,6 +3022,7 @@
 										SelectValue: "魚雷",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -2998,6 +3040,7 @@
 										SelectValue: "魚雷",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -3015,6 +3058,7 @@
 										SelectValue: "改良型艦本式タービン",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -3043,6 +3087,7 @@
 										SelectValue: "魚雷",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -3060,6 +3105,7 @@
 										SelectValue: "魚雷",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -3077,6 +3123,7 @@
 										SelectValue: "魚雷",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -3094,6 +3141,7 @@
 										SelectValue: "改良型艦本式タービン",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -3122,6 +3170,7 @@
 										SelectValue: "魚雷",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -3139,6 +3188,7 @@
 										SelectValue: "魚雷",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -3156,6 +3206,7 @@
 										SelectValue: "魚雷",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -3173,6 +3224,7 @@
 										SelectValue: "改良型艦本式タービン",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -3201,6 +3253,7 @@
 										SelectValue: "魚雷",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -3218,6 +3271,7 @@
 										SelectValue: "魚雷",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -3235,6 +3289,7 @@
 										SelectValue: "魚雷",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -3252,6 +3307,7 @@
 										SelectValue: "改良型艦本式タービン",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -3291,7 +3347,6 @@
 				Guid: "73b7223f-57f2-471c-ae94-962f1120c19c",
 				Name: "总控",
 				EnableOnLoad: true,
-				AllowBreakIn: true,
 				SleepTimeBase: "00:00:00",
 				SleepTimeRandomMax: "00:00:00",
 				DoNotSleepAtFirstLoop: false,
@@ -3577,15 +3632,13 @@
 				SortieTaskPriority: -32768,
 				EnableScript: true,
 				Script: null,
-				TriggerOnEnabled: false,
-				AllowBreakIn: true
+				TriggerOnEnabled: false
 			},
 			{
 				Type: "KancollePlayerSimulatorKai.BasicSupplyFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.0, Culture=neutral, PublicKeyToken=null",
 				Guid: "bf61b358-8838-4bef-ae5f-2e087aa3cf87",
 				Name: "补给",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				Fleet: 1,
 				Setting: 32767,
 				SkipIfAllResourcePercentHigherThanFlag: false,
@@ -3604,7 +3657,6 @@
 				Guid: "c136d33c-91ed-4353-ac9d-132385960d10",
 				Name: "入渠（出击前）",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				LimitFleetFlag: true,
 				LimitFleetValue: 3,
 				LimitHpPercentFlag: true,
@@ -3655,7 +3707,6 @@
 				Guid: "afcde2ed-ca22-40b0-8c67-93e5ab945a70",
 				Name: "捞出",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				LimitFleetFlag: true,
 				LimitFleetValue: 3,
 				LimitHpPercentFlag: false,
@@ -3706,7 +3757,6 @@
 				Guid: "d193c2d3-63cb-4a42-8e67-3e49e9287a14",
 				Name: "接任务",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				Quests: [
 					{
 						Enabled: true,
@@ -3739,7 +3789,6 @@
 				Guid: "941f390e-1e6a-40c2-a648-b1840d1282e2",
 				Name: "交任务",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				Quests: [
 					{
 						Enabled: true,
@@ -3772,7 +3821,6 @@
 				Guid: "6561eade-013a-4623-9096-ba70bd5491c5",
 				Name: "取消任务",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				Quests: [
 					{
 						Enabled: true,
@@ -3808,8 +3856,7 @@
 				Message: "正在连续出击",
 				EnableScript: true,
 				Script: null,
-				TriggerOnEnabled: false,
-				AllowBreakIn: true
+				TriggerOnEnabled: false
 			},
 			{
 				Type: "KancollePlayerSimulatorKai.SimpleRaiseUserEventWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.0, Culture=neutral, PublicKeyToken=null",
@@ -3819,15 +3866,13 @@
 				Message: "已空出任务槽",
 				EnableScript: true,
 				Script: null,
-				TriggerOnEnabled: false,
-				AllowBreakIn: true
+				TriggerOnEnabled: false
 			},
 			{
 				Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.0, Culture=neutral, PublicKeyToken=null",
 				Guid: "1b677691-3df6-4b30-80bb-5002c9e6e338",
 				Name: "编成",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				Fleet: 1,
 				Positions: [
 					{
@@ -4006,7 +4051,6 @@
 				Guid: "2f46cc20-df2f-4b8f-bd4e-6b2a9c802d32",
 				Name: "改装",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				Ships: [
 					{
 						Slots: [
@@ -4017,6 +4061,7 @@
 										SelectValue: "式水中",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -4034,6 +4079,7 @@
 										SelectValue: "爆雷投射機",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -4051,6 +4097,7 @@
 										SelectValue: "式爆雷$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -4068,6 +4115,7 @@
 										SelectValue: "改良型艦本式タービン",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -4096,6 +4144,7 @@
 										SelectValue: "式水中",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -4113,6 +4162,7 @@
 										SelectValue: "爆雷投射機",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -4130,6 +4180,7 @@
 										SelectValue: "式爆雷$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -4147,6 +4198,7 @@
 										SelectValue: "改良型艦本式タービン",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -4175,6 +4227,7 @@
 										SelectValue: "式水中",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -4192,6 +4245,7 @@
 										SelectValue: "爆雷投射機",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -4209,6 +4263,7 @@
 										SelectValue: "式爆雷$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -4226,6 +4281,7 @@
 										SelectValue: "改良型艦本式タービン",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -4254,6 +4310,7 @@
 										SelectValue: "式水中",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -4271,6 +4328,7 @@
 										SelectValue: "爆雷投射機",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -4288,6 +4346,7 @@
 										SelectValue: "式爆雷$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -4305,6 +4364,7 @@
 										SelectValue: "改良型艦本式タービン",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -4344,7 +4404,6 @@
 				Guid: "41fc01c3-e85d-40c5-8bae-99971ca01644",
 				Name: "总控",
 				EnableOnLoad: true,
-				AllowBreakIn: false,
 				SleepTimeBase: "00:00:00",
 				SleepTimeRandomMax: "00:00:00",
 				DoNotSleepAtFirstLoop: false,
@@ -4630,15 +4689,13 @@
 				SortieTaskPriority: -32768,
 				EnableScript: true,
 				Script: null,
-				TriggerOnEnabled: false,
-				AllowBreakIn: true
+				TriggerOnEnabled: false
 			},
 			{
 				Type: "KancollePlayerSimulatorKai.BasicSupplyFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.0, Culture=neutral, PublicKeyToken=null",
 				Guid: "e599feb0-ca3f-4bb0-a222-91416858511c",
 				Name: "补给",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				Fleet: 1,
 				Setting: 32767,
 				SkipIfAllResourcePercentHigherThanFlag: false,
@@ -4657,7 +4714,6 @@
 				Guid: "141f3d4c-1302-45f2-9719-42d97189812d",
 				Name: "入渠（出击前）",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				LimitFleetFlag: true,
 				LimitFleetValue: 3,
 				LimitHpPercentFlag: true,
@@ -4708,7 +4764,6 @@
 				Guid: "672914e9-4901-4564-9d76-0ae54b6aaa4b",
 				Name: "捞出",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				LimitFleetFlag: true,
 				LimitFleetValue: 3,
 				LimitHpPercentFlag: false,
@@ -4759,7 +4814,6 @@
 				Guid: "f0b6821d-0f47-4a97-96f2-6776d7877fc1",
 				Name: "接任务",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				Quests: [
 					{
 						Enabled: true,
@@ -4792,7 +4846,6 @@
 				Guid: "b3fdb934-7509-4cf2-beba-cd6ad2cb45fa",
 				Name: "交任务",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				Quests: [
 					{
 						Enabled: true,
@@ -4825,7 +4878,6 @@
 				Guid: "04f95ccf-9f8a-41be-829a-cf096945bb37",
 				Name: "取消任务",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				Quests: [
 					{
 						Enabled: true,
@@ -4861,8 +4913,7 @@
 				Message: "正在连续出击",
 				EnableScript: true,
 				Script: null,
-				TriggerOnEnabled: false,
-				AllowBreakIn: true
+				TriggerOnEnabled: false
 			},
 			{
 				Type: "KancollePlayerSimulatorKai.SimpleRaiseUserEventWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.0, Culture=neutral, PublicKeyToken=null",
@@ -4872,15 +4923,13 @@
 				Message: "已空出任务槽",
 				EnableScript: true,
 				Script: null,
-				TriggerOnEnabled: false,
-				AllowBreakIn: true
+				TriggerOnEnabled: false
 			},
 			{
 				Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.0, Culture=neutral, PublicKeyToken=null",
 				Guid: "30e75e4c-6fbd-4a91-995f-b75fe46fd84d",
 				Name: "编成",
 				EnableOnLoad: false,
-				AllowBreakIn: false,
 				Fleet: 1,
 				Positions: [
 					{
@@ -5137,7 +5186,6 @@
 				Guid: "19ea4525-c5bf-4db3-b6f1-780c128c89f7",
 				Name: "改装",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				Ships: [
 					{
 						Slots: [
@@ -5148,6 +5196,7 @@
 										SelectValue: "噴式景雲改",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5157,6 +5206,7 @@
 										SelectValue: "^彗星二二型",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5166,6 +5216,7 @@
 										SelectValue: "^Ju87C改",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5175,6 +5226,7 @@
 										SelectValue: "^流星",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5184,6 +5236,7 @@
 										SelectValue: "^天山",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5193,6 +5246,7 @@
 										SelectValue: "艦攻",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5210,6 +5264,7 @@
 										SelectValue: "橘花改",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5219,6 +5274,7 @@
 										SelectValue: "^流星",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5228,6 +5284,7 @@
 										SelectValue: "^天山",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5237,6 +5294,7 @@
 										SelectValue: "艦攻",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5254,6 +5312,7 @@
 										SelectValue: "^流星",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5263,6 +5322,7 @@
 										SelectValue: "^天山",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5272,6 +5332,7 @@
 										SelectValue: "艦攻",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5289,6 +5350,7 @@
 										SelectValue: "烈風",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5298,6 +5360,7 @@
 										SelectValue: "艦戦",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5315,6 +5378,7 @@
 										SelectValue: "増設",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5324,6 +5388,7 @@
 										SelectValue: "改良型艦本式タービン",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5352,6 +5417,7 @@
 										SelectValue: "^彗星二二型",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5361,6 +5427,7 @@
 										SelectValue: "^Ju87C改",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5370,6 +5437,7 @@
 										SelectValue: "^流星",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5379,6 +5447,7 @@
 										SelectValue: "^天山",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5388,6 +5457,7 @@
 										SelectValue: "艦攻",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5405,6 +5475,7 @@
 										SelectValue: "^流星",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5414,6 +5485,7 @@
 										SelectValue: "^天山",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5423,6 +5495,7 @@
 										SelectValue: "艦攻",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5440,6 +5513,7 @@
 										SelectValue: "烈風",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5449,6 +5523,7 @@
 										SelectValue: "艦戦",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5466,6 +5541,7 @@
 										SelectValue: "^彩雲",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5475,6 +5551,7 @@
 										SelectValue: "^流星",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5484,6 +5561,7 @@
 										SelectValue: "^天山",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5493,6 +5571,7 @@
 										SelectValue: "艦攻",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5510,6 +5589,7 @@
 										SelectValue: "増設",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5519,6 +5599,7 @@
 										SelectValue: "改良型艦本式タービン",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5547,6 +5628,7 @@
 										SelectValue: "甲標的",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5564,6 +5646,7 @@
 										SelectValue: "魚雷",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5581,6 +5664,7 @@
 										SelectValue: "魚雷",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5598,6 +5682,7 @@
 										SelectValue: "改良型艦本式タービン",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5626,6 +5711,7 @@
 										SelectValue: "甲標的",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5643,6 +5729,7 @@
 										SelectValue: "10cm連装高角砲+高射装置",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5652,6 +5739,7 @@
 										SelectValue: "魚雷",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5669,6 +5757,7 @@
 										SelectValue: "FuMO25 レーダー",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5678,6 +5767,7 @@
 										SelectValue: "電探",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5695,6 +5785,7 @@
 										SelectValue: "改良型艦本式タービン",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5723,6 +5814,7 @@
 										SelectValue: "10cm連装高角砲+高射装置",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5732,6 +5824,7 @@
 										SelectValue: "砲",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5749,6 +5842,7 @@
 										SelectValue: "10cm連装高角砲+高射装置",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5758,6 +5852,7 @@
 										SelectValue: "砲",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5775,6 +5870,7 @@
 										SelectValue: "GFCS Mk.37",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5784,6 +5880,7 @@
 										SelectValue: "13号対空電探改",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5793,6 +5890,7 @@
 										SelectValue: "電探",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5810,6 +5908,7 @@
 										SelectValue: "改良型艦本式タービン",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5838,6 +5937,7 @@
 										SelectValue: "10cm連装高角砲+高射装置",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5847,6 +5947,7 @@
 										SelectValue: "砲",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5864,6 +5965,7 @@
 										SelectValue: "10cm連装高角砲+高射装置",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5873,6 +5975,7 @@
 										SelectValue: "砲",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5890,6 +5993,7 @@
 										SelectValue: "GFCS Mk.37",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5899,6 +6003,7 @@
 										SelectValue: "13号対空電探改",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5908,6 +6013,7 @@
 										SelectValue: "電探",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5925,6 +6031,7 @@
 										SelectValue: "改良型艦本式タービン",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -5964,7 +6071,6 @@
 				Guid: "6884158c-2c0b-4668-846b-4881644147b5",
 				Name: "总控",
 				EnableOnLoad: true,
-				AllowBreakIn: true,
 				SleepTimeBase: "00:00:00",
 				SleepTimeRandomMax: "00:00:00",
 				DoNotSleepAtFirstLoop: false,
@@ -6250,15 +6356,13 @@
 				SortieTaskPriority: -32768,
 				EnableScript: true,
 				Script: null,
-				TriggerOnEnabled: false,
-				AllowBreakIn: true
+				TriggerOnEnabled: false
 			},
 			{
 				Type: "KancollePlayerSimulatorKai.BasicSupplyFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.0, Culture=neutral, PublicKeyToken=null",
 				Guid: "45dd4e98-cc2f-4acb-899b-39f3b54012e7",
 				Name: "补给",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				Fleet: 1,
 				Setting: 32767,
 				SkipIfAllResourcePercentHigherThanFlag: false,
@@ -6277,7 +6381,6 @@
 				Guid: "f9e4edb3-4705-4984-8ae9-f56ba0ff30f6",
 				Name: "入渠（出击前）",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				LimitFleetFlag: true,
 				LimitFleetValue: 3,
 				LimitHpPercentFlag: true,
@@ -6328,7 +6431,6 @@
 				Guid: "9e362d7a-3f4f-4072-8dfe-8c89fc0be321",
 				Name: "捞出",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				LimitFleetFlag: true,
 				LimitFleetValue: 3,
 				LimitHpPercentFlag: false,
@@ -6379,7 +6481,6 @@
 				Guid: "929a2c29-d858-453f-8596-ba0f05c9664f",
 				Name: "接任务",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				Quests: [
 					{
 						Enabled: true,
@@ -6446,7 +6547,6 @@
 				Guid: "db4a3318-4649-4003-840b-cffbdb2892dc",
 				Name: "交任务",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				Quests: [
 					{
 						Enabled: true,
@@ -6513,7 +6613,6 @@
 				Guid: "c64c674e-b6df-440f-8fa2-556577f491f2",
 				Name: "取消任务",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				Quests: [
 					{
 						Enabled: true,
@@ -6583,8 +6682,7 @@
 				Message: "正在连续出击",
 				EnableScript: true,
 				Script: null,
-				TriggerOnEnabled: false,
-				AllowBreakIn: true
+				TriggerOnEnabled: false
 			},
 			{
 				Type: "KancollePlayerSimulatorKai.SimpleRaiseUserEventWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.0, Culture=neutral, PublicKeyToken=null",
@@ -6594,15 +6692,13 @@
 				Message: "已空出任务槽",
 				EnableScript: true,
 				Script: null,
-				TriggerOnEnabled: false,
-				AllowBreakIn: true
+				TriggerOnEnabled: false
 			},
 			{
 				Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.0, Culture=neutral, PublicKeyToken=null",
 				Guid: "73b1748c-40bc-4a1f-9401-2a32c462ef96",
 				Name: "编成",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				Fleet: 1,
 				Positions: [
 					{
@@ -6859,7 +6955,6 @@
 				Guid: "639eb0ae-0655-4918-93c7-acbf38c474e9",
 				Name: "改装",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				Ships: [
 					{
 						Slots: [
@@ -6870,6 +6965,7 @@
 										SelectValue: "^彗星二二型",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -6879,6 +6975,7 @@
 										SelectValue: "^Ju87C改",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -6888,6 +6985,7 @@
 										SelectValue: "^流星",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -6897,6 +6995,7 @@
 										SelectValue: "^彗星",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -6906,6 +7005,7 @@
 										SelectValue: "^天山",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -6915,6 +7015,7 @@
 										SelectValue: "艦攻",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -6932,6 +7033,7 @@
 										SelectValue: "^流星",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -6941,6 +7043,7 @@
 										SelectValue: "^天山",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -6950,6 +7053,7 @@
 										SelectValue: "艦攻",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -6967,6 +7071,7 @@
 										SelectValue: "烈風",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -6976,6 +7081,7 @@
 										SelectValue: "艦戦",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -6993,6 +7099,7 @@
 										SelectValue: "^流星",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7002,6 +7109,7 @@
 										SelectValue: "^天山",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7011,6 +7119,7 @@
 										SelectValue: "艦攻",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7028,6 +7137,7 @@
 										SelectValue: "増設",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7037,6 +7147,7 @@
 										SelectValue: "改良型艦本式タービン",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7065,6 +7176,7 @@
 										SelectValue: "^彗星二二型",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7074,6 +7186,7 @@
 										SelectValue: "^Ju87C改",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7083,6 +7196,7 @@
 										SelectValue: "^流星",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7092,6 +7206,7 @@
 										SelectValue: "^彗星",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7101,6 +7216,7 @@
 										SelectValue: "^天山",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7110,6 +7226,7 @@
 										SelectValue: "艦攻",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7127,6 +7244,7 @@
 										SelectValue: "^流星",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7136,6 +7254,7 @@
 										SelectValue: "^天山",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7145,6 +7264,7 @@
 										SelectValue: "艦攻",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7162,6 +7282,7 @@
 										SelectValue: "烈風",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7171,6 +7292,7 @@
 										SelectValue: "艦戦",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7188,6 +7310,7 @@
 										SelectValue: "^彩雲",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7197,6 +7320,7 @@
 										SelectValue: "^流星",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7206,6 +7330,7 @@
 										SelectValue: "^天山",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7215,6 +7340,7 @@
 										SelectValue: "艦攻",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7232,6 +7358,7 @@
 										SelectValue: "増設",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7241,6 +7368,7 @@
 										SelectValue: "改良型艦本式タービン",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7269,6 +7397,7 @@
 										SelectValue: "甲標的",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7286,6 +7415,7 @@
 										SelectValue: "魚雷",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7303,6 +7433,7 @@
 										SelectValue: "魚雷",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7320,6 +7451,7 @@
 										SelectValue: "改良型艦本式タービン",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7348,6 +7480,7 @@
 										SelectValue: "甲標的",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7365,6 +7498,7 @@
 										SelectValue: "魚雷",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7382,6 +7516,7 @@
 										SelectValue: "魚雷",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7399,6 +7534,7 @@
 										SelectValue: "改良型艦本式タービン",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7427,6 +7563,7 @@
 										SelectValue: "10cm連装高角砲+高射装置",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7436,6 +7573,7 @@
 										SelectValue: "砲",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7453,6 +7591,7 @@
 										SelectValue: "10cm連装高角砲+高射装置",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7462,6 +7601,7 @@
 										SelectValue: "砲",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7479,6 +7619,7 @@
 										SelectValue: "GFCS Mk.37",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7488,6 +7629,7 @@
 										SelectValue: "13号対空電探改",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7497,6 +7639,7 @@
 										SelectValue: "電探",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7514,6 +7657,7 @@
 										SelectValue: "改良型艦本式タービン",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7542,6 +7686,7 @@
 										SelectValue: "10cm連装高角砲+高射装置",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7551,6 +7696,7 @@
 										SelectValue: "砲",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7568,6 +7714,7 @@
 										SelectValue: "10cm連装高角砲+高射装置",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7577,6 +7724,7 @@
 										SelectValue: "砲",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7594,6 +7742,7 @@
 										SelectValue: "GFCS Mk.37",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7603,6 +7752,7 @@
 										SelectValue: "13号対空電探改",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7612,6 +7762,7 @@
 										SelectValue: "電探",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7629,6 +7780,7 @@
 										SelectValue: "改良型艦本式タービン",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 2,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -7668,7 +7820,6 @@
 				Guid: "546fb464-fec3-479e-9a61-2428ef3a3d60",
 				Name: "总控",
 				EnableOnLoad: true,
-				AllowBreakIn: true,
 				SleepTimeBase: "00:00:00",
 				SleepTimeRandomMax: "00:00:00",
 				DoNotSleepAtFirstLoop: false,
@@ -7968,15 +8119,13 @@
 				SortieTaskPriority: -32768,
 				EnableScript: true,
 				Script: null,
-				TriggerOnEnabled: false,
-				AllowBreakIn: true
+				TriggerOnEnabled: false
 			},
 			{
 				Type: "KancollePlayerSimulatorKai.BasicSupplyFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.0, Culture=neutral, PublicKeyToken=null",
 				Guid: "943b20b0-42da-4e60-8d22-1e3a2a2289d4",
 				Name: "补给",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				Fleet: 1,
 				Setting: 32767,
 				SkipIfAllResourcePercentHigherThanFlag: false,
@@ -7995,7 +8144,6 @@
 				Guid: "4d1d0cf0-6a9c-4a06-b2b0-af737c974302",
 				Name: "入渠（出击前）",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				LimitFleetFlag: true,
 				LimitFleetValue: 3,
 				LimitHpPercentFlag: true,
@@ -8046,7 +8194,6 @@
 				Guid: "2146dbf6-d5ff-414f-98bf-fa7915ff32b5",
 				Name: "捞出",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				LimitFleetFlag: true,
 				LimitFleetValue: 3,
 				LimitHpPercentFlag: false,
@@ -8097,7 +8244,6 @@
 				Guid: "1a20548a-967d-447b-88a7-2e75346c1782",
 				Name: "接任务",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				Quests: [
 					{
 						Enabled: true,
@@ -8130,7 +8276,6 @@
 				Guid: "8d59304e-84fc-4645-a06b-fc6c81f2ed4d",
 				Name: "交任务",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				Quests: [
 					{
 						Enabled: true,
@@ -8163,7 +8308,6 @@
 				Guid: "8e0c5607-7fd3-4b6a-99e3-18122ded1782",
 				Name: "取消任务",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				Quests: [
 					{
 						Enabled: true,
@@ -8199,8 +8343,7 @@
 				Message: "正在连续出击",
 				EnableScript: true,
 				Script: null,
-				TriggerOnEnabled: false,
-				AllowBreakIn: true
+				TriggerOnEnabled: false
 			},
 			{
 				Type: "KancollePlayerSimulatorKai.SimpleRaiseUserEventWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.0, Culture=neutral, PublicKeyToken=null",
@@ -8210,15 +8353,13 @@
 				Message: "已空出任务槽",
 				EnableScript: true,
 				Script: null,
-				TriggerOnEnabled: false,
-				AllowBreakIn: true
+				TriggerOnEnabled: false
 			},
 			{
 				Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.0, Culture=neutral, PublicKeyToken=null",
 				Guid: "e9a9d058-07a7-4ca0-b5f5-10dd0816c7c2",
 				Name: "编成",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				Fleet: 1,
 				Positions: [
 					{
@@ -8397,7 +8538,6 @@
 				Guid: "ad304ed2-2a3b-46b1-bdee-c82212d7c08c",
 				Name: "改装",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				Ships: [
 					{
 						Slots: [
@@ -8408,6 +8548,7 @@
 										SelectValue: "式水中",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8417,6 +8558,7 @@
 										SelectValue: "爆雷投射機",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8426,6 +8568,7 @@
 										SelectValue: "式爆雷$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8443,6 +8586,7 @@
 										SelectValue: "式水中",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8452,6 +8596,7 @@
 										SelectValue: "爆雷投射機",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8461,6 +8606,7 @@
 										SelectValue: "式爆雷$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8478,6 +8624,7 @@
 										SelectValue: "式水中",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8487,6 +8634,7 @@
 										SelectValue: "爆雷投射機",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8496,6 +8644,7 @@
 										SelectValue: "式爆雷$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8513,6 +8662,7 @@
 										SelectValue: "改良型艦本式タービン",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8541,6 +8691,7 @@
 										SelectValue: "式水中",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8550,6 +8701,7 @@
 										SelectValue: "爆雷投射機",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8559,6 +8711,7 @@
 										SelectValue: "式爆雷$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8576,6 +8729,7 @@
 										SelectValue: "式水中",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8585,6 +8739,7 @@
 										SelectValue: "爆雷投射機",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8594,6 +8749,7 @@
 										SelectValue: "式爆雷$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8611,6 +8767,7 @@
 										SelectValue: "式水中",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8620,6 +8777,7 @@
 										SelectValue: "爆雷投射機",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8629,6 +8787,7 @@
 										SelectValue: "式爆雷$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8646,6 +8805,7 @@
 										SelectValue: "改良型艦本式タービン",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8674,6 +8834,7 @@
 										SelectValue: "式水中",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8683,6 +8844,7 @@
 										SelectValue: "爆雷投射機",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8692,6 +8854,7 @@
 										SelectValue: "式爆雷$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8709,6 +8872,7 @@
 										SelectValue: "式水中",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8718,6 +8882,7 @@
 										SelectValue: "爆雷投射機",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8727,6 +8892,7 @@
 										SelectValue: "式爆雷$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8744,6 +8910,7 @@
 										SelectValue: "式水中",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8753,6 +8920,7 @@
 										SelectValue: "爆雷投射機",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8762,6 +8930,7 @@
 										SelectValue: "式爆雷$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8779,6 +8948,7 @@
 										SelectValue: "改良型艦本式タービン",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8807,6 +8977,7 @@
 										SelectValue: "式水中",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8816,6 +8987,7 @@
 										SelectValue: "爆雷投射機",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8825,6 +8997,7 @@
 										SelectValue: "式爆雷$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8842,6 +9015,7 @@
 										SelectValue: "式水中",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8851,6 +9025,7 @@
 										SelectValue: "爆雷投射機",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8860,6 +9035,7 @@
 										SelectValue: "式爆雷$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8877,6 +9053,7 @@
 										SelectValue: "式水中",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8886,6 +9063,7 @@
 										SelectValue: "爆雷投射機",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8895,6 +9073,7 @@
 										SelectValue: "式爆雷$",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8912,6 +9091,7 @@
 										SelectValue: "改良型艦本式タービン",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -8951,7 +9131,6 @@
 				Guid: "dc4c1e0b-3bae-4cd5-95a2-5a1f7da6041b",
 				Name: "总控",
 				EnableOnLoad: true,
-				AllowBreakIn: true,
 				SleepTimeBase: "00:00:00",
 				SleepTimeRandomMax: "00:00:00",
 				DoNotSleepAtFirstLoop: false,
@@ -9303,15 +9482,13 @@
 				SortieTaskPriority: -32768,
 				EnableScript: true,
 				Script: null,
-				TriggerOnEnabled: false,
-				AllowBreakIn: true
+				TriggerOnEnabled: false
 			},
 			{
 				Type: "KancollePlayerSimulatorKai.BasicSupplyFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.0, Culture=neutral, PublicKeyToken=null",
 				Guid: "e74d48eb-ec0c-4be6-b213-75995755552e",
 				Name: "补给",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				Fleet: 1,
 				Setting: 32767,
 				SkipIfAllResourcePercentHigherThanFlag: false,
@@ -9330,7 +9507,6 @@
 				Guid: "6818b08c-d063-41a8-bc88-edb1f6ae3644",
 				Name: "入渠（出击前）",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				LimitFleetFlag: true,
 				LimitFleetValue: 3,
 				LimitHpPercentFlag: true,
@@ -9381,7 +9557,6 @@
 				Guid: "93ad69bf-36ce-4102-b0dd-58908347fe43",
 				Name: "捞出",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				LimitFleetFlag: true,
 				LimitFleetValue: 3,
 				LimitHpPercentFlag: false,
@@ -9432,7 +9607,6 @@
 				Guid: "18a2d4bf-fb2d-46d4-a766-58ed8542b2cf",
 				Name: "接任务",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				Quests: [
 					{
 						Enabled: true,
@@ -9465,7 +9639,6 @@
 				Guid: "7e01abff-1729-4cce-b53f-0df6e59b7be7",
 				Name: "交任务",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				Quests: [
 					{
 						Enabled: true,
@@ -9498,7 +9671,6 @@
 				Guid: "41d3ae35-161a-499f-9f47-08ac187d8fd1",
 				Name: "取消任务",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				Quests: [
 					{
 						Enabled: true,
@@ -9534,8 +9706,7 @@
 				Message: "正在连续出击",
 				EnableScript: true,
 				Script: null,
-				TriggerOnEnabled: false,
-				AllowBreakIn: true
+				TriggerOnEnabled: false
 			},
 			{
 				Type: "KancollePlayerSimulatorKai.SimpleRaiseUserEventWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.0, Culture=neutral, PublicKeyToken=null",
@@ -9545,15 +9716,13 @@
 				Message: "已空出任务槽",
 				EnableScript: true,
 				Script: null,
-				TriggerOnEnabled: false,
-				AllowBreakIn: true
+				TriggerOnEnabled: false
 			},
 			{
 				Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.0, Culture=neutral, PublicKeyToken=null",
 				Guid: "a5424192-0f58-4195-8e77-0f1cb75456dd",
 				Name: "编成",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				Fleet: 1,
 				Positions: [
 					{
@@ -9855,7 +10024,6 @@
 				Guid: "69fcafd0-38c9-427a-a3a1-6edceaf21565",
 				Name: "改装",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				Ships: [
 					{
 						Slots: [
@@ -9866,6 +10034,7 @@
 										SelectValue: "^彗星二二型",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -9875,6 +10044,7 @@
 										SelectValue: "^Ju87C改",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -9884,6 +10054,7 @@
 										SelectValue: "^流星",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -9893,6 +10064,7 @@
 										SelectValue: "^彗星",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -9902,6 +10074,7 @@
 										SelectValue: "^天山",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -9911,6 +10084,7 @@
 										SelectValue: "艦攻",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -9928,6 +10102,7 @@
 										SelectValue: "^天山一二型",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -9937,6 +10112,7 @@
 										SelectValue: "^流星",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -9946,6 +10122,7 @@
 										SelectValue: "^彗星",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -9955,6 +10132,7 @@
 										SelectValue: "^天山",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -9964,6 +10142,7 @@
 										SelectValue: "艦攻",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -9981,6 +10160,7 @@
 										SelectValue: "^彗星一二型",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -9990,6 +10170,7 @@
 										SelectValue: "^流星",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -9999,6 +10180,7 @@
 										SelectValue: "^彗星",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10008,6 +10190,7 @@
 										SelectValue: "^天山",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10017,6 +10200,7 @@
 										SelectValue: "艦攻",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10034,6 +10218,7 @@
 										SelectValue: "^零式舰战53型",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10043,6 +10228,7 @@
 										SelectValue: "烈風",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10052,6 +10238,7 @@
 										SelectValue: "艦戦",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10069,6 +10256,7 @@
 										SelectValue: "増設",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10078,6 +10266,7 @@
 										SelectValue: "改良型艦本式タービン",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10106,6 +10295,7 @@
 										SelectValue: "^彗星二二型",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10115,6 +10305,7 @@
 										SelectValue: "^Ju87C改",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10124,6 +10315,7 @@
 										SelectValue: "^流星",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10133,6 +10325,7 @@
 										SelectValue: "^彗星",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10142,6 +10335,7 @@
 										SelectValue: "^天山",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10151,6 +10345,7 @@
 										SelectValue: "艦攻",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10168,6 +10363,7 @@
 										SelectValue: "^天山一二型",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10177,6 +10373,7 @@
 										SelectValue: "^流星",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10186,6 +10383,7 @@
 										SelectValue: "^彗星",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10195,6 +10393,7 @@
 										SelectValue: "^天山",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10204,6 +10403,7 @@
 										SelectValue: "艦攻",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10221,6 +10421,7 @@
 										SelectValue: "^彗星一二型",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10230,6 +10431,7 @@
 										SelectValue: "^流星",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10239,6 +10441,7 @@
 										SelectValue: "^彗星",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10248,6 +10451,7 @@
 										SelectValue: "^天山",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10257,6 +10461,7 @@
 										SelectValue: "艦攻",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10274,6 +10479,7 @@
 										SelectValue: "^零式舰战53型",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10283,6 +10489,7 @@
 										SelectValue: "烈風",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10292,6 +10499,7 @@
 										SelectValue: "艦戦",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10309,6 +10517,7 @@
 										SelectValue: "増設",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10318,6 +10527,7 @@
 										SelectValue: "改良型艦本式タービン",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10346,6 +10556,7 @@
 										SelectValue: "^彗星二二型",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10355,6 +10566,7 @@
 										SelectValue: "^Ju87C改",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10364,6 +10576,7 @@
 										SelectValue: "^流星",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10373,6 +10586,7 @@
 										SelectValue: "^彗星",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10382,6 +10596,7 @@
 										SelectValue: "^天山",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10391,6 +10606,7 @@
 										SelectValue: "艦攻",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10408,6 +10624,7 @@
 										SelectValue: "^天山一二型",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10417,6 +10634,7 @@
 										SelectValue: "^流星",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10426,6 +10644,7 @@
 										SelectValue: "^彗星",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10435,6 +10654,7 @@
 										SelectValue: "^天山",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10444,6 +10664,7 @@
 										SelectValue: "艦攻",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10461,6 +10682,7 @@
 										SelectValue: "^彗星一二型",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10470,6 +10692,7 @@
 										SelectValue: "^流星",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10479,6 +10702,7 @@
 										SelectValue: "^彗星",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10488,6 +10712,7 @@
 										SelectValue: "^天山",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10497,6 +10722,7 @@
 										SelectValue: "艦攻",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10514,6 +10740,7 @@
 										SelectValue: "^彩雲",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10523,6 +10750,7 @@
 										SelectValue: "^零式舰战53型",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10532,6 +10760,7 @@
 										SelectValue: "烈風",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10541,6 +10770,7 @@
 										SelectValue: "艦戦",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10558,6 +10788,7 @@
 										SelectValue: "増設",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10567,6 +10798,7 @@
 										SelectValue: "改良型艦本式タービン",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10595,6 +10827,7 @@
 										SelectValue: "甲標的",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10612,6 +10845,7 @@
 										SelectValue: "魚雷",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10629,6 +10863,7 @@
 										SelectValue: "魚雷",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10646,6 +10881,7 @@
 										SelectValue: "改良型艦本式タービン",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10674,6 +10910,7 @@
 										SelectValue: "10cm連装高角砲+高射装置",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10683,6 +10920,7 @@
 										SelectValue: "砲",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10700,6 +10938,7 @@
 										SelectValue: "Type",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10709,6 +10948,7 @@
 										SelectValue: "式水中",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10726,6 +10966,7 @@
 										SelectValue: "GFCS Mk.37",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10735,6 +10976,7 @@
 										SelectValue: "対空電探",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10752,6 +10994,7 @@
 										SelectValue: "10cm連装高角砲+高射装置",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10761,6 +11004,7 @@
 										SelectValue: "砲",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10778,6 +11022,7 @@
 										SelectValue: "改良型艦本式タービン",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10806,6 +11051,7 @@
 										SelectValue: "10cm連装高角砲+高射装置",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10815,6 +11061,7 @@
 										SelectValue: "砲",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10832,6 +11079,7 @@
 										SelectValue: "Type",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10841,6 +11089,7 @@
 										SelectValue: "式水中",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10858,6 +11107,7 @@
 										SelectValue: "GFCS Mk.37",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10867,6 +11117,7 @@
 										SelectValue: "対空電探",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10884,6 +11135,7 @@
 										SelectValue: "10cm連装高角砲+高射装置",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10893,6 +11145,7 @@
 										SelectValue: "砲",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10910,6 +11163,7 @@
 										SelectValue: "改良型艦本式タービン",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -10949,7 +11203,6 @@
 				Guid: "88d4269e-a693-45d7-aad5-c3f9385014c3",
 				Name: "总控",
 				EnableOnLoad: true,
-				AllowBreakIn: true,
 				SleepTimeBase: "00:00:00",
 				SleepTimeRandomMax: "00:00:00",
 				DoNotSleepAtFirstLoop: false,
@@ -11301,15 +11554,13 @@
 				SortieTaskPriority: -32768,
 				EnableScript: true,
 				Script: null,
-				TriggerOnEnabled: false,
-				AllowBreakIn: true
+				TriggerOnEnabled: false
 			},
 			{
 				Type: "KancollePlayerSimulatorKai.BasicSupplyFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.0, Culture=neutral, PublicKeyToken=null",
 				Guid: "8c90c4b5-6bd2-4b32-a220-572cd8adc39e",
 				Name: "补给",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				Fleet: 1,
 				Setting: 32767,
 				SkipIfAllResourcePercentHigherThanFlag: false,
@@ -11328,7 +11579,6 @@
 				Guid: "a7fcba99-626c-4f26-bf3d-2a2a6cbf58bc",
 				Name: "入渠（出击前）",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				LimitFleetFlag: true,
 				LimitFleetValue: 3,
 				LimitHpPercentFlag: true,
@@ -11379,7 +11629,6 @@
 				Guid: "b362ed2b-d70f-4cf4-bfdb-2379631d1acd",
 				Name: "捞出",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				LimitFleetFlag: true,
 				LimitFleetValue: 3,
 				LimitHpPercentFlag: false,
@@ -11430,7 +11679,6 @@
 				Guid: "d08a8e8f-988e-4997-ad99-aa9722a016f9",
 				Name: "接任务",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				Quests: [
 					{
 						Enabled: true,
@@ -11463,7 +11711,6 @@
 				Guid: "1ff3bc61-2655-4199-98b7-f3642b93597b",
 				Name: "交任务",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				Quests: [
 					{
 						Enabled: true,
@@ -11496,7 +11743,6 @@
 				Guid: "62773844-9fbb-4c61-b179-c1b2c981821e",
 				Name: "取消任务",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				Quests: [
 					{
 						Enabled: true,
@@ -11532,8 +11778,7 @@
 				Message: "正在连续出击",
 				EnableScript: true,
 				Script: null,
-				TriggerOnEnabled: false,
-				AllowBreakIn: true
+				TriggerOnEnabled: false
 			},
 			{
 				Type: "KancollePlayerSimulatorKai.SimpleRaiseUserEventWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.0, Culture=neutral, PublicKeyToken=null",
@@ -11543,15 +11788,13 @@
 				Message: "已空出任务槽",
 				EnableScript: true,
 				Script: null,
-				TriggerOnEnabled: false,
-				AllowBreakIn: true
+				TriggerOnEnabled: false
 			},
 			{
 				Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.0, Culture=neutral, PublicKeyToken=null",
 				Guid: "4f07fd83-62ca-4749-8c94-d93f38635869",
 				Name: "编成",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				Fleet: 1,
 				Positions: [
 					{
@@ -11823,7 +12066,6 @@
 				Guid: "95a560cd-dbfd-4c2a-8331-2a840ba4444c",
 				Name: "改装",
 				EnableOnLoad: false,
-				AllowBreakIn: true,
 				Ships: [
 					{
 						Slots: [
@@ -11834,6 +12076,7 @@
 										SelectValue: "16inch",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -11843,6 +12086,7 @@
 										SelectValue: "41cm",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -11860,6 +12104,7 @@
 										SelectValue: "41cm",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -11869,6 +12114,7 @@
 										SelectValue: "16inch",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -11886,6 +12132,7 @@
 										SelectValue: "^零式舰战53型",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -11895,6 +12142,7 @@
 										SelectValue: "烈風",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -11904,6 +12152,7 @@
 										SelectValue: "艦戦",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -11921,6 +12170,7 @@
 										SelectValue: "^瑞雲",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -11938,6 +12188,7 @@
 										SelectValue: "新型高温高圧缶",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -11947,6 +12198,7 @@
 										SelectValue: "強化型艦本式缶",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -11964,6 +12216,7 @@
 										SelectValue: "改良型艦本式タービン",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -11992,6 +12245,7 @@
 										SelectValue: "噴式景雲改",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12001,6 +12255,7 @@
 										SelectValue: "橘花改",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12010,6 +12265,7 @@
 										SelectValue: "^天山一二型",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12019,6 +12275,7 @@
 										SelectValue: "^彗星二二型",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12028,6 +12285,7 @@
 										SelectValue: "^流星",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12037,6 +12295,7 @@
 										SelectValue: "^彗星",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12046,6 +12305,7 @@
 										SelectValue: "^天山",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12055,6 +12315,7 @@
 										SelectValue: "艦攻",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12072,6 +12333,7 @@
 										SelectValue: "^天山一二型",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12081,6 +12343,7 @@
 										SelectValue: "^彗星二二型",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12090,6 +12353,7 @@
 										SelectValue: "^流星",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12099,6 +12363,7 @@
 										SelectValue: "^彗星",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12108,6 +12373,7 @@
 										SelectValue: "^天山",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12117,6 +12383,7 @@
 										SelectValue: "艦攻",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12134,6 +12401,7 @@
 										SelectValue: "^零式舰战53型",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12143,6 +12411,7 @@
 										SelectValue: "烈風",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12152,6 +12421,7 @@
 										SelectValue: "艦戦",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12169,6 +12439,7 @@
 										SelectValue: "烈風",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12178,6 +12449,7 @@
 										SelectValue: "艦戦",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12195,6 +12467,7 @@
 										SelectValue: "12cm30連装噴進砲改二",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12204,6 +12477,7 @@
 										SelectValue: "増設",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12213,6 +12487,7 @@
 										SelectValue: "改良型艦本式タービン",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12241,6 +12516,7 @@
 										SelectValue: "噴式景雲改",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12250,6 +12526,7 @@
 										SelectValue: "橘花改",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12259,6 +12536,7 @@
 										SelectValue: "^天山一二型",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12268,6 +12546,7 @@
 										SelectValue: "^彗星二二型",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12277,6 +12556,7 @@
 										SelectValue: "^流星",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12286,6 +12566,7 @@
 										SelectValue: "^彗星",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12295,6 +12576,7 @@
 										SelectValue: "^天山",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12304,6 +12586,7 @@
 										SelectValue: "艦攻",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12321,6 +12604,7 @@
 										SelectValue: "^天山一二型",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12330,6 +12614,7 @@
 										SelectValue: "^彗星二二型",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12339,6 +12624,7 @@
 										SelectValue: "^流星",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12348,6 +12634,7 @@
 										SelectValue: "^彗星",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12357,6 +12644,7 @@
 										SelectValue: "^天山",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12366,6 +12654,7 @@
 										SelectValue: "艦攻",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12383,6 +12672,7 @@
 										SelectValue: "^零式舰战53型",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12392,6 +12682,7 @@
 										SelectValue: "烈風",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12401,6 +12692,7 @@
 										SelectValue: "艦戦",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12418,6 +12710,7 @@
 										SelectValue: "^彩雲",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12427,6 +12720,7 @@
 										SelectValue: "烈風",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12436,6 +12730,7 @@
 										SelectValue: "艦戦",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12453,6 +12748,7 @@
 										SelectValue: "12cm30連装噴進砲改二",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12462,6 +12758,7 @@
 										SelectValue: "増設",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12471,6 +12768,7 @@
 										SelectValue: "改良型艦本式タービン",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12499,6 +12797,7 @@
 										SelectValue: "20.3cm(3号)連装砲",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12508,6 +12807,7 @@
 										SelectValue: "20.3cm",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12525,6 +12825,7 @@
 										SelectValue: "20.3cm(3号)連装砲",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12534,6 +12835,7 @@
 										SelectValue: "20.3cm",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12551,6 +12853,7 @@
 										SelectValue: "二式水戦改(熟練)",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12560,6 +12863,7 @@
 										SelectValue: "強風改",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12569,6 +12873,7 @@
 										SelectValue: "二式水戦改",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12578,6 +12883,7 @@
 										SelectValue: "Ro.44水上戦闘機",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12595,6 +12901,7 @@
 										SelectValue: "^零式水上偵察機11型乙",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12604,6 +12911,7 @@
 										SelectValue: "九八式水上偵察機(夜偵)",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12613,6 +12921,7 @@
 										SelectValue: "紫雲",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12622,6 +12931,7 @@
 										SelectValue: "零式水上観測機",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12631,6 +12941,7 @@
 										SelectValue: "零式水上偵察機",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12648,6 +12959,7 @@
 										SelectValue: "12cm30連装噴進砲改二",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12657,6 +12969,7 @@
 										SelectValue: "増設",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12666,6 +12979,7 @@
 										SelectValue: "改良型艦本式タービン",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12694,6 +13008,7 @@
 										SelectValue: "10cm連装高角砲+高射装置",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12703,6 +13018,7 @@
 										SelectValue: "砲",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12720,6 +13036,7 @@
 										SelectValue: "10cm連装高角砲+高射装置",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12729,6 +13046,7 @@
 										SelectValue: "砲",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12746,6 +13064,7 @@
 										SelectValue: "Type",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12755,6 +13074,7 @@
 										SelectValue: "式水中",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12772,6 +13092,7 @@
 										SelectValue: "GFCS Mk.37",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12781,6 +13102,7 @@
 										SelectValue: "対空電探",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12798,6 +13120,7 @@
 										SelectValue: "改良型艦本式タービン",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12826,6 +13149,7 @@
 										SelectValue: "10cm連装高角砲+高射装置",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12835,6 +13159,7 @@
 										SelectValue: "砲",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12852,6 +13177,7 @@
 										SelectValue: "10cm連装高角砲+高射装置",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12861,6 +13187,7 @@
 										SelectValue: "砲",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12878,6 +13205,7 @@
 										SelectValue: "Type",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12887,6 +13215,7 @@
 										SelectValue: "式水中",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12904,6 +13233,7 @@
 										SelectValue: "GFCS Mk.37",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12913,6 +13243,7 @@
 										SelectValue: "対空電探",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
@@ -12930,6 +13261,7 @@
 										SelectValue: "改良型艦本式タービン",
 										SkipIfCurrentEquipmentMeetsTheLeastRequirement: true,
 										StatusPriority: 0,
+										RarityPriority: 0,
 										LevelPriority: 0,
 										ProficiencyPriority: 0,
 										Deprive: 2
