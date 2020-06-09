@@ -83,8 +83,9 @@ def convertExpeditionIdToName(id):
 	return ExpeditionUtility.GetExpeditionName(id)
 
 def getExpeditionId(fleet, fleetsState=None):
-	'''返回舰队(1-4)在跑的远征ID，没在跑返回0'''
-	return FleetUtility.Expedition(fleet, fleetsState)
+	'''返回舰队(1-4)在跑的远征ID，没在跑返回0，舰队为开放返回-1'''
+	return FleetUtility.Expedition(fleet, fleetsState) \
+		if FleetUtility.Enabled(fleet, fleetsState) else -1
 
 def getExpeditionIds():
 	'''4个舰队都返回，而不是只返回2到4'''
