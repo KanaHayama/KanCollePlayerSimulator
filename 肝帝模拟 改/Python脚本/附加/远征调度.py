@@ -9,6 +9,8 @@
 	附加在一个用于控制的执行单元上和数个关联远征执行单元上。
 
 更新记录：
+	20200621 - 1.1
+		资源相近时避免反复切换返回的最低资源种类。
 	20200604 - 1.0
 		初始版本，随KCPS1.4.1.0发布。
 """
@@ -44,6 +46,8 @@ BACKUP_EXPEDITION_LIST = ["3", "2", "B1", "6", ] # 避免冲突，后面接用�
 EXPEDITION_LIST = [default + BACKUP_EXPEDITION_LIST for default in DEFAULT_EXPEDITION_LIST]
 
 RESOURCE_SCALE = (1, 1, 1, 1, 100, ) # 资源比较系数
+RESOURCE_NAME = ("油", "弹", "钢", "铝", "高速修复", )
+MIN_QUERY_RESULT_UPDATE_INTERVAL = 23 * 60 * 60 # 返回的最少资源种类稳定不变动的秒数
 
 MESSAGE_INITIATE_KIRAKIRA = "开始全自动远征" # 用于启动刷闪配置
 MESSAGE_KIRAKIRA = "远征船刷闪完成" # 用于检测刷闪完成
@@ -69,6 +73,10 @@ fleetRecentExpedition = [None for _ in range(NUM_FLEET)] # 用于避免重复选
 lastKiraKiraFinishedTime = None
 
 lastEvent = None
+
+lastUpdateTime = None
+
+lastResourceIndex = None
 
 #===================================================#
 #                                                   #
@@ -119,6 +127,13 @@ def getNumResource(index, resourcesState=None):
 def getLowestResourceIndex():
 	global NUM_RESOURCE_TYPES
 	global RESOURCE_SCALE
+	global MIN_QUERY_RESULT_UPDATE_INTERVAL
+	global RESOURCE_NAME
+	global lastUpdateTime
+	global lastResourceIndex
+	now = datetime.now()
+	if lastUpdateTime and (now - lastUpdateTime).total_seconds() <= MIN_QUERY_RESULT_UPDATE_INTERVAL:
+		return lastResourceIndex
 	resourcesState = GameState.Resources()
 	resources = [getNumResource(i, resourcesState) * RESOURCE_SCALE[i] for i in range(NUM_RESOURCE_TYPES)]
 	minIndex = 0
@@ -127,6 +142,9 @@ def getLowestResourceIndex():
 		if resources[i] < minValue:
 			minValue = resources[i]
 			minIndex = i
+	lastUpdateTime = now
+	lastResourceIndex = minIndex
+	Logger.Info("当前数量最少的资源为\"{}\"".format(RESOURCE_NAME[minIndex]))
 	return minIndex
 
 def selectExpedition(fleet):
