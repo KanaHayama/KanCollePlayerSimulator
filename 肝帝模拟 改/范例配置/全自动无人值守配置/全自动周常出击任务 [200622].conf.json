@@ -13288,7 +13288,7 @@
 				Type: "KancollePlayerSimulatorKai.SeriesByTimerWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "05e339c1-e2bb-4347-b4c2-fc2d5ec8bba9",
 				Name: "总控",
-				EnableOnLoad: false,
+				EnableOnLoad: true,
 				Days: 0,
 				Hours: 0,
 				Minutes: 0,
