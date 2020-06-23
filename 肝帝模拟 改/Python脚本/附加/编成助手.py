@@ -116,7 +116,7 @@ def filterBackProportion(shipObjs, proportion): # 保留后一定比例的船
 def filterPracticalness(shipObjs): # 筛掉不实用的船
 	global MARUYU_CONST_ID
 	return [shipObj for shipObj in shipObjs if not (\
-		getLevel(shipObj) < 100 and ShipConstUtility.Id(ShipConstUtility.Base(getConst(shipObj))) == MARUYU_CONST_ID \ # 未婚まるゆ
+		getLevel(shipObj) < 100 and ShipConstUtility.Id(ShipConstUtility.Base(getConst(shipObj))) == MARUYU_CONST_ID \
 	)]
 
 # 排序
