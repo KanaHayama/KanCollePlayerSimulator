@@ -3,11 +3,11 @@
 		Name: "【自动远征】",
 		List: [
 			{
-				Type: "KancollePlayerSimulatorKai.MemoWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.MemoWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "f112774b-a87a-463c-b6be-de0bf3bcbad8",
 				Name: "使用说明",
 				EnableOnLoad: true,
-				Memo: "【介绍】\r\n本配置可以根据用户账户中的资源量选择远征，以均衡且快速地攒资源。\r\n用户无需提前设置舰队编成及装备。\r\n\r\n【Python脚本相关注意事项】\r\n本配置使用了Python脚本以实现更复杂的判断。\r\n①部分使用的脚本每次载入后首次使用时会经网络从Github上获取脚本，无法正常访问Github时配置不能正常运行。如有此方面顾虑，可自行下载脚本并替换为使用本地版本脚本。\r\n②脚本部分使用了我个人偏好的设定，如果你想要修改，需要看得懂Python。现在小学生都在学Python，所以看懂的难度还是很低的。\r\n\r\n【要求】\r\n本配置为通用配置，只要不是萌新账号缺这个少那个的话，应该都能运行。\r\n如果出现问题，请依据遇到的具体问题修改配置。\r\n配置中使用到：\r\n①全部舰队\r\n②临时补给功能\r\n③6个可以带大发的驱逐（如果实在没有，请自行修改设置）\r\n④远征会用到的各种一改后的船（CVL、AV、CL、DD、DE、SS/SSV）\r\n⑤越多越好的大发\r\n⑥足够的运输桶\r\n⑦其他一些用于满足远征舰队数值要求的装备\r\n\r\n【细节】\r\n该配置正在试验迭代阶段，之后可能还有提升空间，请留意配置的更新。\r\n\r\n只考虑油、弹、钢、铝、高速修复，五种资源。\r\n\r\n动态选择远征实现的原理是动态修改各个子配置中的各个执行单元的舰队属性。\r\n选择的远征并非综合考虑所有种类资源时获得资源最快的远征，而是某单项资源获取速度最快的远征。\r\n月常远征不包含在内。\r\n没开全所需远征的账号会无法正常使用。可自行替换为其他远征。\r\n\r\n部分远征附加了最基本的检查函数，但并未检查所有的远征成功条件。\r\n为了提升整体练度，远征优先使用等级低的船（但都至少要一改）。\r\n对于有舰队数值最低要求的远征，需自行确认是否满足要求（对于练度足够的账号，随便配都够用）。\r\n若自动配出的舰队不满足远征要求，请自行修改编成或装备设置。\r\n为了保持设置简洁，装备设置并未将一些数值优秀但少有的装备考虑在内，如确实需要，请自行添加。\r\n\r\n本配置已经限制了每日运行时长，每天下半夜休息6小时，但对于3个短远征来说仍然比较危险。\r\n建议改一个适合你自己的运行时间区间，否则用这个配置的人都早上6点开始放远征就不太妙了。\r\n此修改涉及所有子配置的两个时间设置相关的执行单元的时间。\r\n\r\n补闪配置为出击1-1，带1个狗粮，如有不需要带狗粮或者去其他图刷的请自行修改。\r\n禁止沉船，包括狗粮。\r\n\r\n本配置会拆所有没上锁的驱逐，以保证总有位置放新的狗粮，请在使用前确保已经锁定了不想拆的船。\r\n自动捞船时尤其要留心这一问题。如不需要拆狗粮，请自行修改设置。\r\n因为狗粮大破和中破后就不能继续使用了，如果缺少空闲船位或装备位用于补充狗粮，本配置会无法正常运行。\r\n因为还没有拆装备功能，为避免装备爆仓，所以狗粮不卸装备。\r\n\r\n显然，同时手动打游戏是会冲突的。\r\n同时其他配置做别的出击不会冲突，不需要关闭本配置。\r\n但多个同时打开的本配置及本配置的修改版可能会冲突。\r\n\r\n小破的船也会被送去远征，如果你不想这样，请修改远征配置里的编成功能，跳过血量在0%~99%的船。\r\n\r\n【你可能想修改的设置】\r\n①要跑的远征以及对应的编成、装备。尤其是你可以带大发的驱逐不够时你需要把部分用大发驱逐的地方改成普通驱逐。\r\n②允许用来修复刷闪船的修复渠（默认不使用第1修复渠）。\r\n③是否允许小破的船远征（默认允许）。\r\n④每天停止发出远征的时间段（0点-6点）。\r\n⑤刷闪的方法。\r\n\r\n【使用方法】\r\n保持本执行单元（即[使用说明]）与每个子配置的控制用执行单元（[时间区间]）启用状态，触发本执行单元，可以自动跑远征。\r\n\r\n【TODO】\r\nDE带狗粮去1-1刷闪败率较高，可能需要对DE采用别的方法刷闪，或者干脆不用DE。\r\n\r\n[200616]",
+				Memo: "【介绍】\r\n本配置可以根据用户账户中的资源量选择远征，以均衡且快速地攒资源。\r\n用户无需提前设置舰队编成及装备。\r\n\r\n【Python脚本相关注意事项】\r\n本配置使用了python脚本以实现更复杂的判断。\r\n脚本部分使用了我个人偏好的设定，如果你想要修改，需要看得懂python。\r\n现在小学生都在学python，所以看懂的难度还是很低的。\r\n\r\n部分使用到的python脚本每次载入配置后首次执行时会经网络从github上获取脚本，无法正常访问github时配置不能正常运行。\r\n拉取python脚本的地址(raw.githubusercontent.com)与github主站的地址(github.com)并不相同，能正常访问后者不代表也能正常访问前者。\r\n未正常运行时可能的表现有很多种，常见的是报错说找不到某个函数。正常运行时不会有任何报错，但不报错不能代表一切正常。\r\n调整网络连接至能无障碍访问全球互联网后，关闭已经打开的配置再重新载入本配置即可正常使用。\r\n如不想调整网络连接或想修改python脚本，可自行下载python脚本并替换为使用本地版本脚本。\r\n但替换成本地版本python脚本后即失去自动从网络获取最新版python脚本的能力，需要自行留意相关更新。\r\n有多处需要替换，注意不要遗漏。请使用“设置脚本”功能挨个手动选取本地脚本。\r\n对于有足够计算机理论知识和操作能力的用户可以尝试使用文本编辑器批量替换（注意\\需转义为\\\\）。\r\n\r\n【要求】\r\n本配置为通用配置，只要不是萌新账号缺这个少那个的话，应该都能运行。\r\n如果出现问题，请依据遇到的具体问题修改配置。\r\n配置中使用到：\r\n①全部舰队\r\n②临时补给功能\r\n③6个可以带大发的驱逐（如果实在没有，请自行修改编成设置）\r\n④远征会用到的各种一改后的船（CVL、AV、CL、DD、DE、SS/SSV）\r\n⑤越多越好的大发\r\n⑥足够的运输桶\r\n⑦其他一些用于满足远征舰队数值要求的装备\r\n⑧解锁所有子配置中用到的远征\r\n⑨足够的空闲船位和装备位（同时使用其他自动出击配置可能导致不满足该条件）\r\n\r\n【细节】\r\n该配置正在试验迭代阶段，之后可能还有提升空间，请留意配置的更新。\r\n\r\n只考虑油、弹、钢、铝、高速修复，五种资源。\r\n\r\n动态选择远征实现的原理是动态修改各个子配置中的各个执行单元的舰队属性。\r\n选择的远征并非综合考虑所有种类资源时获得资源最快的远征，而是某单项资源获取速度最快的远征。\r\n月常远征不包含在内。\r\n没开全所需远征的账号会无法正常使用。\r\n如不想或不能跑某远征，可自行替换为其他远征。\r\n替换时要同时替换子配置的设置与python脚本中的远征号，只改其一会导致舰队空闲。\r\n\r\n部分远征附加了最基本的检查函数，仅检查了旗舰的等级，并未检查所有的远征成功条件。\r\n为了提升整体练度，远征优先使用等级低的船（但都至少要一改）。\r\n对于有舰队数值最低要求的远征，需自行确认是否满足要求（对于练度足够的账号，随便配都够用）。\r\n若自动配出的舰队不满足远征要求，请自行修改编成或装备设置。\r\n为了保持设置简洁，装备设置并未将一些数值优秀但少有的装备考虑在内，如确实需要，请自行添加。\r\n\r\n本配置已经限制了每日运行时长，每天下半夜休息6小时，但对于3个短远征来说仍然比较危险。\r\n强烈建议改一个适合你自己的运行时间区间，否则用这个配置的人都早上6点开始放远征就不太妙了。\r\n此修改涉及所有子配置的两个时间设置相关的执行单元的时间。\r\n\r\n补闪配置为出击1-1，带1个狗粮，如有不需要带狗粮或者去其他图刷的请自行修改。\r\n禁止沉船，包括狗粮。\r\n\r\n因为狗粮大破和中破后就不能继续使用了，如果缺少空闲船位或装备位用于补充狗粮，本配置会无法正常运行。\r\n本配置会拆所有没上锁的驱逐，以保证总有位置放新的狗粮，请在使用前确保已经锁定了不想拆的船。\r\n自动捞船时尤其要留心这一问题。如不需要拆狗粮，请自行修改设置。\r\n因为还没有拆装备功能，为避免装备爆仓，所以狗粮不卸装备。\r\n\r\n显然，同时手动打游戏是会冲突的。\r\n同时其他配置做别的出击不会冲突，不需要关闭本配置。\r\n但多个同时打开的本配置及本配置的修改版可能会冲突。\r\n\r\n小破的船也会被送去远征，如果你不想这样，请修改远征配置里的编成功能，跳过血量在0%~99%的船。\r\n\r\n【你可能想修改的设置】\r\n①要跑的远征以及对应的编成、装备。尤其是你可以带大发的驱逐不够时你需要把部分用大发驱逐的地方改成普通驱逐。\r\n②允许用来修复刷闪船的修复渠（默认不使用第1修复渠）。\r\n③是否允许小破的船远征（默认允许）。\r\n④每天停止发出远征的时间段（0点-6点）。\r\n⑤刷闪的方法。\r\n\r\n【使用方法】\r\n保持本执行单元（即[使用说明]）与每个子配置的控制用执行单元（即[时间区间]）启用状态，触发本执行单元（即[使用说明]），可以自动跑远征。\r\n\r\n【待后续优化】\r\nDE带狗粮去1-1刷闪败率较高，可能需要对DE采用别的方法刷闪，或者干脆不用DE。\r\n如果[总控]被触发，但舰队仍在远征，则该[总控]不受休息时间的限制，仍会在远征回来后发出远征一次。\r\n\r\n[200623]",
 				EnableScript: true,
 				Script: "https://raw.githubusercontent.com/KanaHayama/KanCollePlayerSimulator/master/肝帝模拟%20改/Python脚本/附加/远征调度.py",
 				TriggerOnEnabled: false
@@ -18,7 +18,7 @@
 		Name: "① 1-1 补闪",
 		List: [
 			{
-				Type: "KancollePlayerSimulatorKai.SeriesByTimeWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.SeriesByTimeWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "62e2b4ba-4560-44a0-8c76-156ad28c2890",
 				Name: "时间区间",
 				EnableOnLoad: true,
@@ -46,7 +46,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.SeriesByAlarmWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.SeriesByAlarmWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "2917b502-20c4-4e8e-9cc1-a4c831b300ee",
 				Name: "定时启动",
 				EnableOnLoad: false,
@@ -66,7 +66,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.RelationalSortieWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.RelationalSortieWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "2656b3b6-db1d-43d0-87f7-a2596c8a08dc",
 				Name: "总控",
 				EnableOnLoad: false,
@@ -264,7 +264,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "aa2de0d7-b6d0-40ce-ba38-b7deeff9e452",
 				Name: "编成",
 				EnableOnLoad: false,
@@ -399,7 +399,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.BasicDockingWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.BasicDockingWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "7d3e41e9-1fb2-4e7f-ad5c-38b0c921374d",
 				Name: "大破扔桶",
 				EnableOnLoad: false,
@@ -449,7 +449,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.BasicRefitEquipmentWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.BasicRefitEquipmentWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "42c715e3-873a-4d00-b33d-48cdb3ec2ae6",
 				Name: "改装",
 				EnableOnLoad: false,
@@ -704,7 +704,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.BasicSupplyFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.BasicSupplyFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "7c9f6e18-622f-4a63-8c28-d9e113482ad2",
 				Name: "补给",
 				EnableOnLoad: false,
@@ -722,7 +722,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.SimpleSortieWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.SimpleSortieWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "bca50d27-ae0b-4711-98fd-29f45a361203",
 				Name: "1-1",
 				EnableOnLoad: false,
@@ -788,7 +788,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.BasicScrapShipWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.BasicScrapShipWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "fe27fe08-33ea-4c51-8881-06f06b6450f9",
 				Name: "拆狗粮",
 				EnableOnLoad: false,
@@ -826,7 +826,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.BasicDockingWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.BasicDockingWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "59af9c18-0a22-4809-86e7-ff70356aff1d",
 				Name: "刷完修理-旗舰",
 				EnableOnLoad: false,
@@ -881,7 +881,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.BasicDockingWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.BasicDockingWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "0aa71eb0-8926-4d4d-a75d-9ec76c02f46d",
 				Name: "刷完修理-不在舰队中",
 				EnableOnLoad: false,
@@ -939,7 +939,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.SimpleRaiseUserEventWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.SimpleRaiseUserEventWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "db450bf8-9df3-4470-8130-ac0953b17472",
 				Name: "通知刷闪完成",
 				EnableOnLoad: false,
@@ -949,7 +949,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.SimpleRaiseUserEventWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.SimpleRaiseUserEventWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "5c484d53-72c4-4b95-9e7e-d84bf8e8d199",
 				Name: "通知任务完成",
 				EnableOnLoad: false,
@@ -964,7 +964,7 @@
 		Name: "② 45 铝 3:20",
 		List: [
 			{
-				Type: "KancollePlayerSimulatorKai.SeriesByTimeWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.SeriesByTimeWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "c1f1c161-d6e9-4268-9f7e-453a0f9d6f66",
 				Name: "时间区间",
 				EnableOnLoad: true,
@@ -992,13 +992,36 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.SeriesByAlarmWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.SeriesByAlarmWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "6afdcdac-f485-4063-8203-66020007ab33",
 				Name: "定时启动",
 				EnableOnLoad: false,
 				ReferenceTime: 1,
 				Hours: 6,
 				Minutes: 0,
+				TriggerType: 1,
+				Workflows: [
+					{
+						Guid: "99772a8c-a23d-4335-bb45-bf7dde9a5988",
+						Enabled: true,
+						IgnoreTriggerFailure: false
+					}
+				],
+				EnableScript: true,
+				Script: null,
+				TriggerOnEnabled: false
+			},
+			{
+				Type: "KancollePlayerSimulatorKai.SeriesByTimerWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
+				Guid: "99772a8c-a23d-4335-bb45-bf7dde9a5988",
+				Name: "随机延迟",
+				EnableOnLoad: false,
+				Days: 0,
+				Hours: 0,
+				Minutes: 0,
+				Seconds: 0,
+				Random: "00:15:00",
+				Restart: false,
 				TriggerType: 1,
 				Workflows: [
 					{
@@ -1012,7 +1035,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.RelationalExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.RelationalExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "91f91227-6c17-4938-9ee9-54344058238f",
 				Name: "总控",
 				EnableOnLoad: false,
@@ -1075,7 +1098,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "b0e7a448-c000-4045-a51e-b75412d31afd",
 				Name: "编成",
 				EnableOnLoad: false,
@@ -1346,7 +1369,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.BasicRefitEquipmentWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.BasicRefitEquipmentWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "a9bf8ea4-9588-474a-9dc4-e7235603f9b4",
 				Name: "改装",
 				EnableOnLoad: false,
@@ -2388,7 +2411,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.SimpleExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.SimpleExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "40e94794-0531-4bf1-ab21-967a406cb01b",
 				Name: "发出远征",
 				EnableOnLoad: false,
@@ -2408,7 +2431,7 @@
 		Name: "③ 38 油 2:55",
 		List: [
 			{
-				Type: "KancollePlayerSimulatorKai.SeriesByTimeWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.SeriesByTimeWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "c1f1c161-d6e9-4268-9f7e-453a0f9d6f66",
 				Name: "时间区间",
 				EnableOnLoad: true,
@@ -2436,13 +2459,36 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.SeriesByAlarmWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.SeriesByAlarmWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "6afdcdac-f485-4063-8203-66020007ab33",
 				Name: "定时启动",
 				EnableOnLoad: false,
 				ReferenceTime: 1,
 				Hours: 6,
 				Minutes: 0,
+				TriggerType: 1,
+				Workflows: [
+					{
+						Guid: "3c3dd1b2-05d8-45c0-aa10-846b6fb6c0b7",
+						Enabled: true,
+						IgnoreTriggerFailure: false
+					}
+				],
+				EnableScript: true,
+				Script: null,
+				TriggerOnEnabled: false
+			},
+			{
+				Type: "KancollePlayerSimulatorKai.SeriesByTimerWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
+				Guid: "3c3dd1b2-05d8-45c0-aa10-846b6fb6c0b7",
+				Name: "随机延迟",
+				EnableOnLoad: false,
+				Days: 0,
+				Hours: 0,
+				Minutes: 0,
+				Seconds: 0,
+				Random: "00:15:00",
+				Restart: false,
 				TriggerType: 1,
 				Workflows: [
 					{
@@ -2456,7 +2502,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.RelationalExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.RelationalExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "91f91227-6c17-4938-9ee9-54344058238f",
 				Name: "总控",
 				EnableOnLoad: false,
@@ -2519,7 +2565,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "73b43ffb-adcd-4778-bc51-8761b3915885",
 				Name: "编成",
 				EnableOnLoad: false,
@@ -2780,7 +2826,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.BasicRefitEquipmentWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.BasicRefitEquipmentWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "8261221f-3194-437c-8271-dd5040ea9898",
 				Name: "改装",
 				EnableOnLoad: false,
@@ -3562,7 +3608,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.SimpleExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.SimpleExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "40e94794-0531-4bf1-ab21-967a406cb01b",
 				Name: "发出远征",
 				EnableOnLoad: false,
@@ -3582,7 +3628,7 @@
 		Name: "④ 37 弹&钢 2:45",
 		List: [
 			{
-				Type: "KancollePlayerSimulatorKai.SeriesByTimeWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.SeriesByTimeWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "c1f1c161-d6e9-4268-9f7e-453a0f9d6f66",
 				Name: "时间区间",
 				EnableOnLoad: true,
@@ -3610,13 +3656,36 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.SeriesByAlarmWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.SeriesByAlarmWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "6afdcdac-f485-4063-8203-66020007ab33",
 				Name: "定时启动",
 				EnableOnLoad: false,
 				ReferenceTime: 1,
 				Hours: 6,
 				Minutes: 0,
+				TriggerType: 1,
+				Workflows: [
+					{
+						Guid: "a8285a44-79b3-44fa-be74-3f3c561e5b88",
+						Enabled: true,
+						IgnoreTriggerFailure: false
+					}
+				],
+				EnableScript: true,
+				Script: null,
+				TriggerOnEnabled: false
+			},
+			{
+				Type: "KancollePlayerSimulatorKai.SeriesByTimerWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
+				Guid: "a8285a44-79b3-44fa-be74-3f3c561e5b88",
+				Name: "随机延迟",
+				EnableOnLoad: false,
+				Days: 0,
+				Hours: 0,
+				Minutes: 0,
+				Seconds: 0,
+				Random: "00:15:00",
+				Restart: false,
 				TriggerType: 1,
 				Workflows: [
 					{
@@ -3630,7 +3699,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.RelationalExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.RelationalExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "91f91227-6c17-4938-9ee9-54344058238f",
 				Name: "总控",
 				EnableOnLoad: false,
@@ -3693,7 +3762,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "a8080866-d8a8-4af2-8fbc-a1f3221cfd0f",
 				Name: "编成",
 				EnableOnLoad: false,
@@ -3949,7 +4018,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.BasicRefitEquipmentWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.BasicRefitEquipmentWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "d735b554-3c58-4964-b40b-d8597a199979",
 				Name: "改装",
 				EnableOnLoad: false,
@@ -4671,7 +4740,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.SimpleExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.SimpleExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "40e94794-0531-4bf1-ab21-967a406cb01b",
 				Name: "发出远征",
 				EnableOnLoad: false,
@@ -4691,7 +4760,7 @@
 		Name: "⑤ 21 油 2:20",
 		List: [
 			{
-				Type: "KancollePlayerSimulatorKai.SeriesByTimeWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.SeriesByTimeWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "c1f1c161-d6e9-4268-9f7e-453a0f9d6f66",
 				Name: "时间区间",
 				EnableOnLoad: true,
@@ -4719,13 +4788,36 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.SeriesByAlarmWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.SeriesByAlarmWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "6afdcdac-f485-4063-8203-66020007ab33",
 				Name: "定时启动",
 				EnableOnLoad: false,
 				ReferenceTime: 1,
 				Hours: 6,
 				Minutes: 0,
+				TriggerType: 1,
+				Workflows: [
+					{
+						Guid: "8287f7c8-fdac-49be-8bc7-14307cb947a1",
+						Enabled: true,
+						IgnoreTriggerFailure: false
+					}
+				],
+				EnableScript: true,
+				Script: null,
+				TriggerOnEnabled: false
+			},
+			{
+				Type: "KancollePlayerSimulatorKai.SeriesByTimerWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
+				Guid: "8287f7c8-fdac-49be-8bc7-14307cb947a1",
+				Name: "随机延迟",
+				EnableOnLoad: false,
+				Days: 0,
+				Hours: 0,
+				Minutes: 0,
+				Seconds: 0,
+				Random: "00:15:00",
+				Restart: false,
 				TriggerType: 1,
 				Workflows: [
 					{
@@ -4739,7 +4831,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.RelationalExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.RelationalExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "91f91227-6c17-4938-9ee9-54344058238f",
 				Name: "总控",
 				EnableOnLoad: false,
@@ -4802,7 +4894,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "3e68d053-7dcc-4179-b86b-65692e58061e",
 				Name: "编成",
 				EnableOnLoad: false,
@@ -5063,7 +5155,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.BasicRefitEquipmentWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.BasicRefitEquipmentWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "e5cea33a-22d2-4934-be4e-60fea90d9ed0",
 				Name: "改装",
 				EnableOnLoad: false,
@@ -5913,7 +6005,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.SimpleExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.SimpleExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "40e94794-0531-4bf1-ab21-967a406cb01b",
 				Name: "发出远征",
 				EnableOnLoad: false,
@@ -5933,7 +6025,7 @@
 		Name: "⑥ 20 钢 2:00",
 		List: [
 			{
-				Type: "KancollePlayerSimulatorKai.SeriesByTimeWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.SeriesByTimeWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "c1f1c161-d6e9-4268-9f7e-453a0f9d6f66",
 				Name: "时间区间",
 				EnableOnLoad: true,
@@ -5961,13 +6053,36 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.SeriesByAlarmWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.SeriesByAlarmWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "6afdcdac-f485-4063-8203-66020007ab33",
 				Name: "定时启动",
 				EnableOnLoad: false,
 				ReferenceTime: 1,
 				Hours: 6,
 				Minutes: 0,
+				TriggerType: 1,
+				Workflows: [
+					{
+						Guid: "a1306f86-95dd-44b8-b915-a42572d8f74b",
+						Enabled: true,
+						IgnoreTriggerFailure: false
+					}
+				],
+				EnableScript: true,
+				Script: null,
+				TriggerOnEnabled: false
+			},
+			{
+				Type: "KancollePlayerSimulatorKai.SeriesByTimerWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
+				Guid: "a1306f86-95dd-44b8-b915-a42572d8f74b",
+				Name: "随机延迟",
+				EnableOnLoad: false,
+				Days: 0,
+				Hours: 0,
+				Minutes: 0,
+				Seconds: 0,
+				Random: "00:15:00",
+				Restart: false,
 				TriggerType: 1,
 				Workflows: [
 					{
@@ -5981,7 +6096,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.RelationalExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.RelationalExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "91f91227-6c17-4938-9ee9-54344058238f",
 				Name: "总控",
 				EnableOnLoad: false,
@@ -6044,7 +6159,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "b0e7a448-c000-4045-a51e-b75412d31afd",
 				Name: "编成",
 				EnableOnLoad: false,
@@ -6310,7 +6425,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.BasicRefitEquipmentWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.BasicRefitEquipmentWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "fe02fd4f-3188-4f62-ad5f-de524ffa645a",
 				Name: "改装",
 				EnableOnLoad: false,
@@ -7080,7 +7195,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.SimpleExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.SimpleExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "40e94794-0531-4bf1-ab21-967a406cb01b",
 				Name: "发出远征",
 				EnableOnLoad: false,
@@ -7100,7 +7215,7 @@
 		Name: "⑦ 5 油&弹 1:30",
 		List: [
 			{
-				Type: "KancollePlayerSimulatorKai.SeriesByTimeWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.SeriesByTimeWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "c1f1c161-d6e9-4268-9f7e-453a0f9d6f66",
 				Name: "时间区间",
 				EnableOnLoad: true,
@@ -7128,13 +7243,36 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.SeriesByAlarmWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.SeriesByAlarmWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "6afdcdac-f485-4063-8203-66020007ab33",
 				Name: "定时启动",
 				EnableOnLoad: false,
 				ReferenceTime: 1,
 				Hours: 6,
 				Minutes: 0,
+				TriggerType: 1,
+				Workflows: [
+					{
+						Guid: "0262b3f1-53b3-41d8-b064-5ba8d238de74",
+						Enabled: true,
+						IgnoreTriggerFailure: false
+					}
+				],
+				EnableScript: true,
+				Script: null,
+				TriggerOnEnabled: false
+			},
+			{
+				Type: "KancollePlayerSimulatorKai.SeriesByTimerWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
+				Guid: "0262b3f1-53b3-41d8-b064-5ba8d238de74",
+				Name: "随机延迟",
+				EnableOnLoad: false,
+				Days: 0,
+				Hours: 0,
+				Minutes: 0,
+				Seconds: 0,
+				Random: "00:15:00",
+				Restart: false,
 				TriggerType: 1,
 				Workflows: [
 					{
@@ -7148,7 +7286,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.RelationalExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.RelationalExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "91f91227-6c17-4938-9ee9-54344058238f",
 				Name: "总控",
 				EnableOnLoad: false,
@@ -7211,7 +7349,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "b0e7a448-c000-4045-a51e-b75412d31afd",
 				Name: "编成",
 				EnableOnLoad: false,
@@ -7482,7 +7620,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.BasicRefitEquipmentWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.BasicRefitEquipmentWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "3ec69977-c16b-4f82-b36b-9fa79e2f3813",
 				Name: "改装",
 				EnableOnLoad: false,
@@ -8252,7 +8390,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.SimpleExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.SimpleExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "40e94794-0531-4bf1-ab21-967a406cb01b",
 				Name: "发出远征",
 				EnableOnLoad: false,
@@ -8272,7 +8410,7 @@
 		Name: "⑧ 41 桶 1:00",
 		List: [
 			{
-				Type: "KancollePlayerSimulatorKai.SeriesByTimeWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.SeriesByTimeWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "c1f1c161-d6e9-4268-9f7e-453a0f9d6f66",
 				Name: "时间区间",
 				EnableOnLoad: true,
@@ -8300,13 +8438,36 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.SeriesByAlarmWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.SeriesByAlarmWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "6afdcdac-f485-4063-8203-66020007ab33",
 				Name: "定时启动",
 				EnableOnLoad: false,
 				ReferenceTime: 1,
 				Hours: 6,
 				Minutes: 0,
+				TriggerType: 1,
+				Workflows: [
+					{
+						Guid: "c3bbf665-b756-4931-bcd6-2b37b739fc36",
+						Enabled: true,
+						IgnoreTriggerFailure: false
+					}
+				],
+				EnableScript: true,
+				Script: null,
+				TriggerOnEnabled: false
+			},
+			{
+				Type: "KancollePlayerSimulatorKai.SeriesByTimerWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
+				Guid: "c3bbf665-b756-4931-bcd6-2b37b739fc36",
+				Name: "随机延迟",
+				EnableOnLoad: false,
+				Days: 0,
+				Hours: 0,
+				Minutes: 0,
+				Seconds: 0,
+				Random: "00:15:00",
+				Restart: false,
 				TriggerType: 1,
 				Workflows: [
 					{
@@ -8320,7 +8481,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.RelationalExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.RelationalExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "91f91227-6c17-4938-9ee9-54344058238f",
 				Name: "总控",
 				EnableOnLoad: false,
@@ -8383,7 +8544,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "b0e7a448-c000-4045-a51e-b75412d31afd",
 				Name: "编成",
 				EnableOnLoad: false,
@@ -8659,7 +8820,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.BasicRefitEquipmentWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.BasicRefitEquipmentWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "a9bf8ea4-9588-474a-9dc4-e7235603f9b4",
 				Name: "改装",
 				EnableOnLoad: false,
@@ -9573,7 +9734,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.SimpleExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.SimpleExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "40e94794-0531-4bf1-ab21-967a406cb01b",
 				Name: "发出远征",
 				EnableOnLoad: false,
@@ -9593,7 +9754,7 @@
 		Name: "⑨ A2 桶 0:55",
 		List: [
 			{
-				Type: "KancollePlayerSimulatorKai.SeriesByTimeWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.SeriesByTimeWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "c1f1c161-d6e9-4268-9f7e-453a0f9d6f66",
 				Name: "时间区间",
 				EnableOnLoad: true,
@@ -9621,13 +9782,36 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.SeriesByAlarmWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.SeriesByAlarmWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "6afdcdac-f485-4063-8203-66020007ab33",
 				Name: "定时启动",
 				EnableOnLoad: false,
 				ReferenceTime: 1,
 				Hours: 6,
 				Minutes: 0,
+				TriggerType: 1,
+				Workflows: [
+					{
+						Guid: "7420d40d-f901-4e23-84bc-6264adddabb8",
+						Enabled: true,
+						IgnoreTriggerFailure: false
+					}
+				],
+				EnableScript: true,
+				Script: null,
+				TriggerOnEnabled: false
+			},
+			{
+				Type: "KancollePlayerSimulatorKai.SeriesByTimerWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
+				Guid: "7420d40d-f901-4e23-84bc-6264adddabb8",
+				Name: "随机延迟",
+				EnableOnLoad: false,
+				Days: 0,
+				Hours: 0,
+				Minutes: 0,
+				Seconds: 0,
+				Random: "00:15:00",
+				Restart: false,
 				TriggerType: 1,
 				Workflows: [
 					{
@@ -9641,7 +9825,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.RelationalExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.RelationalExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "91f91227-6c17-4938-9ee9-54344058238f",
 				Name: "总控",
 				EnableOnLoad: false,
@@ -9704,7 +9888,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "23542b36-67f8-42af-8d85-75b1d8ee8ee9",
 				Name: "编成",
 				EnableOnLoad: false,
@@ -9936,7 +10120,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.BasicRefitEquipmentWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.BasicRefitEquipmentWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "f4a1663d-4d92-45ad-9a78-e5e918683704",
 				Name: "改装",
 				EnableOnLoad: false,
@@ -10587,7 +10771,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.SimpleExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.SimpleExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "40e94794-0531-4bf1-ab21-967a406cb01b",
 				Name: "发出远征",
 				EnableOnLoad: false,
@@ -10607,7 +10791,7 @@
 		Name: "⑩ 6 铝 0:40",
 		List: [
 			{
-				Type: "KancollePlayerSimulatorKai.SeriesByTimeWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.SeriesByTimeWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "c1f1c161-d6e9-4268-9f7e-453a0f9d6f66",
 				Name: "时间区间",
 				EnableOnLoad: true,
@@ -10635,13 +10819,36 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.SeriesByAlarmWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.SeriesByAlarmWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "6afdcdac-f485-4063-8203-66020007ab33",
 				Name: "定时启动",
 				EnableOnLoad: false,
 				ReferenceTime: 1,
 				Hours: 6,
 				Minutes: 0,
+				TriggerType: 1,
+				Workflows: [
+					{
+						Guid: "566323a2-89af-404a-9850-a88e5e0ddbeb",
+						Enabled: true,
+						IgnoreTriggerFailure: false
+					}
+				],
+				EnableScript: true,
+				Script: null,
+				TriggerOnEnabled: false
+			},
+			{
+				Type: "KancollePlayerSimulatorKai.SeriesByTimerWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
+				Guid: "566323a2-89af-404a-9850-a88e5e0ddbeb",
+				Name: "随机延迟",
+				EnableOnLoad: false,
+				Days: 0,
+				Hours: 0,
+				Minutes: 0,
+				Seconds: 0,
+				Random: "00:15:00",
+				Restart: false,
 				TriggerType: 1,
 				Workflows: [
 					{
@@ -10655,7 +10862,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.RelationalExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.RelationalExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "91f91227-6c17-4938-9ee9-54344058238f",
 				Name: "总控",
 				EnableOnLoad: false,
@@ -10718,7 +10925,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "b0e7a448-c000-4045-a51e-b75412d31afd",
 				Name: "编成",
 				EnableOnLoad: false,
@@ -10994,7 +11201,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.BasicRefitEquipmentWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.BasicRefitEquipmentWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "873e66f1-c674-49d6-9841-c5b0d8cafc73",
 				Name: "改装",
 				EnableOnLoad: false,
@@ -11764,7 +11971,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.SimpleExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.SimpleExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "40e94794-0531-4bf1-ab21-967a406cb01b",
 				Name: "发出远征",
 				EnableOnLoad: false,
@@ -11784,7 +11991,7 @@
 		Name: "⑪ B1 桶&铝 0:35",
 		List: [
 			{
-				Type: "KancollePlayerSimulatorKai.SeriesByTimeWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.SeriesByTimeWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "c1f1c161-d6e9-4268-9f7e-453a0f9d6f66",
 				Name: "时间区间",
 				EnableOnLoad: true,
@@ -11812,13 +12019,36 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.SeriesByAlarmWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.SeriesByAlarmWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "6afdcdac-f485-4063-8203-66020007ab33",
 				Name: "定时启动",
 				EnableOnLoad: false,
 				ReferenceTime: 1,
 				Hours: 6,
 				Minutes: 0,
+				TriggerType: 1,
+				Workflows: [
+					{
+						Guid: "7bfcf5fc-c4f5-458b-9b9b-73325dd7c138",
+						Enabled: true,
+						IgnoreTriggerFailure: false
+					}
+				],
+				EnableScript: true,
+				Script: null,
+				TriggerOnEnabled: false
+			},
+			{
+				Type: "KancollePlayerSimulatorKai.SeriesByTimerWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
+				Guid: "7bfcf5fc-c4f5-458b-9b9b-73325dd7c138",
+				Name: "随机延迟",
+				EnableOnLoad: false,
+				Days: 0,
+				Hours: 0,
+				Minutes: 0,
+				Seconds: 0,
+				Random: "00:15:00",
+				Restart: false,
 				TriggerType: 1,
 				Workflows: [
 					{
@@ -11832,7 +12062,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.RelationalExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.RelationalExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "91f91227-6c17-4938-9ee9-54344058238f",
 				Name: "总控",
 				EnableOnLoad: false,
@@ -11895,7 +12125,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "993a6286-36a0-4ba1-b16a-ed1c2755bf1f",
 				Name: "编成",
 				EnableOnLoad: false,
@@ -12161,7 +12391,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.BasicRefitEquipmentWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.BasicRefitEquipmentWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "0f91bbfa-3228-48d7-b1bc-0ed6baa238cf",
 				Name: "改装",
 				EnableOnLoad: false,
@@ -12931,7 +13161,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.SimpleExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.SimpleExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "40e94794-0531-4bf1-ab21-967a406cb01b",
 				Name: "发出远征",
 				EnableOnLoad: false,
@@ -12951,7 +13181,7 @@
 		Name: "⑫ 2 弹 0:30",
 		List: [
 			{
-				Type: "KancollePlayerSimulatorKai.SeriesByTimeWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.SeriesByTimeWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "c1f1c161-d6e9-4268-9f7e-453a0f9d6f66",
 				Name: "时间区间",
 				EnableOnLoad: true,
@@ -12979,13 +13209,36 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.SeriesByAlarmWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.SeriesByAlarmWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "6afdcdac-f485-4063-8203-66020007ab33",
 				Name: "定时启动",
 				EnableOnLoad: false,
 				ReferenceTime: 1,
 				Hours: 6,
 				Minutes: 0,
+				TriggerType: 1,
+				Workflows: [
+					{
+						Guid: "55cb24a2-8aba-48f3-8ea8-505bd60f6a77",
+						Enabled: true,
+						IgnoreTriggerFailure: false
+					}
+				],
+				EnableScript: true,
+				Script: null,
+				TriggerOnEnabled: false
+			},
+			{
+				Type: "KancollePlayerSimulatorKai.SeriesByTimerWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
+				Guid: "55cb24a2-8aba-48f3-8ea8-505bd60f6a77",
+				Name: "随机延迟",
+				EnableOnLoad: false,
+				Days: 0,
+				Hours: 0,
+				Minutes: 0,
+				Seconds: 0,
+				Random: "00:15:00",
+				Restart: false,
 				TriggerType: 1,
 				Workflows: [
 					{
@@ -12999,7 +13252,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.RelationalExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.RelationalExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "91f91227-6c17-4938-9ee9-54344058238f",
 				Name: "总控",
 				EnableOnLoad: false,
@@ -13062,7 +13315,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "b0e7a448-c000-4045-a51e-b75412d31afd",
 				Name: "编成",
 				EnableOnLoad: false,
@@ -13338,7 +13591,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.BasicRefitEquipmentWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.BasicRefitEquipmentWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "56fdd97a-5ae5-47b9-a991-9351e4651b80",
 				Name: "改装",
 				EnableOnLoad: false,
@@ -14108,7 +14361,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.SimpleExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.SimpleExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "003e03e2-1b53-4e55-a346-1c2d49bf90d5",
 				Name: "发出远征",
 				EnableOnLoad: false,
@@ -14128,7 +14381,7 @@
 		Name: "⑬ 3 钢 0:20",
 		List: [
 			{
-				Type: "KancollePlayerSimulatorKai.SeriesByTimeWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.SeriesByTimeWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "c1f1c161-d6e9-4268-9f7e-453a0f9d6f66",
 				Name: "时间区间",
 				EnableOnLoad: true,
@@ -14156,13 +14409,36 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.SeriesByAlarmWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.SeriesByAlarmWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "6afdcdac-f485-4063-8203-66020007ab33",
 				Name: "定时启动",
 				EnableOnLoad: false,
 				ReferenceTime: 1,
 				Hours: 6,
 				Minutes: 0,
+				TriggerType: 1,
+				Workflows: [
+					{
+						Guid: "ae018bed-173b-4004-8d17-d1e5e15457d3",
+						Enabled: true,
+						IgnoreTriggerFailure: false
+					}
+				],
+				EnableScript: true,
+				Script: null,
+				TriggerOnEnabled: false
+			},
+			{
+				Type: "KancollePlayerSimulatorKai.SeriesByTimerWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
+				Guid: "ae018bed-173b-4004-8d17-d1e5e15457d3",
+				Name: "随机延迟",
+				EnableOnLoad: false,
+				Days: 0,
+				Hours: 0,
+				Minutes: 0,
+				Seconds: 0,
+				Random: "00:15:00",
+				Restart: false,
 				TriggerType: 1,
 				Workflows: [
 					{
@@ -14176,7 +14452,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.RelationalExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.RelationalExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "91f91227-6c17-4938-9ee9-54344058238f",
 				Name: "总控",
 				EnableOnLoad: false,
@@ -14239,7 +14515,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "b0e7a448-c000-4045-a51e-b75412d31afd",
 				Name: "编成",
 				EnableOnLoad: false,
@@ -14515,7 +14791,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.BasicRefitEquipmentWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.BasicRefitEquipmentWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "a4dcbccc-6cba-40ad-8a2f-5ee63ac7ec9e",
 				Name: "改装",
 				EnableOnLoad: false,
@@ -15285,7 +15561,7 @@
 				TriggerOnEnabled: false
 			},
 			{
-				Type: "KancollePlayerSimulatorKai.SimpleExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.2, Culture=neutral, PublicKeyToken=null",
+				Type: "KancollePlayerSimulatorKai.SimpleExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
 				Guid: "40e94794-0531-4bf1-ab21-967a406cb01b",
 				Name: "发出远征",
 				EnableOnLoad: false,

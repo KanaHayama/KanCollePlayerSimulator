@@ -9,6 +9,8 @@
 	在填写函数的地方填写需要的函数名（见范例配置中的示例）
 
 更新记录：
+	20200623 - 2.1
+		默认排除不实用的船（まるゆ）
 	20200527 - 2.0
 		延迟初始化
 	20200211 - 1.3
@@ -41,6 +43,11 @@ def getEquipConstId(name):
 
 DLC_CONST_ID = getEquipConstId("大発動艇") #大发的ID，能带特大发的船大发也能带
 KHT_CONST_ID = getEquipConstId("甲標的 甲型")
+
+def getShipConstId(name):
+	return ShipConstUtility.Id([obj for obj in ShipConstUtility.All() if ShipConstUtility.Name(obj) == name][0])
+
+MARUYU_CONST_ID = getShipConstId("まるゆ")
 
 #===================================================#
 #                                                   #
@@ -106,6 +113,12 @@ def filterFrontProportion(shipObjs, proportion): # 保留前一定比例的船
 def filterBackProportion(shipObjs, proportion): # 保留后一定比例的船
 	return shipObjs[-int(math.ceil(len(shipObjs) * proportion)):]
 
+def filterPracticalness(shipObjs): # 筛掉不实用的船
+	global MARUYU_CONST_ID
+	return [shipObj for shipObj in shipObjs if not (\
+		getLevel(shipObj) < 100 and ShipConstUtility.Id(ShipConstUtility.Base(getConst(shipObj))) == MARUYU_CONST_ID \ # 未婚まるゆ
+	)]
+
 # 排序
 def sortByExperienceAsc(shipObjs): # 经验由低到高排序
 	return sorted(shipObjs, key=lambda x: getExperience(x))
@@ -145,7 +158,7 @@ def getList(key):
 		lists[key] = lambdas[key]()
 	return lists[key]
 
-lambdas["all"] = lambda: sortByExperienceAsc(ShipUtility.All(shipsState)) # 所有舰船，经验升序
+lambdas["all"] = lambda: sortByExperienceAsc(filterPracticalness(ShipUtility.All(shipsState))) # 所有舰船，经验升序
 lambdas["de"] = lambda: [shipObj for shipObj in getList("all") if ShipUtility.Type(shipObj) == ShipType.Escort] # DE
 lambdas["dd"] = lambda: [shipObj for shipObj in getList("all") if ShipUtility.Type(shipObj) == ShipType.Destroyer] # DD
 lambdas["cl"] = lambda: [shipObj for shipObj in getList("all") if ShipUtility.Type(shipObj) == ShipType.LightCruiser] # CL
@@ -246,7 +259,7 @@ def getOne(key):
 def dock_expedition(id): # 用于刷闪修理防止入渠不用于远征的船
 	# 每次都查询就太慢了，但这个确实需要更新，但又不需要更新得太频
 	from random import random
-	if random() <= 0.1:
+	if random() <= 0.05:
 		reset()
 	return id in getIds(getList("expedition"))
 
