@@ -839,7 +839,7 @@
 				LimitRepairTimeMinValue: "00:00:00",
 				LimitRepairTimeMaxValue: "10:00:00",
 				LimitMoraleFlag: true,
-				LimitMoraleMinValue: 83,
+				LimitMoraleMinValue: 73,
 				LimitMoraleMaxValue: 100,
 				LimitLevelFlag: false,
 				LimitLevelMinValue: 1,
