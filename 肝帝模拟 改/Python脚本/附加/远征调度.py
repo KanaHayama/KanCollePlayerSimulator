@@ -9,6 +9,8 @@
 	附加在一个用于控制的执行单元上和数个关联远征执行单元上。
 
 更新记录：
+	20200624 - 1.2
+		避免刷闪完成后冗余的发出远征指令。
 	20200621 - 1.1
 		资源相近时避免反复切换返回的最低资源种类。
 	20200604 - 1.0
@@ -69,6 +71,8 @@ MIN_KIRAKIRA_INTERVAL = 60 # 两次刷闪完成之间应至少间隔的秒数
 IS_MASTER = len([w for w in Workflow.ParentGroup if isinstance(w, SimpleExpeditionWorkflow)]) == 0
 
 fleetRecentExpedition = [None for _ in range(NUM_FLEET)] # 用于避免重复选择
+
+fleetFailedToSelectShip = [False for _ in range(NUM_FLEET)] # 记录编成失败导致没发出去远征的舰队
 
 lastKiraKiraFinishedTime = None
 
@@ -180,6 +184,9 @@ def isExpeditonReturnedEvent(e):
 def isKirakiraFinishedEvent(e):
 	return isinstance(e, UserEvent) and e.Message == MESSAGE_KIRAKIRA
 
+def isExpeditionFleetOrganizeFailedEvent(e):
+	return isinstance(e, OrganizeChangeFailedEvent) and 2 <= e.Fleet and e.Fleet <= 4
+
 #===================================================#
 #                                                   #
 #                        导出                       #
@@ -191,13 +198,15 @@ def OnEvent(e):
 	global IS_MASTER
 	# 根据被附加执行单元类型不同，执行不同内容
 	if IS_MASTER: # 负责发出指示
-		global MESSAGE_KIRAKIRA
 		if isExpeditonReturnedEvent(e) or isKirakiraFinishedEvent(e):
 			if isExpeditonReturnedEvent(e): 
 				Logger.Debug("远征舰队{}归来".format(e.Fleet))
 			global lastEvent
 			lastEvent = e
 			return True # 触发，之后会调用下面的OnProcess
+		if isExpeditionFleetOrganizeFailedEvent(e): # 监控远征舰队换编成失败事件，此时该舰队不能正常派出远征
+			global fleetFailedToSelectShip
+			fleetFailedToSelectShip[e.Fleet - 1] = True
 	else: # 负责接收指示
 		if isinstance(e, UserEvent): # 先判断一步，避免冗余计算
 			global MESSAGE_REGEX
@@ -238,7 +247,8 @@ def OnProcess():
 		notify(lastEvent.Fleet)
 		Logger.Debug("处理了舰队{}的远征归来事件".format(lastEvent.Fleet))
 	else: # 发出所有舰队（刷闪完成或者手动点击“立即触发“时）
-		causedByKirakiraFinished = lastEvent and isKirakiraFinishedEvent(lastEvent)
+		causedByKirakiraFinished = lastEvent and isKirakiraFinishedEvent(lastEvent) # 进入这里的原因
+		# 步骤1: 检查
 		if causedByKirakiraFinished:
 			global lastKiraKiraFinishedTime
 			now = datetime.now()
@@ -249,12 +259,19 @@ def OnProcess():
 					raise Exception("账号中的舰船不满足远征的要求，请检查后再试")
 					# 当然，这里也可以找出出错的远征然后换个远征跑，但那只是在掩盖问题
 			lastKiraKiraFinishedTime = now
+		# 步骤2: 安排发远征
 		global NUM_FLEET
+		global fleetFailedToSelectShip
 		fleetsState = GameState.Fleets()
 		for fleetIndex in range(1, NUM_FLEET): # 安排发出所有远征队
 			fleet = fleetIndex + 1
-			if FleetUtility.Enabled(fleet, fleetsState):
+			if FleetUtility.Enabled(fleet, fleetsState) and (\
+				not causedByKirakiraFinished \
+				or fleetFailedToSelectShip[fleetIndex] \
+			):
 				notify(fleet)
+				fleetFailedToSelectShip[fleetIndex] = False
+		# 步骤3： 安排刷闪
 		if not causedByKirakiraFinished:# 刚被通知刷完闪就不要再去刷了，避免死循环
 			global MESSAGE_INITIATE_KIRAKIRA
 			sendEvent(MESSAGE_INITIATE_KIRAKIRA) # 去刷闪
