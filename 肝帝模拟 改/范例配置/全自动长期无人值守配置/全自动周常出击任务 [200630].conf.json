@@ -7,7 +7,7 @@
 				Guid: "ac209274-2b56-4344-ade7-c2bec10b76c2",
 				Name: "使用说明",
 				EnableOnLoad: false,
-				Memo: "【介绍】\r\n每周自动出击打周常。\r\n用户无需提前设置舰队编成及装备。\r\n\r\n【Python脚本相关注意事项】\r\n本配置使用了python脚本以实现更复杂的判断。\r\n脚本部分使用了我个人偏好的设定，如果你想要修改，需要看得懂python。\r\n现在小学生都在学python，所以看懂的难度还是很低的。\r\n\r\n部分使用到的python脚本每次载入配置后首次执行时会经网络从github上获取脚本，无法正常访问github时配置不能正常运行。\r\n拉取python脚本的地址(raw.githubusercontent.com)与github主站的地址(github.com)并不相同，能正常访问后者不代表也能正常访问前者。\r\n未正常运行时可能的表现有很多种，常见的是报错说找不到某个函数。正常运行时不会有任何报错，但不报错不能代表一切正常。\r\n调整网络连接至能无障碍访问全球互联网后，关闭已经打开的配置再重新载入本配置即可正常使用。\r\n如不想调整网络连接或想修改python脚本，可自行下载python脚本并替换为使用本地版本脚本。\r\n但替换成本地版本python脚本后即失去自动从网络获取最新版python脚本的能力，需要自行留意相关更新。\r\n有多处需要替换，注意不要遗漏。请使用“设置脚本”功能挨个手动选取本地脚本。\r\n对于有足够计算机理论知识和操作能力的用户可以尝试使用文本编辑器批量替换（注意\\需转义为\\\\）。\r\n\r\n【要求】\r\n没改过的船不会被用到，以下都是指至少一改了的船。\r\n满足条件的船越多，越不用等待士气恢复。\r\n2-1配置需要6个SS或SSV。\r\n1-5配置需要4个DE。\r\n3-3、4-2、4-4配置需要能带甲标的CL，即阿武隈改二/由良改二/夕张改二。\r\n4-4配置需要3个CVE，即大鹰、神鹰、瑞凤改二、甘比尔湾。\r\n5-2配置需要打了孔（用于提速）的伊势改二/日向改二+翔鹤改二甲+瑞鹤改二甲，以及提速用的锅炉。\r\n\r\n【细节】\r\n该配置正在试验迭代阶段，之后可能还有提升空间，请留意配置的更新。\r\n\r\n该配置会自动选取各个任务使用的舰船和装备。\r\n这要求账号中该有的船都有、该改装的船都改完、各种装备够用、舰船等级够用。\r\n因为装备种类太多，所以没法把所有稀有装备都放入候选。如不满足以上要求或使用的配置你不喜欢，需自行调整。\r\n\r\n只有使用本程序交任务功能提交的前置任务，才会被后置任务的配置确认已经完成，否则无法成功串联执行。\r\n\r\n“あ号作戦”并不包含在本配置中，该任务可以依靠自动带闪远征配置配合自动接交基础任务配置完成。\r\n“海上通商破壊作戦”不需要单独的配置，会与“ろ号作戦”任务一起做。\r\n\r\n该配置仅包含出击相关的周常。\r\n即使这些任务的依赖关系并不是一个接一个，各个相关配置仍是串行执行，以避免不同配置同时执行导致的不必要的来回换船。\r\n\r\n建议同[自动接交基础任务]一同使用，以避免长时间出击过程中日常任务刷新，导致前置任务消失，后置任务接不到，或者占空间的任务过多没地方接任务导致执行失败。\r\n\r\n每次本配置执行完后会多出大量掉落的船占用船位或装备位，请及时清理，以免影响其他配置执行。\r\n可以在[⑨ 收尾]中自行加入解体步骤以实现自动清理。\r\n\r\n【使用方法】\r\n保持各个子配置的[总控]启用，会自动在前置任务“あ号作戦”领取任务奖励后依次执行各个配置（但做あ号这个步骤自身不包含在本配置中）。\r\n在需要手动或因外部因素各个配置的串行执行被打断时，可以手动触发指定的配置继续执行。\r\n\r\n【待后续优化】\r\n使用脚本实现灵活选装备。\r\n还不知道任务槽没扩增的账号中会不会因为不够用导致执行中断。\r\n5-2配置如果遇到没打孔的伊势或者日向会出错，需要后续为KCPS编成功能增加跳过没打孔的船的选项。\r\n\r\n[200623]",
+				Memo: "【介绍】\r\n每周自动出击打周常。\r\n用户无需提前设置舰队编成及装备。\r\n\r\n【Python脚本相关注意事项】\r\n本配置使用了python脚本以实现更复杂的判断。\r\n脚本部分使用了我个人偏好的设定，如果你想要修改，需要看得懂python。\r\n现在小学生都在学python，所以看懂的难度还是很低的。\r\n\r\n部分使用到的python脚本每次载入配置后首次执行时会经网络从github上获取脚本，无法正常访问github时配置不能正常运行。\r\n拉取python脚本的地址(raw.githubusercontent.com)与github主站的地址(github.com)并不相同，能正常访问后者不代表也能正常访问前者。\r\n未正常运行时可能的表现有很多种，常见的是报错说找不到某个函数。正常运行时不会有任何报错，但不报错不能代表一切正常。\r\n调整网络连接至能无障碍访问全球互联网后，关闭已经打开的配置再重新载入本配置即可正常使用。\r\n如不想调整网络连接或想修改python脚本，可自行下载python脚本并替换为使用本地版本脚本。\r\n但替换成本地版本python脚本后即失去自动从网络获取最新版python脚本的能力，需要自行留意相关更新。\r\n有多处需要替换，注意不要遗漏。请使用“设置脚本”功能挨个手动选取本地脚本。\r\n对于有足够计算机理论知识和操作能力的用户可以尝试使用文本编辑器批量替换（注意\\需转义为\\\\）。\r\n\r\n【要求】\r\n没改过的船不会被用到，以下都是指至少一改了的船。\r\n满足条件的船越多，越不用等待士气恢复。\r\n2-1配置需要6个SS或SSV。\r\n1-5配置需要4个DE。\r\n3-3、4-2、4-4配置需要能带甲标的CL，即阿武隈改二/由良改二/夕张改二。\r\n4-4配置需要3个CVE，即大鹰、神鹰、瑞凤改二、甘比尔湾。\r\n5-2配置需要打了孔（用于提速）的伊势改二/日向改二+翔鹤改二甲+瑞鹤改二甲，以及提速用的锅炉。\r\n\r\n【细节】\r\n该配置正在试验迭代阶段，之后可能还有提升空间，请留意配置的更新。\r\n\r\n该配置会自动选取各个任务使用的舰船和装备。\r\n这要求账号中该有的船都有、该改装的船都改完、各种装备够用、舰船等级够用。\r\n因为装备种类太多，所以没法把所有稀有装备都放入候选。如不满足以上要求或使用的配置你不喜欢，需自行调整。\r\n\r\n只有使用本程序交任务功能提交的前置任务，才会被后置任务的配置确认已经完成，否则无法成功串联执行。\r\n\r\n“あ号作戦”并不包含在本配置中，该任务可以依靠自动带闪远征配置配合自动接交基础任务配置完成。\r\n“海上通商破壊作戦”不需要单独的配置，会与“ろ号作戦”任务一起做。\r\n\r\n该配置仅包含出击相关的周常。\r\n即使这些任务的依赖关系并不是一个接一个，各个相关配置仍是串行执行，以避免不同配置同时执行导致的不必要的来回换船。\r\n\r\n建议同[自动接交基础任务]一同使用，以避免长时间出击过程中日常任务刷新，导致前置任务消失，后置任务接不到，或者占空间的任务过多没地方接任务导致执行失败。\r\n\r\n每次本配置执行完后会多出大量掉落的船占用船位或装备位，请及时清理，以免影响其他配置执行。\r\n可以在[⑨ 收尾]中自行加入解体步骤以实现自动清理。\r\n\r\n【使用方法】\r\n保持各个子配置的[总控]启用，会自动在前置任务“あ号作戦”领取任务奖励后依次执行各个配置（但做あ号这个步骤自身不包含在本配置中）。\r\n在需要手动或因外部因素各个配置的串行执行被打断时，可以手动触发指定的配置继续执行。\r\n\r\n【待后续优化】\r\n使用脚本实现灵活选装备。\r\n还不知道任务槽没扩增的账号中会不会因为不够用导致执行中断。\r\n5-2配置如果遇到没打孔的伊势或者日向会出错，需要后续为KCPS编成功能增加跳过没打孔的船的选项。\r\n\r\n[200630]",
 				EnableScript: true,
 				Script: null,
 				TriggerOnEnabled: false
@@ -446,7 +446,7 @@
 						FailIfAccepted: false,
 						SuccessIfFull: false,
 						EnableAcceptedQuestCache: true,
-						EnableExistanceQuestCache: false,
+						EnableExistanceQuestCache: true,
 						PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 						TypeHint: 0
 					},
@@ -463,7 +463,7 @@
 						FailIfAccepted: false,
 						SuccessIfFull: false,
 						EnableAcceptedQuestCache: true,
-						EnableExistanceQuestCache: false,
+						EnableExistanceQuestCache: true,
 						PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 						TypeHint: 0
 					},
@@ -480,7 +480,7 @@
 						FailIfAccepted: false,
 						SuccessIfFull: false,
 						EnableAcceptedQuestCache: true,
-						EnableExistanceQuestCache: false,
+						EnableExistanceQuestCache: true,
 						PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 						TypeHint: 0
 					},
@@ -497,7 +497,7 @@
 						FailIfAccepted: false,
 						SuccessIfFull: false,
 						EnableAcceptedQuestCache: true,
-						EnableExistanceQuestCache: false,
+						EnableExistanceQuestCache: true,
 						PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 						TypeHint: 0
 					},
@@ -514,7 +514,7 @@
 						FailIfAccepted: false,
 						SuccessIfFull: false,
 						EnableAcceptedQuestCache: true,
-						EnableExistanceQuestCache: false,
+						EnableExistanceQuestCache: true,
 						PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 						TypeHint: 0
 					},
@@ -531,7 +531,7 @@
 						FailIfAccepted: false,
 						SuccessIfFull: false,
 						EnableAcceptedQuestCache: true,
-						EnableExistanceQuestCache: false,
+						EnableExistanceQuestCache: true,
 						PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 						TypeHint: 0
 					}
@@ -563,7 +563,7 @@
 						Operation: 2,
 						Rewards: [],
 						EnableAcceptedQuestCache: true,
-						EnableExistanceQuestCache: false,
+						EnableExistanceQuestCache: true,
 						PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 						TypeHint: 0
 					},
@@ -580,7 +580,7 @@
 						Operation: 2,
 						Rewards: [],
 						EnableAcceptedQuestCache: true,
-						EnableExistanceQuestCache: false,
+						EnableExistanceQuestCache: true,
 						PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 						TypeHint: 0
 					},
@@ -597,7 +597,7 @@
 						Operation: 2,
 						Rewards: [],
 						EnableAcceptedQuestCache: true,
-						EnableExistanceQuestCache: false,
+						EnableExistanceQuestCache: true,
 						PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 						TypeHint: 0
 					},
@@ -614,7 +614,7 @@
 						Operation: 2,
 						Rewards: [],
 						EnableAcceptedQuestCache: true,
-						EnableExistanceQuestCache: false,
+						EnableExistanceQuestCache: true,
 						PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 						TypeHint: 0
 					},
@@ -631,7 +631,7 @@
 						Operation: 2,
 						Rewards: [],
 						EnableAcceptedQuestCache: true,
-						EnableExistanceQuestCache: false,
+						EnableExistanceQuestCache: true,
 						PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 						TypeHint: 0
 					},
@@ -648,7 +648,7 @@
 						Operation: 2,
 						Rewards: [],
 						EnableAcceptedQuestCache: true,
-						EnableExistanceQuestCache: false,
+						EnableExistanceQuestCache: true,
 						PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 						TypeHint: 0
 					}
@@ -680,7 +680,7 @@
 						Operation: 0,
 						Rewards: [],
 						EnableAcceptedQuestCache: true,
-						EnableExistanceQuestCache: false,
+						EnableExistanceQuestCache: true,
 						PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 						TypeHint: 0
 					},
@@ -697,7 +697,7 @@
 						Operation: 0,
 						Rewards: [],
 						EnableAcceptedQuestCache: true,
-						EnableExistanceQuestCache: false,
+						EnableExistanceQuestCache: true,
 						PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 						TypeHint: 0
 					},
@@ -714,7 +714,7 @@
 						Operation: 0,
 						Rewards: [],
 						EnableAcceptedQuestCache: true,
-						EnableExistanceQuestCache: false,
+						EnableExistanceQuestCache: true,
 						PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 						TypeHint: 0
 					},
@@ -731,7 +731,7 @@
 						Operation: 0,
 						Rewards: [],
 						EnableAcceptedQuestCache: true,
-						EnableExistanceQuestCache: false,
+						EnableExistanceQuestCache: true,
 						PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 						TypeHint: 0
 					},
@@ -748,7 +748,7 @@
 						Operation: 0,
 						Rewards: [],
 						EnableAcceptedQuestCache: true,
-						EnableExistanceQuestCache: false,
+						EnableExistanceQuestCache: true,
 						PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 						TypeHint: 0
 					},
@@ -765,7 +765,7 @@
 						Operation: 0,
 						Rewards: [],
 						EnableAcceptedQuestCache: true,
-						EnableExistanceQuestCache: false,
+						EnableExistanceQuestCache: true,
 						PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 						TypeHint: 0
 					}
@@ -2356,7 +2356,7 @@
 						FailIfAccepted: false,
 						SuccessIfFull: false,
 						EnableAcceptedQuestCache: true,
-						EnableExistanceQuestCache: false,
+						EnableExistanceQuestCache: true,
 						PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 						TypeHint: 0
 					},
@@ -2373,7 +2373,7 @@
 						FailIfAccepted: false,
 						SuccessIfFull: false,
 						EnableAcceptedQuestCache: true,
-						EnableExistanceQuestCache: false,
+						EnableExistanceQuestCache: true,
 						PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 						TypeHint: 0
 					},
@@ -2390,7 +2390,7 @@
 						FailIfAccepted: false,
 						SuccessIfFull: false,
 						EnableAcceptedQuestCache: true,
-						EnableExistanceQuestCache: false,
+						EnableExistanceQuestCache: true,
 						PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 						TypeHint: 0
 					}
@@ -2422,7 +2422,7 @@
 						Operation: 2,
 						Rewards: [],
 						EnableAcceptedQuestCache: true,
-						EnableExistanceQuestCache: false,
+						EnableExistanceQuestCache: true,
 						PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 						TypeHint: 0
 					},
@@ -2439,7 +2439,7 @@
 						Operation: 2,
 						Rewards: [],
 						EnableAcceptedQuestCache: true,
-						EnableExistanceQuestCache: false,
+						EnableExistanceQuestCache: true,
 						PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 						TypeHint: 0
 					},
@@ -2456,7 +2456,7 @@
 						Operation: 2,
 						Rewards: [],
 						EnableAcceptedQuestCache: true,
-						EnableExistanceQuestCache: false,
+						EnableExistanceQuestCache: true,
 						PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 						TypeHint: 0
 					}
@@ -2488,7 +2488,7 @@
 						Operation: 0,
 						Rewards: [],
 						EnableAcceptedQuestCache: true,
-						EnableExistanceQuestCache: false,
+						EnableExistanceQuestCache: true,
 						PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 						TypeHint: 0
 					},
@@ -2505,7 +2505,7 @@
 						Operation: 0,
 						Rewards: [],
 						EnableAcceptedQuestCache: true,
-						EnableExistanceQuestCache: false,
+						EnableExistanceQuestCache: true,
 						PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 						TypeHint: 0
 					},
@@ -2522,7 +2522,7 @@
 						Operation: 0,
 						Rewards: [],
 						EnableAcceptedQuestCache: true,
-						EnableExistanceQuestCache: false,
+						EnableExistanceQuestCache: true,
 						PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 						TypeHint: 0
 					}
@@ -3759,7 +3759,7 @@
 						FailIfAccepted: false,
 						SuccessIfFull: false,
 						EnableAcceptedQuestCache: true,
-						EnableExistanceQuestCache: false,
+						EnableExistanceQuestCache: true,
 						PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 						TypeHint: 0
 					}
@@ -3791,7 +3791,7 @@
 						Operation: 2,
 						Rewards: [],
 						EnableAcceptedQuestCache: true,
-						EnableExistanceQuestCache: false,
+						EnableExistanceQuestCache: true,
 						PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 						TypeHint: 0
 					}
@@ -3823,7 +3823,7 @@
 						Operation: 0,
 						Rewards: [],
 						EnableAcceptedQuestCache: true,
-						EnableExistanceQuestCache: false,
+						EnableExistanceQuestCache: true,
 						PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 						TypeHint: 0
 					}
@@ -4816,7 +4816,7 @@
 						FailIfAccepted: false,
 						SuccessIfFull: false,
 						EnableAcceptedQuestCache: true,
-						EnableExistanceQuestCache: false,
+						EnableExistanceQuestCache: true,
 						PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 						TypeHint: 0
 					}
@@ -4848,7 +4848,7 @@
 						Operation: 2,
 						Rewards: [],
 						EnableAcceptedQuestCache: true,
-						EnableExistanceQuestCache: false,
+						EnableExistanceQuestCache: true,
 						PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 						TypeHint: 0
 					}
@@ -4880,7 +4880,7 @@
 						Operation: 0,
 						Rewards: [],
 						EnableAcceptedQuestCache: true,
-						EnableExistanceQuestCache: false,
+						EnableExistanceQuestCache: true,
 						PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 						TypeHint: 0
 					}
@@ -6483,7 +6483,7 @@
 						FailIfAccepted: false,
 						SuccessIfFull: false,
 						EnableAcceptedQuestCache: true,
-						EnableExistanceQuestCache: false,
+						EnableExistanceQuestCache: true,
 						PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 						TypeHint: 0
 					},
@@ -6500,7 +6500,7 @@
 						FailIfAccepted: false,
 						SuccessIfFull: false,
 						EnableAcceptedQuestCache: true,
-						EnableExistanceQuestCache: false,
+						EnableExistanceQuestCache: true,
 						PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 						TypeHint: 0
 					},
@@ -6517,7 +6517,7 @@
 						FailIfAccepted: false,
 						SuccessIfFull: false,
 						EnableAcceptedQuestCache: true,
-						EnableExistanceQuestCache: false,
+						EnableExistanceQuestCache: true,
 						PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 						TypeHint: 0
 					}
@@ -6549,7 +6549,7 @@
 						Operation: 2,
 						Rewards: [],
 						EnableAcceptedQuestCache: true,
-						EnableExistanceQuestCache: false,
+						EnableExistanceQuestCache: true,
 						PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 						TypeHint: 0
 					},
@@ -6566,7 +6566,7 @@
 						Operation: 2,
 						Rewards: [],
 						EnableAcceptedQuestCache: true,
-						EnableExistanceQuestCache: false,
+						EnableExistanceQuestCache: true,
 						PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 						TypeHint: 0
 					},
@@ -6583,7 +6583,7 @@
 						Operation: 2,
 						Rewards: [],
 						EnableAcceptedQuestCache: true,
-						EnableExistanceQuestCache: false,
+						EnableExistanceQuestCache: true,
 						PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 						TypeHint: 0
 					}
@@ -6615,7 +6615,7 @@
 						Operation: 0,
 						Rewards: [],
 						EnableAcceptedQuestCache: true,
-						EnableExistanceQuestCache: false,
+						EnableExistanceQuestCache: true,
 						PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 						TypeHint: 0
 					},
@@ -6632,7 +6632,7 @@
 						Operation: 0,
 						Rewards: [],
 						EnableAcceptedQuestCache: true,
-						EnableExistanceQuestCache: false,
+						EnableExistanceQuestCache: true,
 						PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 						TypeHint: 0
 					},
@@ -6649,7 +6649,7 @@
 						Operation: 0,
 						Rewards: [],
 						EnableAcceptedQuestCache: true,
-						EnableExistanceQuestCache: false,
+						EnableExistanceQuestCache: true,
 						PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 						TypeHint: 0
 					}
@@ -8246,7 +8246,7 @@
 						FailIfAccepted: false,
 						SuccessIfFull: false,
 						EnableAcceptedQuestCache: true,
-						EnableExistanceQuestCache: false,
+						EnableExistanceQuestCache: true,
 						PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 						TypeHint: 0
 					}
@@ -8278,7 +8278,7 @@
 						Operation: 2,
 						Rewards: [],
 						EnableAcceptedQuestCache: true,
-						EnableExistanceQuestCache: false,
+						EnableExistanceQuestCache: true,
 						PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 						TypeHint: 0
 					}
@@ -8310,7 +8310,7 @@
 						Operation: 0,
 						Rewards: [],
 						EnableAcceptedQuestCache: true,
-						EnableExistanceQuestCache: false,
+						EnableExistanceQuestCache: true,
 						PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 						TypeHint: 0
 					}
@@ -9609,7 +9609,7 @@
 						FailIfAccepted: false,
 						SuccessIfFull: false,
 						EnableAcceptedQuestCache: true,
-						EnableExistanceQuestCache: false,
+						EnableExistanceQuestCache: true,
 						PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 						TypeHint: 0
 					}
@@ -9641,7 +9641,7 @@
 						Operation: 2,
 						Rewards: [],
 						EnableAcceptedQuestCache: true,
-						EnableExistanceQuestCache: false,
+						EnableExistanceQuestCache: true,
 						PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 						TypeHint: 0
 					}
@@ -9673,7 +9673,7 @@
 						Operation: 0,
 						Rewards: [],
 						EnableAcceptedQuestCache: true,
-						EnableExistanceQuestCache: false,
+						EnableExistanceQuestCache: true,
 						PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 						TypeHint: 0
 					}
@@ -11681,7 +11681,7 @@
 						FailIfAccepted: false,
 						SuccessIfFull: false,
 						EnableAcceptedQuestCache: true,
-						EnableExistanceQuestCache: false,
+						EnableExistanceQuestCache: true,
 						PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 						TypeHint: 0
 					}
@@ -11713,7 +11713,7 @@
 						Operation: 2,
 						Rewards: [],
 						EnableAcceptedQuestCache: true,
-						EnableExistanceQuestCache: false,
+						EnableExistanceQuestCache: true,
 						PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 						TypeHint: 0
 					}
@@ -11745,7 +11745,7 @@
 						Operation: 0,
 						Rewards: [],
 						EnableAcceptedQuestCache: true,
-						EnableExistanceQuestCache: false,
+						EnableExistanceQuestCache: true,
 						PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 						TypeHint: 0
 					}

@@ -6,7 +6,7 @@
 			Guid: "d7a6d6bf-0277-403c-86ba-c55823e3882c",
 			Name: "使用说明",
 			EnableOnLoad: false,
-			Memo: "【概述】\r\n每天自动做工厂日常。\r\n目前只包含开发和建造4个任务。\r\n\r\n【细节】\r\n建造渠没开全时会等待前一次建造完成后再继续建造。\r\n\r\n【使用方法】\r\n使用前需要自行确保执行前有足够的空船位和空装备位。\r\n保持所有带有附加触发条件的执行单元启用状态（直接“全部启用”即可），每天会做一次任务。\r\n\r\n【TODO】\r\n后续需补充废弃、装备改修能力。\r\n\r\n[200609]",
+			Memo: "【概述】\r\n每天自动做工厂日常。\r\n目前只包含开发和建造4个任务。\r\n\r\n【细节】\r\n建造渠没开全时会等待前一次建造完成后再继续建造。\r\n\r\n【使用方法】\r\n使用前需要自行确保执行前有足够的空船位和空装备位。\r\n保持所有带有附加触发条件的执行单元启用状态（直接“全部启用”即可），每天会做一次任务。\r\n\r\n【TODO】\r\n后续需补充废弃、装备改修能力。\r\n\r\n[200630]",
 			EnableScript: true,
 			Script: null,
 			TriggerOnEnabled: false
@@ -76,7 +76,7 @@
 					FailIfAccepted: false,
 					SuccessIfFull: false,
 					EnableAcceptedQuestCache: true,
-					EnableExistanceQuestCache: false,
+					EnableExistanceQuestCache: true,
 					PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 					TypeHint: 0
 				}
@@ -129,7 +129,7 @@
 					Operation: 2,
 					Rewards: [],
 					EnableAcceptedQuestCache: true,
-					EnableExistanceQuestCache: false,
+					EnableExistanceQuestCache: true,
 					PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 					TypeHint: 0
 				}
@@ -161,7 +161,7 @@
 					FailIfAccepted: false,
 					SuccessIfFull: false,
 					EnableAcceptedQuestCache: true,
-					EnableExistanceQuestCache: false,
+					EnableExistanceQuestCache: true,
 					PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 					TypeHint: 0
 				}
@@ -221,7 +221,7 @@
 					Operation: 2,
 					Rewards: [],
 					EnableAcceptedQuestCache: true,
-					EnableExistanceQuestCache: false,
+					EnableExistanceQuestCache: true,
 					PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 					TypeHint: 0
 				}
@@ -253,7 +253,7 @@
 					FailIfAccepted: false,
 					SuccessIfFull: false,
 					EnableAcceptedQuestCache: true,
-					EnableExistanceQuestCache: false,
+					EnableExistanceQuestCache: true,
 					PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 					TypeHint: 0
 				}
@@ -306,7 +306,7 @@
 					Operation: 2,
 					Rewards: [],
 					EnableAcceptedQuestCache: true,
-					EnableExistanceQuestCache: false,
+					EnableExistanceQuestCache: true,
 					PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 					TypeHint: 0
 				}
@@ -338,7 +338,7 @@
 					FailIfAccepted: false,
 					SuccessIfFull: false,
 					EnableAcceptedQuestCache: true,
-					EnableExistanceQuestCache: false,
+					EnableExistanceQuestCache: true,
 					PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 					TypeHint: 0
 				}
@@ -398,7 +398,7 @@
 					Operation: 2,
 					Rewards: [],
 					EnableAcceptedQuestCache: true,
-					EnableExistanceQuestCache: false,
+					EnableExistanceQuestCache: true,
 					PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 					TypeHint: 0
 				}
