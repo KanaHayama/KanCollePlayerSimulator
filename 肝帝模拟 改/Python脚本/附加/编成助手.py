@@ -151,11 +151,11 @@ def sortByLevelingPreference(shipObjs): # 以提升整体等级为目的的排�
 	return upgraded_below + notUpgraded_below + upgraded_above + notUpgraded_above + upgraded_99 + notUpgraded_99 + upgraded_max + notUpgraded_max
 
 def sortByForcePreference(shipObjs): # 强度排序[非99级， 满级， 99级]
-	level_not_99 = filterLevelNotAt99(shipObjs)
-	level_not_max = filterLevelNotAt(level_not_99, MAX_LEVEL)
-	max_and_99 = level_not_max + level_not_99
-	level99 = [shipObj for shipObj in shipObjs if shipObj not in max_and_99]
-	return sortByExperienceDesc(level_not_99) + max_and_99
+	level_99 = filterLevelAt(shipObjs, 99)
+	level_max = filterLevelAt(shipObjs, MAX_LEVEL)
+	max_and_99 = level_max + level_99
+	level_not_full = [shipObj for shipObj in shipObjs if shipObj not in max_and_99]
+	return sortByExperienceDesc(level_not_full) + max_and_99
 
 # 舰船集合（只列出了普遍用得着的；返回的舰船之后还会依据界面中的设置过滤一遍）
 shipsState = None # ShipUtility的一个参数，不提供也可以，但会每次都查询这个值，此处复用的话可以加速执行
