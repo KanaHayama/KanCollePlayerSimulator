@@ -136,7 +136,7 @@ def sortByExperienceDesc(shipObjs): # 经验由高到低排序
 def sortByIdAsc(shipObjs): # ID由低到高排序
 	return sorted(shipObjs, key=lambda x: getId(x))
 
-def sortByLevelingPreference(shipObjs): # 以提升整体等级为目的的排序[改后99级以下，改前99级以下，改后99级以上，改前99级以上]（同类内等级升序）
+def sortByLevelingPreference(shipObjs): # 以提升整体等级为目的的排序[改后99级以下，改前99级以下，改后99级以上，改前99级以上，其他]（同类内等级升序）
 	shipObjs = sortByExperienceAsc(shipObjs)
 	upgraded = filterUpgraded(shipObjs)
 	notUpgraded = [shipObj for shipObj in shipObjs if shipObj not in upgraded]
@@ -148,7 +148,7 @@ def sortByLevelingPreference(shipObjs): # 以提升整体等级为目的的排�
 	notUpgraded_above = filterLevelRange(notUpgraded, 99 + 1, MAX_LEVEL - 1)
 	notUpgraded_max = filterLevelAt(notUpgraded, MAX_LEVEL)
 	notUpgraded_99 = filterLevelAt(notUpgraded, 99)
-	return upgraded_below + notUpgraded_below + upgraded_above + notUpgraded_above
+	return upgraded_below + notUpgraded_below + upgraded_above + notUpgraded_above + upgraded_99 + notUpgraded_99 + upgraded_max + notUpgraded_max
 
 def sortByForcePreference(shipObjs): # 强度排序[非99级， 满级， 99级]
 	level_not_99 = filterLevelNotAt99(shipObjs)
