@@ -141,11 +141,11 @@ def sortByLevelingPreference(shipObjs): # 以提升整体等级为目的的排�
 	upgraded = filterUpgraded(shipObjs)
 	notUpgraded = [shipObj for shipObj in shipObjs if shipObj not in upgraded]
 	upgraded_below = filterLevelBelow(upgraded, 99)
-	upgraded_above = filterLevelRange(upgraded, 99, MAX_LEVEL)
+	upgraded_above = filterLevelRange(upgraded, 99 + 1, MAX_LEVEL - 1)
 	upgraded_max = filterLevelAt(notUpgraded, MAX_LEVEL)
 	upgraded_99 = filterLevelAt(upgraded, 99)
 	notUpgraded_below = filterLevelBelow(notUpgraded, 99)
-	notUpgraded_above = filterLevelRange(notUpgraded, 99, MAX_LEVEL)
+	notUpgraded_above = filterLevelRange(notUpgraded, 99 + 1, MAX_LEVEL - 1)
 	notUpgraded_max = filterLevelAt(notUpgraded, MAX_LEVEL)
 	notUpgraded_99 = filterLevelAt(notUpgraded, 99)
 	return upgraded_below + notUpgraded_below + upgraded_above + notUpgraded_above
@@ -224,6 +224,9 @@ lambdas["de_leveling"] = lambdas["de_expedition"] # 保持与旧版全自动远�
 lambdas["expedition"] = lambda: getList("cl_dlc") + getList("dd_dlc") + getList("cl_expedition") + getList("dd_expedition") + getList("cvl_expedition") + getList("av_expedition") + getList("de_expedition") + getList("ss_ssv_expedition") # 被用作全自动远征的船
 lambdas["disposable"] = lambda: sortByIdAsc(filterLevelRange(getList("dd"), 1, 5)) # 狗粮
 
+lambdas["bb_asc"] = lambda: sortByLevelingPreference(filterLocked(getList("bb"))) # BB练级排序
+lambdas["bbc_asc"] = lambda: sortByLevelingPreference(filterLocked(getList("bbc"))) # BBC练级排序
+lambdas["bbv_asc"] = lambda: sortByLevelingPreference(filterLocked(getList("bbv"))) # BBV练级排序
 lambdas["bb_bbc_bbv_asc"] = lambda: sortByLevelingPreference(filterLocked(getList("bb_bbc_bbv"))) # BB和BBC和BBV练级排序
 lambdas["cv_cvb_asc"] = lambda: sortByLevelingPreference(filterLocked(getList("cv_cvb"))) # CV和CVB练级排序
 lambdas["cvl_asc"] = lambda: sortByLevelingPreference(filterLocked(getList("cvl"))) # CVL练级排序
@@ -341,6 +344,9 @@ cl_leveling = cl_expedition # 保持与旧版全自动远征配置兼容性 TODO
 dd_leveling = dd_expedition # 保持与旧版全自动远征配置兼容性 TODO: 以后删掉
 de_leveling = de_expedition # 保持与旧版全自动远征配置兼容性 TODO: 以后删掉
 
+bb_asc = lambda : getOne("bb_asc")
+bbc_asc = lambda : getOne("bbc_asc")
+bbv_asc = lambda : getOne("bbv_asc")
 bb_bbc_bbv_asc = lambda : getOne("bb_bbc_bbv_asc")
 cv_cvb_asc = lambda : getOne("cv_cvb_asc")
 cvl_asc = lambda : getOne("cvl_asc")
