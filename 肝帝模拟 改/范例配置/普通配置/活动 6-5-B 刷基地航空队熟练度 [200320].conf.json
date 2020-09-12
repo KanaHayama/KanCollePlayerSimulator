@@ -6,7 +6,7 @@
 			Guid: "200b8372-ef2b-4423-b85e-3c39d6046ad8",
 			Name: "注意事项",
 			EnableOnLoad: false,
-			Memo: "使用前需配好足够陪练的编成候选舰船\r\n自行掌握停止时机\r\n\r\n[20200320]",
+			Memo: "使用前需配好足够陪练的编成候选舰船\r\n自行掌握停止时机\r\n\r\n[200320]",
 			EnableScript: true,
 			Script: null,
 			TriggerOnEnabled: false

@@ -42,7 +42,7 @@ equipmentObjs = EquipmentUtility.All()
 equipedEquipmentIds = ShipUtility.AllEquipments(shipObj)
 
 # 找到放在基地航空队中的装备
-landbasedEquipmentIds = [LandBasedAirCorpsUtility.SquadronPlane(s) for c in LandBasedAirCorpsUtility.AllCorps() for s in LandBasedAirCorpsUtility.AllSquadrons(c) ]
+landbasedEquipmentIds = [LandBasedAirCorpsUtility.SquadronPlaneEquipmentId(s) for c in LandBasedAirCorpsUtility.AllCorps() for s in LandBasedAirCorpsUtility.AllSquadrons(c) ]
 
 # 找到这艘船这个装备槽所有能使用的装备
 availableEquipmentObjs = [equipmentObj for equipmentObj in equipmentObjs if \

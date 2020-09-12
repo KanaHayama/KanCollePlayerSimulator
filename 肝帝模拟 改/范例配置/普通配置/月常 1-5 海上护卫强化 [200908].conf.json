@@ -1,19 +1,19 @@
 ﻿{
-	Name: "月常 5-1 水上打击部队",
+	Name: "月常 1-5 海上护卫强化",
 	List: [
 		{
 			Type: "KancollePlayerSimulatorKai.MemoWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
-			Guid: "032ac2f1-17c6-4833-8c18-7c50224da07b",
+			Guid: "76665e18-625d-4bd4-937e-b55c7f042a73",
 			Name: "注意事项",
 			EnableOnLoad: false,
-			Memo: "【使用前】\r\n需设定舰队编成以及装备后才能使用，也可以手动编成并装备后直接使用。\r\n3BB(限定)1CL2DD。\r\n\r\n【使用】\r\n选中[总控]后按“立即触发”。\r\n\r\n【出击】\r\nB-E-G-J。\r\n\r\n【行为】\r\n为确保循环之间被插入其他操作后仍然可以正常做任务，默认每个循环都检查有没有接任务。不想要这个行为的话可以把接任务放到循环开始前触发。\r\n考虑到用户可能同时自己在操作，这会影响缓存准确性，接任务不启用存在性缓存，所以每次都会进入页面查看。不想要这个行为的话可以启用任务存在性缓存选项。\r\n考虑到启动配置前任务可能已经被用户自行完成了一部分，所以每次都会进入页面查看能不能交任务。不想要这个行为的话可以去掉交任务一步，仅保留循环停止后取消任务。\r\n\r\n[200421]",
+			Memo: "【使用前】\r\n需设定舰队编成以及装备后才能使用，也可以手动编成并装备后直接使用。\r\n\r\n【使用】\r\n选中[总控]后按“立即触发”。\r\n\r\n【出击】\r\nA-D-E-G。\r\n\r\n【行为】\r\n为确保循环之间被插入其他操作后仍然可以正常做任务，默认每个循环都检查有没有接任务。不想要这个行为的话可以把接任务放到循环开始前触发。\r\n考虑到用户可能同时自己在操作，这会影响缓存准确性，接任务不启用存在性缓存，所以每次都会进入页面查看。不想要这个行为的话可以启用任务存在性缓存选项。\r\n考虑到启动配置前任务可能已经被用户自行完成了一部分，所以每次都会进入页面查看能不能交任务。不想要这个行为的话可以去掉交任务一步，仅保留循环停止后取消任务。\r\n\r\n[200908]",
 			EnableScript: true,
 			Script: null,
 			TriggerOnEnabled: false
 		},
 		{
 			Type: "KancollePlayerSimulatorKai.RelationalSortieWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
-			Guid: "1e231a9b-755e-4776-b5db-1ffd69b791a2",
+			Guid: "256adfbe-8ef9-4f48-92c7-cbf0c4e8aa13",
 			Name: "总控",
 			EnableOnLoad: false,
 			SleepTimeBase: "00:00:00",
@@ -30,14 +30,14 @@
 			QuestAfterOnlyTargetFleetFinishedEventCounted: true,
 			QuestBeforeWorkflows: [
 				{
-					Guid: "ade108eb-b38b-404f-afc5-cfd0d6d2b2ef",
+					Guid: "77156b50-7240-4192-96bf-6e3541e503dd",
 					Enabled: true,
 					IgnoreTriggerFailure: false
 				}
 			],
 			QuestAfterWorkflows: [
 				{
-					Guid: "94ee39f3-e49c-4c55-ae35-a6cf69120bee",
+					Guid: "e32dc30f-6391-406f-827b-809f75d3fc48",
 					Enabled: true,
 					IgnoreTriggerFailure: false
 				}
@@ -47,7 +47,7 @@
 			OrganizeAfterOnlyTargetFleetFinishedEventCounted: true,
 			OrganizeBeforeWorkflows: [
 				{
-					Guid: "09ee037f-9d14-4562-a996-ffb7c437cc49",
+					Guid: "07ff8871-d437-4da0-bef5-8a7c96b8d38d",
 					Enabled: true,
 					IgnoreTriggerFailure: false
 				}
@@ -58,7 +58,7 @@
 			RefitEquipmentAfterOnlyTargetFleetFinishedEventCounted: true,
 			RefitEquipmentBeforeWorkflows: [
 				{
-					Guid: "6ca6828a-49d0-4849-b0d6-f92866ad2e79",
+					Guid: "9100cb16-0c2a-4ee7-8ab5-15a6a5ea05d1",
 					Enabled: true,
 					IgnoreTriggerFailure: false
 				}
@@ -72,12 +72,12 @@
 			DockingAfterFinishedEventThreshold: 1,
 			DockingBeforeWorkflows: [
 				{
-					Guid: "294aeddc-94cd-42e0-90c8-b756902d6720",
+					Guid: "980364ee-c3d5-4209-bb62-a2c507518331",
 					Enabled: true,
 					IgnoreTriggerFailure: true
 				},
 				{
-					Guid: "047b8cc0-ca64-4f38-958a-16d6d2647c92",
+					Guid: "0476a99d-d6a3-49cb-9237-1c7db7dc513f",
 					Enabled: true,
 					IgnoreTriggerFailure: true
 				}
@@ -88,25 +88,25 @@
 			SupplyAfterOnlyTargetFleetFinishedEventCounted: true,
 			SupplyBeforeWorkflows: [
 				{
-					Guid: "27c650f7-fa4e-47d5-958e-6e7321831d91",
+					Guid: "150c6199-2c62-4ff0-9178-71b45403ecd7",
 					Enabled: true,
-					IgnoreTriggerFailure: true
+					IgnoreTriggerFailure: false
 				}
 			],
 			SupplyAfterWorkflows: [
 				{
-					Guid: "27c650f7-fa4e-47d5-958e-6e7321831d91",
+					Guid: "150c6199-2c62-4ff0-9178-71b45403ecd7",
 					Enabled: true,
 					IgnoreTriggerFailure: false
 				}
 			],
 			SortieWorkflow: {
-				Guid: "5bf42e2f-3e30-4057-bafa-4df37ac934b3",
+				Guid: "29f288f0-0c98-4ce8-b831-cdb342ab9e19",
 				Enabled: true,
 				IgnoreTriggerFailure: false
 			},
 			StopIfLoopCountLargerOrEqualThanFlag: true,
-			StopIfLoopCountLargerOrEqualThanValue: 5,
+			StopIfLoopCountLargerOrEqualThanValue: 15,
 			StopIfRuntimeLengthExceedFlag: false,
 			StopIfRuntimeLengthExceedValueDays: 0,
 			StopIfRuntimeLengthExceedValueHours: 0,
@@ -143,9 +143,9 @@
 			StopIfEnemyFlagShipSunkValueConditionValue: "1",
 			StopIfBattleRankHigherOrEqualThanFlag: true,
 			StopIfBattleRankHigherOrEqualThanValueConditionType: 1,
-			StopIfBattleRankHigherOrEqualThanValueConditionValue: "13",
-			StopIfBattleRankHigherOrEqualThanValueRank: 2,
-			StopIfBattleRankHigherOrEqualThanValueThreshold: 1,
+			StopIfBattleRankHigherOrEqualThanValueConditionValue: "11",
+			StopIfBattleRankHigherOrEqualThanValueRank: 3,
+			StopIfBattleRankHigherOrEqualThanValueThreshold: 10,
 			IgnoreQuestBeforeFailure: false,
 			IgnoreQuestAfterFailure: false,
 			IgnoreOrganizeBeforeFailure: false,
@@ -181,24 +181,24 @@
 			AutoStoppedEnableWorkflows: [],
 			AutoStoppedDisableWorkflows: [
 				{
-					Guid: "294aeddc-94cd-42e0-90c8-b756902d6720",
+					Guid: "980364ee-c3d5-4209-bb62-a2c507518331",
 					Enabled: true,
 					IgnoreTriggerFailure: false
 				},
 				{
-					Guid: "047b8cc0-ca64-4f38-958a-16d6d2647c92",
+					Guid: "0476a99d-d6a3-49cb-9237-1c7db7dc513f",
 					Enabled: true,
 					IgnoreTriggerFailure: false
 				}
 			],
 			AutoStoppedTriggerWorkflows: [
 				{
-					Guid: "de09570d-5788-4171-a4fb-f07f20213b37",
+					Guid: "728984a2-e94e-4382-82bf-039f477b39c5",
 					Enabled: true,
 					IgnoreTriggerFailure: false
 				},
 				{
-					Guid: "ec6d9b6e-075c-40b3-8648-e0e370a47b75",
+					Guid: "09dd6ef5-5c5e-4648-8ae0-612f9d3b604b",
 					Enabled: true,
 					IgnoreTriggerFailure: false
 				}
@@ -211,12 +211,12 @@
 		},
 		{
 			Type: "KancollePlayerSimulatorKai.SimpleSortieWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
-			Guid: "5bf42e2f-3e30-4057-bafa-4df37ac934b3",
-			Name: "5-1",
+			Guid: "29f288f0-0c98-4ce8-b831-cdb342ab9e19",
+			Name: "1-5",
 			EnableOnLoad: false,
 			Fleet: 1,
-			Sea: 5,
-			Area: 1,
+			Sea: 1,
+			Area: 5,
 			ResetDifficulty: false,
 			Difficulty: 0,
 			EscortShipNoHeavilyDamaged: true,
@@ -257,7 +257,7 @@
 				DefaultBattleRations: 0,
 				DefaultMaritimeResupply: 0,
 				DefaultEmergencyAnchorageRepair: 0,
-				DefaultFormation: 1,
+				DefaultFormation: 5,
 				DefaultMidnight: 1,
 				DefalutFlagShipDamageControl: 0,
 				DefaultEscortRetreat: 0,
@@ -271,37 +271,15 @@
 				{
 					Condition: {
 						Type: 1,
-						Value: 5
+						Value: 11
 					},
 					Strategy: {
-						Memo: "",
+						Memo: "G（BOSS，E→G）",
 						DefaultWayPoint: null,
 						DefaultBattleRations: 0,
 						DefaultMaritimeResupply: 0,
 						DefaultEmergencyAnchorageRepair: 0,
 						DefaultFormation: 5,
-						DefaultMidnight: 1,
-						DefalutFlagShipDamageControl: 0,
-						DefaultEscortRetreat: 0,
-						DefaultAdvance: 1,
-						RejectEscortRetreatIfMoreOrEqualThanTwoEscortShipsHeavilyDamaged: true,
-						EscortShipsHeavilyDamagedStrategy: 1,
-						RetreatIfModerateOrHeavierDamagedCountLargerOrEqualThanFlag: false,
-						RetreatIfModerateOrHeavierDamagedCountLargerOrEqualThanValue: 1
-					}
-				},
-				{
-					Condition: {
-						Type: 1,
-						Value: 13
-					},
-					Strategy: {
-						Memo: "",
-						DefaultWayPoint: null,
-						DefaultBattleRations: 0,
-						DefaultMaritimeResupply: 0,
-						DefaultEmergencyAnchorageRepair: 0,
-						DefaultFormation: 1,
 						DefaultMidnight: 2,
 						DefalutFlagShipDamageControl: 0,
 						DefaultEscortRetreat: 0,
@@ -322,7 +300,7 @@
 		},
 		{
 			Type: "KancollePlayerSimulatorKai.BasicSupplyFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
-			Guid: "27c650f7-fa4e-47d5-958e-6e7321831d91",
+			Guid: "150c6199-2c62-4ff0-9178-71b45403ecd7",
 			Name: "补给",
 			EnableOnLoad: false,
 			Fleet: 1,
@@ -336,11 +314,11 @@
 			ReturnRoomAtLast: false,
 			EnableScript: true,
 			Script: null,
-			TriggerOnEnabled: false
+			TriggerOnEnabled: true
 		},
 		{
 			Type: "KancollePlayerSimulatorKai.BasicDockingWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
-			Guid: "294aeddc-94cd-42e0-90c8-b756902d6720",
+			Guid: "980364ee-c3d5-4209-bb62-a2c507518331",
 			Name: "入渠（出击前）",
 			EnableOnLoad: false,
 			LimitFleetFlag: true,
@@ -356,7 +334,7 @@
 			LimitMoraleMaxValue: 100,
 			LimitLevelFlag: false,
 			LimitLevelMinValue: 1,
-			LimitLevelMaxValue: 200,
+			LimitLevelMaxValue: 999,
 			LimitLockStateFlag: false,
 			LimitLockStateValueLocked: true,
 			LimitLockStateValueUnlocked: false,
@@ -386,11 +364,11 @@
 			ReturnRoomAtLast: false,
 			EnableScript: true,
 			Script: null,
-			TriggerOnEnabled: false
+			TriggerOnEnabled: true
 		},
 		{
 			Type: "KancollePlayerSimulatorKai.BasicDockingWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
-			Guid: "047b8cc0-ca64-4f38-958a-16d6d2647c92",
+			Guid: "0476a99d-d6a3-49cb-9237-1c7db7dc513f",
 			Name: "捞出",
 			EnableOnLoad: false,
 			LimitFleetFlag: true,
@@ -440,14 +418,14 @@
 		},
 		{
 			Type: "KancollePlayerSimulatorKai.BasicAcceptQuestWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
-			Guid: "ade108eb-b38b-404f-afc5-cfd0d6d2b2ef",
+			Guid: "77156b50-7240-4192-96bf-6e3541e503dd",
 			Name: "接任务",
 			EnableOnLoad: false,
 			Quests: [
 				{
 					Enabled: true,
 					SelectMethod: 0,
-					SelectValue: "259",
+					SelectValue: "265",
 					Memo: "",
 					Priority: -23,
 					AllowReplaceLowPriorityTasks: true,
@@ -470,14 +448,14 @@
 		},
 		{
 			Type: "KancollePlayerSimulatorKai.BasicSubmitQuestWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
-			Guid: "94ee39f3-e49c-4c55-ae35-a6cf69120bee",
+			Guid: "e32dc30f-6391-406f-827b-809f75d3fc48",
 			Name: "交任务",
 			EnableOnLoad: false,
 			Quests: [
 				{
 					Enabled: true,
 					SelectMethod: 0,
-					SelectValue: "259",
+					SelectValue: "265",
 					Memo: "",
 					FailIfNotAccepted: false,
 					FailIfNotExist: false,
@@ -500,14 +478,14 @@
 		},
 		{
 			Type: "KancollePlayerSimulatorKai.BasicSubmitQuestWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
-			Guid: "de09570d-5788-4171-a4fb-f07f20213b37",
+			Guid: "728984a2-e94e-4382-82bf-039f477b39c5",
 			Name: "取消任务",
 			EnableOnLoad: false,
 			Quests: [
 				{
 					Enabled: true,
 					SelectMethod: 0,
-					SelectValue: "259",
+					SelectValue: "265",
 					Memo: "",
 					FailIfNotAccepted: false,
 					FailIfNotExist: false,
@@ -530,17 +508,17 @@
 		},
 		{
 			Type: "KancollePlayerSimulatorKai.SimpleRaiseUserEventWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
-			Guid: "ec6d9b6e-075c-40b3-8648-e0e370a47b75",
+			Guid: "09dd6ef5-5c5e-4648-8ae0-612f9d3b604b",
 			Name: "通知完成",
 			EnableOnLoad: false,
-			Message: "已空出任务槽",
+			Message: "已完成任务相关功能",
 			EnableScript: true,
 			Script: null,
 			TriggerOnEnabled: false
 		},
 		{
 			Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
-			Guid: "09ee037f-9d14-4562-a996-ffb7c437cc49",
+			Guid: "07ff8871-d437-4da0-bef5-8a7c96b8d38d",
 			Name: "编成（自行修改）",
 			EnableOnLoad: false,
 			Fleet: 1,
@@ -758,7 +736,7 @@
 		},
 		{
 			Type: "KancollePlayerSimulatorKai.BasicRefitEquipmentWorkflow, KancollePlayerSimulatorKai, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null",
-			Guid: "6ca6828a-49d0-4849-b0d6-f92866ad2e79",
+			Guid: "9100cb16-0c2a-4ee7-8ab5-15a6a5ea05d1",
 			Name: "改装（自行修改）",
 			EnableOnLoad: false,
 			Ships: [],

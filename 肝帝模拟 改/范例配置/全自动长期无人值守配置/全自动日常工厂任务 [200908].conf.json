@@ -2,17 +2,17 @@
 	Name: "【自动工厂日常】",
 	List: [
 		{
-			Type: "KancollePlayerSimulatorKai.MemoWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.MemoWorkflow, KancollePlayerSimulatorKai, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null",
 			Guid: "d7a6d6bf-0277-403c-86ba-c55823e3882c",
 			Name: "使用说明",
 			EnableOnLoad: false,
-			Memo: "【概述】\r\n每天自动做工厂日常。\r\n目前只包含开发和建造4个任务。\r\n\r\n【细节】\r\n建造渠没开全时会等待前一次建造完成后再继续建造。\r\n\r\n【使用方法】\r\n使用前需要自行确保执行前有足够的空船位和空装备位。\r\n保持所有带有附加触发条件的执行单元启用状态（直接“全部启用”即可），每天会做一次任务。\r\n\r\n【TODO】\r\n后续需补充废弃、装备改修能力。\r\n\r\n[200701]",
+			Memo: "【概述】\r\n每天自动做工厂日常。\r\n目前只包含开发、建造、解体，5个任务。\r\n\r\n【细节】\r\n使用前请把不想解体的船上锁。\r\n解体任务仅解体驱逐舰，且不会解体仅有一艘的船，详见解体相关设置。\r\n建造渠没开全时会等待前一次建造完成后再继续建造。\r\n可以把建造投入资源改为大型建造。使用自动远征功能，每天大建资源依然为正增长。\r\n\r\n【使用方法】\r\n使用前需要自行确保执行前有足够的空船位和空装备位。\r\n保持所有带有附加触发条件的执行单元启用状态（直接“全部启用”即可），每天会做一次任务。\r\n\r\n【待后续优化】\r\n执行时刻没有足够可用来解体的船时会无法继续执行。\r\n后续可能补充装备改修和废弃功能。\r\n\r\n[200908]",
 			EnableScript: true,
 			Script: null,
 			TriggerOnEnabled: false
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.SeriesByTimerWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.SeriesByTimerWorkflow, KancollePlayerSimulatorKai, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null",
 			Guid: "391fdbab-3336-412c-bfe4-d25b947abe2a",
 			Name: "立即",
 			EnableOnLoad: false,
@@ -35,7 +35,7 @@
 			TriggerOnEnabled: false
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.SeriesByTimerWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.SeriesByTimerWorkflow, KancollePlayerSimulatorKai, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null",
 			Guid: "5f0820c9-247b-4ff2-bfe9-ae645f53a7cf",
 			Name: "随机延迟",
 			EnableOnLoad: true,
@@ -58,7 +58,7 @@
 			TriggerOnEnabled: false
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.BasicAcceptQuestWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.BasicAcceptQuestWorkflow, KancollePlayerSimulatorKai, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null",
 			Guid: "0d113c3e-ec82-4e5b-a449-6126e71f75b2",
 			Name: "接开发1次",
 			EnableOnLoad: false,
@@ -90,7 +90,7 @@
 			TriggerOnEnabled: false
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.BasicDevelopmentWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.BasicDevelopmentWorkflow, KancollePlayerSimulatorKai, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null",
 			Guid: "e085c955-e95f-470d-9887-06bb4df9e41b",
 			Name: "开发1次",
 			EnableOnLoad: true,
@@ -111,7 +111,7 @@
 			TriggerOnEnabled: false
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.BasicSubmitQuestWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.BasicSubmitQuestWorkflow, KancollePlayerSimulatorKai, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null",
 			Guid: "4ccc8354-293c-45f2-a042-96f3f34abc63",
 			Name: "交开发1次",
 			EnableOnLoad: true,
@@ -143,7 +143,7 @@
 			TriggerOnEnabled: false
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.BasicAcceptQuestWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.BasicAcceptQuestWorkflow, KancollePlayerSimulatorKai, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null",
 			Guid: "da3efbc7-0ae4-4e39-b72f-4407441a7c86",
 			Name: "接建造1次",
 			EnableOnLoad: true,
@@ -175,7 +175,7 @@
 			TriggerOnEnabled: false
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.BasicConstructionWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.BasicConstructionWorkflow, KancollePlayerSimulatorKai, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null",
 			Guid: "d3fe1682-865f-4800-9b74-5f4847ff7f72",
 			Name: "建造1次",
 			EnableOnLoad: true,
@@ -203,7 +203,7 @@
 			TriggerOnEnabled: false
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.BasicSubmitQuestWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.BasicSubmitQuestWorkflow, KancollePlayerSimulatorKai, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null",
 			Guid: "e1e5981e-f6a5-4d35-9214-7dae5b8d6606",
 			Name: "交建造1次",
 			EnableOnLoad: true,
@@ -235,7 +235,7 @@
 			TriggerOnEnabled: false
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.BasicAcceptQuestWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.BasicAcceptQuestWorkflow, KancollePlayerSimulatorKai, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null",
 			Guid: "802fabcd-e820-404f-8be1-c9aa3d9acb6b",
 			Name: "接开发3次",
 			EnableOnLoad: true,
@@ -267,7 +267,7 @@
 			TriggerOnEnabled: false
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.BasicDevelopmentWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.BasicDevelopmentWorkflow, KancollePlayerSimulatorKai, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null",
 			Guid: "b2dbac89-0b09-401f-b4ce-b2ad28f33a53",
 			Name: "开发3次",
 			EnableOnLoad: true,
@@ -288,7 +288,7 @@
 			TriggerOnEnabled: false
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.BasicSubmitQuestWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.BasicSubmitQuestWorkflow, KancollePlayerSimulatorKai, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null",
 			Guid: "02b9e3c9-1584-4dcb-87b8-71d9e298a394",
 			Name: "交开发3次",
 			EnableOnLoad: true,
@@ -320,7 +320,7 @@
 			TriggerOnEnabled: false
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.BasicAcceptQuestWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.BasicAcceptQuestWorkflow, KancollePlayerSimulatorKai, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null",
 			Guid: "e51b14bc-161e-4987-9309-e2d0ef5ab719",
 			Name: "接建造3次",
 			EnableOnLoad: true,
@@ -352,7 +352,7 @@
 			TriggerOnEnabled: false
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.BasicConstructionWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.BasicConstructionWorkflow, KancollePlayerSimulatorKai, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null",
 			Guid: "a2ba9bd9-f6dd-4e76-bd7e-f9bd3e0891bd",
 			Name: "建造3次",
 			EnableOnLoad: true,
@@ -380,7 +380,7 @@
 			TriggerOnEnabled: false
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.BasicSubmitQuestWorkflow, KancollePlayerSimulatorKai, Version=1.4.1.3, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.BasicSubmitQuestWorkflow, KancollePlayerSimulatorKai, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null",
 			Guid: "6db93359-6c68-4bcb-8549-9fe622e4ea1e",
 			Name: "交建造3次",
 			EnableOnLoad: true,
@@ -406,9 +406,119 @@
 			RefreshDataTaskPriority: 0,
 			SubmitQuestTaskPriority: 11,
 			WaitHomeAtFirst: false,
-			ReturnRoomAtLast: true,
+			ReturnRoomAtLast: false,
 			EnableScript: true,
 			Script: "from KancollePlayerSimulatorKaiCore import *\r\n\r\nflag = False\r\ncounter = 0\r\n\r\ndef OnEvent(e):\r\n\tglobal flag\r\n\tglobal counter\r\n\tif isinstance(e, QuestAcceptFinishedEvent) and 608 in [quest.Id for quest in e.Quests]:\r\n\t\tcounter = 0\r\n\t\tflag = True\r\n\tif flag and isinstance(e, ConstructionFinishedEvent):\r\n\t\tcounter += len(e.ConstructionResults)\r\n\t\tif counter >= 3:\r\n\t\t\tflag = False\r\n\t\t\treturn True\r\n\treturn False",
+			TriggerOnEnabled: false
+		},
+		{
+			Type: "KancollePlayerSimulatorKai.BasicAcceptQuestWorkflow, KancollePlayerSimulatorKai, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null",
+			Guid: "1c108b38-f1f8-4b3e-a882-b4fdf3ebc3c1",
+			Name: "接解体2艘",
+			EnableOnLoad: true,
+			Quests: [
+				{
+					Enabled: true,
+					SelectMethod: 0,
+					SelectValue: "609",
+					Memo: "",
+					CheckBypassFlag: false,
+					CheckBypassValue: "",
+					Priority: -11,
+					AllowReplaceLowPriorityTasks: true,
+					FailIfNotExist: true,
+					FailIfAccepted: false,
+					SuccessIfFull: false,
+					EnableAcceptedQuestCache: true,
+					EnableExistanceQuestCache: true,
+					PredictionAcceptanceTimeThreadhold: "7.00:00:00",
+					TypeHint: 0
+				}
+			],
+			RefreshDataTaskPriority: 0,
+			AcceptQuestTaskPriority: 0,
+			WaitHomeAtFirst: false,
+			ReturnRoomAtLast: false,
+			EnableScript: true,
+			Script: "# Auto Generated Python Script\r\nfrom KancollePlayerSimulatorKai import *\r\nfrom KancollePlayerSimulatorKaiCore import *\r\ndef OnEvent(e):\r\n\tif isinstance(e, QuestSubmitFinishedEvent) and 608 in [quest.Id for quest in e.Quests]:\r\n\t\treturn True\r\n\tpass\r\n\treturn False",
+			TriggerOnEnabled: false
+		},
+		{
+			Type: "KancollePlayerSimulatorKai.BasicScrapShipWorkflow, KancollePlayerSimulatorKai, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null",
+			Guid: "7a2c8d67-628a-4580-ac50-349d92ab00d9",
+			Name: "解体2艘",
+			EnableOnLoad: true,
+			Threshold: 2,
+			Equipment: 0,
+			LimitFleetFlag: true,
+			LimitFleetValue: 4097,
+			LimitLevelFlag: false,
+			LimitLevelValueMin: 1,
+			LimitLevelValueMax: 999,
+			LimitHpPercentFlag: false,
+			LimitHpPercentValueMin: 0.0,
+			LimitHpPercentValueMax: 1.0,
+			IncludeShipTypes: [
+				2
+			],
+			SkipShipNames: [],
+			ProtectFlag: true,
+			ProtectValue: 1,
+			KeepFlag: true,
+			KeepValue: 3,
+			MaxFlag: true,
+			MaxValue: 2,
+			EnableScriptFilter: false,
+			FilterFunctionName: "OnFilter",
+			RefreshDataTaskPriority: 0,
+			ScrapShipTaskPriority: 0,
+			WaitHomeAtFirst: false,
+			RefreshDataBefore: false,
+			ReturnRoomAtLast: false,
+			EnableScript: true,
+			Script: "# Auto Generated Python Script\r\nfrom KancollePlayerSimulatorKai import *\r\nfrom KancollePlayerSimulatorKaiCore import *\r\ndef OnEvent(e):\r\n\tif isinstance(e, QuestAcceptFinishedEvent) and 609 in [quest.Id for quest in e.Quests]:\r\n\t\treturn True\r\n\tpass\r\n\treturn False",
+			TriggerOnEnabled: false
+		},
+		{
+			Type: "KancollePlayerSimulatorKai.BasicSubmitQuestWorkflow, KancollePlayerSimulatorKai, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null",
+			Guid: "cea50f1d-d513-4ea9-b76d-81b92313bded",
+			Name: "交解体2艘",
+			EnableOnLoad: true,
+			Quests: [
+				{
+					Enabled: true,
+					SelectMethod: 0,
+					SelectValue: "609",
+					Memo: "",
+					CheckBypassFlag: false,
+					CheckBypassValue: "",
+					FailIfNotAccepted: true,
+					FailIfNotExist: true,
+					FailIfOperationNotAllowed: true,
+					Operation: 2,
+					Rewards: [],
+					EnableAcceptedQuestCache: true,
+					EnableExistanceQuestCache: true,
+					PredictionAcceptanceTimeThreadhold: "7.00:00:00",
+					TypeHint: 0
+				}
+			],
+			RefreshDataTaskPriority: 0,
+			SubmitQuestTaskPriority: 0,
+			WaitHomeAtFirst: false,
+			ReturnRoomAtLast: true,
+			EnableScript: true,
+			Script: "from KancollePlayerSimulatorKaiCore import *\r\nflag = False\r\ndef OnEvent(e):\r\n\tglobal flag\r\n\tif isinstance(e, QuestAcceptFinishedEvent) and 609 in [quest.Id for quest in e.Quests]:\r\n\t\tflag = True\r\n\tif flag and (isinstance(e, DevelopmentFinishedEvent) or isinstance(e, ConstructionFinishedEvent) or isinstance(e, ScrapShipFinishedEvent)):\r\n\t\tflag = False\r\n\t\treturn True\r\n\treturn False",
+			TriggerOnEnabled: false
+		},
+		{
+			Type: "KancollePlayerSimulatorKai.SimpleRaiseUserEventWorkflow, KancollePlayerSimulatorKai, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null",
+			Guid: "4d2b7c42-0bce-44c3-ab1e-a8d34a08f853",
+			Name: "通知完成",
+			EnableOnLoad: true,
+			Message: "已完成任务相关功能",
+			EnableScript: true,
+			Script: "# Auto Generated Python Script\r\nfrom KancollePlayerSimulatorKai import *\r\nfrom KancollePlayerSimulatorKaiCore import *\r\ndef OnEvent(e):\r\n\tif isinstance(e, QuestSubmitFinishedEvent) and 609 in [quest.Id for quest in e.Quests]:\r\n\t\treturn True\r\n\tpass\r\n\treturn False",
 			TriggerOnEnabled: false
 		}
 	]
