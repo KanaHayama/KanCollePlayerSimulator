@@ -2,17 +2,17 @@
 	Name: "【自动演习】",
 	List: [
 		{
-			Type: "KancollePlayerSimulatorKai.MemoWorkflow, KancollePlayerSimulatorKai, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.MemoWorkflow, KancollePlayerSimulatorKai, Version=1.4.2.1, Culture=neutral, PublicKeyToken=null",
 			Guid: "5425acb4-71b3-4e99-be6f-d60fa0f56774",
 			Name: "使用说明",
 			EnableOnLoad: false,
-			Memo: "【概述】\r\n用于每天自动打两次演习。\r\n本配置不使用Python脚本，但提供了脚本样例，你可以参考其中的函数原型，以深度自定义。\r\n\r\n【使用前准备】\r\n因为考虑不同人打演习的目的大不相同，所以这里就不自动帮你编舰队了。\r\n因此这个配置要设置好[编成]和[改装]才能使用。\r\n默认提供了两种配置，有其他需求请自行增减和调整。\r\n选用配置的逻辑较简单，需要更复杂逻辑的请用Python。\r\n\r\n【阵型和夜战】\r\n目前不支持使用Python动态决定。\r\n目前无法基于昼战后的状态选择是否夜战。\r\n\r\n【使用方法】\r\n保持[随机延迟]启用状态，每日定时会自动开始执行。\r\n也可以通过直接手动触发[总控]立即打演习。\r\n\r\n【待后续优化】\r\n接任务失败导致拒绝演习的情况尚未设计重试的方案。\r\n但因为允许替换低优先级的任务，只要没有手动接任务却不做，遇到这个问题的几率应该不高。\r\n\r\n[200908]",
+			Memo: "【概述】\r\n用于每天自动打两次演习。\r\n本配置不使用Python脚本，但提供了脚本样例，你可以参考其中的函数原型，以深度自定义。\r\n\r\n【使用前准备】\r\n因为考虑不同人打演习的目的大不相同，所以这里就不自动帮你编舰队了。\r\n因此这个配置要设置好[编成]和[改装]才能使用。\r\n默认提供了两种配置，有其他需求请自行增减和调整。\r\n选用配置的逻辑较简单，需要更复杂逻辑的请用Python。\r\n\r\n【阵型和夜战】\r\n目前不支持使用Python动态决定。\r\n目前无法基于昼战后的状态选择是否夜战。\r\n\r\n【使用方法】\r\n保持[随机延迟]启用状态，每日定时会自动开始执行。\r\n也可以通过直接手动触发[总控]立即打演习。\r\n\r\n【待后续优化】\r\n接任务失败导致拒绝演习的情况尚未设计重试的方案。\r\n但因为允许替换低优先级的任务，只要没有手动接任务却不做，遇到这个问题的几率应该不高。\r\n\r\n[200917]",
 			EnableScript: true,
 			Script: null,
 			TriggerOnEnabled: false
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.SeriesByTimerWorkflow, KancollePlayerSimulatorKai, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.SeriesByTimerWorkflow, KancollePlayerSimulatorKai, Version=1.4.2.1, Culture=neutral, PublicKeyToken=null",
 			Guid: "33f7b8a5-622c-4221-9f1e-96996e21983e",
 			Name: "随机延迟",
 			EnableOnLoad: true,
@@ -35,7 +35,7 @@
 			TriggerOnEnabled: false
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.RelationalExerciseWorkflow, KancollePlayerSimulatorKai, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.RelationalExerciseWorkflow, KancollePlayerSimulatorKai, Version=1.4.2.1, Culture=neutral, PublicKeyToken=null",
 			Guid: "1c5f5ac2-0eca-40d7-9a86-743468893376",
 			Name: "总控",
 			EnableOnLoad: false,
@@ -312,7 +312,7 @@
 			TriggerOnEnabled: false
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.BasicAcceptQuestWorkflow, KancollePlayerSimulatorKai, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.BasicAcceptQuestWorkflow, KancollePlayerSimulatorKai, Version=1.4.2.1, Culture=neutral, PublicKeyToken=null",
 			Guid: "5e1292cf-90a2-48c5-843c-a53dd33c05e5",
 			Name: "接任务",
 			EnableOnLoad: false,
@@ -330,7 +330,7 @@
 					FailIfAccepted: false,
 					SuccessIfFull: false,
 					EnableAcceptedQuestCache: true,
-					EnableExistanceQuestCache: false,
+					EnableExistanceQuestCache: true,
 					PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 					TypeHint: 0
 				},
@@ -401,6 +401,40 @@
 					EnableExistanceQuestCache: true,
 					PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 					TypeHint: 0
+				},
+				{
+					Enabled: true,
+					SelectMethod: 0,
+					SelectValue: "326",
+					Memo: "夏季大演习",
+					CheckBypassFlag: false,
+					CheckBypassValue: "",
+					Priority: -14,
+					AllowReplaceLowPriorityTasks: true,
+					FailIfNotExist: false,
+					FailIfAccepted: false,
+					SuccessIfFull: false,
+					EnableAcceptedQuestCache: true,
+					EnableExistanceQuestCache: true,
+					PredictionAcceptanceTimeThreadhold: "7.00:00:00",
+					TypeHint: 0
+				},
+				{
+					Enabled: true,
+					SelectMethod: 0,
+					SelectValue: "313",
+					Memo: "秋季大演习",
+					CheckBypassFlag: false,
+					CheckBypassValue: "",
+					Priority: -14,
+					AllowReplaceLowPriorityTasks: true,
+					FailIfNotExist: false,
+					FailIfAccepted: false,
+					SuccessIfFull: false,
+					EnableAcceptedQuestCache: true,
+					EnableExistanceQuestCache: true,
+					PredictionAcceptanceTimeThreadhold: "7.00:00:00",
+					TypeHint: 0
 				}
 			],
 			RefreshDataTaskPriority: 0,
@@ -412,7 +446,7 @@
 			TriggerOnEnabled: false
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.BasicSubmitQuestWorkflow, KancollePlayerSimulatorKai, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.BasicSubmitQuestWorkflow, KancollePlayerSimulatorKai, Version=1.4.2.1, Culture=neutral, PublicKeyToken=null",
 			Guid: "cd1ccac2-0ec0-4cd9-aba3-8ec83ba556d8",
 			Name: "交任务",
 			EnableOnLoad: false,
@@ -501,6 +535,40 @@
 					EnableExistanceQuestCache: true,
 					PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 					TypeHint: 0
+				},
+				{
+					Enabled: true,
+					SelectMethod: 0,
+					SelectValue: "326",
+					Memo: "",
+					CheckBypassFlag: false,
+					CheckBypassValue: "",
+					FailIfNotAccepted: false,
+					FailIfNotExist: false,
+					FailIfOperationNotAllowed: false,
+					Operation: 2,
+					Rewards: [],
+					EnableAcceptedQuestCache: true,
+					EnableExistanceQuestCache: true,
+					PredictionAcceptanceTimeThreadhold: "7.00:00:00",
+					TypeHint: 0
+				},
+				{
+					Enabled: true,
+					SelectMethod: 0,
+					SelectValue: "313",
+					Memo: "",
+					CheckBypassFlag: false,
+					CheckBypassValue: "",
+					FailIfNotAccepted: false,
+					FailIfNotExist: false,
+					FailIfOperationNotAllowed: false,
+					Operation: 2,
+					Rewards: [],
+					EnableAcceptedQuestCache: true,
+					EnableExistanceQuestCache: true,
+					PredictionAcceptanceTimeThreadhold: "7.00:00:00",
+					TypeHint: 0
 				}
 			],
 			RefreshDataTaskPriority: 0,
@@ -512,7 +580,7 @@
 			TriggerOnEnabled: false
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.BasicSubmitQuestWorkflow, KancollePlayerSimulatorKai, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.BasicSubmitQuestWorkflow, KancollePlayerSimulatorKai, Version=1.4.2.1, Culture=neutral, PublicKeyToken=null",
 			Guid: "a85045b4-ae2f-4d3b-af82-8f0dbff23da5",
 			Name: "取消任务",
 			EnableOnLoad: false,
@@ -601,6 +669,40 @@
 					EnableExistanceQuestCache: true,
 					PredictionAcceptanceTimeThreadhold: "7.00:00:00",
 					TypeHint: 0
+				},
+				{
+					Enabled: true,
+					SelectMethod: 0,
+					SelectValue: "326",
+					Memo: "",
+					CheckBypassFlag: false,
+					CheckBypassValue: "",
+					FailIfNotAccepted: false,
+					FailIfNotExist: false,
+					FailIfOperationNotAllowed: false,
+					Operation: 1,
+					Rewards: [],
+					EnableAcceptedQuestCache: true,
+					EnableExistanceQuestCache: true,
+					PredictionAcceptanceTimeThreadhold: "7.00:00:00",
+					TypeHint: 0
+				},
+				{
+					Enabled: true,
+					SelectMethod: 0,
+					SelectValue: "313",
+					Memo: "",
+					CheckBypassFlag: false,
+					CheckBypassValue: "",
+					FailIfNotAccepted: false,
+					FailIfNotExist: false,
+					FailIfOperationNotAllowed: false,
+					Operation: 1,
+					Rewards: [],
+					EnableAcceptedQuestCache: true,
+					EnableExistanceQuestCache: true,
+					PredictionAcceptanceTimeThreadhold: "7.00:00:00",
+					TypeHint: 0
 				}
 			],
 			RefreshDataTaskPriority: 0,
@@ -612,7 +714,7 @@
 			TriggerOnEnabled: false
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.BasicDockingWorkflow, KancollePlayerSimulatorKai, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.BasicDockingWorkflow, KancollePlayerSimulatorKai, Version=1.4.2.1, Culture=neutral, PublicKeyToken=null",
 			Guid: "e8e81a42-fb35-4ede-92df-9d4959506a43",
 			Name: "入渠",
 			EnableOnLoad: false,
@@ -662,7 +764,7 @@
 			TriggerOnEnabled: false
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.BasicSupplyFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.BasicSupplyFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.2.1, Culture=neutral, PublicKeyToken=null",
 			Guid: "0ab15934-0ce2-47ac-b4c8-ce1bf428c2c4",
 			Name: "补给",
 			EnableOnLoad: false,
@@ -680,7 +782,7 @@
 			TriggerOnEnabled: false
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.SimpleRaiseUserEventWorkflow, KancollePlayerSimulatorKai, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.SimpleRaiseUserEventWorkflow, KancollePlayerSimulatorKai, Version=1.4.2.1, Culture=neutral, PublicKeyToken=null",
 			Guid: "10105b42-f86b-4c49-a36f-7316d07f1efc",
 			Name: "通知完成",
 			EnableOnLoad: false,
@@ -690,7 +792,7 @@
 			TriggerOnEnabled: false
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.2.1, Culture=neutral, PublicKeyToken=null",
 			Guid: "a8fced98-ae73-4b37-a239-6c3454e00cd6",
 			Name: "编成(对潜)",
 			EnableOnLoad: false,
@@ -711,7 +813,7 @@
 			TriggerOnEnabled: false
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.BasicRefitEquipmentWorkflow, KancollePlayerSimulatorKai, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.BasicRefitEquipmentWorkflow, KancollePlayerSimulatorKai, Version=1.4.2.1, Culture=neutral, PublicKeyToken=null",
 			Guid: "cd258b61-a609-42e9-b16e-a7be0d147bd7",
 			Name: "改装(对潜)",
 			EnableOnLoad: false,
@@ -726,7 +828,7 @@
 			TriggerOnEnabled: false
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.2.1, Culture=neutral, PublicKeyToken=null",
 			Guid: "24bec461-4b76-4221-a2b0-44025d72c1e5",
 			Name: "编成(默认)",
 			EnableOnLoad: false,
@@ -747,7 +849,7 @@
 			TriggerOnEnabled: false
 		},
 		{
-			Type: "KancollePlayerSimulatorKai.BasicRefitEquipmentWorkflow, KancollePlayerSimulatorKai, Version=1.4.2.0, Culture=neutral, PublicKeyToken=null",
+			Type: "KancollePlayerSimulatorKai.BasicRefitEquipmentWorkflow, KancollePlayerSimulatorKai, Version=1.4.2.1, Culture=neutral, PublicKeyToken=null",
 			Guid: "f3c851c1-5383-4924-9798-3139d3d4219b",
 			Name: "改装(默认)",
 			EnableOnLoad: false,
