@@ -9,6 +9,8 @@
 	在填写函数的地方填写需要的函数名（见范例配置中的示例）
 
 更新记录：
+	20201006 - 2.3
+		补充常用舰种
 	20200806 - 2.2
 		修改导出函数
 	20200623 - 2.1
@@ -45,6 +47,8 @@ def getEquipConstId(name):
 
 DLC_CONST_ID = getEquipConstId("大発動艇") #大发的ID，能带特大发的船大发也能带
 KHT_CONST_ID = getEquipConstId("甲標的 甲型")
+TNN_CONST_ID = getEquipConstId("特二式内火艇")
+SBC_CONST_ID = getEquipConstId("増設バルジ(中型艦)")
 
 def getShipConstId(name):
 	return ShipConstUtility.Id([obj for obj in ShipConstUtility.All() if ShipConstUtility.Name(obj) == name][0])
@@ -209,6 +213,9 @@ lambdas["dd_dlc"] = lambda: filterEquiptable(getList("dd_upgraded"), DLC_CONST_I
 lambdas["cl_no_dlc"] = lambda: filterNotEquiptable(getList("cl_upgraded"), DLC_CONST_ID) # 不可以带大发的CL
 lambdas["dd_no_dlc"] = lambda: filterNotEquiptable(getList("dd_upgraded"), DLC_CONST_ID) # 不可以带大发的DD
 lambdas["cl_kht"] = lambda: filterEquiptable(getList("cl_upgraded"), KHT_CONST_ID) # 可以带甲标的CL
+lambdas["dd_tnn"] = lambda: filterEquiptable(getList("dd_upgraded"), TNN_CONST_ID) # 可以带内火艇的DD
+lambdas["dd_dlc_tnn"] = lambda: filterEquiptable(filterEquiptable(getList("dd_upgraded"), DLC_CONST_ID), TNN_CONST_ID) # 可以带大发和内火艇的DD
+lambdas["dd_sbc"] = lambda: filterEquiptable(getList("dd_upgraded"), SBC_CONST_ID) # 可以带甲板的DD
 
 lambdas["cl_expedition"] = lambda: filterFrontProportion(sortByLevelingPreference(getList("cl_no_dlc")), 0.8) # 需要靠远征练级的CL
 lambdas["dd_expedition"] = lambda: filterFrontProportion(sortByLevelingPreference(getList("dd_no_dlc")), 0.8) # 需要靠远征练级的DD
@@ -216,10 +223,6 @@ lambdas["cvl_expedition"] = lambda: filterFrontProportion(sortByLevelingPreferen
 lambdas["av_expedition"] = lambda: filterFrontProportion(sortByLevelingPreference(getList("av_upgraded")), 0.8) # 需要靠远征练级的AV
 lambdas["de_expedition"] = lambda: filterFrontProportion(sortByLevelingPreference(getList("de_upgraded")), 0.8) # 需要靠远征练级的DE
 lambdas["ss_ssv_expedition"] = lambda: filterFrontProportion(sortByLevelingPreference(getList("ss_ssv_upgraded")), 0.8) # 需要靠远征练级的SS和SSV
-lambdas["cl_leveling"] = lambdas["cl_expedition"] # 保持与旧版全自动远征配置兼容性 TODO: 以后删掉
-lambdas["dd_leveling"] = lambdas["dd_expedition"] # 保持与旧版全自动远征配置兼容性 TODO: 以后删掉
-lambdas["av_leveling"] = lambdas["av_expedition"] # 保持与旧版全自动远征配置兼容性 TODO: 以后删掉
-lambdas["de_leveling"] = lambdas["de_expedition"] # 保持与旧版全自动远征配置兼容性 TODO: 以后删掉
 
 lambdas["expedition"] = lambda: getList("cl_dlc") + getList("dd_dlc") + getList("cl_expedition") + getList("dd_expedition") + getList("cvl_expedition") + getList("av_expedition") + getList("de_expedition") + getList("ss_ssv_expedition") # 被用作全自动远征的船
 lambdas["disposable"] = lambda: sortByIdAsc(filterLevelRange(getList("dd"), 1, 5)) # 狗粮
@@ -228,6 +231,8 @@ lambdas["bb_asc"] = lambda: sortByLevelingPreference(filterLocked(getList("bb"))
 lambdas["bbc_asc"] = lambda: sortByLevelingPreference(filterLocked(getList("bbc"))) # BBC练级排序
 lambdas["bbv_asc"] = lambda: sortByLevelingPreference(filterLocked(getList("bbv"))) # BBV练级排序
 lambdas["bb_bbc_bbv_asc"] = lambda: sortByLevelingPreference(filterLocked(getList("bb_bbc_bbv"))) # BB和BBC和BBV练级排序
+lambdas["cv_asc"] = lambda: sortByLevelingPreference(filterLocked(getList("cv"))) # CV练级排序
+lambdas["cvb_asc"] = lambda: sortByLevelingPreference(filterLocked(getList("cvb"))) # CVB练级排序
 lambdas["cv_cvb_asc"] = lambda: sortByLevelingPreference(filterLocked(getList("cv_cvb"))) # CV和CVB练级排序
 lambdas["cvl_asc"] = lambda: sortByLevelingPreference(filterLocked(getList("cvl"))) # CVL练级排序
 lambdas["cv_cvb_cvl_asc"] = lambda: sortByLevelingPreference(filterLocked(getList("cv_cvb_cvl"))) # CV和CVB和CVL练级排序
@@ -240,11 +245,18 @@ lambdas["clt_asc"] = lambda: sortByLevelingPreference(filterLocked(getList("clt"
 lambdas["ct_asc"] = lambda: sortByLevelingPreference(filterLocked(getList("ct"))) # CT练级排序
 lambdas["dd_asc"] = lambda: sortByLevelingPreference(filterLocked(getList("dd"))) # DD练级排序
 lambdas["de_asc"] = lambda: sortByLevelingPreference(filterLocked(getList("de"))) # DE练级排序
+lambdas["ss_asc"] = lambda: sortByLevelingPreference(filterLocked(getList("ss"))) # SS练级排序
+lambdas["ssv_asc"] = lambda: sortByLevelingPreference(filterLocked(getList("ssv"))) # SSV练级排序
 lambdas["ss_ssv_asc"] = lambda: sortByLevelingPreference(filterLocked(getList("ss_ssv"))) # SS和SSV练级排序
+lambdas["ao_asc"] = lambda: sortByLevelingPreference(filterLocked(getList("ao"))) # AO练级排序
+lambdas["as_asc"] = lambda: sortByLevelingPreference(filterLocked(getList("as"))) # AS练级排序
 
+lambdas["bb_desc"] = lambda: sortByForcePreference(filterLocked(getList("bb"))) # BB强度排序
 lambdas["bbc_desc"] = lambda: sortByForcePreference(filterLocked(getList("bbc"))) # BBC强度排序
 lambdas["bbv_desc"] = lambda: sortByForcePreference(filterLocked(getList("bbv"))) # BBV强度排序
 lambdas["bb_bbc_bbv_desc"] = lambda: sortByForcePreference(filterLocked(getList("bb_bbc_bbv"))) # BB和BBC和BBV强度排序
+lambdas["cv_desc"] = lambda: sortByForcePreference(filterLocked(getList("cv"))) # CV强度排序
+lambdas["cvb_desc"] = lambda: sortByForcePreference(filterLocked(getList("cvb"))) # CVB强度排序
 lambdas["cv_cvb_desc"] = lambda: sortByForcePreference(filterLocked(getList("cv_cvb"))) # CV和CVB强度排序
 lambdas["cvl_desc"] = lambda: sortByForcePreference(filterLocked(getList("cvl"))) # CVL强度排序
 lambdas["cv_cvb_cvl_desc"] = lambda: sortByForcePreference(filterLocked(getList("cv_cvb_cvl"))) # CV和CVB和CVL强度排序
@@ -257,7 +269,16 @@ lambdas["clt_desc"] = lambda: sortByForcePreference(filterLocked(getList("clt"))
 lambdas["ct_desc"] = lambda: sortByForcePreference(filterLocked(getList("ct"))) # CT强度排序
 lambdas["cl_kht_desc"] = lambda: sortByForcePreference(filterLocked(getList("cl_kht"))) # 可以带甲标的CL强度排序
 lambdas["dd_desc"] = lambda: sortByForcePreference(filterLocked(getList("dd"))) # DD强度排序
+lambdas["dd_dlc_desc"] = lambda: sortByForcePreference(filterLocked(getList("dd_dlc"))) # 可以带大发的DD强度排序
+lambdas["dd_tnn_desc"] = lambda: sortByForcePreference(filterLocked(getList("dd_tnn"))) # 可以带内火艇的DD强度排序
+lambdas["dd_dlc_tnn_desc"] = lambda: sortByForcePreference(filterLocked(getList("dd_dlc_tnn"))) # 可以带大发和内火艇的DD强度排序
+lambdas["dd_sbc_desc"] = lambda: sortByForcePreference(filterLocked(getList("dd_sbc"))) # 可以带甲板的DD强度排序
 lambdas["de_desc"] = lambda: sortByForcePreference(filterLocked(getList("de"))) # DE强度排序
+lambdas["ss_desc"] = lambda: sortByForcePreference(filterLocked(getList("ss"))) # SS强度排序
+lambdas["ssv_desc"] = lambda: sortByForcePreference(filterLocked(getList("ssv"))) # SSV强度排序
+lambdas["ss_ssv_desc"] = lambda: sortByForcePreference(filterLocked(getList("ss_ssv"))) # SS和SSV强度排序
+lambdas["ao_desc"] = lambda: sortByForcePreference(filterLocked(getList("ao"))) # AO强度排序
+lambdas["as_desc"] = lambda: sortByForcePreference(filterLocked(getList("as"))) # AS强度排序
 
 # 迭代器
 iters = {}
@@ -339,15 +360,13 @@ cl_expedition = lambda : getOne("cl_expedition")
 dd_expedition = lambda : getOne("dd_expedition")
 de_expedition = lambda : getOne("de_expedition")
 ss_ssv_expedition = lambda : getOne("ss_ssv_expedition")
-av_leveling = av_expedition # 保持与旧版全自动远征配置兼容性 TODO: 以后删掉
-cl_leveling = cl_expedition # 保持与旧版全自动远征配置兼容性 TODO: 以后删掉
-dd_leveling = dd_expedition # 保持与旧版全自动远征配置兼容性 TODO: 以后删掉
-de_leveling = de_expedition # 保持与旧版全自动远征配置兼容性 TODO: 以后删掉
 
 bb_asc = lambda : getOne("bb_asc")
 bbc_asc = lambda : getOne("bbc_asc")
 bbv_asc = lambda : getOne("bbv_asc")
 bb_bbc_bbv_asc = lambda : getOne("bb_bbc_bbv_asc")
+cv_asc = lambda : getOne("cv_asc")
+cvb_asc = lambda : getOne("cvb_asc")
 cv_cvb_asc = lambda : getOne("cv_cvb_asc")
 cvl_asc = lambda : getOne("cvl_asc")
 cv_cvb_cvl_asc = lambda : getOne("cv_cvb_cvl_asc")
@@ -360,11 +379,18 @@ clt_asc = lambda : getOne("clt_asc")
 ct_asc = lambda : getOne("ct_asc")
 dd_asc = lambda : getOne("dd_asc")
 de_asc = lambda : getOne("de_asc")
+ss_asc = lambda : getOne("ss_asc")
+ssv_asc = lambda : getOne("ssv_asc")
 ss_ssv_asc = lambda : getOne("ss_ssv_asc")
+ao_asc = lambda : getOne("ao_asc")
+as_asc = lambda : getOne("as_asc")
 
+bb_desc = lambda : getOne("bb_desc")
 bbc_desc = lambda : getOne("bbc_desc")
 bbv_desc = lambda : getOne("bbv_desc")
 bb_bbc_bbv_desc = lambda : getOne("bb_bbc_bbv_desc")
+cv_desc = lambda : getOne("cv_desc")
+cvb_desc = lambda : getOne("cvb_desc")
 cv_cvb_desc = lambda : getOne("cv_cvb_desc")
 cvl_desc = lambda : getOne("cvl_desc")
 cv_cvb_cvl_desc = lambda : getOne("cv_cvb_cvl_desc")
@@ -377,4 +403,13 @@ clt_desc = lambda : getOne("clt_desc")
 ct_desc = lambda : getOne("ct_desc")
 cl_kht_desc = lambda : getOne("cl_kht_desc")
 dd_desc = lambda : getOne("dd_desc")
+dd_dlc_desc = lambda : getOne("dd_dlc_desc")
+dd_tnn_desc = lambda : getOne("dd_tnn_desc")
+dd_dlc_tnn_desc = lambda : getOne("dd_dlc_tnn_desc")
+dd_sbc_desc = lambda : getOne("dd_sbc_desc")
 de_desc = lambda : getOne("de_desc")
+ss_asc = lambda : getOne("ss_asc")
+ssv_asc = lambda : getOne("ssv_asc")
+ss_ssv_asc = lambda : getOne("ss_ssv_asc")
+ao_desc = lambda : getOne("ao_desc")
+as_desc = lambda : getOne("as_desc")
