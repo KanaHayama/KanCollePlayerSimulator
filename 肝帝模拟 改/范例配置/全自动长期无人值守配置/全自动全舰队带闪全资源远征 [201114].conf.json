@@ -7,7 +7,7 @@
 				Guid: "f112774b-a87a-463c-b6be-de0bf3bcbad8",
 				Name: "使用说明",
 				EnableOnLoad: true,
-				Memo: "【介绍】\r\n本配置可以根据用户账户中的资源量选择远征，以均衡且快速地攒资源。\r\n用户无需提前设置舰队编成及装备。\r\n\r\n【要求】\r\n本配置为通用配置，只要不是萌新账号缺这个少那个的话，应该都能运行。\r\n如果出现问题，请依据遇到的具体问题修改配置。\r\n配置中使用到：\r\n①全部舰队\r\n②临时补给功能\r\n③至少7个可以带大发的驱逐（6个用于远征，1+个用于轮换。如果实在没有，请自行修改编成设置）\r\n④远征会用到的各种一改后的船（CVL、AV、CL、DD、DE、SS/SSV）\r\n⑤越多越好的大发\r\n⑥足够的运输桶\r\n⑦其他一些用于满足远征舰队数值要求的装备\r\n⑧解锁所有子配置中用到的远征\r\n⑨足够的空闲船位和装备位（用于轮换狗粮，约10船位，同时使用其他自动出击配置可能导致不满足该条件）\r\n\r\n【细节】\r\n该配置正在试验迭代阶段，之后可能还有提升空间，请留意配置的更新。\r\n\r\n只考虑油、弹、钢、铝、高速修复，五种资源。\r\n\r\n动态选择远征实现的原理是动态修改各个子配置中的各个执行单元的舰队属性。\r\n选择的远征并非综合考虑所有种类资源时获得资源最快的远征，而是某单项资源获取速度最快的远征。\r\n月常远征不包含在内。\r\n没开全所需远征的账号会无法正常使用。\r\n如不想或不能跑某远征，可自行替换为其他远征。\r\n替换时要同时替换子配置的设置与python脚本中的远征号，只改其一会导致舰队空闲。\r\n\r\n部分远征附加了最基本的检查函数，仅检查了旗舰的等级，并未检查所有的远征成功条件。\r\n为了提升整体练度，远征优先使用等级低的船（但都至少要一改）。\r\n对于有舰队数值最低要求的远征，需自行确认是否满足要求（对于练度足够的账号，随便配都够用）。\r\n若自动配出的舰队不满足远征要求，请自行修改编成或装备设置。\r\n为了保持设置简洁，装备设置并未将一些数值优秀但少有的装备考虑在内，如确实需要，请自行添加。\r\n\r\n本配置已经限制了每日运行时长，每天下半夜休息6小时，但对于3个短远征来说仍然比较危险。\r\n强烈建议改一个适合你自己的运行时间区间，否则用这个配置的人都早上6点开始放远征就不太妙了。\r\n此修改涉及所有子配置的两个时间设置相关的执行单元的时间。\r\n\r\n若某个需要带闪船的位置没有可用的带闪船则会刷完闪再发该远征。\r\n刷闪配置为非DE出击1-1，DE出击1-5前2个点。\r\n1-1会带1个狗粮，如有不需要带狗粮或者去其他图刷的请自行修改。\r\n禁止沉船，包括狗粮，所以狗粮不会沉。\r\n为避免浪费闪，刷闪时士气刷到73或以上后就停止。\r\n因为出击刷闪一次最多增加13点士气，士气最高为85，因此士气73时再刷可能会浪费1点士气。\r\n\r\n因为狗粮大破和中破后就不能继续使用了，如果缺少空闲船位或装备位用于补充狗粮，本配置会无法正常运行。\r\n本配置会拆所有没上锁的驱逐，以保证总有位置放新的狗粮，请在使用前确保已经锁定了不想拆的船。\r\n自动捞船时尤其要留心这一问题。如不需要拆狗粮，请自行修改设置。\r\n因为还没有拆装备功能，为避免装备爆仓，所以狗粮不卸装备。\r\n\r\n显然，同时手动打游戏是会冲突的。\r\n同时其他配置做别的出击不会冲突，不需要关闭本配置。\r\n但多个同时打开的本配置及本配置的修改版可能会冲突。\r\n\r\n小破的船也会被送去远征，如果你不想这样，请修改远征配置里的编成功能，跳过血量在0%~99%的船。\r\n\r\n【你可能想修改的设置】\r\n①要跑的远征以及对应的编成、装备。尤其是你可以带大发的驱逐不够时你需要把部分用大发驱逐的地方改成普通驱逐。\r\n②允许用来修复刷闪船的修复渠（默认不使用第1修复渠）。\r\n③是否允许小破的船远征（默认允许）。\r\n④每天停止发出远征的时间段（0点-6点）。\r\n⑤刷闪的方法。\r\n⑥刷闪的程度（默认刷到73或以上就停）。\r\n⑦解体水上机母舰和轻空母（1-5D点掉落，会占用船位，默认不解体）。\r\n\r\n【使用方法】\r\n保持本执行单元（即[使用说明]）与每个子配置的控制用执行单元（即[时间区间]）启用状态，触发本执行单元（即[使用说明]），可以自动跑远征。\r\n\r\n【Python脚本相关注意事项】\r\n本配置使用了python脚本以实现更复杂的判断。\r\n脚本部分使用了我个人偏好的设定，如果你想要修改，需要看得懂python。\r\n现在小学生都在学python，所以看懂的难度还是很低的。\r\n\r\n部分使用到的python脚本每次载入配置后首次执行时会经网络从kcps.info上获取脚本，无法正常访问kcps.info时配置不能正常运行。\r\n未正常运行时可能的表现有很多种，常见的是报错说找不到某个函数。正常运行时不会有任何报错，但不报错不能代表一切正常。\r\n如确实无法连接kcps.info（比如网站被攻击时）或想修改python脚本，可自行下载python脚本并将配置中的路径替换为本地版本脚本的路径。\r\n但替换成本地版本python脚本后即失去自动从网络获取最新版python脚本的能力，需要自行留意相关更新。\r\n有多处需要替换，注意不要遗漏。请使用“设置脚本”功能挨个手动选取本地脚本。\r\n对于有足够计算机理论知识和操作能力的用户可以尝试使用文本编辑器批量替换（注意\\需转义为\\\\）。\r\n\r\n[201016]",
+				Memo: "【介绍】\r\n本配置可以根据用户账户中的资源量选择远征，以均衡且快速地攒资源。\r\n用户无需提前设置舰队编成及装备。\r\n\r\n【要求】\r\n本配置为通用配置，只要不是萌新账号缺这个少那个的话，应该都能运行。\r\n如果出现问题，请依据遇到的具体问题修改配置。\r\n配置中使用到：\r\n①全部舰队\r\n②临时补给功能\r\n③至少7个可以带大发的驱逐（6个用于远征，1+个用于轮换。如果实在没有，请自行修改编成设置）\r\n④远征会用到的各种一改后的船（CVL、AV、CL、DD、DE）\r\n⑤越多越好的大发\r\n⑥足够的运输桶\r\n⑦其他一些用于满足远征舰队数值要求的装备\r\n⑧解锁所有子配置中用到的远征\r\n⑨足够的空闲船位和装备位（用于轮换狗粮，约10船位，同时使用其他自动出击配置可能导致不满足该条件）\r\n\r\n【细节】\r\n该配置正在试验迭代阶段，之后可能还有提升空间，请留意配置的更新。\r\n\r\n只考虑油、弹、钢、铝、高速修复，五种资源。\r\n\r\n动态选择远征实现的原理是动态修改各个子配置中的各个执行单元的舰队属性。\r\n选择的远征为综合考虑所有资源后收益最大化且能实现各项资源均衡增长的远征。\r\n月常远征不包含在内。\r\n没开全所需远征的账号会无法正常使用。\r\n如不想或不能跑某远征，可自行替换为其他远征。\r\n替换时要同时替换子配置的设置与python脚本中的远征信息，只改其一会导致舰队空闲。\r\n\r\n部分远征附加了最基本的检查函数，仅检查了旗舰的等级，并未检查所有的远征成功条件。\r\n为了提升整体练度，远征优先使用等级低的船（但都至少要一改）。\r\n对于有舰队数值最低要求的远征，需自行确认是否满足要求（对于练度足够的账号，随便配都够用）。\r\n若自动配出的舰队不满足远征要求，请自行修改编成或装备设置，比如设置跳过低等级舰船。\r\n为了保持设置简洁，换装备设置并未将一些数值优秀但少有的装备考虑在内，如确实需要，请自行添加。\r\n\r\n本配置已经限制了每日运行时长，每天下半夜休息6小时，但对于3个短远征来说仍然比较危险。\r\n强烈建议改一个适合你自己的运行时间区间，否则用这个配置的人都早上6点开始放远征就不太妙了。\r\n此修改涉及所有子配置的两个时间设置相关的执行单元的时间。\r\n如果想晚上放长远征，请自行添加晚上定时启动远征的配置。\r\n\r\n若某个需要带闪船的位置没有可用的带闪船则会刷完（所有）闪再发该远征。\r\n如果使用时没有足够带闪船库存（比如第一次使用时），如未事先或中途无人工干预则全部船刷完闪后会开始正常放远征。\r\n刷闪配置为非DE出击1-1，DE出击1-5前2个点。\r\n1-1会带1个狗粮，如有不需要带狗粮或者去其他图刷的请自行修改。\r\n禁止沉船，包括狗粮，所以狗粮不会沉。\r\n为避免浪费闪，刷闪时士气刷到73或以上后就停止。\r\n因为出击刷闪一次最多增加13点士气，士气最高为85，因此士气73时再刷可能会浪费1点士气。\r\n\r\n因为狗粮大破和中破后就不能继续使用了，如果缺少空闲船位或装备位用于补充狗粮，本配置会无法正常运行。\r\n本配置会拆所有没上锁的驱逐，以保证总有位置放新的狗粮，请在使用前确保已经锁定了不想拆的船。\r\n拆船防侠保护已开启，所以上一条倒也不用过分担心，但还是请及时上锁。\r\n同时自动捞船时尤其要留心拆船问题。如不需要拆狗粮，请自行修改设置。\r\n因为还没有拆装备功能，为避免装备爆仓，所以狗粮不卸装备。\r\n\r\n显然，同时手动打游戏是会冲突的。\r\n同时其他配置做别的出击不会冲突，不需要关闭本配置。\r\n但多个同时打开的本配置及本配置的修改版可能会冲突。\r\n\r\n小破的船也会被送去远征，如果你不想这样，请修改远征配置里的编成功能，跳过血量在0%~99%的船。\r\n\r\n【你可能想修改的设置】\r\n①要跑的远征以及对应的编成、装备。尤其是你可以带大发的驱逐不够时你需要把部分用大发驱逐的地方改成普通驱逐。\r\n②允许用来修复刷闪船的修复渠（默认不使用第1修复渠）。\r\n③是否允许小破的船远征（默认允许）。\r\n④每天停止发出远征的时间段（0点-6点）。\r\n⑤刷闪的方法。\r\n⑥刷闪的程度（默认刷到73或以上就停）。\r\n⑦解体水上机母舰和轻空母（1-5D点掉落，会占用船位，默认不解体）。\r\n⑧是否使用DE（不用DE的话就删掉各个子配置里DE的编成候选项，也可设置跳过低等级DE，刷闪配置也别忘了改）。\r\n\r\n【使用方法】\r\n保持本执行单元（即[使用说明]）与每个子配置的控制用执行单元（即[时间区间]）启用状态，触发本执行单元（即[使用说明]），可以自动跑远征。\r\n\r\n【Python脚本相关注意事项】\r\n本配置使用了python脚本以实现更复杂的判断。\r\n脚本部分使用了我个人偏好的设定，如果你想要修改，需要看得懂python。\r\n现在小学生都在学python，所以看懂的难度还是很低的。\r\n\r\n部分使用到的python脚本每次载入配置后首次执行时会经网络从kcps.info上获取脚本，无法正常访问kcps.info时配置不能正常运行。\r\n未正常运行时可能的表现有很多种，常见的是报错说找不到某个函数。正常运行时不会有任何报错，但不报错不能代表一切正常。\r\n如确实无法连接kcps.info（比如网站被攻击时）或想修改python脚本，可自行下载python脚本并将配置中的路径替换为本地版本脚本的路径。\r\n但替换成本地版本python脚本后即失去自动从网络获取最新版python脚本的能力，需要自行留意相关更新。\r\n有多处需要替换，注意不要遗漏。请使用“设置脚本”功能挨个手动选取本地脚本。\r\n对于有足够计算机理论知识和操作能力的用户可以尝试使用文本编辑器批量替换（注意\\需转义为\\\\）。\r\n\r\n[201114]",
 				EnableScript: true,
 				Script: "https://kcps.info/public-files/Python脚本/附加/远征调度.py",
 				TriggerOnEnabled: false
@@ -337,11 +337,6 @@
 							{
 								Type: 8,
 								Value: "dd_expedition",
-								Memo: ""
-							},
-							{
-								Type: 8,
-								Value: "ss_ssv_expedition",
 								Memo: ""
 							}
 						],
@@ -1596,7 +1591,7 @@
 		]
 	},
 	{
-		Name: "② 45 铝 3:20",
+		Name: "② 45 3:20",
 		List: [
 			{
 				Type: "KancollePlayerSimulatorKai.SeriesByTimeWorkflow, KancollePlayerSimulatorKai, Version=1.4.3.0, Culture=neutral, PublicKeyToken=null",
@@ -3104,7 +3099,7 @@
 		]
 	},
 	{
-		Name: "③ 38 油 2:55",
+		Name: "③ 38 2:55",
 		List: [
 			{
 				Type: "KancollePlayerSimulatorKai.SeriesByTimeWorkflow, KancollePlayerSimulatorKai, Version=1.4.3.0, Culture=neutral, PublicKeyToken=null",
@@ -4360,7 +4355,7 @@
 		]
 	},
 	{
-		Name: "④ 37 弹&钢 2:45",
+		Name: "④ 37 2:45",
 		List: [
 			{
 				Type: "KancollePlayerSimulatorKai.SeriesByTimeWorkflow, KancollePlayerSimulatorKai, Version=1.4.3.0, Culture=neutral, PublicKeyToken=null",
@@ -4478,7 +4473,7 @@
 				StopIfWithinTimePeriodValueEndMinutes: 0,
 				StopIfOrganizeBeforeSelectFailed: true,
 				IgnoreExpeditionFailure: false,
-				Fleet: 2,
+				Fleet: 4,
 				RefreshDataTaskPriority: 0,
 				DelaySecondsAfterExpeditionReturnedBase: 0,
 				DelaySecondsAfterExpeditionReturnedRandomMax: -60,
@@ -4502,7 +4497,7 @@
 				Guid: "a8080866-d8a8-4af2-8fbc-a1f3221cfd0f",
 				Name: "编成",
 				EnableOnLoad: false,
-				Fleet: 1,
+				Fleet: 4,
 				Positions: [
 					{
 						Selections: [
@@ -4949,7 +4944,7 @@
 								IgnoreSlotNotAvailable: true
 							}
 						],
-						Fleet: 1,
+						Fleet: 4,
 						SelectMethod: 0,
 						SelectValue: "1",
 						Memo: "",
@@ -5105,7 +5100,7 @@
 								IgnoreSlotNotAvailable: true
 							}
 						],
-						Fleet: 1,
+						Fleet: 4,
 						SelectMethod: 0,
 						SelectValue: "2",
 						Memo: "",
@@ -5206,7 +5201,7 @@
 								IgnoreSlotNotAvailable: true
 							}
 						],
-						Fleet: 1,
+						Fleet: 4,
 						SelectMethod: 0,
 						SelectValue: "3",
 						Memo: "",
@@ -5307,7 +5302,7 @@
 								IgnoreSlotNotAvailable: true
 							}
 						],
-						Fleet: 1,
+						Fleet: 4,
 						SelectMethod: 0,
 						SelectValue: "4",
 						Memo: "",
@@ -5408,7 +5403,7 @@
 								IgnoreSlotNotAvailable: true
 							}
 						],
-						Fleet: 1,
+						Fleet: 4,
 						SelectMethod: 0,
 						SelectValue: "5",
 						Memo: "",
@@ -5509,7 +5504,7 @@
 								IgnoreSlotNotAvailable: true
 							}
 						],
-						Fleet: 1,
+						Fleet: 4,
 						SelectMethod: 0,
 						SelectValue: "6",
 						Memo: "",
@@ -5532,7 +5527,7 @@
 				Guid: "40e94794-0531-4bf1-ab21-967a406cb01b",
 				Name: "发出远征",
 				EnableOnLoad: false,
-				Fleet: 2,
+				Fleet: 4,
 				Expedition: 37,
 				TemporaryResupply: true,
 				EnableScriptChecker: true,
@@ -5545,7 +5540,7 @@
 		]
 	},
 	{
-		Name: "⑤ 21 油 2:20",
+		Name: "⑤ 21 2:20",
 		List: [
 			{
 				Type: "KancollePlayerSimulatorKai.SeriesByTimeWorkflow, KancollePlayerSimulatorKai, Version=1.4.3.0, Culture=neutral, PublicKeyToken=null",
@@ -6865,1244 +6860,7 @@
 		]
 	},
 	{
-		Name: "⑥ 20 钢 2:00",
-		List: [
-			{
-				Type: "KancollePlayerSimulatorKai.SeriesByTimeWorkflow, KancollePlayerSimulatorKai, Version=1.4.3.0, Culture=neutral, PublicKeyToken=null",
-				Guid: "c1f1c161-d6e9-4268-9f7e-453a0f9d6f66",
-				Name: "时间区间",
-				EnableOnLoad: true,
-				ReferenceTime: 1,
-				StartHours: 6,
-				StartMinutes: 0,
-				EndHours: 0,
-				EndMinutes: 0,
-				NonExceedWorkflows: [
-					{
-						Guid: "91f91227-6c17-4938-9ee9-54344058238f",
-						Enabled: true,
-						IgnoreTriggerFailure: true
-					}
-				],
-				ExceedWorkflows: [
-					{
-						Guid: "6afdcdac-f485-4063-8203-66020007ab33",
-						Enabled: true,
-						IgnoreTriggerFailure: false
-					}
-				],
-				EnableScript: true,
-				Script: "https://kcps.info/public-files/Python脚本/附加/远征调度.py",
-				TriggerOnEnabled: false
-			},
-			{
-				Type: "KancollePlayerSimulatorKai.SeriesByAlarmWorkflow, KancollePlayerSimulatorKai, Version=1.4.3.0, Culture=neutral, PublicKeyToken=null",
-				Guid: "6afdcdac-f485-4063-8203-66020007ab33",
-				Name: "定时启动",
-				EnableOnLoad: false,
-				ReferenceTime: 1,
-				Hours: 6,
-				Minutes: 0,
-				TriggerType: 1,
-				Workflows: [
-					{
-						Guid: "a1306f86-95dd-44b8-b915-a42572d8f74b",
-						Enabled: true,
-						IgnoreTriggerFailure: false
-					}
-				],
-				EnableScript: true,
-				Script: null,
-				TriggerOnEnabled: false
-			},
-			{
-				Type: "KancollePlayerSimulatorKai.SeriesByTimerWorkflow, KancollePlayerSimulatorKai, Version=1.4.3.0, Culture=neutral, PublicKeyToken=null",
-				Guid: "a1306f86-95dd-44b8-b915-a42572d8f74b",
-				Name: "随机延迟",
-				EnableOnLoad: false,
-				Days: 0,
-				Hours: 0,
-				Minutes: 0,
-				Seconds: 0,
-				Random: "00:15:00",
-				Restart: false,
-				TriggerType: 1,
-				Workflows: [
-					{
-						Guid: "91f91227-6c17-4938-9ee9-54344058238f",
-						Enabled: true,
-						IgnoreTriggerFailure: true
-					}
-				],
-				EnableScript: true,
-				Script: null,
-				TriggerOnEnabled: false
-			},
-			{
-				Type: "KancollePlayerSimulatorKai.RelationalExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.3.0, Culture=neutral, PublicKeyToken=null",
-				Guid: "91f91227-6c17-4938-9ee9-54344058238f",
-				Name: "总控",
-				EnableOnLoad: false,
-				SupplyBeforeFinishedEventThreshold: 1,
-				SupplyBeforeWorkflows: [],
-				OrganizeBeforeFinishedEventThreshold: 1,
-				OrganizeBeforeWorkflows: [
-					{
-						Guid: "b0e7a448-c000-4045-a51e-b75412d31afd",
-						Enabled: true,
-						IgnoreTriggerFailure: false
-					}
-				],
-				RefitEquipmentBeforeFinishedEventThreshold: 1,
-				RefitEquipmentBeforeWorkflows: [
-					{
-						Guid: "fe02fd4f-3188-4f62-ad5f-de524ffa645a",
-						Enabled: true,
-						IgnoreTriggerFailure: false
-					}
-				],
-				DockingBeforeFinishedEventThreshold: 1,
-				DockingBeforeWorkflows: [],
-				ExpeditionWorkflow: {
-					Guid: "40e94794-0531-4bf1-ab21-967a406cb01b",
-					Enabled: true,
-					IgnoreTriggerFailure: false
-				},
-				StopIfLoopCountLargerOrEqualThanFlag: true,
-				StopIfLoopCountLargerOrEqualThanValue: 1,
-				StopIfRuntimeLengthExceedFlag: false,
-				StopIfRuntimeLengthExceedValueDays: 0,
-				StopIfRuntimeLengthExceedValueHours: 0,
-				StopIfRuntimeLengthExceedValueMinutes: 0,
-				StopIfRuntimeLengthExceedValueSeconds: 0,
-				StopIfWithinTimePeriodFlag: false,
-				StopIfWithinTimePeriodReferenceTime: 1,
-				StopIfWithinTimePeriodValueStartHours: 0,
-				StopIfWithinTimePeriodValueStartMinutes: 0,
-				StopIfWithinTimePeriodValueEndHours: 6,
-				StopIfWithinTimePeriodValueEndMinutes: 0,
-				StopIfOrganizeBeforeSelectFailed: true,
-				IgnoreExpeditionFailure: false,
-				Fleet: 2,
-				RefreshDataTaskPriority: 0,
-				DelaySecondsAfterExpeditionReturnedBase: 0,
-				DelaySecondsAfterExpeditionReturnedRandomMax: -60,
-				WaitHomeAtFirst: true,
-				ReturnRoomAtLast: true,
-				BeforeLoopsEnableWorkflows: [],
-				BeforeLoopsDisableWorkflows: [],
-				BeforeLoopsTriggerWorkflows: [],
-				AutoStoppedEnableWorkflows: [],
-				AutoStoppedDisableWorkflows: [],
-				AutoStoppedTriggerWorkflows: [],
-				Repeat: true,
-				ExclusiveExecution: true,
-				ExclusivePriority: 100,
-				EnableScript: true,
-				Script: null,
-				TriggerOnEnabled: false
-			},
-			{
-				Type: "KancollePlayerSimulatorKai.BasicOrganizeFleetWorkflow, KancollePlayerSimulatorKai, Version=1.4.3.0, Culture=neutral, PublicKeyToken=null",
-				Guid: "b0e7a448-c000-4045-a51e-b75412d31afd",
-				Name: "编成",
-				EnableOnLoad: false,
-				Fleet: 1,
-				Positions: [
-					{
-						Selections: [
-							{
-								Type: 8,
-								Value: "dd_dlc",
-								Memo: ""
-							}
-						],
-						ChangeIfInitial: true,
-						ChangeIfHpInRangeFlag: false,
-						ChangeIfHpInRangeValueMin: 0.0,
-						ChangeIfHpInRangeValueMax: 0.25,
-						ChangeIfMoraleInRangeFlag: true,
-						ChangeIfMoraleInRangeValueMin: 0,
-						ChangeIfMoraleInRangeValueMax: 49,
-						ChangeIfLevelGreaterOrEqualFlag: false,
-						ChangeIfLevelGreaterOrEqualValue: 99,
-						ChangeIfRepairing: false,
-						SkipWrongShips: true,
-						SkipRepairingShips: true,
-						SkipExpeditioningShips: true,
-						SkipShipsInThisFleet: true,
-						IgnoreSkipShipsInThisFleetIfInitial: true,
-						SkipShipsInOtherFleets: true,
-						IgnoreSkipShipsInOtherFleetsIfInitial: false,
-						SkipHpInRangeFlag: true,
-						SkipHpInRangeValueMin: 0.0,
-						SkipHpInRangeValueMax: 0.5,
-						SkipMoraleInRangeFlag: true,
-						SkipMoraleInRangeValueMin: 0,
-						SkipMoraleInRangeValueMax: 49,
-						SkipLevelInRangeFlag: false,
-						SkipLevelInRangeValueMin: 1,
-						SkipLevelInRangeValueMax: 99,
-						SkipLocked: false,
-						SkipUnlocked: false,
-						SkipExtraSlotNotAvailable: false,
-						SkipNoConventionalEquipments: false,
-						EnableScriptFilter: false,
-						FilterFunctionName: "",
-						SelectionSortingMethod: 4,
-						IncludeCurrentShip: false,
-						IncludeCurrentSelection: true,
-						KeepIfAllSelectionsFailed: false,
-						KeepIfSelectionCollectionEmpty: false
-					},
-					{
-						Selections: [
-							{
-								Type: 8,
-								Value: "dd_dlc",
-								Memo: ""
-							}
-						],
-						ChangeIfInitial: true,
-						ChangeIfHpInRangeFlag: false,
-						ChangeIfHpInRangeValueMin: 0.0,
-						ChangeIfHpInRangeValueMax: 0.25,
-						ChangeIfMoraleInRangeFlag: true,
-						ChangeIfMoraleInRangeValueMin: 0,
-						ChangeIfMoraleInRangeValueMax: 49,
-						ChangeIfLevelGreaterOrEqualFlag: false,
-						ChangeIfLevelGreaterOrEqualValue: 99,
-						ChangeIfRepairing: false,
-						SkipWrongShips: true,
-						SkipRepairingShips: true,
-						SkipExpeditioningShips: true,
-						SkipShipsInThisFleet: true,
-						IgnoreSkipShipsInThisFleetIfInitial: true,
-						SkipShipsInOtherFleets: true,
-						IgnoreSkipShipsInOtherFleetsIfInitial: false,
-						SkipHpInRangeFlag: true,
-						SkipHpInRangeValueMin: 0.0,
-						SkipHpInRangeValueMax: 0.5,
-						SkipMoraleInRangeFlag: true,
-						SkipMoraleInRangeValueMin: 0,
-						SkipMoraleInRangeValueMax: 49,
-						SkipLevelInRangeFlag: false,
-						SkipLevelInRangeValueMin: 1,
-						SkipLevelInRangeValueMax: 99,
-						SkipLocked: false,
-						SkipUnlocked: false,
-						SkipExtraSlotNotAvailable: false,
-						SkipNoConventionalEquipments: false,
-						EnableScriptFilter: false,
-						FilterFunctionName: "",
-						SelectionSortingMethod: 4,
-						IncludeCurrentShip: false,
-						IncludeCurrentSelection: true,
-						KeepIfAllSelectionsFailed: false,
-						KeepIfSelectionCollectionEmpty: false
-					},
-					{
-						Selections: [
-							{
-								Type: 8,
-								Value: "cl_expedition",
-								Memo: ""
-							}
-						],
-						ChangeIfInitial: true,
-						ChangeIfHpInRangeFlag: false,
-						ChangeIfHpInRangeValueMin: 0.0,
-						ChangeIfHpInRangeValueMax: 0.25,
-						ChangeIfMoraleInRangeFlag: true,
-						ChangeIfMoraleInRangeValueMin: 0,
-						ChangeIfMoraleInRangeValueMax: 49,
-						ChangeIfLevelGreaterOrEqualFlag: false,
-						ChangeIfLevelGreaterOrEqualValue: 99,
-						ChangeIfRepairing: false,
-						SkipWrongShips: true,
-						SkipRepairingShips: true,
-						SkipExpeditioningShips: true,
-						SkipShipsInThisFleet: true,
-						IgnoreSkipShipsInThisFleetIfInitial: true,
-						SkipShipsInOtherFleets: true,
-						IgnoreSkipShipsInOtherFleetsIfInitial: false,
-						SkipHpInRangeFlag: true,
-						SkipHpInRangeValueMin: 0.0,
-						SkipHpInRangeValueMax: 0.5,
-						SkipMoraleInRangeFlag: true,
-						SkipMoraleInRangeValueMin: 0,
-						SkipMoraleInRangeValueMax: 49,
-						SkipLevelInRangeFlag: false,
-						SkipLevelInRangeValueMin: 1,
-						SkipLevelInRangeValueMax: 99,
-						SkipLocked: false,
-						SkipUnlocked: false,
-						SkipExtraSlotNotAvailable: false,
-						SkipNoConventionalEquipments: false,
-						EnableScriptFilter: false,
-						FilterFunctionName: "",
-						SelectionSortingMethod: 4,
-						IncludeCurrentShip: false,
-						IncludeCurrentSelection: true,
-						KeepIfAllSelectionsFailed: false,
-						KeepIfSelectionCollectionEmpty: false
-					},
-					{
-						Selections: [
-							{
-								Type: 8,
-								Value: "ss_ssv_expedition",
-								Memo: ""
-							}
-						],
-						ChangeIfInitial: true,
-						ChangeIfHpInRangeFlag: false,
-						ChangeIfHpInRangeValueMin: 0.0,
-						ChangeIfHpInRangeValueMax: 0.25,
-						ChangeIfMoraleInRangeFlag: true,
-						ChangeIfMoraleInRangeValueMin: 0,
-						ChangeIfMoraleInRangeValueMax: 49,
-						ChangeIfLevelGreaterOrEqualFlag: false,
-						ChangeIfLevelGreaterOrEqualValue: 99,
-						ChangeIfRepairing: false,
-						SkipWrongShips: true,
-						SkipRepairingShips: true,
-						SkipExpeditioningShips: true,
-						SkipShipsInThisFleet: true,
-						IgnoreSkipShipsInThisFleetIfInitial: true,
-						SkipShipsInOtherFleets: true,
-						IgnoreSkipShipsInOtherFleetsIfInitial: false,
-						SkipHpInRangeFlag: true,
-						SkipHpInRangeValueMin: 0.0,
-						SkipHpInRangeValueMax: 0.5,
-						SkipMoraleInRangeFlag: true,
-						SkipMoraleInRangeValueMin: 0,
-						SkipMoraleInRangeValueMax: 49,
-						SkipLevelInRangeFlag: false,
-						SkipLevelInRangeValueMin: 1,
-						SkipLevelInRangeValueMax: 99,
-						SkipLocked: false,
-						SkipUnlocked: false,
-						SkipExtraSlotNotAvailable: false,
-						SkipNoConventionalEquipments: false,
-						EnableScriptFilter: false,
-						FilterFunctionName: "",
-						SelectionSortingMethod: 4,
-						IncludeCurrentShip: false,
-						IncludeCurrentSelection: true,
-						KeepIfAllSelectionsFailed: false,
-						KeepIfSelectionCollectionEmpty: false
-					},
-					{
-						Selections: [
-							{
-								Type: 8,
-								Value: "dd_expedition",
-								Memo: ""
-							},
-							{
-								Type: 8,
-								Value: "de_expedition",
-								Memo: ""
-							}
-						],
-						ChangeIfInitial: true,
-						ChangeIfHpInRangeFlag: false,
-						ChangeIfHpInRangeValueMin: 0.0,
-						ChangeIfHpInRangeValueMax: 0.25,
-						ChangeIfMoraleInRangeFlag: true,
-						ChangeIfMoraleInRangeValueMin: 0,
-						ChangeIfMoraleInRangeValueMax: 49,
-						ChangeIfLevelGreaterOrEqualFlag: false,
-						ChangeIfLevelGreaterOrEqualValue: 99,
-						ChangeIfRepairing: false,
-						SkipWrongShips: true,
-						SkipRepairingShips: true,
-						SkipExpeditioningShips: true,
-						SkipShipsInThisFleet: true,
-						IgnoreSkipShipsInThisFleetIfInitial: true,
-						SkipShipsInOtherFleets: true,
-						IgnoreSkipShipsInOtherFleetsIfInitial: false,
-						SkipHpInRangeFlag: true,
-						SkipHpInRangeValueMin: 0.0,
-						SkipHpInRangeValueMax: 0.5,
-						SkipMoraleInRangeFlag: true,
-						SkipMoraleInRangeValueMin: 0,
-						SkipMoraleInRangeValueMax: 49,
-						SkipLevelInRangeFlag: false,
-						SkipLevelInRangeValueMin: 1,
-						SkipLevelInRangeValueMax: 99,
-						SkipLocked: false,
-						SkipUnlocked: false,
-						SkipExtraSlotNotAvailable: false,
-						SkipNoConventionalEquipments: false,
-						EnableScriptFilter: false,
-						FilterFunctionName: "",
-						SelectionSortingMethod: 4,
-						IncludeCurrentShip: false,
-						IncludeCurrentSelection: true,
-						KeepIfAllSelectionsFailed: false,
-						KeepIfSelectionCollectionEmpty: false
-					},
-					{
-						Selections: [
-							{
-								Type: 8,
-								Value: "dd_expedition",
-								Memo: ""
-							},
-							{
-								Type: 8,
-								Value: "de_expedition",
-								Memo: ""
-							}
-						],
-						ChangeIfInitial: true,
-						ChangeIfHpInRangeFlag: false,
-						ChangeIfHpInRangeValueMin: 0.0,
-						ChangeIfHpInRangeValueMax: 0.25,
-						ChangeIfMoraleInRangeFlag: true,
-						ChangeIfMoraleInRangeValueMin: 0,
-						ChangeIfMoraleInRangeValueMax: 49,
-						ChangeIfLevelGreaterOrEqualFlag: false,
-						ChangeIfLevelGreaterOrEqualValue: 99,
-						ChangeIfRepairing: false,
-						SkipWrongShips: true,
-						SkipRepairingShips: true,
-						SkipExpeditioningShips: true,
-						SkipShipsInThisFleet: true,
-						IgnoreSkipShipsInThisFleetIfInitial: true,
-						SkipShipsInOtherFleets: true,
-						IgnoreSkipShipsInOtherFleetsIfInitial: false,
-						SkipHpInRangeFlag: true,
-						SkipHpInRangeValueMin: 0.0,
-						SkipHpInRangeValueMax: 0.5,
-						SkipMoraleInRangeFlag: true,
-						SkipMoraleInRangeValueMin: 0,
-						SkipMoraleInRangeValueMax: 49,
-						SkipLevelInRangeFlag: false,
-						SkipLevelInRangeValueMin: 1,
-						SkipLevelInRangeValueMax: 99,
-						SkipLocked: false,
-						SkipUnlocked: false,
-						SkipExtraSlotNotAvailable: false,
-						SkipNoConventionalEquipments: false,
-						EnableScriptFilter: false,
-						FilterFunctionName: "",
-						SelectionSortingMethod: 4,
-						IncludeCurrentShip: false,
-						IncludeCurrentSelection: true,
-						KeepIfAllSelectionsFailed: false,
-						KeepIfSelectionCollectionEmpty: false
-					}
-				],
-				AllowExpandPreset: true,
-				AllowRemoveEscortShips: true,
-				RollBackProgressIfOrganizeFailed: true,
-				ResetAllCurrentStrategiesIfDisabled: true,
-				RefreshDataTaskPriority: 0,
-				OrganizeExpandTaskPriority: 0,
-				OrganizeFleetTaskPriority: 0,
-				WaitHomeAtFirst: false,
-				RefreshDataBeforeOrganize: false,
-				ReturnRoomAtLast: false,
-				EnableScript: true,
-				Script: "https://kcps.info/public-files/Python脚本/附加/编成助手.py",
-				TriggerOnEnabled: false
-			},
-			{
-				Type: "KancollePlayerSimulatorKai.BasicRefitEquipmentWorkflow, KancollePlayerSimulatorKai, Version=1.4.3.0, Culture=neutral, PublicKeyToken=null",
-				Guid: "fe02fd4f-3188-4f62-ad5f-de524ffa645a",
-				Name: "改装",
-				EnableOnLoad: false,
-				Ships: [
-					{
-						Slots: [
-							{
-								Equipments: [
-									{
-										SelectMethod: 0,
-										SelectValue: "大发动艇$",
-										Reorder: true,
-										PrioritizeCurrentEquipptedEquipments: true,
-										StatusPriority: 0,
-										RarityPriority: 0,
-										LevelPriority: 0,
-										ProficiencyPriority: 0,
-										Deprive: 2
-									},
-									{
-										SelectMethod: 0,
-										SelectValue: "",
-										Reorder: true,
-										PrioritizeCurrentEquipptedEquipments: true,
-										StatusPriority: 0,
-										RarityPriority: 0,
-										LevelPriority: 0,
-										ProficiencyPriority: 0,
-										Deprive: 2
-									}
-								],
-								Slot: 1,
-								IgnoreNoEquipmentMatched: false,
-								IgnoreSlotNotAvailable: false
-							},
-							{
-								Equipments: [
-									{
-										SelectMethod: 0,
-										SelectValue: "大发动艇$",
-										Reorder: true,
-										PrioritizeCurrentEquipptedEquipments: true,
-										StatusPriority: 0,
-										RarityPriority: 0,
-										LevelPriority: 0,
-										ProficiencyPriority: 0,
-										Deprive: 2
-									},
-									{
-										SelectMethod: 0,
-										SelectValue: "",
-										Reorder: true,
-										PrioritizeCurrentEquipptedEquipments: true,
-										StatusPriority: 0,
-										RarityPriority: 0,
-										LevelPriority: 0,
-										ProficiencyPriority: 0,
-										Deprive: 2
-									}
-								],
-								Slot: 2,
-								IgnoreNoEquipmentMatched: false,
-								IgnoreSlotNotAvailable: false
-							},
-							{
-								Equipments: [
-									{
-										SelectMethod: 0,
-										SelectValue: "",
-										Reorder: true,
-										PrioritizeCurrentEquipptedEquipments: true,
-										StatusPriority: 0,
-										RarityPriority: 0,
-										LevelPriority: 0,
-										ProficiencyPriority: 0,
-										Deprive: 2
-									}
-								],
-								Slot: 5,
-								IgnoreNoEquipmentMatched: false,
-								IgnoreSlotNotAvailable: true
-							},
-							{
-								Equipments: [
-									{
-										SelectMethod: 0,
-										SelectValue: "",
-										Reorder: true,
-										PrioritizeCurrentEquipptedEquipments: true,
-										StatusPriority: 0,
-										RarityPriority: 0,
-										LevelPriority: 0,
-										ProficiencyPriority: 0,
-										Deprive: 2
-									}
-								],
-								Slot: 4,
-								IgnoreNoEquipmentMatched: false,
-								IgnoreSlotNotAvailable: true
-							},
-							{
-								Equipments: [
-									{
-										SelectMethod: 0,
-										SelectValue: "",
-										Reorder: true,
-										PrioritizeCurrentEquipptedEquipments: true,
-										StatusPriority: 0,
-										RarityPriority: 0,
-										LevelPriority: 0,
-										ProficiencyPriority: 0,
-										Deprive: 2
-									}
-								],
-								Slot: 3,
-								IgnoreNoEquipmentMatched: false,
-								IgnoreSlotNotAvailable: true
-							},
-							{
-								Equipments: [
-									{
-										SelectMethod: 0,
-										SelectValue: "",
-										Reorder: true,
-										PrioritizeCurrentEquipptedEquipments: true,
-										StatusPriority: 0,
-										RarityPriority: 0,
-										LevelPriority: 0,
-										ProficiencyPriority: 0,
-										Deprive: 2
-									}
-								],
-								Slot: 6,
-								IgnoreNoEquipmentMatched: false,
-								IgnoreSlotNotAvailable: true
-							}
-						],
-						Fleet: 1,
-						SelectMethod: 0,
-						SelectValue: "1",
-						Memo: "",
-						IgnoreNoShipMatched: false,
-						IgnoreExpedition: false,
-						IgnoreDocking: false
-					},
-					{
-						Slots: [
-							{
-								Equipments: [
-									{
-										SelectMethod: 0,
-										SelectValue: "大发动艇$",
-										Reorder: true,
-										PrioritizeCurrentEquipptedEquipments: true,
-										StatusPriority: 0,
-										RarityPriority: 0,
-										LevelPriority: 0,
-										ProficiencyPriority: 0,
-										Deprive: 2
-									},
-									{
-										SelectMethod: 0,
-										SelectValue: "",
-										Reorder: true,
-										PrioritizeCurrentEquipptedEquipments: true,
-										StatusPriority: 0,
-										RarityPriority: 0,
-										LevelPriority: 0,
-										ProficiencyPriority: 0,
-										Deprive: 2
-									}
-								],
-								Slot: 1,
-								IgnoreNoEquipmentMatched: false,
-								IgnoreSlotNotAvailable: false
-							},
-							{
-								Equipments: [
-									{
-										SelectMethod: 0,
-										SelectValue: "大发动艇$",
-										Reorder: true,
-										PrioritizeCurrentEquipptedEquipments: true,
-										StatusPriority: 0,
-										RarityPriority: 0,
-										LevelPriority: 0,
-										ProficiencyPriority: 0,
-										Deprive: 2
-									},
-									{
-										SelectMethod: 0,
-										SelectValue: "",
-										Reorder: true,
-										PrioritizeCurrentEquipptedEquipments: true,
-										StatusPriority: 0,
-										RarityPriority: 0,
-										LevelPriority: 0,
-										ProficiencyPriority: 0,
-										Deprive: 2
-									}
-								],
-								Slot: 2,
-								IgnoreNoEquipmentMatched: false,
-								IgnoreSlotNotAvailable: false
-							},
-							{
-								Equipments: [
-									{
-										SelectMethod: 0,
-										SelectValue: "",
-										Reorder: true,
-										PrioritizeCurrentEquipptedEquipments: true,
-										StatusPriority: 0,
-										RarityPriority: 0,
-										LevelPriority: 0,
-										ProficiencyPriority: 0,
-										Deprive: 2
-									}
-								],
-								Slot: 5,
-								IgnoreNoEquipmentMatched: false,
-								IgnoreSlotNotAvailable: true
-							},
-							{
-								Equipments: [
-									{
-										SelectMethod: 0,
-										SelectValue: "",
-										Reorder: true,
-										PrioritizeCurrentEquipptedEquipments: true,
-										StatusPriority: 0,
-										RarityPriority: 0,
-										LevelPriority: 0,
-										ProficiencyPriority: 0,
-										Deprive: 2
-									}
-								],
-								Slot: 4,
-								IgnoreNoEquipmentMatched: false,
-								IgnoreSlotNotAvailable: true
-							},
-							{
-								Equipments: [
-									{
-										SelectMethod: 0,
-										SelectValue: "",
-										Reorder: true,
-										PrioritizeCurrentEquipptedEquipments: true,
-										StatusPriority: 0,
-										RarityPriority: 0,
-										LevelPriority: 0,
-										ProficiencyPriority: 0,
-										Deprive: 2
-									}
-								],
-								Slot: 3,
-								IgnoreNoEquipmentMatched: false,
-								IgnoreSlotNotAvailable: true
-							},
-							{
-								Equipments: [
-									{
-										SelectMethod: 0,
-										SelectValue: "",
-										Reorder: true,
-										PrioritizeCurrentEquipptedEquipments: true,
-										StatusPriority: 0,
-										RarityPriority: 0,
-										LevelPriority: 0,
-										ProficiencyPriority: 0,
-										Deprive: 2
-									}
-								],
-								Slot: 6,
-								IgnoreNoEquipmentMatched: false,
-								IgnoreSlotNotAvailable: true
-							}
-						],
-						Fleet: 1,
-						SelectMethod: 0,
-						SelectValue: "2",
-						Memo: "",
-						IgnoreNoShipMatched: false,
-						IgnoreExpedition: false,
-						IgnoreDocking: false
-					},
-					{
-						Slots: [
-							{
-								Equipments: [
-									{
-										SelectMethod: 0,
-										SelectValue: "",
-										Reorder: true,
-										PrioritizeCurrentEquipptedEquipments: true,
-										StatusPriority: 0,
-										RarityPriority: 0,
-										LevelPriority: 0,
-										ProficiencyPriority: 0,
-										Deprive: 2
-									}
-								],
-								Slot: 5,
-								IgnoreNoEquipmentMatched: false,
-								IgnoreSlotNotAvailable: true
-							},
-							{
-								Equipments: [
-									{
-										SelectMethod: 0,
-										SelectValue: "",
-										Reorder: true,
-										PrioritizeCurrentEquipptedEquipments: true,
-										StatusPriority: 0,
-										RarityPriority: 0,
-										LevelPriority: 0,
-										ProficiencyPriority: 0,
-										Deprive: 2
-									}
-								],
-								Slot: 4,
-								IgnoreNoEquipmentMatched: false,
-								IgnoreSlotNotAvailable: true
-							},
-							{
-								Equipments: [
-									{
-										SelectMethod: 0,
-										SelectValue: "",
-										Reorder: true,
-										PrioritizeCurrentEquipptedEquipments: true,
-										StatusPriority: 0,
-										RarityPriority: 0,
-										LevelPriority: 0,
-										ProficiencyPriority: 0,
-										Deprive: 2
-									}
-								],
-								Slot: 3,
-								IgnoreNoEquipmentMatched: false,
-								IgnoreSlotNotAvailable: true
-							},
-							{
-								Equipments: [
-									{
-										SelectMethod: 0,
-										SelectValue: "",
-										Reorder: true,
-										PrioritizeCurrentEquipptedEquipments: true,
-										StatusPriority: 0,
-										RarityPriority: 0,
-										LevelPriority: 0,
-										ProficiencyPriority: 0,
-										Deprive: 2
-									}
-								],
-								Slot: 2,
-								IgnoreNoEquipmentMatched: false,
-								IgnoreSlotNotAvailable: true
-							},
-							{
-								Equipments: [
-									{
-										SelectMethod: 0,
-										SelectValue: "",
-										Reorder: true,
-										PrioritizeCurrentEquipptedEquipments: true,
-										StatusPriority: 0,
-										RarityPriority: 0,
-										LevelPriority: 0,
-										ProficiencyPriority: 0,
-										Deprive: 2
-									}
-								],
-								Slot: 1,
-								IgnoreNoEquipmentMatched: false,
-								IgnoreSlotNotAvailable: true
-							},
-							{
-								Equipments: [
-									{
-										SelectMethod: 0,
-										SelectValue: "",
-										Reorder: true,
-										PrioritizeCurrentEquipptedEquipments: true,
-										StatusPriority: 0,
-										RarityPriority: 0,
-										LevelPriority: 0,
-										ProficiencyPriority: 0,
-										Deprive: 2
-									}
-								],
-								Slot: 6,
-								IgnoreNoEquipmentMatched: false,
-								IgnoreSlotNotAvailable: true
-							}
-						],
-						Fleet: 1,
-						SelectMethod: 0,
-						SelectValue: "3",
-						Memo: "",
-						IgnoreNoShipMatched: false,
-						IgnoreExpedition: false,
-						IgnoreDocking: false
-					},
-					{
-						Slots: [
-							{
-								Equipments: [
-									{
-										SelectMethod: 0,
-										SelectValue: "",
-										Reorder: true,
-										PrioritizeCurrentEquipptedEquipments: true,
-										StatusPriority: 0,
-										RarityPriority: 0,
-										LevelPriority: 0,
-										ProficiencyPriority: 0,
-										Deprive: 2
-									}
-								],
-								Slot: 5,
-								IgnoreNoEquipmentMatched: false,
-								IgnoreSlotNotAvailable: true
-							},
-							{
-								Equipments: [
-									{
-										SelectMethod: 0,
-										SelectValue: "",
-										Reorder: true,
-										PrioritizeCurrentEquipptedEquipments: true,
-										StatusPriority: 0,
-										RarityPriority: 0,
-										LevelPriority: 0,
-										ProficiencyPriority: 0,
-										Deprive: 2
-									}
-								],
-								Slot: 4,
-								IgnoreNoEquipmentMatched: false,
-								IgnoreSlotNotAvailable: true
-							},
-							{
-								Equipments: [
-									{
-										SelectMethod: 0,
-										SelectValue: "",
-										Reorder: true,
-										PrioritizeCurrentEquipptedEquipments: true,
-										StatusPriority: 0,
-										RarityPriority: 0,
-										LevelPriority: 0,
-										ProficiencyPriority: 0,
-										Deprive: 2
-									}
-								],
-								Slot: 3,
-								IgnoreNoEquipmentMatched: false,
-								IgnoreSlotNotAvailable: true
-							},
-							{
-								Equipments: [
-									{
-										SelectMethod: 0,
-										SelectValue: "",
-										Reorder: true,
-										PrioritizeCurrentEquipptedEquipments: true,
-										StatusPriority: 0,
-										RarityPriority: 0,
-										LevelPriority: 0,
-										ProficiencyPriority: 0,
-										Deprive: 2
-									}
-								],
-								Slot: 2,
-								IgnoreNoEquipmentMatched: false,
-								IgnoreSlotNotAvailable: true
-							},
-							{
-								Equipments: [
-									{
-										SelectMethod: 0,
-										SelectValue: "",
-										Reorder: true,
-										PrioritizeCurrentEquipptedEquipments: true,
-										StatusPriority: 0,
-										RarityPriority: 0,
-										LevelPriority: 0,
-										ProficiencyPriority: 0,
-										Deprive: 2
-									}
-								],
-								Slot: 1,
-								IgnoreNoEquipmentMatched: false,
-								IgnoreSlotNotAvailable: true
-							},
-							{
-								Equipments: [
-									{
-										SelectMethod: 0,
-										SelectValue: "",
-										Reorder: true,
-										PrioritizeCurrentEquipptedEquipments: true,
-										StatusPriority: 0,
-										RarityPriority: 0,
-										LevelPriority: 0,
-										ProficiencyPriority: 0,
-										Deprive: 2
-									}
-								],
-								Slot: 6,
-								IgnoreNoEquipmentMatched: false,
-								IgnoreSlotNotAvailable: true
-							}
-						],
-						Fleet: 1,
-						SelectMethod: 0,
-						SelectValue: "4",
-						Memo: "",
-						IgnoreNoShipMatched: false,
-						IgnoreExpedition: false,
-						IgnoreDocking: false
-					},
-					{
-						Slots: [
-							{
-								Equipments: [
-									{
-										SelectMethod: 0,
-										SelectValue: "",
-										Reorder: true,
-										PrioritizeCurrentEquipptedEquipments: true,
-										StatusPriority: 0,
-										RarityPriority: 0,
-										LevelPriority: 0,
-										ProficiencyPriority: 0,
-										Deprive: 2
-									}
-								],
-								Slot: 5,
-								IgnoreNoEquipmentMatched: false,
-								IgnoreSlotNotAvailable: true
-							},
-							{
-								Equipments: [
-									{
-										SelectMethod: 0,
-										SelectValue: "",
-										Reorder: true,
-										PrioritizeCurrentEquipptedEquipments: true,
-										StatusPriority: 0,
-										RarityPriority: 0,
-										LevelPriority: 0,
-										ProficiencyPriority: 0,
-										Deprive: 2
-									}
-								],
-								Slot: 4,
-								IgnoreNoEquipmentMatched: false,
-								IgnoreSlotNotAvailable: true
-							},
-							{
-								Equipments: [
-									{
-										SelectMethod: 0,
-										SelectValue: "",
-										Reorder: true,
-										PrioritizeCurrentEquipptedEquipments: true,
-										StatusPriority: 0,
-										RarityPriority: 0,
-										LevelPriority: 0,
-										ProficiencyPriority: 0,
-										Deprive: 2
-									}
-								],
-								Slot: 3,
-								IgnoreNoEquipmentMatched: false,
-								IgnoreSlotNotAvailable: true
-							},
-							{
-								Equipments: [
-									{
-										SelectMethod: 0,
-										SelectValue: "",
-										Reorder: true,
-										PrioritizeCurrentEquipptedEquipments: true,
-										StatusPriority: 0,
-										RarityPriority: 0,
-										LevelPriority: 0,
-										ProficiencyPriority: 0,
-										Deprive: 2
-									}
-								],
-								Slot: 2,
-								IgnoreNoEquipmentMatched: false,
-								IgnoreSlotNotAvailable: true
-							},
-							{
-								Equipments: [
-									{
-										SelectMethod: 0,
-										SelectValue: "",
-										Reorder: true,
-										PrioritizeCurrentEquipptedEquipments: true,
-										StatusPriority: 0,
-										RarityPriority: 0,
-										LevelPriority: 0,
-										ProficiencyPriority: 0,
-										Deprive: 2
-									}
-								],
-								Slot: 1,
-								IgnoreNoEquipmentMatched: false,
-								IgnoreSlotNotAvailable: true
-							},
-							{
-								Equipments: [
-									{
-										SelectMethod: 0,
-										SelectValue: "",
-										Reorder: true,
-										PrioritizeCurrentEquipptedEquipments: true,
-										StatusPriority: 0,
-										RarityPriority: 0,
-										LevelPriority: 0,
-										ProficiencyPriority: 0,
-										Deprive: 2
-									}
-								],
-								Slot: 6,
-								IgnoreNoEquipmentMatched: false,
-								IgnoreSlotNotAvailable: true
-							}
-						],
-						Fleet: 1,
-						SelectMethod: 0,
-						SelectValue: "5",
-						Memo: "",
-						IgnoreNoShipMatched: false,
-						IgnoreExpedition: false,
-						IgnoreDocking: false
-					},
-					{
-						Slots: [
-							{
-								Equipments: [
-									{
-										SelectMethod: 0,
-										SelectValue: "",
-										Reorder: true,
-										PrioritizeCurrentEquipptedEquipments: true,
-										StatusPriority: 0,
-										RarityPriority: 0,
-										LevelPriority: 0,
-										ProficiencyPriority: 0,
-										Deprive: 2
-									}
-								],
-								Slot: 5,
-								IgnoreNoEquipmentMatched: false,
-								IgnoreSlotNotAvailable: true
-							},
-							{
-								Equipments: [
-									{
-										SelectMethod: 0,
-										SelectValue: "",
-										Reorder: true,
-										PrioritizeCurrentEquipptedEquipments: true,
-										StatusPriority: 0,
-										RarityPriority: 0,
-										LevelPriority: 0,
-										ProficiencyPriority: 0,
-										Deprive: 2
-									}
-								],
-								Slot: 4,
-								IgnoreNoEquipmentMatched: false,
-								IgnoreSlotNotAvailable: true
-							},
-							{
-								Equipments: [
-									{
-										SelectMethod: 0,
-										SelectValue: "",
-										Reorder: true,
-										PrioritizeCurrentEquipptedEquipments: true,
-										StatusPriority: 0,
-										RarityPriority: 0,
-										LevelPriority: 0,
-										ProficiencyPriority: 0,
-										Deprive: 2
-									}
-								],
-								Slot: 3,
-								IgnoreNoEquipmentMatched: false,
-								IgnoreSlotNotAvailable: true
-							},
-							{
-								Equipments: [
-									{
-										SelectMethod: 0,
-										SelectValue: "",
-										Reorder: true,
-										PrioritizeCurrentEquipptedEquipments: true,
-										StatusPriority: 0,
-										RarityPriority: 0,
-										LevelPriority: 0,
-										ProficiencyPriority: 0,
-										Deprive: 2
-									}
-								],
-								Slot: 2,
-								IgnoreNoEquipmentMatched: false,
-								IgnoreSlotNotAvailable: true
-							},
-							{
-								Equipments: [
-									{
-										SelectMethod: 0,
-										SelectValue: "",
-										Reorder: true,
-										PrioritizeCurrentEquipptedEquipments: true,
-										StatusPriority: 0,
-										RarityPriority: 0,
-										LevelPriority: 0,
-										ProficiencyPriority: 0,
-										Deprive: 2
-									}
-								],
-								Slot: 1,
-								IgnoreNoEquipmentMatched: false,
-								IgnoreSlotNotAvailable: true
-							},
-							{
-								Equipments: [
-									{
-										SelectMethod: 0,
-										SelectValue: "",
-										Reorder: true,
-										PrioritizeCurrentEquipptedEquipments: true,
-										StatusPriority: 0,
-										RarityPriority: 0,
-										LevelPriority: 0,
-										ProficiencyPriority: 0,
-										Deprive: 2
-									}
-								],
-								Slot: 6,
-								IgnoreNoEquipmentMatched: false,
-								IgnoreSlotNotAvailable: true
-							}
-						],
-						Fleet: 1,
-						SelectMethod: 0,
-						SelectValue: "6",
-						Memo: "",
-						IgnoreNoShipMatched: false,
-						IgnoreExpedition: false,
-						IgnoreDocking: false
-					}
-				],
-				RefreshDataTaskPriority: 0,
-				RefitEquipmentTaskPriority: 0,
-				WaitHomeAtFirst: false,
-				RefreshDataBeforeRefit: false,
-				ReturnRoomAtLast: false,
-				EnableScript: true,
-				Script: null,
-				TriggerOnEnabled: false
-			},
-			{
-				Type: "KancollePlayerSimulatorKai.SimpleExpeditionWorkflow, KancollePlayerSimulatorKai, Version=1.4.3.0, Culture=neutral, PublicKeyToken=null",
-				Guid: "40e94794-0531-4bf1-ab21-967a406cb01b",
-				Name: "发出远征",
-				EnableOnLoad: false,
-				Fleet: 2,
-				Expedition: 20,
-				TemporaryResupply: true,
-				EnableScriptChecker: true,
-				ScriptCheckerName: "OnCheck",
-				ExpeditionTaskPriority: 0,
-				EnableScript: true,
-				Script: "from KancollePlayerSimulatorKaiCore import *\r\n\r\nMIN_NUM_SHIP = 2\r\nMIN_FLAG_SHIP_LEVLE = 1\r\nMIN_TOTAL_LEVEL = 0\r\n\r\ndef OnCheck(fleet, expeditionId):\r\n\tassert expeditionId == Workflow.Expedition, \"检查函数对应的远征与设置的远征不一致\"\r\n\tships = FleetUtility.Ships(fleet)\r\n\tglobal MIN_NUM_SHIP\r\n\tassert len(ships) >= MIN_NUM_SHIP, \"舰队舰船数量不足{}个\".format(MIN_NUM_SHIP)\r\n\tlevels = [ShipUtility.Level(ship) for ship in ships]\r\n\tglobal MIN_FLAG_SHIP_LEVLE\r\n\tassert levels[0] >= MIN_FLAG_SHIP_LEVLE, \"旗舰等级不足{}\".format(MIN_FLAG_SHIP_LEVLE)\r\n\tglobal MIN_TOTAL_LEVEL\r\n\tassert sum(levels) >= MIN_TOTAL_LEVEL, \"总等级不足{}\".format(MIN_TOTAL_LEVEL)\r\n\treturn True",
-				TriggerOnEnabled: false
-			}
-		]
-	},
-	{
-		Name: "⑦ 5 油&弹 1:30",
+		Name: "⑥ 5 1:30",
 		List: [
 			{
 				Type: "KancollePlayerSimulatorKai.SeriesByTimeWorkflow, KancollePlayerSimulatorKai, Version=1.4.3.0, Culture=neutral, PublicKeyToken=null",
@@ -9344,7 +8102,7 @@
 		]
 	},
 	{
-		Name: "⑧ 41 桶 1:00",
+		Name: "⑦ 41 1:00",
 		List: [
 			{
 				Type: "KancollePlayerSimulatorKai.SeriesByTimeWorkflow, KancollePlayerSimulatorKai, Version=1.4.3.0, Culture=neutral, PublicKeyToken=null",
@@ -10771,7 +9529,7 @@
 		]
 	},
 	{
-		Name: "⑨ A2 桶 0:55",
+		Name: "⑧ A2 0:55",
 		List: [
 			{
 				Type: "KancollePlayerSimulatorKai.SeriesByTimeWorkflow, KancollePlayerSimulatorKai, Version=1.4.3.0, Culture=neutral, PublicKeyToken=null",
@@ -11848,7 +10606,7 @@
 		]
 	},
 	{
-		Name: "⑩ 6 铝 0:40",
+		Name: "⑨ 6 0:40",
 		List: [
 			{
 				Type: "KancollePlayerSimulatorKai.SeriesByTimeWorkflow, KancollePlayerSimulatorKai, Version=1.4.3.0, Culture=neutral, PublicKeyToken=null",
@@ -13095,7 +11853,7 @@
 		]
 	},
 	{
-		Name: "⑪ B1 桶&铝 0:35",
+		Name: "⑩ B1 0:35",
 		List: [
 			{
 				Type: "KancollePlayerSimulatorKai.SeriesByTimeWorkflow, KancollePlayerSimulatorKai, Version=1.4.3.0, Culture=neutral, PublicKeyToken=null",
@@ -14332,7 +13090,7 @@
 		]
 	},
 	{
-		Name: "⑫ 2 弹 0:30",
+		Name: "⑪ 2 0:30",
 		List: [
 			{
 				Type: "KancollePlayerSimulatorKai.SeriesByTimeWorkflow, KancollePlayerSimulatorKai, Version=1.4.3.0, Culture=neutral, PublicKeyToken=null",
@@ -15579,7 +14337,7 @@
 		]
 	},
 	{
-		Name: "⑬ 3 钢 0:20",
+		Name: "⑫ 3 0:20",
 		List: [
 			{
 				Type: "KancollePlayerSimulatorKai.SeriesByTimeWorkflow, KancollePlayerSimulatorKai, Version=1.4.3.0, Culture=neutral, PublicKeyToken=null",

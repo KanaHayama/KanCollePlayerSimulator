@@ -2,13 +2,15 @@
 
 """
 功能：
-	调度舰队执行能最快恢复最少资源的远征。
+	调度舰队执行能最高效增加资源的远征。
 
 使用方法：
 	专用于全自动远征范例配置。
 	附加在一个用于控制的执行单元上和数个关联远征执行单元上。
 
 更新记录：
+	20201113 - 2.0
+		根据多种资源量动态选取最优远征。
 	20200624 - 1.2
 		避免刷闪完成后冗余的发出远征指令。
 	20200621 - 1.1
@@ -37,18 +39,44 @@ import re
 NUM_RESOURCE_TYPES = 5
 NUM_FLEET = 4
 
-DEFAULT_EXPEDITION_LIST = [ # 每项仅列出了恢复速度最快的3个常规远征（越前越优先）
-	["38", "21", "5", ], # 油
-	["37", "2", "5", ], # 弹
-	["3", "37", "20", ], # 钢
-	["6", "45", "B1", ], # 铝
-	["B1", "A2", "41", ], # 桶
-]
-BACKUP_EXPEDITION_LIST = ["3", "2", "B1", "6", ] # 避免冲突，后面接用于替补的远征（越前越优先）
-EXPEDITION_LIST = [default + BACKUP_EXPEDITION_LIST for default in DEFAULT_EXPEDITION_LIST]
+EXPEDITION_MINUTE = {
+	"2": 30,
+	"3": 20,
+	"5": 90,
+	"6": 40,
+	"A2": 55,
+	
+	"B1": 35,
+	
+	"21": 140,
+	
+	"41": 60,
+	"45": 200,
+	
+	"37": 165,
+	"38": 175,
+} # 远征需要的分钟数。此处的远征需要与远征子配置对应。
 
-RESOURCE_SCALE = (1, 1, 1, 1, 100, ) # 资源比较系数
-RESOURCE_NAME = ("油", "弹", "钢", "铝", "高速修复", )
+EXPEDITION_GAIN = {
+	"2":  (  0., 100.,  30.,   0.,  .5, ), # TODO：获得修复桶概率是随便填的，不知道去哪里能查证
+	"3":  ( 30.,  30.,  40.,   0., 0. , ),
+	"5":  (200., 200.,  20.,  20., 0. , ),
+	"6":  (  0.,   0.,   0.,  80., 0. , ),
+	"A2": ( 70.,  40.,   0.,  10., 1. , ),
+	
+	"B1": (  0.,   0.,  10.,  30., 1. , ),
+	
+	"21": (320., 270.,   0.,   0., 0. , ),
+	
+	"41": (100.,   0.,   0.,  20., 1. , ),
+	"45": ( 40.,   0.,   0., 220., 0. , ),
+	
+	"37": (  0., 380., 270.,   0., 0. , ),
+	"38": (420.,   0., 200.,   0., 0. , ),
+} # 每次远征获得资源量。合理假定每次远征都大成功。油弹钢铝资源量是按照正常远征填写的，按大成功加成后填写估计不会有太大差别。
+
+RESOURCE_MAXIMUM = (350000, 350000, 350000, 350000, 3000, ) # 资源最大值。用于在接近最大值时降低该资源重要性。
+
 MIN_QUERY_RESULT_UPDATE_INTERVAL = 23 * 60 * 60 # 返回的最少资源种类稳定不变动的秒数
 
 MESSAGE_INITIATE_KIRAKIRA = "开始全自动远征" # 用于启动刷闪配置
@@ -80,7 +108,7 @@ lastEvent = None
 
 lastUpdateTime = None
 
-lastResourceIndex = None
+lastResources = None
 
 #===================================================#
 #                                                   #
@@ -128,37 +156,91 @@ def getNumResource(index, resourcesState=None):
 		assert getattr(BasicUtility, "NumInstantRepair", None), "请更新KCPS"
 		return BasicUtility.NumInstantRepair(resourcesState)
 
-def getLowestResourceIndex():
+def getResourceScales(): # 结果实际是常数
+	'''资源数值放大倍数'''
+	global RESOURCE_MAXIMUM
 	global NUM_RESOURCE_TYPES
-	global RESOURCE_SCALE
+	m = float(max(RESOURCE_MAXIMUM))
+	scales = [m / RESOURCE_MAXIMUM[i] for i in range(NUM_RESOURCE_TYPES)]
+	return scales
+
+def getResources():
+	'''获取当前所有资源量，并相应缩放'''
+	global NUM_RESOURCE_TYPES
 	global MIN_QUERY_RESULT_UPDATE_INTERVAL
-	global RESOURCE_NAME
 	global lastUpdateTime
-	global lastResourceIndex
+	global lastResources
 	now = datetime.now()
 	if lastUpdateTime and (now - lastUpdateTime).total_seconds() <= MIN_QUERY_RESULT_UPDATE_INTERVAL:
-		return lastResourceIndex
+		return lastResources # 使结果在一定时间范围内保持不变
 	resourcesState = GameState.Resources()
-	resources = [getNumResource(i, resourcesState) * RESOURCE_SCALE[i] for i in range(NUM_RESOURCE_TYPES)]
-	minIndex = 0
-	minValue = resources[0]
-	for i in range(1, NUM_RESOURCE_TYPES):
-		if resources[i] < minValue:
-			minValue = resources[i]
-			minIndex = i
+	resources = [getNumResource(i, resourcesState) for i in range(NUM_RESOURCE_TYPES)]
 	lastUpdateTime = now
-	lastResourceIndex = minIndex
-	Logger.Info("当前数量最少的资源为\"{}\"".format(RESOURCE_NAME[minIndex]))
-	return minIndex
+	lastResources = resources
+	return resources
+
+def getResourceWeights(resources, scales):
+	'''获取各项资源的权重。量少的资源权重高。'''
+	global NUM_RESOURCE_TYPES
+	scaled = [r * s for r, s in zip(resources, scales)] # 按比例缩放后的资源量
+	m = float(max(scaled))
+	inf = float("inf")
+	def calcWeight(i): # 这个函数决定了如何给资源设定权重。有特殊需求的用户可自定义。
+		global RESOURCE_SCALE
+		global RESOURCE_MAXIMUM
+		f1 = m / scaled[i] if scaled[i] > 0 else inf # 优先分给少的资源大权重
+		f2 = 1. - (float(resources[i]) / RESOURCE_MAXIMUM[i]) ** 10 # 接近最大值则降低效果
+		weight = f1 * f2
+		return weight
+	weights = [calcWeight(i) for i in range(NUM_RESOURCE_TYPES)]
+	s = sum(weights)
+	norm = None
+	if s == inf:
+		num = weights.count(inf)
+		norm = [1. / num if w == inf else 0. for w in weights]
+	elif s == 0:
+		norm = [1. / NUM_RESOURCE_TYPES for _ in weights]
+	else:
+		norm = [w / s for w in weights]
+	return norm
+
+def expeditionUnitGain(expeditionName, resourceIndex):
+	'''单位时间能获得的某项资源量'''
+	global EXPEDITION_GAIN
+	global EXPEDITION_MINUTE
+	return EXPEDITION_GAIN[expeditionName][resourceIndex] / EXPEDITION_MINUTE[expeditionName]
+
+def allExpeditions(): # 结果实际是常数
+	'''返回所有支持的远征'''
+	global EXPEDITION_MINUTE
+	expeditions = EXPEDITION_MINUTE.keys()
+	return expeditions
+
+def sortExpeditions():
+	'''根据当前资源状况排序支持的远征'''
+	resources = getResources()
+	scales = getResourceScales()
+	weights = getResourceWeights(resources, scales)
+	def calcWeight(expeditionName):
+		global NUM_RESOURCE_TYPES
+		global RESOURCE_SCALE
+		sum = 0. # 为了条理清晰一点，这里没有使用sum()
+		for i in range(NUM_RESOURCE_TYPES):
+			sum += weights[i] * (scales[i] * expeditionUnitGain(expeditionName, i))
+		return sum
+	expeditions = allExpeditions()
+	expeditions.sort(key=calcWeight, reverse=True)
+	return expeditions
 
 def selectExpedition(fleet):
-	'''选择跑最少资源的远征'''
+	'''为舰队选一个远征'''
 	global EXPEDITION_LIST
 	global fleetRecentExpedition
-	resourceIndex = getLowestResourceIndex()
 	current = getExpeditionIds()
 	fleetIndex = fleet - 1
-	for expeditionName in EXPEDITION_LIST[resourceIndex]: # 依次尝试该资源的候选远征，找出不会和当前正在跑的冲突的那一个
+	expeditions = sortExpeditions()
+	# print("当前最合适远征依次为：{0}".format(" ".join(expeditions)))
+	for expeditionName in expeditions: # 依次尝试当前最合适的远征，找出不会和当前正在跑的冲突的那一个
 		expeditionId = convertExpeditionNameToId(expeditionName) # 这一步其实可以在初始化时做
 		if expeditionId not in current[:fleetIndex] \
 				and expeditionId not in current[fleetIndex + 1:] \
@@ -169,7 +251,7 @@ def selectExpedition(fleet):
 	assert False, "不应该运行到这里"
 
 def notify(fleet):
-	'''为舰队指定一个远征'''
+	'''安排舰队去跑远征。实际是用消息通知各个远征子配置。'''
 	expeditionId = selectExpedition(fleet)
 	global MESSAGE_FORMAT_STRING
 	message = MESSAGE_FORMAT_STRING.format(fleet, expeditionId)
