@@ -9,6 +9,8 @@
 	附加在一个用于控制的执行单元上和数个关联远征执行单元上。
 
 更新记录：
+	20201115 - 2.1
+		动态降低短远征的重要性。
 	20201113 - 2.0
 		根据多种资源量动态选取最优远征。
 	20200624 - 1.2
@@ -77,7 +79,9 @@ EXPEDITION_GAIN = {
 
 RESOURCE_MAXIMUM = (350000, 350000, 350000, 350000, 3000, ) # 资源最大值。用于在接近最大值时降低该资源重要性。
 
-MIN_QUERY_RESULT_UPDATE_INTERVAL = 23 * 60 * 60 # 返回的最少资源种类稳定不变动的秒数
+MAX_EXPEDITION_MINUTE = max(EXPEDITION_MINUTE.values()) # 耗时最长的远征的时长
+
+UPDATE_INTERVAL_SECOND = 23 * 60 * 60 # 返回的资源量稳定不变动的秒数。且用作固定统计时间区间。
 
 MESSAGE_INITIATE_KIRAKIRA = "开始全自动远征" # 用于启动刷闪配置
 MESSAGE_KIRAKIRA = "远征船刷闪完成" # 用于检测刷闪完成
@@ -109,6 +113,8 @@ lastEvent = None
 lastUpdateTime = None
 
 lastResources = None
+
+expeditionCount = 0 # 用于计数固定期间内发远征次数
 
 #===================================================#
 #                                                   #
@@ -165,31 +171,33 @@ def getResourceScales(): # 结果实际是常数
 	return scales
 
 def getResources():
-	'''获取当前所有资源量，并相应缩放'''
+	'''获取当前所有资源量'''
 	global NUM_RESOURCE_TYPES
-	global MIN_QUERY_RESULT_UPDATE_INTERVAL
+	global UPDATE_INTERVAL_SECOND
 	global lastUpdateTime
 	global lastResources
+	global expeditionCount
 	now = datetime.now()
-	if lastUpdateTime and (now - lastUpdateTime).total_seconds() <= MIN_QUERY_RESULT_UPDATE_INTERVAL:
+	if lastUpdateTime and (now - lastUpdateTime).total_seconds() <= UPDATE_INTERVAL_SECOND:
 		return lastResources # 使结果在一定时间范围内保持不变
 	resourcesState = GameState.Resources()
 	resources = [getNumResource(i, resourcesState) for i in range(NUM_RESOURCE_TYPES)]
 	lastUpdateTime = now
 	lastResources = resources
+	expeditionCount = 0
 	return resources
 
 def getResourceWeights(resources, scales):
-	'''获取各项资源的权重。量少的资源权重高。'''
+	'''获取各项资源的权重。区间为0到1，和为1。量少的资源权重高。'''
 	global NUM_RESOURCE_TYPES
 	scaled = [r * s for r, s in zip(resources, scales)] # 按比例缩放后的资源量
 	m = float(max(scaled))
 	inf = float("inf")
 	def calcWeight(i): # 这个函数决定了如何给资源设定权重。有特殊需求的用户可自定义。
-		global RESOURCE_SCALE
 		global RESOURCE_MAXIMUM
 		f1 = m / scaled[i] if scaled[i] > 0 else inf # 优先分给少的资源大权重
-		f2 = 1. - (float(resources[i]) / RESOURCE_MAXIMUM[i]) ** 10 # 接近最大值则降低效果
+		resMax = RESOURCE_MAXIMUM[i] + 1. * scales[i] # 比真正的最大值稍大一点点，为了最终权重不降为0
+		f2 = 1. - (resources[i] / resMax) ** 10 # 接近最大值则降低效果
 		weight = f1 * f2
 		return weight
 	weights = [calcWeight(i) for i in range(NUM_RESOURCE_TYPES)]
@@ -204,11 +212,22 @@ def getResourceWeights(resources, scales):
 		norm = [w / s for w in weights]
 	return norm
 
-def expeditionUnitGain(expeditionName, resourceIndex):
+def getExpeditionUnitGain(expeditionName, resourceIndex):
 	'''单位时间能获得的某项资源量'''
 	global EXPEDITION_GAIN
 	global EXPEDITION_MINUTE
 	return EXPEDITION_GAIN[expeditionName][resourceIndex] / EXPEDITION_MINUTE[expeditionName]
+
+def getExpeditionCountSaftyCoef(expeditionName): # 有特殊需求的用户可自定义。
+	'''远征次数安全系数。区间为0到1。用于在远征次数过多时降低短远征的重要性。'''
+	global EXPEDITION_MINUTE
+	global MAX_EXPEDITION_MINUTE
+	global expeditionCount
+	timeF = float(EXPEDITION_MINUTE[expeditionName]) / MAX_EXPEDITION_MINUTE # 远征用时
+	refMaxExpeditionCount = 70 # 越小越容易调整到长时间远征。
+	countF = float(expeditionCount) / refMaxExpeditionCount
+	coef = 1 - (1 - timeF) * (countF ** 2) # 最后的那个指数越大，越不容易调整到长时间远征。
+	return coef
 
 def allExpeditions(): # 结果实际是常数
 	'''返回所有支持的远征'''
@@ -221,12 +240,14 @@ def sortExpeditions():
 	resources = getResources()
 	scales = getResourceScales()
 	weights = getResourceWeights(resources, scales)
-	def calcWeight(expeditionName):
+	def calcWeight(expeditionName): # 有特殊需求的用户可自定义。
 		global NUM_RESOURCE_TYPES
 		global RESOURCE_SCALE
 		sum = 0. # 为了条理清晰一点，这里没有使用sum()
 		for i in range(NUM_RESOURCE_TYPES):
-			sum += weights[i] * (scales[i] * expeditionUnitGain(expeditionName, i))
+			expeditionCountSaftyCoef = getExpeditionCountSaftyCoef(expeditionName)
+			unitGain = getExpeditionUnitGain(expeditionName, i)
+			sum += weights[i] * (scales[i] * unitGain) * expeditionCountSaftyCoef
 		return sum
 	expeditions = allExpeditions()
 	expeditions.sort(key=calcWeight, reverse=True)
@@ -239,7 +260,7 @@ def selectExpedition(fleet):
 	current = getExpeditionIds()
 	fleetIndex = fleet - 1
 	expeditions = sortExpeditions()
-	# print("当前最合适远征依次为：{0}".format(" ".join(expeditions)))
+	#print("当前最合适远征依次为：{0}".format(" ".join(expeditions)))
 	for expeditionName in expeditions: # 依次尝试当前最合适的远征，找出不会和当前正在跑的冲突的那一个
 		expeditionId = convertExpeditionNameToId(expeditionName) # 这一步其实可以在初始化时做
 		if expeditionId not in current[:fleetIndex] \
@@ -259,6 +280,8 @@ def notify(fleet):
 	Logger.Debug("安排第{}舰队跑远征{}".format(fleet, convertExpeditionIdToName(expeditionId)))
 	global fleetRecentExpedition
 	fleetRecentExpedition[fleet - 1] = expeditionId
+	global expeditionCount
+	expeditionCount += 1
 
 def isExpeditonReturnedEvent(e):
 	return isinstance(e, ExpeditionAboutToReturnedEvent)
