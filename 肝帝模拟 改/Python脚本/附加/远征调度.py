@@ -196,7 +196,7 @@ def getResourceWeights(resources, scales):
 	def calcWeight(i): # 这个函数决定了如何给资源设定权重。有特殊需求的用户可自定义。
 		global RESOURCE_MAXIMUM
 		f1 = m / scaled[i] if scaled[i] > 0 else inf # 优先分给少的资源大权重
-		resMax = RESOURCE_MAXIMUM[i] + 1. * scales[i] # 比真正的最大值稍大一点点，为了最终权重不降为0
+		resMax = RESOURCE_MAXIMUM[i] + 1. / scales[i] # 比真正的最大值稍大一点点，为了最终权重不降为0
 		f2 = 1. - (resources[i] / resMax) ** 10 # 接近最大值则降低效果
 		weight = f1 * f2
 		return weight
@@ -243,9 +243,9 @@ def sortExpeditions():
 	def calcWeight(expeditionName): # 有特殊需求的用户可自定义。
 		global NUM_RESOURCE_TYPES
 		global RESOURCE_SCALE
+		expeditionCountSaftyCoef = getExpeditionCountSaftyCoef(expeditionName)
 		sum = 0. # 为了条理清晰一点，这里没有使用sum()
 		for i in range(NUM_RESOURCE_TYPES):
-			expeditionCountSaftyCoef = getExpeditionCountSaftyCoef(expeditionName)
 			unitGain = getExpeditionUnitGain(expeditionName, i)
 			sum += weights[i] * (scales[i] * unitGain) * expeditionCountSaftyCoef
 		return sum
@@ -260,7 +260,7 @@ def selectExpedition(fleet):
 	current = getExpeditionIds()
 	fleetIndex = fleet - 1
 	expeditions = sortExpeditions()
-	#print("当前最合适远征依次为：{0}".format(" ".join(expeditions)))
+	Logger.Debug("当前最合适远征依次为：{}".format(" ".join(expeditions)))
 	for expeditionName in expeditions: # 依次尝试当前最合适的远征，找出不会和当前正在跑的冲突的那一个
 		expeditionId = convertExpeditionNameToId(expeditionName) # 这一步其实可以在初始化时做
 		if expeditionId not in current[:fleetIndex] \
