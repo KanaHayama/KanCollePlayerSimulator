@@ -9,6 +9,8 @@
 	附加在一个用于控制的执行单元上和数个关联远征执行单元上。
 
 更新记录：
+	20201127 - 2.2
+		调整参数
 	20201115 - 2.1
 		动态降低短远征的重要性。
 	20201113 - 2.0
@@ -81,7 +83,7 @@ RESOURCE_MAXIMUM = (350000, 350000, 350000, 350000, 3000, ) # 资源最大值。
 
 MAX_EXPEDITION_MINUTE = max(EXPEDITION_MINUTE.values()) # 耗时最长的远征的时长
 
-UPDATE_INTERVAL_SECOND = 23 * 60 * 60 # 返回的资源量稳定不变动的秒数。且用作固定统计时间区间。
+UPDATE_INTERVAL_SECOND = 20 * 60 * 60 # 返回的资源量稳定不变动的秒数。且用作固定统计时间区间。
 
 MESSAGE_INITIATE_KIRAKIRA = "开始全自动远征" # 用于启动刷闪配置
 MESSAGE_KIRAKIRA = "远征船刷闪完成" # 用于检测刷闪完成
@@ -224,7 +226,7 @@ def getExpeditionCountSaftyCoef(expeditionName): # 有特殊需求的用户可�
 	global MAX_EXPEDITION_MINUTE
 	global expeditionCount
 	timeF = float(EXPEDITION_MINUTE[expeditionName]) / MAX_EXPEDITION_MINUTE # 远征用时
-	refMaxExpeditionCount = 70 # 越小越容易调整到长时间远征。
+	refMaxExpeditionCount = 80 # 越小越容易调整到长时间远征。
 	countF = float(expeditionCount) / refMaxExpeditionCount
 	coef = 1 - (1 - timeF) * (countF ** 2) # 最后的那个指数越大，越不容易调整到长时间远征。
 	return coef
