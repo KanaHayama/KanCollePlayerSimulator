@@ -9,6 +9,8 @@
 	在填写函数的地方填写需要的函数名（见范例配置中的示例）
 
 更新记录：
+	20210619 - 2.3.1
+		修改错误函数名
 	20201006 - 2.3
 		补充常用舰种
 	20200806 - 2.2
@@ -408,8 +410,8 @@ dd_tnn_desc = lambda : getOne("dd_tnn_desc")
 dd_dlc_tnn_desc = lambda : getOne("dd_dlc_tnn_desc")
 dd_sbc_desc = lambda : getOne("dd_sbc_desc")
 de_desc = lambda : getOne("de_desc")
-ss_asc = lambda : getOne("ss_asc")
-ssv_asc = lambda : getOne("ssv_asc")
-ss_ssv_asc = lambda : getOne("ss_ssv_asc")
+ss_desc = lambda : getOne("ss_desc")
+ssv_desc = lambda : getOne("ssv_desc")
+ss_ssv_desc = lambda : getOne("ss_ssv_desc")
 ao_desc = lambda : getOne("ao_desc")
 as_desc = lambda : getOne("as_desc")
