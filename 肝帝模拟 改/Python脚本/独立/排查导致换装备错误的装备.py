@@ -1,8 +1,26 @@
 # -*- coding:utf-8 -*-
- 
-# 装备或者舰船外部数据出错或者没更新的话会导致换装备出错
-# 使用本脚本可以列出每页都有什么装备，对照一下实际游戏画面中显示的装备，找到从哪一项开始对不上，就可以知道多了或少了或排序错了哪些装备了
-# 使用前需要设置出问题的 【舰船ID】 以及 【装备槽】
+
+"""
+功能：
+	装备或者舰船外部数据出错或者没更新的话会导致换装备出错
+	使用本脚本可以列出每页都有什么装备，对照一下实际游戏画面中显示的装备，找到从哪一项开始对不上，就可以知道多了或少了或排序错了哪些装备了
+	使用前需要设置出问题的 【舰船ID】 以及 【装备槽】
+
+使用方法：
+	附加在需要的执行单元上（如基础编成舰队）
+	在填写函数的地方填写需要的函数名（见范例配置中的示例）
+
+更新记录：
+	20221118 - 1.3
+		修改1.5.0.0中变更了的函数名
+	20221118 - 1.2
+		修改1.4.2.0中变更了的函数名
+	20191122 - 1.1
+		修复了没计入陆航的bug
+	20190807 - 1.0
+		初始版本
+"""
+
 
 from KancollePlayerSimulatorKaiCore import * 
 
@@ -42,7 +60,7 @@ equipmentObjs = EquipmentUtility.All()
 equipedEquipmentIds = ShipUtility.AllEquipments(shipObj)
 
 # 找到放在基地航空队中的装备
-landbasedEquipmentIds = [LandBasedAirCorpsUtility.SquadronPlaneEquipmentId(s) for c in LandBasedAirCorpsUtility.AllCorps() for s in LandBasedAirCorpsUtility.AllSquadrons(c) ]
+landbasedEquipmentIds = [LandBasedAirCorpsUtility.SquadronAirplaneEquipmentId(s) for c in LandBasedAirCorpsUtility.AllCorps() for s in LandBasedAirCorpsUtility.AllSquadrons(c) ]
 
 # 找到这艘船这个装备槽所有能使用的装备
 availableEquipmentObjs = [equipmentObj for equipmentObj in equipmentObjs if \

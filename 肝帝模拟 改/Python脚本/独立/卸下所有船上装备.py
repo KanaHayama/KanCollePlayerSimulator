@@ -19,6 +19,8 @@
 		总之这个python脚本本身是没问题的，所以就发出来了。
 
 更新记录：
+	20221113 - 1.1
+		适配新API
 	20210614 - 1.0
 		初始版本。
 """
@@ -45,7 +47,8 @@ repairsState = GameState.Repairs() # 优化：避免重复获取状态，所有�
 
 shipObjs = ShipUtility.All(shipsState)
 sortedShipObjs = ShipUtility.SortByLevel(shipObjs) # 优化：按等级顺序执行
-sortedShipObjs.Reverse() # 从低等级到高等级
+sortedShipObjs = list(sortedShipObjs) # 转成list
+sortedShipObjs.reverse() # 从低等级到高等级
 for shipObj in sortedShipObjs:
 	#if not ShipUtility.ShipLocked(shipObj): # 跳过没有上锁的船
 	#	continue

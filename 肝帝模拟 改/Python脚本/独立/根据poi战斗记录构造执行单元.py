@@ -14,6 +14,8 @@
 	使用“关于”中的“在新线程执行脚本”功能运行本脚本
 
 更新记录：
+	20221118 - 1.2
+		适配新的执行单元创建流程。
 	20200128 - 1.1
 		适配1.3.3.0修改后的类结构。
 	20200124 - 1.0
@@ -135,6 +137,11 @@ def main():
 	if battleData["fleet"]["escort"] is not None: # TODO:尚未测试
 		escortRefit = createBasicRefitEquipmentWorkflow(battleData["fleet"]["escort"], 2)
 		Dispatcher.Invoke(lambda :group.Add(escortRefit))
+
+	# 注册执行单元
+	memo.InitializeServices(Program.CurrentHost.Services)
+	mainFleet.InitializeServices(Program.CurrentHost.Services)
+	mainRefit.InitializeServices(Program.CurrentHost.Services)
 
 if __name__ == "__main__":
 	main()
