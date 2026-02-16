@@ -9,6 +9,8 @@
 	在填写函数的地方填写需要的函数名（见范例配置中的示例）
 
 更新记录：
+	20260216 - 2.3.3
+		修改海防战舰适配规则
 	20251124 - 2.3.2
 		适配海防战舰；更新等级上限
 	20210619 - 2.3.1
@@ -53,7 +55,7 @@ DLC_CONST_ID = getEquipConstId("大発動艇") #大发的ID，能带特大发的
 KHT_CONST_ID = getEquipConstId("甲標的 甲型")
 TNN_CONST_ID = getEquipConstId("特二式内火艇")
 SBC_CONST_ID = getEquipConstId("増設バルジ(中型艦)")
-KSC_CONST_ID = getEquipConstId("九三式水中聴音機")
+DCP_CONST_ID = getEquipConstId("九四式爆雷投射機")
 
 def getShipConstId(name):
 	return ShipConstUtility.Id([obj for obj in ShipConstUtility.All() if ShipConstUtility.Name(obj) == name][0])
@@ -180,8 +182,8 @@ def getList(key):
 
 lambdas["all"] = lambda: sortByExperienceAsc(filterPracticalness(ShipUtility.All(shipsState))) # 所有舰船，经验升序
 lambdas["de_cd"] = lambda: [shipObj for shipObj in getList("all") if ShipUtility.Type(shipObj) == ShipType.Escort] # DE 和 CD
-lambdas["de"] = lambda: filterEquiptable(getList("de_cd"), KSC_CONST_ID) # DE
-lambdas["cd"] = lambda: filterNotEquiptable(getList("de_cd"), KSC_CONST_ID) # CD
+lambdas["de"] = lambda: filterEquiptable(getList("de_cd"), DCP_CONST_ID) # DE
+lambdas["cd"] = lambda: filterNotEquiptable(getList("de_cd"), DCP_CONST_ID) # CD
 lambdas["dd"] = lambda: [shipObj for shipObj in getList("all") if ShipUtility.Type(shipObj) == ShipType.Destroyer] # DD
 lambdas["cl"] = lambda: [shipObj for shipObj in getList("all") if ShipUtility.Type(shipObj) == ShipType.LightCruiser] # CL
 lambdas["av"] = lambda: [shipObj for shipObj in getList("all") if ShipUtility.Type(shipObj) == ShipType.SeaplaneCarrier] # AV
