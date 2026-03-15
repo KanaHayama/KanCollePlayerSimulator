@@ -11,6 +11,8 @@
 	在填写函数的地方填写需要的函数名（见范例配置中的示例）
 
 更新记录：
+	20260315 - 1.4
+		适配IronPython3
 	20221118 - 1.3
 		修改1.5.0.0中变更了的函数名
 	20221118 - 1.2
@@ -83,7 +85,7 @@ PAGE_CAPACITY = 10
 from collections import OrderedDict
 def printPages(equipmentObjs):
 	totalEquipments = len(equipmentObjs)
-	totalPages = totalEquipments / PAGE_CAPACITY + (1 if totalEquipments % PAGE_CAPACITY != 0 else 0)
+	totalPages = totalEquipments // PAGE_CAPACITY + (1 if totalEquipments % PAGE_CAPACITY != 0 else 0)
 	print("一共有%d页" % totalPages)
 	for pageIndex in range(totalPages):
 		
@@ -99,7 +101,7 @@ def printPages(equipmentObjs):
 		print("第%d页：%s" % (pageIndex + 1, "， ".join(l)))
 
 # 打印
-print("") # 因为是Python2，所以不支持print()
+print("") # 同时支持Python 2
 print("【以下是没在使用的装备的列表】")
 printPages(notInUseEquipmentObjs)
 
