@@ -2,7 +2,7 @@
 
 """
 功能：
-	卸下所有在船上的装备。
+	卸下所有在船上的装备。跳过未锁定的船。
 
 使用方法：
 	独立执行（使用“在新线程执行脚本文件”按钮）。
@@ -19,6 +19,9 @@
 		总之这个python脚本本身是没问题的，所以就发出来了。
 
 更新记录：
+	20260315 - 1.2
+		卸装备顺序改为舰队优先。
+		跳过未锁定的船。
 	20221113 - 1.1
 		适配新API
 	20210614 - 1.0
@@ -45,13 +48,29 @@ equipsState = GameState.Equips() # 优化：避免重复获取状态，所有用
 fleetsState = GameState.Fleets() # 优化：避免重复获取状态，所有用到此变量的地方也可以留空，但会每次获取，影响效率
 repairsState = GameState.Repairs() # 优化：避免重复获取状态，所有用到此变量的地方也可以留空，但会每次获取，影响效率
 
-shipObjs = ShipUtility.All(shipsState)
-sortedShipObjs = ShipUtility.SortByLevel(shipObjs) # 优化：按等级顺序执行
-sortedShipObjs = list(sortedShipObjs) # 转成list
-sortedShipObjs.reverse() # 从低等级到高等级
-for shipObj in sortedShipObjs:
-	#if not ShipUtility.ShipLocked(shipObj): # 跳过没有上锁的船
-	#	continue
+# 构建遍历顺序：舰队1-4优先（按编成位置），再其他船按等级升序
+orderedShipObjs = []
+fleetShipIds = set()
+for fleetNum in range(1, 5):
+	if not FleetUtility.Enabled(fleetNum, fleetsState):
+		continue
+	for shipId in FleetUtility.Ships(fleetNum, fleetsState):
+		if shipId <= 0:
+			continue
+		fleetShipIds.add(shipId)
+		shipObj = ShipUtility.Ship(shipId, shipsState)
+		if shipObj is not None:
+			orderedShipObjs.append(shipObj)
+
+# 不在任何舰队的船，按等级升序
+remainingShipObjs = [s for s in ShipUtility.All(shipsState) if ShipUtility.Id(s) not in fleetShipIds]
+remainingShipObjs = list(ShipUtility.SortByLevel(remainingShipObjs))
+remainingShipObjs.reverse() # 从低等级到高等级
+orderedShipObjs.extend(remainingShipObjs)
+
+for shipObj in orderedShipObjs:
+	if not ShipUtility.ShipLocked(shipObj): # 跳过没有上锁的船
+		continue
 	equipIds = ShipUtility.AllEquipments(shipObj)
 	if len(list(equipIds)) == 0: # 跳过没装备的船
 		continue
