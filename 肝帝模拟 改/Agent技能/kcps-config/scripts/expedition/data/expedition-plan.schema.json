@@ -1,0 +1,70 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "KCPS 通用远征计划",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "name", "memo", "missions", "tasks", "chains"],
+  "properties": {
+    "version": {"const": 1},
+    "name": {"type": "string", "minLength": 1},
+    "memo": {"type": "string", "minLength": 1},
+    "missions": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["id", "name", "minutes", "unlockStateRequired"],
+        "properties": {
+          "id": {"type": "integer", "minimum": 1},
+          "name": {"type": "string", "minLength": 1},
+          "minutes": {"type": "number", "exclusiveMinimum": 0},
+          "unlockStateRequired": {"type": "integer", "minimum": 1}
+        }
+      }
+    },
+    "tasks": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["questNo", "title", "priority", "requirements"],
+        "properties": {
+          "questNo": {"type": "integer", "minimum": 1},
+          "title": {"type": "string", "minLength": 1},
+          "priority": {"type": "integer"},
+          "requirements": {
+            "type": "array", "minItems": 1,
+            "items": {
+              "type": "object", "additionalProperties": false,
+              "required": ["missionId", "count"],
+              "properties": {
+                "missionId": {"type": "integer", "minimum": 1},
+                "count": {"type": "integer", "minimum": 1}
+              }
+            }
+          }
+        }
+      }
+    },
+    "chains": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["fleet", "steps"],
+        "properties": {
+          "fleet": {"type": "integer", "minimum": 2, "maximum": 4},
+          "steps": {
+            "type": "array", "minItems": 1,
+            "items": {
+              "type": "object", "additionalProperties": false,
+              "required": ["missionId", "count", "templateName"],
+              "properties": {
+                "missionId": {"type": "integer", "minimum": 1},
+                "count": {"type": "integer", "minimum": 1},
+                "templateName": {"type": "string", "minLength": 1}
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,681 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "KCPS-SortieAnalysisResult.schema.json",
+  "title": "KCPS 出击概率分析结果",
+  "type": "object",
+  "required": [
+    "SchemaVersion",
+    "AnalysisId",
+    "GeneratedAt",
+    "Simulator",
+    "Sources",
+    "Assumptions",
+    "Stages"
+  ],
+  "properties": {
+    "SchemaVersion": {
+      "const": 2
+    },
+    "AnalysisId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "GeneratedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "Simulator": {
+      "type": "object",
+      "required": [
+        "Name",
+        "SourceUrl",
+        "Revision"
+      ],
+      "properties": {
+        "Name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "SourceUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "Revision": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": true
+    },
+    "Sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "Kind",
+          "Url",
+          "RetrievedAt",
+          "ContentHash",
+          "Confidence"
+        ],
+        "properties": {
+          "Kind": {
+            "type": "string",
+            "minLength": 1
+          },
+          "Url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "RetrievedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "ContentHash": {
+            "type": "string",
+            "minLength": 1
+          },
+          "SampleCount": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "Confidence": {
+            "enum": [
+              "A",
+              "B",
+              "C"
+            ]
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "Assumptions": {
+      "type": "object",
+      "required": [
+        "StateKind",
+        "Source",
+        "InputState",
+        "ResolvedShips",
+        "FullSupply",
+        "SupplyPolicy",
+        "StartingHpPolicy",
+        "MoralePolicy",
+        "ShipAircraftProficiency",
+        "LandBaseAircraftProficiency",
+        "EventBonusPolicy",
+        "DependencyPolicy"
+      ],
+      "properties": {
+        "StateKind": {
+          "enum": [
+            "Actual",
+            "Baseline"
+          ]
+        },
+        "Source": {
+          "type": "string",
+          "minLength": 1
+        },
+        "InputState": {
+          "$ref": "#/$defs/initialState"
+        },
+        "ResolvedShips": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "ShipInstanceId",
+              "Hp",
+              "MaxHp",
+              "Morale",
+              "FuelFraction",
+              "AmmoFraction",
+              "AircraftCounts"
+            ],
+            "properties": {
+              "ShipInstanceId": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "Hp": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "MaxHp": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "Morale": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "FuelFraction": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "AmmoFraction": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "AircraftCounts": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "FullSupply": {
+          "type": "boolean"
+        },
+        "SupplyPolicy": {
+          "type": "string",
+          "minLength": 1
+        },
+        "StartingHpPolicy": {
+          "type": "string",
+          "minLength": 1
+        },
+        "MoralePolicy": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ShipAircraftProficiency": {
+          "type": "object",
+          "required": [
+            "Mode",
+            "InternalPolicy",
+            "Equipment"
+          ],
+          "properties": {
+            "Mode": {
+              "enum": [
+                "SnapshotDisplay",
+                "ExplicitDisplay",
+                "MaxDisplay"
+              ]
+            },
+            "InternalPolicy": {
+              "const": "NotModeled"
+            },
+            "Equipment": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "InstanceId",
+                  "DisplayRank"
+                ],
+                "properties": {
+                  "InstanceId": {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "DisplayRank": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 7
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "LandBaseAircraftProficiency": {
+          "type": "object",
+          "required": [
+            "Mode",
+            "Reason"
+          ],
+          "properties": {
+            "Mode": {
+              "const": "NotApplicable"
+            },
+            "Reason": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "EventBonusPolicy": {
+          "type": "string",
+          "minLength": 1
+        },
+        "DependencyPolicy": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": true
+    },
+    "Stages": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "Key",
+          "Label",
+          "Goal",
+          "Reliable",
+          "ModelConfidence",
+          "Uncertainties"
+        ],
+        "properties": {
+          "Key": {
+            "type": "string",
+            "minLength": 1
+          },
+          "Label": {
+            "type": "string",
+            "minLength": 1
+          },
+          "Goal": {
+            "type": "string",
+            "minLength": 1
+          },
+          "Reliable": {
+            "type": "boolean"
+          },
+          "UnavailableReason": {
+            "type": "string"
+          },
+          "Runs": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "Successes": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "SeedCount": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "RequiredSuccessCount": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "IndependentRepeatedSuccesses": {
+            "type": "boolean",
+            "description": "仅当每次所需成功都可视为成功概率不变的独立重复试验时才设为 true。涉及血条或阶段转换时，必须改用阶段状态模拟。"
+          },
+          "Metrics": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "number"
+            }
+          },
+          "ModelConfidence": {
+            "enum": [
+              "A",
+              "B",
+              "C"
+            ]
+          },
+          "Uncertainties": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "additionalProperties": true,
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "Reliable": {
+                  "const": false
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "UnavailableReason"
+              ],
+              "properties": {
+                "UnavailableReason": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "Metrics": {
+                  "maxProperties": 0
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "$defs": {
+    "initialState": {
+      "type": "object",
+      "required": [
+        "Kind",
+        "Source",
+        "Supply",
+        "Hp",
+        "Morale",
+        "AircraftCounts",
+        "ShipAircraftProficiency",
+        "LandBaseAircraftProficiency"
+      ],
+      "properties": {
+        "Kind": {
+          "enum": [
+            "Actual",
+            "Baseline"
+          ]
+        },
+        "Source": {
+          "type": "string",
+          "minLength": 1
+        },
+        "Supply": {
+          "type": "object",
+          "required": [
+            "Mode"
+          ],
+          "properties": {
+            "Mode": {
+              "enum": [
+                "Snapshot",
+                "Explicit",
+                "Full"
+              ]
+            },
+            "Ships": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "required": [
+                  "FuelFraction",
+                  "AmmoFraction"
+                ],
+                "properties": {
+                  "FuelFraction": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "AmmoFraction": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "Mode": {
+                    "const": "Explicit"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "Ships"
+                ]
+              }
+            }
+          ]
+        },
+        "Hp": {
+          "type": "object",
+          "required": [
+            "Mode"
+          ],
+          "properties": {
+            "Mode": {
+              "enum": [
+                "Snapshot",
+                "Explicit",
+                "Full"
+              ]
+            },
+            "Ships": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "integer",
+                "minimum": 1
+              }
+            }
+          },
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "Mode": {
+                    "const": "Explicit"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "Ships"
+                ]
+              }
+            }
+          ]
+        },
+        "Morale": {
+          "type": "object",
+          "required": [
+            "Mode"
+          ],
+          "properties": {
+            "Mode": {
+              "enum": [
+                "Snapshot",
+                "Explicit"
+              ]
+            },
+            "Ships": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 100
+              }
+            }
+          },
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "Mode": {
+                    "const": "Explicit"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "Ships"
+                ]
+              }
+            }
+          ]
+        },
+        "AircraftCounts": {
+          "type": "object",
+          "required": [
+            "Mode"
+          ],
+          "properties": {
+            "Mode": {
+              "enum": [
+                "Snapshot",
+                "Explicit",
+                "Full"
+              ]
+            },
+            "Ships": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              }
+            }
+          },
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "Mode": {
+                    "const": "Explicit"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "Ships"
+                ]
+              }
+            }
+          ]
+        },
+        "ShipAircraftProficiency": {
+          "type": "object",
+          "required": [
+            "Mode"
+          ],
+          "properties": {
+            "Mode": {
+              "enum": [
+                "SnapshotDisplay",
+                "ExplicitDisplay",
+                "MaxDisplay"
+              ]
+            },
+            "Equipment": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 7
+              }
+            }
+          },
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "Mode": {
+                    "const": "ExplicitDisplay"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "Equipment"
+                ]
+              }
+            }
+          ]
+        },
+        "LandBaseAircraftProficiency": {
+          "type": "object",
+          "required": [
+            "Mode",
+            "Reason"
+          ],
+          "properties": {
+            "Mode": {
+              "const": "NotApplicable"
+            },
+            "Reason": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "Kind": {
+                "const": "Actual"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "Supply": {
+                "properties": {
+                  "Mode": {
+                    "enum": [
+                      "Snapshot",
+                      "Explicit"
+                    ]
+                  }
+                }
+              },
+              "Hp": {
+                "properties": {
+                  "Mode": {
+                    "enum": [
+                      "Snapshot",
+                      "Explicit"
+                    ]
+                  }
+                }
+              },
+              "AircraftCounts": {
+                "properties": {
+                  "Mode": {
+                    "enum": [
+                      "Snapshot",
+                      "Explicit"
+                    ]
+                  }
+                }
+              },
+              "ShipAircraftProficiency": {
+                "properties": {
+                  "Mode": {
+                    "enum": [
+                      "SnapshotDisplay",
+                      "ExplicitDisplay"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "additionalProperties": true
+}

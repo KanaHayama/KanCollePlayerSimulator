@@ -1,0 +1,6 @@
+{
+  "Source": "https://kcps.info/public-files/外部数据/cve_const_ids.json",
+  "VerifiedFrom": "已安装 KCPS 的外部数据缓存",
+  "LastVerified": "2026-09-05",
+  "Ids": [526, 380, 529, 534, 381, 536, 560, 544, 396, 707, 884, 382, 889, 883, 888, 925, 930, 894, 899]
+}

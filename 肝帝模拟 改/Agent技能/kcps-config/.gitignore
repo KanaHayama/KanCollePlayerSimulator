@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+*.bak
+*.log
+state/
+generated/
+.work/
+kcps.local.json
+route-overrides.json
+.env
+.env.*
+snapshots/

@@ -1,0 +1,83 @@
+{
+  "Version": 1,
+  "Rules": [
+    {
+      "Id": "YamatoMusashiPair",
+      "Source": "https://wikiwiki.jp/kancolle/大和改二",
+      "LastVerifiedJst": "2026-07-26",
+      "RefreshAfterDays": 30,
+      "ActivationPhase": "Day",
+      "FormationEnums": {
+        "Single": [4],
+        "Striking": [4],
+        "Combined": [1]
+      },
+      "EnemyAllPtInert": true
+    },
+    {
+      "Id": "NagatoMutsuPair",
+      "Source": "https://wikiwiki.jp/kancolle/長門改二",
+      "LastVerifiedJst": "2026-07-26",
+      "RefreshAfterDays": 30,
+      "ActivationPhase": "Day",
+      "FormationEnums": {
+        "Single": [4],
+        "Striking": [4],
+        "Combined": [2]
+      },
+      "EnemyAllPtInert": true
+    },
+    {
+      "Id": "NelsonTouch",
+      "Source": "https://wikiwiki.jp/kancolle/Nelson",
+      "LastVerifiedJst": "2026-08-29",
+      "RefreshAfterDays": 30,
+      "ActivationPhase": "Day",
+      "FormationEnums": {
+        "Single": [2],
+        "Striking": [2],
+        "Combined": [2]
+      },
+      "EnemyAllPtInert": true
+    },
+    {
+      "Id": "KongouNightAssault",
+      "Source": "https://wikiwiki.jp/kancolle/金剛改二丙",
+      "LastVerifiedJst": "2026-07-26",
+      "RefreshAfterDays": 30,
+      "ActivationPhase": "Night",
+      "FormationEnums": {
+        "Single": [1, 4],
+        "Striking": [1, 4],
+        "Combined": [1, 2]
+      },
+      "EnemyAllPtInert": false
+    },
+    {
+      "Id": "RichelieuJeanBartPair",
+      "Source": "https://wikiwiki.jp/kancolle/Richelieu%20Deux",
+      "LastVerifiedJst": "2026-08-12",
+      "RefreshAfterDays": 30,
+      "ActivationPhase": "Day",
+      "FormationEnums": {
+        "Single": [2],
+        "Striking": [2],
+        "Combined": [2]
+      },
+      "EnemyAllPtInert": false
+    },
+    {
+      "Id": "WarspiteValiantPair",
+      "Source": "https://wikiwiki.jp/kancolle/Warspite%E6%94%B9",
+      "LastVerifiedJst": "2026-09-03",
+      "RefreshAfterDays": 30,
+      "ActivationPhase": "Day",
+      "FormationEnums": {
+        "Single": [4],
+        "Striking": [4],
+        "Combined": [2]
+      },
+      "EnemyAllPtInert": true
+    }
+  ]
+}

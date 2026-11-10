@@ -1,0 +1,1391 @@
+{
+  "Version": 2,
+  "Description": "公开数据提供通常海域节点参考。具体任务、活动期号、路线顺序、编成配装、阶段映射、索敌分支及陆航目标证据均由本次运行的私有输入提供。空数组表示未提供数据，不表示检查通过。",
+  "NormalMapFactsDescription": "NormalMapFacts 仅供查找通常海域节点，不是完整地图或可运行路线。Source 是公开资料核对入口，不表示所列节点已完成当前版本核验。节点按 Value 排序，不表示通行顺序；RecordedKinds 为空或存在多个类型时尤其需要核对。使用前应查询公开资料，并在私有路线方案中记录本次核验的证据、日期和适用条件。",
+  "NormalMapFacts": [
+    {
+      "Sea": 1,
+      "Area": 2,
+      "Source": "https://tsunkit.net/api/routing/maps/1-2",
+      "Nodes": [
+        {
+          "Letter": "A",
+          "Value": 1,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "D",
+          "Value": 4,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "E",
+          "Value": 5,
+          "RecordedKinds": [
+            "boss"
+          ]
+        },
+        {
+          "Letter": "E",
+          "Value": 6,
+          "RecordedKinds": [
+            "boss"
+          ]
+        }
+      ]
+    },
+    {
+      "Sea": 1,
+      "Area": 3,
+      "Source": "https://tsunkit.net/api/routing/maps/1-3",
+      "Nodes": [
+        {
+          "Letter": "C",
+          "Value": 3,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "E",
+          "Value": 5,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "F",
+          "Value": 6,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "J",
+          "Value": 10,
+          "RecordedKinds": [
+            "boss"
+          ]
+        },
+        {
+          "Letter": "E",
+          "Value": 11,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "F",
+          "Value": 12,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "J",
+          "Value": 13,
+          "RecordedKinds": [
+            "boss"
+          ]
+        }
+      ]
+    },
+    {
+      "Sea": 1,
+      "Area": 4,
+      "Source": "https://tsunkit.net/api/routing/maps/1-4",
+      "Nodes": [
+        {
+          "Letter": "B",
+          "Value": 2,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "D",
+          "Value": 4,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "H",
+          "Value": 8,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "I",
+          "Value": 9,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "J",
+          "Value": 10,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "L",
+          "Value": 12,
+          "RecordedKinds": [
+            "boss"
+          ]
+        },
+        {
+          "Letter": "D",
+          "Value": 13,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "H",
+          "Value": 15,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "L",
+          "Value": 16,
+          "RecordedKinds": [
+            "boss"
+          ]
+        },
+        {
+          "Letter": "L",
+          "Value": 17,
+          "RecordedKinds": [
+            "boss"
+          ]
+        }
+      ]
+    },
+    {
+      "Sea": 1,
+      "Area": 5,
+      "Source": "https://tsunkit.net/api/routing/maps/1-5",
+      "Nodes": [
+        {
+          "Letter": "A",
+          "Value": 1,
+          "RecordedKinds": [
+            "submarine"
+          ]
+        },
+        {
+          "Letter": "D",
+          "Value": 4,
+          "RecordedKinds": [
+            "submarine"
+          ]
+        },
+        {
+          "Letter": "F",
+          "Value": 6,
+          "RecordedKinds": [
+            "submarine"
+          ]
+        },
+        {
+          "Letter": "G",
+          "Value": 7,
+          "RecordedKinds": [
+            "submarine"
+          ]
+        },
+        {
+          "Letter": "J",
+          "Value": 10,
+          "RecordedKinds": [
+            "boss"
+          ]
+        },
+        {
+          "Letter": "J",
+          "Value": 11,
+          "RecordedKinds": [
+            "boss"
+          ]
+        },
+        {
+          "Letter": "J",
+          "Value": 12,
+          "RecordedKinds": [
+            "boss",
+            "boss-submarine"
+          ]
+        }
+      ]
+    },
+    {
+      "Sea": 1,
+      "Area": 6,
+      "Source": "https://tsunkit.net/api/routing/maps/1-6",
+      "Nodes": [
+        {
+          "Letter": "C",
+          "Value": 2,
+          "RecordedKinds": [
+            "submarine"
+          ]
+        },
+        {
+          "Letter": "H",
+          "Value": 5,
+          "RecordedKinds": []
+        },
+        {
+          "Letter": "K",
+          "Value": 6,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "M",
+          "Value": 7,
+          "RecordedKinds": []
+        },
+        {
+          "Letter": "L",
+          "Value": 8,
+          "RecordedKinds": []
+        },
+        {
+          "Letter": "J",
+          "Value": 9,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "I",
+          "Value": 10,
+          "RecordedKinds": [
+            "submarine"
+          ]
+        },
+        {
+          "Letter": "D",
+          "Value": 11,
+          "RecordedKinds": []
+        },
+        {
+          "Letter": "K",
+          "Value": 15,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "D",
+          "Value": 16,
+          "RecordedKinds": []
+        }
+      ]
+    },
+    {
+      "Sea": 2,
+      "Area": 1,
+      "Source": "https://tsunkit.net/api/routing/maps/2-1",
+      "Nodes": [
+        {
+          "Letter": "C",
+          "Value": 3,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "H",
+          "Value": 8,
+          "RecordedKinds": [
+            "boss"
+          ]
+        },
+        {
+          "Letter": "D",
+          "Value": 9,
+          "RecordedKinds": [
+            "surface"
+          ]
+        }
+      ]
+    },
+    {
+      "Sea": 2,
+      "Area": 2,
+      "Source": "https://tsunkit.net/api/routing/maps/2-2",
+      "Nodes": [
+        {
+          "Letter": "E",
+          "Value": 5,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "G",
+          "Value": 7,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "K",
+          "Value": 11,
+          "RecordedKinds": [
+            "boss"
+          ]
+        },
+        {
+          "Letter": "K",
+          "Value": 13,
+          "RecordedKinds": [
+            "boss"
+          ]
+        },
+        {
+          "Letter": "K",
+          "Value": 14,
+          "RecordedKinds": [
+            "boss"
+          ]
+        }
+      ]
+    },
+    {
+      "Sea": 2,
+      "Area": 3,
+      "Source": "https://tsunkit.net/api/routing/maps/2-3",
+      "Nodes": [
+        {
+          "Letter": "A",
+          "Value": 1,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "B",
+          "Value": 2,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "C",
+          "Value": 3,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "D",
+          "Value": 4,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "E",
+          "Value": 5,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "F",
+          "Value": 6,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "G",
+          "Value": 7,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "H",
+          "Value": 8,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "I",
+          "Value": 9,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "J",
+          "Value": 10,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "K",
+          "Value": 11,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "L",
+          "Value": 12,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "M",
+          "Value": 13,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "N",
+          "Value": 14,
+          "RecordedKinds": [
+            "boss"
+          ]
+        },
+        {
+          "Letter": "D",
+          "Value": 15,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "F",
+          "Value": 16,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "F",
+          "Value": 17,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "G",
+          "Value": 18,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "K",
+          "Value": 19,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "N",
+          "Value": 20,
+          "RecordedKinds": [
+            "boss"
+          ]
+        }
+      ]
+    },
+    {
+      "Sea": 3,
+      "Area": 1,
+      "Source": "https://tsunkit.net/api/routing/maps/3-1",
+      "Nodes": [
+        {
+          "Letter": "C",
+          "Value": 3,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "F",
+          "Value": 6,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "G",
+          "Value": 9,
+          "RecordedKinds": [
+            "boss"
+          ]
+        }
+      ]
+    },
+    {
+      "Sea": 3,
+      "Area": 2,
+      "Source": "https://tsunkit.net/api/routing/maps/3-2",
+      "Nodes": [
+        {
+          "Letter": "C",
+          "Value": 3,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "L",
+          "Value": 12,
+          "RecordedKinds": [
+            "boss"
+          ]
+        }
+      ]
+    },
+    {
+      "Sea": 3,
+      "Area": 3,
+      "Source": "https://tsunkit.net/api/routing/maps/3-3",
+      "Nodes": [
+        {
+          "Letter": "A",
+          "Value": 1,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "G",
+          "Value": 7,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "M",
+          "Value": 13,
+          "RecordedKinds": [
+            "boss"
+          ]
+        }
+      ]
+    },
+    {
+      "Sea": 3,
+      "Area": 4,
+      "Source": "https://tsunkit.net/api/routing/maps/3-4",
+      "Nodes": [
+        {
+          "Letter": "A",
+          "Value": 1,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "C",
+          "Value": 3,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "P",
+          "Value": 16,
+          "RecordedKinds": [
+            "boss"
+          ]
+        }
+      ]
+    },
+    {
+      "Sea": 3,
+      "Area": 5,
+      "Source": "https://tsunkit.net/api/routing/maps/3-5",
+      "Nodes": [
+        {
+          "Letter": "B",
+          "Value": 1,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "D",
+          "Value": 4,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "H",
+          "Value": 8,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "K",
+          "Value": 15,
+          "RecordedKinds": [
+            "boss"
+          ]
+        }
+      ]
+    },
+    {
+      "Sea": 5,
+      "Area": 1,
+      "Source": "https://tsunkit.net/api/routing/maps/5-1",
+      "Nodes": [
+        {
+          "Letter": "B",
+          "Value": 2,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "F",
+          "Value": 6,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "J",
+          "Value": 10,
+          "RecordedKinds": [
+            "boss"
+          ]
+        }
+      ]
+    },
+    {
+      "Sea": 5,
+      "Area": 2,
+      "Source": "https://tsunkit.net/api/routing/maps/5-2",
+      "Nodes": [
+        {
+          "Letter": "C",
+          "Value": 3,
+          "RecordedKinds": [
+            "airraid"
+          ]
+        },
+        {
+          "Letter": "D",
+          "Value": 4,
+          "RecordedKinds": [
+            "submarine"
+          ]
+        },
+        {
+          "Letter": "E",
+          "Value": 5,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "F",
+          "Value": 6,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "O",
+          "Value": 15,
+          "RecordedKinds": [
+            "boss"
+          ]
+        },
+        {
+          "Letter": "F",
+          "Value": 17,
+          "RecordedKinds": [
+            "surface"
+          ]
+        }
+      ]
+    },
+    {
+      "Sea": 5,
+      "Area": 3,
+      "Source": "https://tsunkit.net/api/routing/maps/5-3",
+      "Nodes": [
+        {
+          "Letter": "I",
+          "Value": 9,
+          "RecordedKinds": [
+            "night"
+          ]
+        },
+        {
+          "Letter": "K",
+          "Value": 11,
+          "RecordedKinds": [
+            "night"
+          ]
+        },
+        {
+          "Letter": "O",
+          "Value": 15,
+          "RecordedKinds": [
+            "waypoint-select"
+          ]
+        },
+        {
+          "Letter": "P",
+          "Value": 16,
+          "RecordedKinds": [
+            "night"
+          ]
+        },
+        {
+          "Letter": "Q",
+          "Value": 17,
+          "RecordedKinds": [
+            "boss"
+          ]
+        },
+        {
+          "Letter": "K",
+          "Value": 21,
+          "RecordedKinds": [
+            "night"
+          ]
+        }
+      ]
+    },
+    {
+      "Sea": 5,
+      "Area": 4,
+      "Source": "https://tsunkit.net/api/routing/maps/5-4",
+      "Nodes": [
+        {
+          "Letter": "C",
+          "Value": 3,
+          "RecordedKinds": [
+            "mixed"
+          ]
+        },
+        {
+          "Letter": "E",
+          "Value": 5,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "G",
+          "Value": 7,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "H",
+          "Value": 8,
+          "RecordedKinds": [
+            "night"
+          ]
+        },
+        {
+          "Letter": "J",
+          "Value": 10,
+          "RecordedKinds": [
+            "night"
+          ]
+        },
+        {
+          "Letter": "L",
+          "Value": 12,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "P",
+          "Value": 16,
+          "RecordedKinds": [
+            "boss"
+          ]
+        },
+        {
+          "Letter": "P",
+          "Value": 22,
+          "RecordedKinds": [
+            "boss"
+          ]
+        }
+      ]
+    },
+    {
+      "Sea": 5,
+      "Area": 5,
+      "Source": "https://tsunkit.net/api/routing/maps/5-5",
+      "Nodes": [
+        {
+          "Letter": "B",
+          "Value": 2,
+          "RecordedKinds": [
+            "submarine"
+          ]
+        },
+        {
+          "Letter": "F",
+          "Value": 6,
+          "RecordedKinds": [
+            "waypoint-select"
+          ]
+        },
+        {
+          "Letter": "H",
+          "Value": 8,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "J",
+          "Value": 10,
+          "RecordedKinds": [
+            "mixed"
+          ]
+        },
+        {
+          "Letter": "K",
+          "Value": 11,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "N",
+          "Value": 14,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "S",
+          "Value": 19,
+          "RecordedKinds": [
+            "boss"
+          ]
+        },
+        {
+          "Letter": "P",
+          "Value": 26,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "P",
+          "Value": 27,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "S",
+          "Value": 28,
+          "RecordedKinds": [
+            "boss"
+          ]
+        }
+      ]
+    },
+    {
+      "Sea": 5,
+      "Area": 6,
+      "Source": "https://tsunkit.net/api/routing/maps/5-6",
+      "Nodes": [
+        {
+          "Letter": "A1",
+          "Value": 1,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "A2",
+          "Value": 2,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "A",
+          "Value": 3,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "B",
+          "Value": 4,
+          "RecordedKinds": [
+            "submarine"
+          ]
+        },
+        {
+          "Letter": "C1",
+          "Value": 5,
+          "RecordedKinds": [
+            "airraid"
+          ]
+        },
+        {
+          "Letter": "C2",
+          "Value": 6,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "C",
+          "Value": 7,
+          "RecordedKinds": [
+            "airraid"
+          ]
+        },
+        {
+          "Letter": "D",
+          "Value": 8,
+          "RecordedKinds": [
+            "airraid"
+          ]
+        },
+        {
+          "Letter": "G",
+          "Value": 11,
+          "RecordedKinds": [
+            "boss"
+          ]
+        },
+        {
+          "Letter": "A2",
+          "Value": 12,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "B",
+          "Value": 13,
+          "RecordedKinds": [
+            "submarine"
+          ]
+        },
+        {
+          "Letter": "C2",
+          "Value": 14,
+          "RecordedKinds": []
+        },
+        {
+          "Letter": "C2",
+          "Value": 15,
+          "RecordedKinds": []
+        },
+        {
+          "Letter": "C",
+          "Value": 16,
+          "RecordedKinds": [
+            "airraid"
+          ]
+        },
+        {
+          "Letter": "C",
+          "Value": 17,
+          "RecordedKinds": [
+            "airraid"
+          ]
+        },
+        {
+          "Letter": "H",
+          "Value": 18,
+          "RecordedKinds": [
+            "submarine"
+          ]
+        },
+        {
+          "Letter": "I",
+          "Value": 20,
+          "RecordedKinds": [
+            "waypoint-select"
+          ]
+        },
+        {
+          "Letter": "J",
+          "Value": 21,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "K",
+          "Value": 23,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "L",
+          "Value": 25,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "N",
+          "Value": 27,
+          "RecordedKinds": [
+            "boss"
+          ]
+        },
+        {
+          "Letter": "O",
+          "Value": 28,
+          "RecordedKinds": [
+            "waypoint-select"
+          ]
+        },
+        {
+          "Letter": "Q",
+          "Value": 30,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "U",
+          "Value": 38,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "X",
+          "Value": 41,
+          "RecordedKinds": [
+            "airraid"
+          ]
+        },
+        {
+          "Letter": "Z",
+          "Value": 43,
+          "RecordedKinds": [
+            "boss"
+          ]
+        }
+      ]
+    },
+    {
+      "Sea": 6,
+      "Area": 4,
+      "Source": "https://tsunkit.net/api/routing/maps/6-4",
+      "Nodes": [
+        {
+          "Letter": "I",
+          "Value": 9,
+          "RecordedKinds": [
+            "airraid"
+          ]
+        },
+        {
+          "Letter": "K",
+          "Value": 11,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "M",
+          "Value": 13,
+          "RecordedKinds": [
+            "submarine"
+          ]
+        },
+        {
+          "Letter": "J",
+          "Value": 18,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "N",
+          "Value": 20,
+          "RecordedKinds": [
+            "boss"
+          ]
+        }
+      ]
+    },
+    {
+      "Sea": 6,
+      "Area": 5,
+      "Source": "https://tsunkit.net/api/routing/maps/6-5",
+      "Nodes": [
+        {
+          "Letter": "A",
+          "Value": 1,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "C",
+          "Value": 3,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "D",
+          "Value": 4,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "G",
+          "Value": 7,
+          "RecordedKinds": [
+            "airraid"
+          ]
+        },
+        {
+          "Letter": "M",
+          "Value": 13,
+          "RecordedKinds": [
+            "boss"
+          ]
+        }
+      ]
+    },
+    {
+      "Sea": 7,
+      "Area": 1,
+      "Source": "https://tsunkit.net/api/routing/maps/7-1",
+      "Nodes": [
+        {
+          "Letter": "D",
+          "Value": 4,
+          "RecordedKinds": [
+            "submarine"
+          ]
+        },
+        {
+          "Letter": "G",
+          "Value": 7,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "H",
+          "Value": 8,
+          "RecordedKinds": [
+            "submarine"
+          ]
+        },
+        {
+          "Letter": "K",
+          "Value": 11,
+          "RecordedKinds": [
+            "boss-submarine"
+          ]
+        }
+      ]
+    },
+    {
+      "Sea": 7,
+      "Area": 4,
+      "Source": "https://tsunkit.net/api/routing/maps/7-4",
+      "Nodes": [
+        {
+          "Letter": "A",
+          "Value": 1,
+          "RecordedKinds": []
+        },
+        {
+          "Letter": "B",
+          "Value": 2,
+          "RecordedKinds": [
+            "submarine"
+          ]
+        },
+        {
+          "Letter": "E",
+          "Value": 5,
+          "RecordedKinds": [
+            "airraid"
+          ]
+        },
+        {
+          "Letter": "J",
+          "Value": 10,
+          "RecordedKinds": [
+            "mixed"
+          ]
+        },
+        {
+          "Letter": "L",
+          "Value": 12,
+          "RecordedKinds": []
+        },
+        {
+          "Letter": "P",
+          "Value": 16,
+          "RecordedKinds": [
+            "boss"
+          ]
+        },
+        {
+          "Letter": "E",
+          "Value": 17,
+          "RecordedKinds": [
+            "airraid"
+          ]
+        },
+        {
+          "Letter": "J",
+          "Value": 18,
+          "RecordedKinds": []
+        },
+        {
+          "Letter": "L",
+          "Value": 20,
+          "RecordedKinds": [
+            "mixed"
+          ]
+        },
+        {
+          "Letter": "P",
+          "Value": 21,
+          "RecordedKinds": [
+            "boss"
+          ]
+        },
+        {
+          "Letter": "P",
+          "Value": 22,
+          "RecordedKinds": [
+            "boss"
+          ]
+        },
+        {
+          "Letter": "P",
+          "Value": 23,
+          "RecordedKinds": [
+            "boss"
+          ]
+        }
+      ]
+    },
+    {
+      "Sea": 7,
+      "Area": 5,
+      "Source": "https://tsunkit.net/api/routing/maps/7-5",
+      "Nodes": [
+        {
+          "Letter": "A",
+          "Value": 1,
+          "RecordedKinds": [
+            "airraid"
+          ]
+        },
+        {
+          "Letter": "B",
+          "Value": 2,
+          "RecordedKinds": [
+            "submarine"
+          ]
+        },
+        {
+          "Letter": "D",
+          "Value": 4,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "F",
+          "Value": 6,
+          "RecordedKinds": [
+            "waypoint-select"
+          ]
+        },
+        {
+          "Letter": "G",
+          "Value": 7,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "H",
+          "Value": 8,
+          "RecordedKinds": [
+            "waypoint-select"
+          ]
+        },
+        {
+          "Letter": "J",
+          "Value": 10,
+          "RecordedKinds": [
+            "surface"
+          ]
+        },
+        {
+          "Letter": "K",
+          "Value": 11,
+          "RecordedKinds": [
+            "boss"
+          ]
+        },
+        {
+          "Letter": "Q",
+          "Value": 19,
+          "RecordedKinds": [
+            "boss"
+          ]
+        },
+        {
+          "Letter": "O",
+          "Value": 21,
+          "RecordedKinds": [
+            "waypoint-select"
+          ]
+        }
+      ]
+    }
+  ],
+  "EventBossStages": [],
+  "RouteBranchRules": [],
+  "Routes": []
+}
